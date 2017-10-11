@@ -1,6 +1,6 @@
 ---
 title: "Contract Lineage"
-date: 2017-09-21T19:55:57-06:00
+date: 2017-09-21T19:00:00-06:00
 draft: true
 ---
 Writing and deploying a contract on the Ethereum blockchain is relatively easy, but writing and deploying a safe and secure fleet of contracts is extremely difficult. Inevitably, code will need to be upgraded as vulnerabilities are exposed and new functionality is needed.

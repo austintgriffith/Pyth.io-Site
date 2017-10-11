@@ -1,6 +1,6 @@
 ---
 title: "Main Contract"
-date: 2017-09-23T18:23:01-06:00
+date: 2017-09-21T09:00:00-06:00
 draft: true
 ---
 The **Main** contract keeps a **contract** *(address)* for any **id** *(uint32)*. This allows for old contracts to be replaced with better versions while keeping the main contract address the same.

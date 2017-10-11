@@ -1,6 +1,7 @@
 baseURL = "http://requestco.in"
 languageCode = "en-us"
 title = "RequestCoin"
+theme = "hugo-theme-learn"
 [params]
   subtitle = "Decentralized Blockchain Oracle"
   author = "Austin Thomas Griffith M.S. E.E."

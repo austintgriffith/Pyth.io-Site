@@ -1,6 +1,6 @@
 ---
 title: "Ethereum Network Interaction"
-date: 2017-09-23T10:12:22-06:00
+date: 2017-09-21T16:00:00-06:00
 draft: true
 ---
 Let's interact with the Ethereum network.

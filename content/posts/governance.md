@@ -1,6 +1,6 @@
 ---
 title: "Governance"
-date: 2017-09-21T21:12:15-06:00
+date: 2017-09-21T18:00:00-06:00
 draft: true
 ---
 

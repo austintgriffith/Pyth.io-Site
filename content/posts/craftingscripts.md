@@ -1,6 +1,6 @@
 ---
 title: "Crafting Scripts"
-date: 2017-09-23T14:10:00-06:00
+date: 2017-09-21T15:00:00-06:00
 draft: true
 ---
 Before we can compile and deploy our fleet of smart contracts, we'll need to build a handful of useful scripts. They will also require a couple dependancies:

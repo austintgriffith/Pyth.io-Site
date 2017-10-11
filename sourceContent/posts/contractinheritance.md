@@ -1,6 +1,6 @@
 ---
 title: "Contract Inheritance"
-date: 2017-09-23T14:12:00-06:00
+date: 2017-09-21T13:00:00-06:00
 draft: true
 ---
 

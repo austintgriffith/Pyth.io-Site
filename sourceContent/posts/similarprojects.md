@@ -1,6 +1,6 @@
 ---
 title: "Similar Projects"
-date: 2017-10-05T16:12:19-07:00
+date: 2017-09-21T03:00:00-06:00
 draft: true
 ---
 

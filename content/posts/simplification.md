@@ -1,6 +1,6 @@
 ---
 title: "Simplification"
-date: 2017-10-05T16:07:45-07:00
+date: 2017-09-21T04:00:00-06:00
 draft: true
 ---
 

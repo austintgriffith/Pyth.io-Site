@@ -1,6 +1,6 @@
 ---
 title: "Off-chain Consensus"
-date: 2017-09-21T18:15:34-06:00
+date: 2017-09-21T20:00:00-06:00
 draft: true
 ---
 
