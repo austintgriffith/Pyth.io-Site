@@ -3,7 +3,7 @@ title: "Crafting Scripts"
 date: 2017-09-21T15:00:00-06:00
 draft: true
 ---
-Before we can compile and deploy our fleet of smart contracts, we'll need to build a handful of useful scripts. They will also require a couple dependancies:
+Instead of interacting with the network directly from the command line, we put together a handful of useful scripts to help abstract some of the functionality. There are also some prebuilt (and most likely better) packages out there like <a href="http://truffleframework.com/" target="_blank">Truffle</a>. For now, we'll stick to our simple scripts and see how far they get us. They will also require a couple dependancies:
 
 ```bash
 npm install solc web3
@@ -12,7 +12,7 @@ npm install solc web3
 Let's set up a few global variables:
 ```bash
 echo "20" > gasprice.int
-echo "280" > ethprice.int
+echo "300" > ethprice.int
 echo "2000000" > deploygas.int
 echo "200000" > xfergas.int
 ```

@@ -7,7 +7,7 @@ Blockchain technologies, smart contracts in particular, are incredibly powerful 
 
 An oracle provides that link by making off-chain requests and delivering results on-chain. Unfortunately, only centralized oracles exist today and contracts are forced to rely on a single point of failure which could easily be attacked, manipulated, and corrupted.
 
-**A decentralized, trust-less network of incentivized oracles is needed to empower the next generation of smart contracts.**
+**A decentralized, trustless network of incentivized oracles is needed to empower the next generation of smart contracts.**
 
 With the correct cryptoeconomics in place, a statistically adequate supply of miners will request information from multiple internet sources and, in combination with the staking of a token, reach a blind consensus off-chain. Then, efficiently inscribe the data onto the blockchain, available publicly for smart contract logic and execution.
 
