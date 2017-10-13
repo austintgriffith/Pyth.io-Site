@@ -1,12 +1,11 @@
 ---
 title: "Similar Projects"
 date: 2017-09-21T03:00:00-06:00
-draft: true
 ---
 
 There are a handful of extremely interesting projects in this space.
 
-The most similar, but much more advanced is [ChainLink](https://link.smartcontract.com/). These guys have a tremendous amount of momentum and we wish we would have found them earlier. [ChainLink](https://link.smartcontract.com/) is way out ahead of RequestCoin and have far greater expectations for their product. RequestCoin is a very simple, raw, decentralized oracle.
+The most similar, but much more advanced is [ChainLink](https://link.smartcontract.com/). These guys have a tremendous amount of momentum and we wish we would have found them earlier. [ChainLink](https://link.smartcontract.com/) is a complex system of data providers and data proxies that is tightly coupled with financial organizations and big name research organizations. **RequestCoin** is a very simple, raw, decentralized network of oracles.
 
 There are also a bunch of good projects working in the prediction market space. This is similar to decentralized oracles because they require a network of clients to verify events. Most notably, [Augur](https://augur.net/) and [Gnosis](https://gnosis.pm/), have built and launched their networks already.
 

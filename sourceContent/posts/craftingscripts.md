@@ -1,7 +1,6 @@
 ---
 title: "Crafting Scripts"
 date: 2017-09-21T15:00:00-06:00
-draft: true
 ---
 Instead of interacting with the network directly from the command line, we put together a handful of useful scripts to help abstract some of the functionality. There are also some prebuilt (and most likely better) packages out there like <a href="http://truffleframework.com/" target="_blank">Truffle</a>. For now, we'll stick to our simple scripts and see how far they get us. They will also require a couple dependancies:
 

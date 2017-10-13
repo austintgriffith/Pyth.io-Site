@@ -1,7 +1,6 @@
 ---
 title: "Utility Token"
 date: 2017-09-21T21:00:00-06:00
-draft: true
 ---
 The first thing to address in building a decentralized oracle network is the cryptoeconomics of incentivizing miners. To do this we will create a utility token that can be used to purchase the efforts of request miners. Any given channel of data will need a consensus and to drive that consensus, an amount of token will be put up for grabs. As miners reach a consensus on the blockchain they will be rewarded with the token.
 

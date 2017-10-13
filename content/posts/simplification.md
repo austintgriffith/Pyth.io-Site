@@ -1,7 +1,6 @@
 ---
 title: "Simplification"
 date: 2017-09-21T04:00:00-06:00
-draft: true
 ---
 
 It's good to talk about what we are **not** trying to accomplish *yet*.
@@ -13,4 +12,6 @@ It's good to talk about what we are **not** trying to accomplish *yet*.
 **Ethereum:** Only the Ethereum blockchain will be targeted for the first iteration of this product, but there is no reason why others won't be compatible in the future.
 
 **Transparency:** The goal is to be as clear and open with *all* possible information. The sole purpose is to figure out a way to get internet data into the blockchain in a trustless yet reliable manner. *more will be added here as the project grows and a team is compiled*
+
+**ICO:** We barely even have a product yet. We hardly have a team. Let's not try and get that kind of traction until we have something real.
 

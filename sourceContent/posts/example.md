@@ -1,7 +1,6 @@
 ---
 title: "Example"
 date: 2017-09-21T22:00:00-06:00
-draft: true
 ---
 
 In the not-to-distant future, farmers all around the world could pay Ether into a smart contract that would provide agricultural insurance against hail or drought. Then, throughout the year, as "request miners" detect these specific weather conditions using multiple APIs and other internet sources, the contract would deterministically pay Ether back to the farmers in need. This incredibly efficient system completely sidesteps an entire field of insurance agents and adjusters, immediately helping the farmers in need without any unnecessary overhead.  

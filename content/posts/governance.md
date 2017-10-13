@@ -1,7 +1,6 @@
 ---
 title: "Governance"
 date: 2017-09-21T18:00:00-06:00
-draft: true
 ---
 
 Initially, contracts will be very malleable, freezable, and quickly replaced. But, as the fleet becomes more stable and more secure, a system of token stake will take power and no single account will be able to control the governance of the network.

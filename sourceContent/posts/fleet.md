@@ -1,7 +1,6 @@
 ---
 title: "Fleet"
 date: 2017-09-21T11:00:00-06:00
-draft: true
 ---
 
 RequestCoin is currently operating in the Ropsten testnet. Let's review each contract individually along with the code for the request miner.

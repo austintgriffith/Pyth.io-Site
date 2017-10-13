@@ -6,9 +6,241 @@
     <description>Recent content on RequestCoin</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
+    <lastBuildDate>Thu, 21 Sep 2017 16:50:01 -0600</lastBuildDate>
     
 	<atom:link href="http://requestco.in/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Introduction</title>
+      <link>http://requestco.in/posts/introduction/</link>
+      <pubDate>Thu, 21 Sep 2017 23:00:00 -0600</pubDate>
+      
+      <guid>http://requestco.in/posts/introduction/</guid>
+      <description>Blockchain technologies, smart contracts in particular, are incredibly powerful and are poised to disrupt many aspects of finance, business, and law. However, due to the deterministic and decentralized nature of smart contracts, they are unable to communicate directly with valuable data sources on the internet.
+An oracle provides that link by making off-chain requests and delivering results on-chain. Unfortunately, only centralized oracles exist today and contracts are forced to rely on a single point of failure which could easily be attacked, manipulated, and corrupted.</description>
+    </item>
+    
+    <item>
+      <title>Example</title>
+      <link>http://requestco.in/posts/example/</link>
+      <pubDate>Thu, 21 Sep 2017 22:00:00 -0600</pubDate>
+      
+      <guid>http://requestco.in/posts/example/</guid>
+      <description>In the not-to-distant future, farmers all around the world could pay Ether into a smart contract that would provide agricultural insurance against hail or drought. Then, throughout the year, as &amp;ldquo;request miners&amp;rdquo; detect these specific weather conditions using multiple APIs and other internet sources, the contract would deterministically pay Ether back to the farmers in need. This incredibly efficient system completely sidesteps an entire field of insurance agents and adjusters, immediately helping the farmers in need without any unnecessary overhead.</description>
+    </item>
+    
+    <item>
+      <title>Utility Token</title>
+      <link>http://requestco.in/posts/utilitytoken/</link>
+      <pubDate>Thu, 21 Sep 2017 21:00:00 -0600</pubDate>
+      
+      <guid>http://requestco.in/posts/utilitytoken/</guid>
+      <description>The first thing to address in building a decentralized oracle network is the cryptoeconomics of incentivizing miners. To do this we will create a utility token that can be used to purchase the efforts of request miners. Any given channel of data will need a consensus and to drive that consensus, an amount of token will be put up for grabs. As miners reach a consensus on the blockchain they will be rewarded with the token.</description>
+    </item>
+    
+    <item>
+      <title>Off-chain Consensus</title>
+      <link>http://requestco.in/posts/offchainconsensus/</link>
+      <pubDate>Thu, 21 Sep 2017 20:00:00 -0600</pubDate>
+      
+      <guid>http://requestco.in/posts/offchainconsensus/</guid>
+      <description>A purely on-chain solution to the decentralized oracle problem faces a big hurdle due to gas prices when reaching a consensus. If every miner has to post results to the blockchain, they will spend way more gas than economically viable. Plus, other miners could simply echo what previous miners posted and earn the token reward without actually making the request. It is at least worth mentioning that it would be a lot cheaper (gas) to simply trigger an on-chain event without storing anything, but an off-chain solution allows for a lot more functionality.</description>
+    </item>
+    
+    <item>
+      <title>Contract Lineage</title>
+      <link>http://requestco.in/posts/contractlineage/</link>
+      <pubDate>Thu, 21 Sep 2017 19:00:00 -0600</pubDate>
+      
+      <guid>http://requestco.in/posts/contractlineage/</guid>
+      <description>Writing and deploying a contract on the Ethereum blockchain is relatively easy, but writing and deploying a safe and secure fleet of contracts is extremely difficult. Inevitably, code will need to be upgraded as vulnerabilities are exposed and new functionality is needed.
+The best strategy to provide upgradability to contracts is using many different, interconnected contracts that each have a simple job within a larger system. For example, one contract will be used to store requests and another will manipulate them.</description>
+    </item>
+    
+    <item>
+      <title>Governance</title>
+      <link>http://requestco.in/posts/governance/</link>
+      <pubDate>Thu, 21 Sep 2017 18:00:00 -0600</pubDate>
+      
+      <guid>http://requestco.in/posts/governance/</guid>
+      <description>Initially, contracts will be very malleable, freezable, and quickly replaced. But, as the fleet becomes more stable and more secure, a system of token stake will take power and no single account will be able to control the governance of the network.
+For instance, at first, certain parameters and even basic functionality will change rapidly. But, as stability and the community behind the network grows, a governance contract (called Auth for now) powered by a voting democracy will replace the dictatorship of a single acting despot.</description>
+    </item>
+    
+    <item>
+      <title>Provisioning</title>
+      <link>http://requestco.in/posts/provisioning/</link>
+      <pubDate>Thu, 21 Sep 2017 17:00:00 -0600</pubDate>
+      
+      <guid>http://requestco.in/posts/provisioning/</guid>
+      <description>This exploration should start from the ground up. We want anyone to be able to spin up a vanilla linux machine and build out an entire miner from scratch. We also want to explore basic Ethereum network interactions from the transferring of funds to simple contracts and eventually more advanced contract mechanics. If you understand these already and want to get down to the brass tacks of the system, skip ahead to the deployed contracts section.</description>
+    </item>
+    
+    <item>
+      <title>Ethereum Network Interaction</title>
+      <link>http://requestco.in/posts/ethereuminteraction/</link>
+      <pubDate>Thu, 21 Sep 2017 16:00:00 -0600</pubDate>
+      
+      <guid>http://requestco.in/posts/ethereuminteraction/</guid>
+      <description>Let&amp;rsquo;s interact with the Ethereum network.
+With Geth running and up-to-date, we can attach to it from another ssh session.
+geth attach http://:8545  Welcome to the Geth JavaScript console! instance: Geth/v1.7.1-stable-05101641/linux-amd64/go1.9 coinbase: 0x0e1e9ce68b3254461a95916c185c37dd65468ab5 at block: 1856113 (Thu, 12 Oct 2017 13:25:06 UTC) modules: eth:1.0 net:1.0 personal:1.0 rpc:1.0 web3:1.0 &amp;gt;  A fresh installation of Geth will have an empty array of accounts.
+eth.accounts  &amp;gt; eth.accounts []  Create a couple Ethereum test accounts:</description>
+    </item>
+    
+    <item>
+      <title>Crafting Scripts</title>
+      <link>http://requestco.in/posts/craftingscripts/</link>
+      <pubDate>Thu, 21 Sep 2017 15:00:00 -0600</pubDate>
+      
+      <guid>http://requestco.in/posts/craftingscripts/</guid>
+      <description>Instead of interacting with the network directly from the command line, we put together a handful of useful scripts to help abstract some of the functionality. There are also some prebuilt (and most likely better) packages out there like Truffle. For now, we&amp;rsquo;ll stick to our simple scripts and see how far they get us. They will also require a couple dependancies:
+npm install solc web3  Let&amp;rsquo;s set up a few global variables:</description>
+    </item>
+    
+    <item>
+      <title>Deploying A Contract</title>
+      <link>http://requestco.in/posts/deployingacontract/</link>
+      <pubDate>Thu, 21 Sep 2017 14:00:00 -0600</pubDate>
+      
+      <guid>http://requestco.in/posts/deployingacontract/</guid>
+      <description>Never before in history has a technology existed where anyone from anywhere can deploy code that will immediately and indefinitely run on hundreds of thousands of nodes simultaneously and deterministically. Further, thanks to cryptography and cryptoeconomics, this technology is ownerless, trustless, and incentivized to continue. Once a contract is deployed, it is effectively autonomous, eternal, and controlled only by the laws of machines.
+Let&amp;rsquo;s make our mark on the blockchain right now with a simple contract:</description>
+    </item>
+    
+    <item>
+      <title>Contract To Contract</title>
+      <link>http://requestco.in/posts/contracttocontract/</link>
+      <pubDate>Thu, 21 Sep 2017 13:30:00 -0600</pubDate>
+      
+      <guid>http://requestco.in/posts/contracttocontract/</guid>
+      <description>Contract to contract communication is an essential part of any fleet on the blockchain. As discussed in the contract lineage section, a complex project on Ethereum should be built using a collection of smaller &amp;ldquo;microservices&amp;rdquo; to keep complexity at bay.
+We will also explore a few other features of smart contracts like ownership and events.
+Let&amp;rsquo;s analyze a second contract we&amp;rsquo;ll call Adjuster which will interface with our Simple contract:</description>
+    </item>
+    
+    <item>
+      <title>Contract Inheritance</title>
+      <link>http://requestco.in/posts/contractinheritance/</link>
+      <pubDate>Thu, 21 Sep 2017 13:00:00 -0600</pubDate>
+      
+      <guid>http://requestco.in/posts/contractinheritance/</guid>
+      <description>Very intelligent people before us have found common patterns in Ethereum contracts and published standardized and hardened examples to extend. We will stand on their shoulders using contract inheritance for some parts of our fleet. Let&amp;rsquo;s dig into an example of how this works.
+Instead of coding up our own layer of ownership and possibly introducing insecurities, let&amp;rsquo;s look at inheriting OpenZeppelin&amp;rsquo;s zeppelin-solidity repo.
+We&amp;rsquo;ll create a contract called Inherit that will explore inheriting OpenZeppelin&amp;rsquo;s Ownable contract:</description>
+    </item>
+    
+    <item>
+      <title>Contract Migration</title>
+      <link>http://requestco.in/posts/contractmigration/</link>
+      <pubDate>Thu, 21 Sep 2017 12:00:00 -0600</pubDate>
+      
+      <guid>http://requestco.in/posts/contractmigration/</guid>
+      <description>As new contracts are updated, some will contain data that needs to be migrated from the predecessor to the descendant. Let&amp;rsquo;s run through and example of a migration and how it works.
+THIS IS INCOMPLETE ### TODO!!!</description>
+    </item>
+    
+    <item>
+      <title>Fleet</title>
+      <link>http://requestco.in/posts/fleet/</link>
+      <pubDate>Thu, 21 Sep 2017 11:00:00 -0600</pubDate>
+      
+      <guid>http://requestco.in/posts/fleet/</guid>
+      <description>RequestCoin is currently operating in the Ropsten testnet. Let&amp;rsquo;s review each contract individually along with the code for the request miner.
+None of this code has been vetted at all. Ideally, we will get them out in the public and perform an audit once we have more traction. If other developers find security risks (they exist for sure), please contact us and we can deploy updates.
+As contracts are updated and redeployed, our static site generator will update this site to contain the latest details automatically.</description>
+    </item>
+    
+    <item>
+      <title>Auth Contract</title>
+      <link>http://requestco.in/posts/authcontract/</link>
+      <pubDate>Thu, 21 Sep 2017 10:00:00 -0600</pubDate>
+      
+      <guid>http://requestco.in/posts/authcontract/</guid>
+      <description>Auth keeps a permission (uint8) for any account (address). Other contracts can use this contract to determine the level of permission any account has by calling getPermission(address). Any account with enough permission (uint8) can also call setPermission(address,permission).
+pragma solidity ^0.4.0; /* &amp;gt;=250 withdraw ether sent on accident to contracts &amp;gt;=240 give permissions to other addresses (Auth admin) &amp;gt;=200 setContractAddress (Main admin) &amp;gt;=32 to add a request */ contract Auth { address public owner; mapping ( address =&amp;gt; uint8 ) public permission; function Auth() { owner=msg.</description>
+    </item>
+    
+    <item>
+      <title>Main Contract</title>
+      <link>http://requestco.in/posts/maincontract/</link>
+      <pubDate>Thu, 21 Sep 2017 09:00:00 -0600</pubDate>
+      
+      <guid>http://requestco.in/posts/maincontract/</guid>
+      <description>The Main contract keeps a contract (address) for any id (uint32). This allows for old contracts to be replaced with better versions while keeping the main contract address the same.
+pragma solidity ^0.4.0; import &amp;quot;Auth.sol&amp;quot;; contract Main { /* 0 - Auth Contract 10 - Requests Contract 20 - Token Contract (see wireupAllContracts.js) */ mapping(uint32 =&amp;gt; address) public contracts; function Main(address _authContractAddress) { contracts[0]=_authContractAddress; } event SetContractAddress( uint32 _id, address _address ); function setContractAddress(uint32 _id,address _address) returns (bool){ SetContractAddress(_id,_address); Auth auth = Auth(contracts[0]); if( auth.</description>
+    </item>
+    
+    <item>
+      <title>Token Contract</title>
+      <link>http://requestco.in/posts/tokencontract/</link>
+      <pubDate>Thu, 21 Sep 2017 08:00:00 -0600</pubDate>
+      
+      <guid>http://requestco.in/posts/tokencontract/</guid>
+      <description>The Token contract is a simple extension of the StandardToken (ERC20).
+pragma solidity ^0.4.8; import &amp;quot;Auth.sol&amp;quot;; import &amp;quot;Main.sol&amp;quot;; contract Token { string public constant symbol = &amp;quot;XRC&amp;quot;; string public constant name = &amp;quot;RequestCoinTest&amp;quot;; uint8 public constant decimals = 18; uint256 _totalSupply = 1000000000000; address public owner; address public mainAddress; event Reserve(address _contract, address indexed _from, address indexed _combiner, bytes32 indexed _id, uint256 _value); event Reward(address indexed _combiner, bytes32 indexed _id, address indexed _to, uint256 _value); event Revoke(address _contract, address indexed _from, address indexed _combiner, bytes32 indexed _id, uint256 _value); event AttemptReserve(address _contract, address indexed _account, address indexed _combiner, bytes32 indexed _id,uint256 _amount); event AttemptReward(address _combiner, bytes32 indexed _id, address _miner, uint _amount); event AttemptRevoke(address _contract, address indexed _account, address indexed _combiner, bytes32 indexed _id,uint256 _amount); event FailedReserve(address _contract, address _validContract, address indexed _account, address indexed _combiner, bytes32 _id, uint256 _amount, uint256 _balance); event FailedReward(address indexed _contract, bytes32 indexed _id, address indexed _account, uint256 _amount); event FailedRevoke(address _contract, address _validContract, address indexed _account, address indexed _combiner, bytes32 _id, uint256 _amount, uint256 _balance); //reservations are tokens held by a combiner&#39;s address for a request id to eventually reward miners mapping(address =&amp;gt; mapping(bytes32 =&amp;gt; uint256)) reservations; function reserve(address _account,address _combiner,bytes32 _id,uint256 _amount) returns (bool) { AttemptReserve(msg.</description>
+    </item>
+    
+    <item>
+      <title>Requests Contract</title>
+      <link>http://requestco.in/posts/requestscontract/</link>
+      <pubDate>Thu, 21 Sep 2017 07:00:00 -0600</pubDate>
+      
+      <guid>http://requestco.in/posts/requestscontract/</guid>
+      <description>The Requests contract is the main datastore for requests.
+pragma solidity ^0.4.0; import &amp;quot;Auth.sol&amp;quot;; import &amp;quot;Main.sol&amp;quot;; import &amp;quot;Token.sol&amp;quot;; contract Requests { address public mainAddress; bool public frozen; function Requests(address _mainAddress) { mainAddress=_mainAddress; } function setMainAddress(address _mainAddress){ Main main = Main(mainAddress); Auth auth = Auth(main.getContractAddress(0)); if( auth.isOwner(msg.sender) ){ mainAddress=_mainAddress; } } ///// Request ---------------------------------------------- struct Request{ string url;//ex &amp;quot;http://ifconfig.co&amp;quot; address combiner;//ex 3 (this would mean contract 103) } mapping (bytes32 =&amp;gt; Request) public requests; event ErrorString(string _str); event AddRequest(address _sender,string _id,address _combiner,uint _coin, string _url); event AttemptAddRequest(address _sender,string _id,address _combiner,uint _coin, string _url); function addRequest(string _id, address _combiner, uint _coin, string _url) returns (bool){ AttemptAddRequest(msg.</description>
+    </item>
+    
+    <item>
+      <title>Combiner Contracts</title>
+      <link>http://requestco.in/posts/combinercontracts/</link>
+      <pubDate>Thu, 21 Sep 2017 06:00:00 -0600</pubDate>
+      
+      <guid>http://requestco.in/posts/combinercontracts/</guid>
+      <description>The Combiner contracts are the most dynamic. In fact, they can even be written and deployed by a third party. Their job is to capture responses from miners, deliver rewards to good actors, and come to a consensus. External contracts will also then communicate with the respective combiner contracts to retrieve mined, internet data.
+/* Basic Combiner This is more of an example combiner */ pragma solidity ^0.4.0; import &amp;quot;Main.sol&amp;quot;; import &amp;quot;Token.</description>
+    </item>
+    
+    <item>
+      <title>Request Miner</title>
+      <link>http://requestco.in/posts/miner/</link>
+      <pubDate>Thu, 21 Sep 2017 05:00:00 -0600</pubDate>
+      
+      <guid>http://requestco.in/posts/miner/</guid>
+      <description>The Miner performs off chain requests and forms a consensus using IPFS pubsub. It requires a running version of Geth with either an IPC or RPC connection.
+/* Miner */ const IPFS = require(&#39;ipfs&#39;) const ipfs = new IPFS( { EXPERIMENTAL:{ pubsub: true } } ) let ipfsReady = false const RPC = true const WEBSERVER = &amp;quot;requestco.in&amp;quot; console.log(&amp;quot;Starting up...&amp;quot;) const fs = require(&#39;fs&#39;); const Web3 = require(&#39;web3&#39;); const net = require(&#39;net&#39;); const Request = require(&#39;request&#39;); const client = net.</description>
+    </item>
+    
+    <item>
+      <title>Simplification</title>
+      <link>http://requestco.in/posts/simplification/</link>
+      <pubDate>Thu, 21 Sep 2017 04:00:00 -0600</pubDate>
+      
+      <guid>http://requestco.in/posts/simplification/</guid>
+      <description>It&amp;rsquo;s good to talk about what we are not trying to accomplish yet.
+Privacy: We are not looking at privacy in any way, for now. Everything within the realm of RequestCoin is 100% public. If you spend the token to get the current price of corn on the blockchain, that transaction along with the actual price of corn is available on the blockchain for everyone.
+Private APIs: We are assuming, for now, that only public data is fair game.</description>
+    </item>
+    
+    <item>
+      <title>Contact</title>
+      <link>http://requestco.in/posts/contact/</link>
+      <pubDate>Thu, 21 Sep 2017 03:00:00 -0600</pubDate>
+      
+      <guid>http://requestco.in/posts/contact/</guid>
+      <description>Get in touch, please! austin@requestcoin.io</description>
+    </item>
+    
+    <item>
+      <title>Similar Projects</title>
+      <link>http://requestco.in/posts/similarprojects/</link>
+      <pubDate>Thu, 21 Sep 2017 03:00:00 -0600</pubDate>
+      
+      <guid>http://requestco.in/posts/similarprojects/</guid>
+      <description>There are a handful of extremely interesting projects in this space.
+The most similar, but much more advanced is ChainLink. These guys have a tremendous amount of momentum and we wish we would have found them earlier. ChainLink is a complex system of data providers and data proxies that is tightly coupled with financial organizations and big name research organizations. RequestCoin is a very simple, raw, decentralized network of oracles.</description>
+    </item>
     
   </channel>
 </rss>

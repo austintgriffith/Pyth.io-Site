@@ -1,7 +1,6 @@
 ---
 title: "Introduction"
 date: 2017-09-21T23:00:00-06:00
-draft: true
 ---
 Blockchain technologies, smart contracts in particular, are incredibly powerful and are poised to disrupt many aspects of finance, business, and law. However, due to the deterministic and decentralized nature of smart contracts, they are unable to communicate directly with valuable data sources on the internet.
 
