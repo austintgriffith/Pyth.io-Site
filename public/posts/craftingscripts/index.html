@@ -1,0 +1,1420 @@
+<!DOCTYPE html>
+<html lang="en" class="js csstransforms3d">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <meta name="generator" content="Hugo 0.29" />
+    <meta name="description" content="">
+<meta name="author" content="Austin Thomas Griffith M.S. E.E.">
+
+    <link rel="shortcut icon" href="/images/favicon.png" type="image/x-icon" />
+<link rel="icon" href="/images/favicon.png" type="image/x-icon" />
+
+    <title>Crafting Scripts :: RequestCoin</title>
+    
+    
+    <link href="/css/nucleus.css?1507865126" rel="stylesheet">
+    <link href="/css/font-awesome.min.css?1507865126" rel="stylesheet">
+    <link href="/css/hybrid.css?1507865126" rel="stylesheet">
+    <link href="/css/featherlight.min.css?1507865126" rel="stylesheet">
+    <link href="/css/perfect-scrollbar.min.css?1507865126" rel="stylesheet">
+    <link href="/css/auto-complete.css?1507865126" rel="stylesheet">
+    <link href="/css/theme.css?1507865126" rel="stylesheet">
+    <link href="/css/hugo-theme.css?1507865126" rel="stylesheet">
+    
+      <link href="/css/theme-red.css?1507865126" rel="stylesheet">
+    
+
+    <script src="/js/jquery-2.x.min.js?1507865126"></script>
+    
+    <style type="text/css">
+      :root #header + #content > #left > #rlblock_left{ 
+          display:none !important;
+      }
+      
+    </style>
+    
+  </head>
+  <body class="" data-url="/posts/craftingscripts/">
+    <nav id="sidebar" class="">
+
+
+
+  <div id="header-wrapper">
+    <div id="header">
+      <a id="logo" href="/posts/introduction">
+  <img src="/images/white.png" />
+</a>
+
+    </div>
+    
+  </div>
+
+    <div class="highlightable">
+    <ul class="topics">
+
+        
+          
+          
+
+
+ 
+  
+    
+    <li data-nav-id="/posts/" title="Posts" class="dd-item
+        parent
+        
+        
+        ">
+      <a href="/posts/">
+          Posts
+          
+      </a>
+      
+      
+        <ul>
+          
+          
+          
+
+        
+          
+            
+            
+
+
+ 
+  
+    
+      <li data-nav-id="/posts/introduction/" title="Introduction" class="dd-item ">
+        <a href="/posts/introduction/">
+        Introduction
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
+      <li data-nav-id="/posts/example/" title="Example" class="dd-item ">
+        <a href="/posts/example/">
+        Example
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
+      <li data-nav-id="/posts/utilitytoken/" title="Utility Token" class="dd-item ">
+        <a href="/posts/utilitytoken/">
+        Utility Token
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
+      <li data-nav-id="/posts/offchainconsensus/" title="Off-chain Consensus" class="dd-item ">
+        <a href="/posts/offchainconsensus/">
+        Off-chain Consensus
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
+      <li data-nav-id="/posts/contractlineage/" title="Contract Lineage" class="dd-item ">
+        <a href="/posts/contractlineage/">
+        Contract Lineage
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
+      <li data-nav-id="/posts/governance/" title="Governance" class="dd-item ">
+        <a href="/posts/governance/">
+        Governance
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
+      <li data-nav-id="/posts/provisioning/" title="Provisioning" class="dd-item ">
+        <a href="/posts/provisioning/">
+        Provisioning
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
+      <li data-nav-id="/posts/ethereuminteraction/" title="Ethereum Network Interaction" class="dd-item ">
+        <a href="/posts/ethereuminteraction/">
+        Ethereum Network Interaction
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
+      <li data-nav-id="/posts/craftingscripts/" title="Crafting Scripts" class="dd-item active">
+        <a href="/posts/craftingscripts/">
+        Crafting Scripts
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
+      <li data-nav-id="/posts/deployingacontract/" title="Deploying A Contract" class="dd-item ">
+        <a href="/posts/deployingacontract/">
+        Deploying A Contract
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
+      <li data-nav-id="/posts/contracttocontract/" title="Contract To Contract" class="dd-item ">
+        <a href="/posts/contracttocontract/">
+        Contract To Contract
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
+      <li data-nav-id="/posts/contractinheritance/" title="Contract Inheritance" class="dd-item ">
+        <a href="/posts/contractinheritance/">
+        Contract Inheritance
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
+      <li data-nav-id="/posts/contractmigration/" title="Contract Migration" class="dd-item ">
+        <a href="/posts/contractmigration/">
+        Contract Migration
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
+      <li data-nav-id="/posts/fleet/" title="Fleet" class="dd-item ">
+        <a href="/posts/fleet/">
+        Fleet
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
+      <li data-nav-id="/posts/authcontract/" title="Auth Contract" class="dd-item ">
+        <a href="/posts/authcontract/">
+        Auth Contract
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
+      <li data-nav-id="/posts/maincontract/" title="Main Contract" class="dd-item ">
+        <a href="/posts/maincontract/">
+        Main Contract
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
+      <li data-nav-id="/posts/tokencontract/" title="Token Contract" class="dd-item ">
+        <a href="/posts/tokencontract/">
+        Token Contract
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
+      <li data-nav-id="/posts/requestscontract/" title="Requests Contract" class="dd-item ">
+        <a href="/posts/requestscontract/">
+        Requests Contract
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
+      <li data-nav-id="/posts/combinercontracts/" title="Combiner Contracts" class="dd-item ">
+        <a href="/posts/combinercontracts/">
+        Combiner Contracts
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
+      <li data-nav-id="/posts/miner/" title="Request Miner" class="dd-item ">
+        <a href="/posts/miner/">
+        Request Miner
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
+      <li data-nav-id="/posts/simplification/" title="Simplification" class="dd-item ">
+        <a href="/posts/simplification/">
+        Simplification
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
+      <li data-nav-id="/posts/contact/" title="Contact" class="dd-item ">
+        <a href="/posts/contact/">
+        Contact
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
+      <li data-nav-id="/posts/similarprojects/" title="Similar Projects" class="dd-item ">
+        <a href="/posts/similarprojects/">
+        Similar Projects
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+        
+        </ul>
+      
+    </li>
+  
+ 
+
+          
+        
+    </ul>
+
+    
+    
+
+    
+    <section id="footer">
+      
+    </section>
+  </div>
+</nav>
+
+
+
+
+        <section id="body">
+        <div id="overlay"></div>
+        <div class="padding highlightable sticky-parent">
+              
+              <div class="sticky-spacer">
+                <div id="top-bar">
+                
+                
+                <div id="breadcrumbs" itemscope="" itemtype="http://data-vocabulary.org/Breadcrumb">
+                    <span id="sidebar-toggle-span">
+                        <a href="#" id="sidebar-toggle" data-sidebar-toggle="">
+                          <i class="fa fa-bars"></i>
+                        </a>
+                    </span>
+                  
+                  <span id="toc-menu"><i class="fa fa-list-alt"></i></span>
+                  
+                  <span class="links">
+                    
+          
+          
+            
+            
+          
+          
+            
+            
+          
+          
+            <a href='/'>RequestCoin</a> > <a href='/posts/'>Posts</a> > Crafting Scripts
+          
+         
+          
+         
+          
+           
+                  </span>
+                </div>
+                
+                    <div class="progress">
+    <div class="wrapper">
+<nav id="TableOfContents">
+<ul>
+<li>
+<ul>
+<li><a href="#personal-js">personal.js</a></li>
+<li><a href="#send-js">send.js</a></li>
+<li><a href="#compile-js">compile.js</a></li>
+<li><a href="#deploy-js">deploy.js</a></li>
+<li><a href="#contract-js">contract.js</a></li>
+</ul></li>
+</ul>
+</nav>
+    </div>
+</div>
+
+                
+              </div>
+            </div>
+            
+
+        
+        <div id="body-inner">
+          
+            <h1>Crafting Scripts</h1>
+          
+
+        
+
+
+
+
+<p>Instead of interacting with the network directly from the command line, we put together a handful of useful scripts to help abstract some of the functionality. There are also some prebuilt (and most likely better) packages out there like <a href="http://truffleframework.com/" target="_blank">Truffle</a>. For now, we&rsquo;ll stick to our simple scripts and see how far they get us. They will also require a couple dependancies:</p>
+
+<pre><code class="language-bash">npm install solc web3
+</code></pre>
+
+<p>Let&rsquo;s set up a few global variables:</p>
+
+<pre><code class="language-bash">echo &quot;20&quot; &gt; gasprice.int
+echo &quot;300&quot; &gt; ethprice.int
+echo &quot;2000000&quot; &gt; deploygas.int
+echo &quot;200000&quot; &gt; xfergas.int
+</code></pre>
+
+<!--
+lib.js
+------------------
+*brings in global variables and prepares helper functions and dependancies*
+-->
+
+<h2 id="personal-js">personal.js</h2>
+
+<p><em>reports current account balances and unlocks accounts</em></p>
+
+<pre><code class="language-javascript">const fs = require('fs');
+const Web3 = require('web3');
+const web3 = new Web3(new Web3.providers.HttpProvider(&quot;http://localhost:8545&quot;));
+console.log(&quot; ### PERSONAL&quot;)
+let count = 1
+if(process.argv[2]) count = process.argv[2]
+
+
+web3.eth.getAccounts().then((accounts)=&gt;{
+  for(let i=0;i&lt;count;i++){
+    web3.eth.getBalance(accounts[i]).then((balance)=&gt;{
+      console.log(&quot; ######### &quot;+i+&quot; # &quot;+accounts[i]+&quot; &quot;+balance)
+      try{
+        web3.eth.personal.unlockAccount(accounts[i]).then((a,b,c)=&gt;{
+          console.log(&quot;unlocked &quot;+i+&quot;: &quot;+a)
+
+        })
+      }catch(e){console.log(e)}
+
+    })
+  }
+})
+
+</code></pre>
+
+<h2 id="send-js">send.js</h2>
+
+<p><em>sends ether from one account to another</em></p>
+
+<pre><code class="language-javascript">const fs = require('fs');
+const Web3 = require('web3');
+const web3 = new Web3(new Web3.providers.HttpProvider(&quot;http://localhost:8545&quot;));
+console.log(&quot; ### PERSONAL&quot;)
+let count = 1
+if(process.argv[2]) count = process.argv[2]
+
+let to = 2
+let from = 1
+let amount = 0.1
+
+//EXAMPLE USAGE: node send #AMOUNT# #FROM(index in accounts)# #TO(index in accounts)#
+
+if(process.argv[2]){
+  amount=process.argv[2]
+}
+if(process.argv[3]){
+  from=process.argv[3]
+}
+if(process.argv[4]){
+  to=process.argv[4]
+}
+
+//eth.sendTransaction({from:eth.accounts[0], to:eth.accounts[1], value: web3.toWei(0.1, &quot;ether&quot;),gas: 90000, gasPrice:2000000000})
+let gasPrice = fs.readFileSync(&quot;gasprice.int&quot;).toString().trim()
+let gas = fs.readFileSync(&quot;xfergas.int&quot;).toString().trim()
+let gaspricegwei = web3.utils.toWei(gasPrice,'gwei')
+console.log(&quot;SENDING &quot;)
+
+web3.eth.getAccounts().then((accounts)=&gt;{
+
+  let params = {
+    from: accounts[from],
+    to: accounts[to],
+    value: web3.utils.toWei(amount, &quot;ether&quot;),
+    gas: gas,
+    gasPrice: gaspricegwei
+  }
+  console.log(params)
+  web3.eth.sendTransaction(params,(error,transactionHash)=&gt;{
+    console.log(error,transactionHash)
+    setInterval(()=&gt;{
+      web3.eth.getTransactionReceipt(transactionHash,(error,result)=&gt;{
+        if(result&amp;&amp;result.to&amp;&amp;result.from){
+          console.log(result)
+          process.exit(0);
+        }else{
+          console.log(&quot;.&quot;)
+        }
+      })
+    },10000)
+  })
+
+})
+
+</code></pre>
+
+<h2 id="compile-js">compile.js</h2>
+
+<p><em>compiles a contract</em></p>
+
+<pre><code class="language-javascript">const fs = require('fs');
+const solc = require('solc');
+
+let startSeconds = new Date().getTime() / 1000;
+
+let contractdir = process.argv[2]
+let contractname = process.argv[3]
+if(!contractname) contractname=contractdir
+
+
+console.log(&quot;Compiling &quot;+contractdir+&quot;/&quot;+contractname+&quot;.sol ...&quot;)
+const input = fs.readFileSync(contractdir+&quot;/&quot;+contractname+'.sol');
+if(!input){
+  console.log(&quot;Couldn't load &quot;+contractdir+&quot;/&quot;+contractname+&quot;.sol&quot;)
+}else{
+
+  let dependencies
+  try{
+    let path = &quot;./&quot;+contractdir+&quot;/dependencies.js&quot;
+    if(fs.existsSync(path)){
+      console.log(&quot;looking for dependencies at &quot;,path)
+      dependencies=require(path)
+    }
+  }catch(e){console.log(e)}
+  if(!dependencies) dependencies={}
+
+  dependencies[contractdir+&quot;/&quot;+contractname+&quot;.sol&quot;] = fs.readFileSync(contractdir+&quot;/&quot;+contractname+&quot;.sol&quot;, 'utf8');
+  const output = solc.compile({sources: dependencies}, 1);
+  console.log(output)
+  const bytecode = output.contracts[contractdir+&quot;/&quot;+contractname+&quot;.sol:&quot;+contractname].bytecode;
+  const abi = output.contracts[contractdir+&quot;/&quot;+contractname+&quot;.sol:&quot;+contractname].interface;
+  fs.writeFile(contractdir+&quot;/&quot;+contractname+&quot;.bytecode&quot;,bytecode)
+  fs.writeFile(contractdir+&quot;/&quot;+contractname+&quot;.abi&quot;,abi)
+  console.log(&quot;Compiled!&quot;)
+}
+
+</code></pre>
+
+<h2 id="deploy-js">deploy.js</h2>
+
+<p><em>deploys a contract</em></p>
+
+<pre><code class="language-javascript">const fs = require('fs');
+const Web3 = require('web3');
+const web3 = new Web3(new Web3.providers.HttpProvider(&quot;http://localhost:8545&quot;));
+
+let ACCOUNT_INDEX = 1
+
+let startSeconds = new Date().getTime() / 1000;
+
+let contractdir = process.argv[2]
+let contractname = process.argv[3]
+if(!contractname) contractname=contractdir
+
+console.log(&quot;Reading data...&quot;)
+let bytecode = fs.readFileSync(contractdir+&quot;/&quot;+contractname+&quot;.bytecode&quot;).toString()
+let abi = false
+if(!bytecode){
+  console.log(&quot;Couldn't load &quot;+contractdir+&quot;/&quot;+contractname+&quot;.bytecode&quot;)
+}else{
+  abi = JSON.parse(fs.readFileSync(contractdir+&quot;/&quot;+contractname+&quot;.abi&quot;));
+  if(!abi){
+    console.log(&quot;Couldn't load &quot;+contractdir+&quot;/&quot;+contractname+&quot;.abi&quot;)
+  }else{
+    let ethPrice = parseInt(fs.readFileSync(&quot;ethprice.int&quot;).toString().trim())
+    web3.eth.getAccounts().then((accounts)=&gt;{
+      web3.eth.getBalance(accounts[ACCOUNT_INDEX]).then((balance)=&gt;{
+      //  web3.eth.personal.unlockAccount(accounts[1]).then((a,b,c)=&gt;{
+          let etherbalance = web3.utils.fromWei(balance,&quot;ether&quot;);
+          console.log(etherbalance+&quot; $&quot;+(etherbalance*ethPrice))
+
+          console.log(&quot;\nLoaded account &quot;+accounts[ACCOUNT_INDEX])
+          console.log(&quot;Deploying...&quot;,bytecode,abi)
+          let contract = new web3.eth.Contract(abi)
+          let gasPrice = fs.readFileSync(&quot;gasprice.int&quot;).toString().trim()
+          let gas = fs.readFileSync(&quot;deploygas.int&quot;).toString().trim()
+          let gaspricegwei = gasPrice*1000000000
+          console.log(&quot;paying a max of &quot;+gas+&quot; gas @ the price of &quot;+gasPrice+&quot; gwei (&quot;+gaspricegwei+&quot;)&quot;)
+          let arguments = []
+          try{
+            let path = &quot;./&quot;+contractdir+&quot;/arguments.js&quot;
+            if(fs.existsSync(path)){
+              console.log(&quot;looking for arguments in &quot;,path)
+              arguments=require(path)
+            }
+          }catch(e){console.log(e)}
+          console.log(&quot;arguments:&quot;,arguments)
+          let deployed = contract.deploy({
+            data: &quot;0x&quot;+bytecode,
+            arguments: arguments
+          }).send({
+            from: accounts[ACCOUNT_INDEX],
+            gas: gas,
+            gasPrice: gaspricegwei
+          }, function(error, transactionHash){
+            console.log(&quot;CALLBACK&quot;,error, transactionHash)
+            setInterval(()=&gt;{
+              web3.eth.getTransactionReceipt(transactionHash,(error,result)=&gt;{
+                if(result &amp;&amp; result.contractAddress &amp;&amp; result.cumulativeGasUsed){
+                  console.log(&quot;Success&quot;,result)
+
+                  web3.eth.getBalance(accounts[ACCOUNT_INDEX]).then((balance)=&gt;{
+                    let endetherbalance = web3.utils.fromWei(balance,&quot;ether&quot;);
+                    let etherdiff = etherbalance-endetherbalance
+                    console.log(&quot;==ETHER COST: &quot;+etherdiff+&quot; $&quot;+(etherdiff*ethPrice))
+                    console.log(&quot;Saving contract address:&quot;,result.contractAddress)
+                    fs.writeFileSync(contractdir+&quot;/&quot;+contractname+&quot;.address&quot;,result.contractAddress)
+                    fs.writeFileSync(contractdir+&quot;/&quot;+contractname+&quot;.blockNumber&quot;,result.blockNumber)
+
+                    let endSeconds = new Date().getTime() / 1000;
+                    let duration = Math.floor((endSeconds-startSeconds))
+                    console.log(&quot;deploy time: &quot;,duration)
+
+                    fs.appendFileSync(&quot;./deploy.log&quot;,contractdir+&quot;/&quot;+contractname+&quot; &quot;+result.contractAddress+&quot; &quot;+duration+&quot; &quot;+etherdiff+&quot; $&quot;+(etherdiff*ethPrice)+&quot; &quot;+gaspricegwei+&quot;\n&quot;)
+
+                    process.exit(0);
+                  })
+
+                }else{
+                  process.stdout.write(&quot;.&quot;)
+                }
+              })
+            },1000)
+          })
+      //  })
+      })
+    })
+  }
+}
+
+</code></pre>
+
+<h2 id="contract-js">contract.js</h2>
+
+<p><em>provides other scripts with an interface to contracts through abstraction</em></p>
+
+<pre><code class="language-javascript">const fs = require('fs');
+const Web3 = require('web3');
+const web3 = new Web3(new Web3.providers.HttpProvider(&quot;http://localhost:8545&quot;));
+
+let startSeconds = new Date().getTime() / 1000;
+
+let script = process.argv[2]
+let contractdir = process.argv[3]
+let contractname = process.argv[4]
+if(!contractname || contractname==&quot;null&quot;) contractname=contractdir
+
+console.log(&quot;Reading data...&quot;)
+let address = fs.readFileSync(contractdir+&quot;/&quot;+contractname+&quot;.address&quot;).toString().trim()
+let blockNumber = 0
+try{
+   blockNumber = fs.readFileSync(contractdir+&quot;/&quot;+contractname+&quot;.blockNumber&quot;).toString().trim()
+}catch(e){console.log(e)}
+
+let abi = false
+if(!address){
+  console.log(&quot;Couldn't load &quot;+contractdir+&quot;/&quot;+contractname+&quot;.address&quot;)
+}else{
+  abi = JSON.parse(fs.readFileSync(contractdir+&quot;/&quot;+contractname+&quot;.abi&quot;));
+  if(!abi){
+    console.log(&quot;Couldn't load &quot;+contractdir+&quot;/&quot;+contractname+&quot;.abi&quot;)
+  }else{
+    let ethPrice = parseInt(fs.readFileSync(&quot;ethprice.int&quot;).toString().trim())
+    let gasPrice = fs.readFileSync(&quot;gasprice.int&quot;).toString().trim()
+    let gas = fs.readFileSync(&quot;deploygas.int&quot;).toString().trim()
+    let gaspricegwei = gasPrice*1000000000
+
+    console.log(&quot;Loading accounts...&quot;)
+    web3.eth.getAccounts().then((accounts)=&gt;{
+
+      console.log(&quot;Run script &quot;,script,&quot; on &quot;,contractname)
+      let contract = new web3.eth.Contract(abi,address)
+
+      console.log(&quot;paying a max of &quot;+gas+&quot; gas @ the price of &quot;+gasPrice+&quot; gwei (&quot;+gaspricegwei+&quot;)&quot;)
+      let scriptFunction
+      try{
+        let path = &quot;./&quot;+contractdir+&quot;/&quot;+script+&quot;.js&quot;
+        console.log(&quot;LOADING:&quot;,path)
+        if(fs.existsSync(path)){
+          console.log(&quot;looking for script at &quot;,path)
+          scriptFunction=require(path)
+        }
+      }catch(e){console.log(e)}
+      if(scriptFunction){
+        console.log(&quot;Loaded &quot;+script+&quot;, running...&quot;)
+        let params = {
+          gas:gas,
+          gasPrice:gaspricegwei,
+          accounts:accounts,
+          blockNumber:blockNumber
+        }
+        console.log(params)
+        let scriptPromise = scriptFunction(contract,params,process.argv)
+        if(!scriptPromise || typeof scriptPromise.once != &quot;function&quot;){
+          console.log(&quot;&quot;+script+&quot; (no promise)&quot;)
+        }
+        else{
+          let result = scriptPromise.once('transactionHash', function(transactionHash){
+            console.log(&quot;transactionHash&quot;,transactionHash)
+            setInterval(()=&gt;{
+              web3.eth.getTransactionReceipt(transactionHash,(error,result)=&gt;{
+                console.log(error,result)
+                if(result){
+                  console.log(result.blockNumber,result.gasUsed)
+                }
+                if(result &amp;&amp; result.blockNumber &amp;&amp; result.gasUsed){
+                  console.log(&quot;Success&quot;,result)
+                  let etherdiff = result.gasUsed/100000000000000000
+                  console.log(&quot;==ETHER COST: &quot;+etherdiff+&quot; $&quot;+(etherdiff*ethPrice))
+                  let endSeconds = new Date().getTime() / 1000;
+                  let duration = Math.floor((endSeconds-startSeconds))
+                  console.log(&quot;time: &quot;,duration)
+                  fs.appendFileSync(&quot;./contract.log&quot;,contractdir+&quot;/&quot;+contractname+&quot; &quot;+script+&quot; &quot;+result.contractAddress+&quot; &quot;+duration+&quot; &quot;+etherdiff+&quot; $&quot;+(etherdiff*ethPrice)+&quot; &quot;+gaspricegwei+&quot;\n&quot;)
+                  process.exit(0);
+                }
+              })
+            },5000)
+
+          })
+        }
+
+      }else{
+        console.log(&quot;UNABLE TO LOAD SCRIPT &quot;+script+&quot; for &quot;+contractname)
+      }
+    })
+  }
+}
+
+</code></pre>
+
+
+<footer class=" footline" >
+	
+</footer>
+
+
+        
+        </div> 
+      </div>
+
+    <div id="navigation">
+        
+        
+        
+        
+            
+            
+                
+                    
+                    
+                
+                
+
+                    
+                    
+                        
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                        
+                        
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                        
+                        
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+                    
+            
+        
+        
+        
+
+
+        
+            <a class="nav nav-prev" href="/posts/ethereuminteraction/" title="Ethereum Network Interaction"> <i class="fa fa-chevron-left"></i></a>
+        
+        
+            <a class="nav nav-next" href="/posts/deployingacontract/" title="Deploying A Contract" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
+        
+    </div>
+
+    </section>
+    
+    <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
+      <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
+    </div>
+    <script src="/js/clipboard.min.js?1507865126"></script>
+    <script src="/js/perfect-scrollbar.min.js?1507865126"></script>
+    <script src="/js/perfect-scrollbar.jquery.min.js?1507865126"></script>
+    <script src="/js/jquery.sticky-kit.min.js?1507865126"></script>
+    <script src="/js/featherlight.min.js?1507865126"></script>
+    <script src="/js/html5shiv-printshiv.min.js?1507865126"></script>
+    <script src="/js/highlight.pack.js?1507865126"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+    <script src="/js/modernizr.custom.71422.js?1507865126"></script>
+    <script src="/js/learn.js?1507865126"></script>
+    <script src="/js/hugo-learn.js?1507865126"></script>
+
+    <link href="/mermaid/mermaid.css?1507865126" type="text/css" rel="stylesheet" />
+    <script src="/mermaid/mermaid.js?1507865126"></script>
+    <script>
+        mermaid.initialize({ startOnLoad: true });
+    </script>
+    
+
+  </body>
+</html>
+
