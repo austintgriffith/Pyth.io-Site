@@ -224,15 +224,6 @@ Private APIs: We are assuming, for now, that only public data is fair game.</des
     </item>
     
     <item>
-      <title>Contact</title>
-      <link>http://requestco.in/posts/contact/</link>
-      <pubDate>Thu, 21 Sep 2017 03:00:00 -0600</pubDate>
-      
-      <guid>http://requestco.in/posts/contact/</guid>
-      <description>Get in touch, please! austin@requestcoin.io</description>
-    </item>
-    
-    <item>
       <title>Similar Projects</title>
       <link>http://requestco.in/posts/similarprojects/</link>
       <pubDate>Thu, 21 Sep 2017 03:00:00 -0600</pubDate>
@@ -240,6 +231,28 @@ Private APIs: We are assuming, for now, that only public data is fair game.</des
       <guid>http://requestco.in/posts/similarprojects/</guid>
       <description>There are a handful of extremely interesting projects in this space.
 The most similar, but much more advanced is ChainLink. These guys have a tremendous amount of momentum and we wish we would have found them earlier. ChainLink is a complex system of data providers and data proxies that is tightly coupled with financial organizations and big name research organizations. RequestCoin is a very simple, raw, decentralized network of oracles.</description>
+    </item>
+    
+    <item>
+      <title>Resources</title>
+      <link>http://requestco.in/posts/resources/</link>
+      <pubDate>Thu, 21 Sep 2017 02:30:00 -0600</pubDate>
+      
+      <guid>http://requestco.in/posts/resources/</guid>
+      <description>Solidity Docs should probably be your first stop when learning smart contracts.
+Consensys has a bunch of resources on their website and github including their Smart Contract Best Practices.
+OpenZeppelin has a github that is full of hardened and tested contracts.
+Decypher Media is an awesome feed of videos put together by Jordan Leigh
+Reddit: r/ethereum r/ethdev</description>
+    </item>
+    
+    <item>
+      <title>Contact</title>
+      <link>http://requestco.in/posts/contact/</link>
+      <pubDate>Thu, 21 Sep 2017 02:00:00 -0600</pubDate>
+      
+      <guid>http://requestco.in/posts/contact/</guid>
+      <description>Get in touch, please! austin@requestcoin.io</description>
     </item>
     
   </channel>

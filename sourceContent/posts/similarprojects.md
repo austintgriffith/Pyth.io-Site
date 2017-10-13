@@ -9,10 +9,10 @@ The most similar, but much more advanced is [ChainLink](https://link.smartcontra
 
 There are also a bunch of good projects working in the prediction market space. This is similar to decentralized oracles because they require a network of clients to verify events. Most notably, [Augur](https://augur.net/) and [Gnosis](https://gnosis.pm/), have built and launched their networks already.
 
+[Oraclize](http://www.oraclize.it/) is probably the most well known oracle service. There's a good chance they will look to move to a decentralized model soon. [Here](https://ethereumdev.io/getting-data-internet-oraclize/) is a nice little example of how to use [Oraclize](http://www.oraclize.it/) to fetch the price of Ethereum.
+
+Another oracle that has been around for a while that might be getting on the [decentralized bandwagon](https://medium.com/@edmundedgar/snopes-meets-mechanical-turk-announcing-reality-check-a-crowd-sourced-smart-contract-oracle-551d03468177) is [RealityKeys](https://www.realitykeys.com/).
+
 Many smaller projects are emerging that are also helping to enrich the space. For example, [tinyoracle](https://github.com/axic/tinyoracle) is a great little example project for building a baseline oracle.
-
-Speaking of oracles, [Oraclize](http://www.oraclize.it/) is probably the most well known oracle service. There's a good chance they will look to move to a decentralized model soon.
-
-Another oracle that has been around for a while that might be getting on the [decentralized bandwagon](https://medium.com/@edmundedgar/snopes-meets-mechanical-turk-announcing-reality-check-a-crowd-sourced-smart-contract-oracle-551d03468177) is (RealityKeys)[https://www.realitykeys.com/].
 
 All projects in this space will work to enrich the value and accuracy by providing more and more disparate sources for off-chain content. In the end, the best way to build an on-chain consensus will probably to use a combination of all networks.

@@ -10,7 +10,7 @@
     <link rel="shortcut icon" href="/images/favicon.png" type="image/x-icon" />
 <link rel="icon" href="/images/favicon.png" type="image/x-icon" />
 
-    <title>Contract Lineage :: RequestCoin</title>
+    <title>Resources :: RequestCoin</title>
     
     
     <link href="/css/nucleus.css?1507892884" rel="stylesheet">
@@ -35,7 +35,7 @@
     </style>
     
   </head>
-  <body class="" data-url="/posts/contractlineage/">
+  <body class="" data-url="/posts/resources/">
     <nav id="sidebar" class="">
 
 
@@ -162,7 +162,7 @@
  
   
     
-      <li data-nav-id="/posts/contractlineage/" title="Contract Lineage" class="dd-item active">
+      <li data-nav-id="/posts/contractlineage/" title="Contract Lineage" class="dd-item ">
         <a href="/posts/contractlineage/">
         Contract Lineage
         
@@ -504,7 +504,7 @@
  
   
     
-      <li data-nav-id="/posts/resources/" title="Resources" class="dd-item ">
+      <li data-nav-id="/posts/resources/" title="Resources" class="dd-item active">
         <a href="/posts/resources/">
         Resources
         
@@ -588,7 +588,7 @@
             
           
           
-            <a href='/'>RequestCoin</a> > <a href='/posts/'>Posts</a> > Contract Lineage
+            <a href='/'>RequestCoin</a> > <a href='/posts/'>Posts</a> > Resources
           
          
           
@@ -612,19 +612,31 @@
         
         <div id="body-inner">
           
-            <h1>Contract Lineage</h1>
+            <h1>Resources</h1>
           
 
         
 
 
-<p>Writing and deploying a contract on the Ethereum blockchain is relatively easy, but writing and deploying a safe and secure fleet of contracts is extremely difficult. Inevitably, code will need to be upgraded as vulnerabilities are exposed and new functionality is needed.</p>
+<p><a href="https://solidity.readthedocs.io/en/develop/solidity-by-example.html">Solidity Docs</a> should probably be your first stop when learning smart contracts.</p>
 
-<p>The best strategy to provide upgradability to contracts is using many different, interconnected contracts that each have a simple job within a larger system. For example, one contract will be used to store requests and another will manipulate them. This allows for new functionality to be added to the manipulator while keeping the datastore intact. Having to upgrade a datastore contract would mean that after the replacement contract is deployed there is an expensive (time and gas) period where all data has to be migrated and some functionality is limited.</p>
+<p><a href="https://consensys.net/">Consensys</a> has a bunch of resources on their website and <a href="https://github.com/ConsenSys">github</a> including their <a href="https://github.com/ConsenSys/smart-contract-best-practices">Smart Contract Best Practices</a>.</p>
 
-<p>Along with this micro-service architecture, contracts will need to have lineage. As off-chain code interacts with contracts, they will follow a tree of ancestry to the most current descendant. Once a new contract is deployed, the old contract will &ldquo;die&rdquo; and a successor will be &ldquo;born&rdquo;.</p>
+<p><a href="https://openzeppelin.org/">OpenZeppelin</a> has a github that is full of <a href="https://github.com/OpenZeppelin/zeppelin-solidity/tree/master/contracts">hardened and tested contracts</a>.</p>
 
-<p>As the fleet of contacts harden and functionality solidifies, certain safety measures and kill switches will be removed. This provides more long term trust because a single account will no longer be able to dictate how others can interact with the contracts.</p>
+<p><a href="https://www.youtube.com/channel/UC8CB0ZkvogP7tnCTDR-zV7g/videos">Decypher Media</a> is an awesome feed of videos put together by <a href="https://twitter.com/alwaysbcoding">Jordan Leigh</a></p>
+
+<p>Reddit: <a href="https://www.reddit.com/r/ethereum">r/ethereum</a> <a href="https://www.reddit.com/r/ethdev">r/ethdev</a></p>
+
+<!--
+
+[aragon](https://aragon.one)
+
+[0xproject](https://0xproject.com/)
+
+[district0x](https://blog.district0x.io/)
+
+-->
 
 
 <footer class=" footline" >
@@ -742,26 +754,6 @@
             
                 
                     
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                        
-                        
-                    
                 
                 
 
@@ -1050,6 +1042,26 @@
             
                 
                     
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                        
+                        
+                    
                 
                 
 
@@ -1071,10 +1083,10 @@
 
 
         
-            <a class="nav nav-prev" href="/posts/offchainconsensus/" title="Off-chain Consensus"> <i class="fa fa-chevron-left"></i></a>
+            <a class="nav nav-prev" href="/posts/similarprojects/" title="Similar Projects"> <i class="fa fa-chevron-left"></i></a>
         
         
-            <a class="nav nav-next" href="/posts/governance/" title="Governance" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
+            <a class="nav nav-next" href="/posts/contact/" title="Contact" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
         
     </div>
 
