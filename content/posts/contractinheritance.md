@@ -58,11 +58,17 @@ node deploy Inherit
 Contract address on Ropsten testnet:
 
 ```
-0xd5fA4A24897dB806d4879fD72c1637Af5C83Af65
+0x518730e223b89Fd13f1FD45e0BFd61CDE5D2f771
 ```
 We'll want a script that can tell us what the current message is on the **Inherit** contract:
 
 ```javascript
+
+const fs = require('fs');
+const Web3 = require('web3');
+const web3 = new Web3(new Web3.providers.HttpProvider("http://localhost:8545"));
+const ACCOUNT_INDEX = 1
+//
 // usage: node contract getMessage Inherit
 //
 // ex: node contract getMessage Inherit
@@ -83,13 +89,19 @@ MESSAGE:Ethereum is totally rad!
 We'll also want a script that can tell us what account is the current owner:
 
 ```javascript
+
+const fs = require('fs');
+const Web3 = require('web3');
+const web3 = new Web3(new Web3.providers.HttpProvider("http://localhost:8545"));
+const ACCOUNT_INDEX = 1
+//
 // usage: node contract getOwner Inherit
 //
 // ex: node contract getOwner Inherit
 //
 module.exports = (contract,params,args)=>{
-  contract.methods.owner().call().then((owner)=>{
-    console.log("OWNER:"+owner)
+  contract.methods.owner().call().then((message)=>{
+    console.log("MESSAGE:"+message)
   })
 }
 
@@ -103,17 +115,24 @@ OWNER:0xA3EEBd575245E0bd51aa46B87b1fFc6A1689965a
 Awesome, so it looks like stuff is setup correctly, now, let's see if it functions correctly when we try a **setMessage.js** script:
 
 ```javascript
+
+const fs = require('fs');
+const Web3 = require('web3');
+const web3 = new Web3(new Web3.providers.HttpProvider("http://localhost:8545"));
+//
 // usage: node contract setMessage Inherit null #ACCOUNTINDEX# #MESSAGE#
 //
-// ex: node contract setMessage Inherit null 1 "WHAT'S GUCC'?"
+// ex: node contract setMessage Inherit null 1 "HELLO WORLD"
 //
 module.exports = (contract,params,args)=>{
+
   console.log("**== setting message to "+args[6]+" with account "+params.accounts[args[5]])
   return contract.methods.setMessage(args[6]).send({
     from: params.accounts[args[5]],
     gas: params.gas,
     gasPrice:params.gasPrice
   })
+
 }
 
 ```
@@ -148,18 +167,6 @@ Great, we seem to be secure without having to write our own ownership functional
 We'll need a **transferOwnership.js** script:
 
 ```javascript
-// usage: node contract transferOwnership Inherit null #ACCOUNTINDEX# #ACCOUNTADDRESSOFNEWOWNER#
-//
-// ex: node contract transferOwnership Inherit null 1 0xXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
-//
-module.exports = (contract,params,args)=>{
-  console.log("**== transferring ownership from "+params.accounts[args[5]]+" to "+args[6])
-  return contract.methods.transferOwnership(args[6]).send({
-    from: params.accounts[args[5]],
-    gas: params.gas,
-    gasPrice:params.gasPrice
-  })
-}
 
 ```
 ```bash

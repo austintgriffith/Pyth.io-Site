@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
-    <meta name="generator" content="Hugo 0.29" />
+    <meta name="generator" content="Hugo 0.27.1" />
     <meta name="description" content="">
 <meta name="author" content="Austin Thomas Griffith M.S. E.E.">
 
@@ -13,19 +13,19 @@
     <title>Contract Inheritance :: RequestCoin</title>
     
     
-    <link href="/css/nucleus.css?1507865126" rel="stylesheet">
-    <link href="/css/font-awesome.min.css?1507865126" rel="stylesheet">
-    <link href="/css/hybrid.css?1507865126" rel="stylesheet">
-    <link href="/css/featherlight.min.css?1507865126" rel="stylesheet">
-    <link href="/css/perfect-scrollbar.min.css?1507865126" rel="stylesheet">
-    <link href="/css/auto-complete.css?1507865126" rel="stylesheet">
-    <link href="/css/theme.css?1507865126" rel="stylesheet">
-    <link href="/css/hugo-theme.css?1507865126" rel="stylesheet">
+    <link href="/css/nucleus.css?1507865364" rel="stylesheet">
+    <link href="/css/font-awesome.min.css?1507865364" rel="stylesheet">
+    <link href="/css/hybrid.css?1507865364" rel="stylesheet">
+    <link href="/css/featherlight.min.css?1507865364" rel="stylesheet">
+    <link href="/css/perfect-scrollbar.min.css?1507865364" rel="stylesheet">
+    <link href="/css/auto-complete.css?1507865364" rel="stylesheet">
+    <link href="/css/theme.css?1507865364" rel="stylesheet">
+    <link href="/css/hugo-theme.css?1507865364" rel="stylesheet">
     
-      <link href="/css/theme-red.css?1507865126" rel="stylesheet">
+      <link href="/css/theme-red.css?1507865364" rel="stylesheet">
     
 
-    <script src="/js/jquery-2.x.min.js?1507865126"></script>
+    <script src="/js/jquery-2.x.min.js?1507865364"></script>
     
     <style type="text/css">
       :root #header + #content > #left > #rlblock_left{ 
@@ -485,9 +485,9 @@
  
   
     
-      <li data-nav-id="/posts/contact/" title="Contact" class="dd-item ">
-        <a href="/posts/contact/">
-        Contact
+      <li data-nav-id="/posts/similarprojects/" title="Similar Projects" class="dd-item ">
+        <a href="/posts/similarprojects/">
+        Similar Projects
         
         </a>
     </li>
@@ -504,9 +504,9 @@
  
   
     
-      <li data-nav-id="/posts/similarprojects/" title="Similar Projects" class="dd-item ">
-        <a href="/posts/similarprojects/">
-        Similar Projects
+      <li data-nav-id="/posts/contact/" title="Contact" class="dd-item ">
+        <a href="/posts/contact/">
+        Contact
         
         </a>
     </li>
@@ -652,12 +652,18 @@ node deploy Inherit
 
 <p>Contract address on Ropsten testnet:</p>
 
-<pre><code>0xd5fA4A24897dB806d4879fD72c1637Af5C83Af65
+<pre><code>0x518730e223b89Fd13f1FD45e0BFd61CDE5D2f771
 </code></pre>
 
 <p>We&rsquo;ll want a script that can tell us what the current message is on the <strong>Inherit</strong> contract:</p>
 
-<pre><code class="language-javascript">// usage: node contract getMessage Inherit
+<pre><code class="language-javascript">
+const fs = require('fs');
+const Web3 = require('web3');
+const web3 = new Web3(new Web3.providers.HttpProvider(&quot;http://localhost:8545&quot;));
+const ACCOUNT_INDEX = 1
+//
+// usage: node contract getMessage Inherit
 //
 // ex: node contract getMessage Inherit
 //
@@ -676,13 +682,19 @@ MESSAGE:Ethereum is totally rad!
 
 <p>We&rsquo;ll also want a script that can tell us what account is the current owner:</p>
 
-<pre><code class="language-javascript">// usage: node contract getOwner Inherit
+<pre><code class="language-javascript">
+const fs = require('fs');
+const Web3 = require('web3');
+const web3 = new Web3(new Web3.providers.HttpProvider(&quot;http://localhost:8545&quot;));
+const ACCOUNT_INDEX = 1
+//
+// usage: node contract getOwner Inherit
 //
 // ex: node contract getOwner Inherit
 //
 module.exports = (contract,params,args)=&gt;{
-  contract.methods.owner().call().then((owner)=&gt;{
-    console.log(&quot;OWNER:&quot;+owner)
+  contract.methods.owner().call().then((message)=&gt;{
+    console.log(&quot;MESSAGE:&quot;+message)
   })
 }
 
@@ -695,17 +707,24 @@ OWNER:0xA3EEBd575245E0bd51aa46B87b1fFc6A1689965a
 
 <p>Awesome, so it looks like stuff is setup correctly, now, let&rsquo;s see if it functions correctly when we try a <strong>setMessage.js</strong> script:</p>
 
-<pre><code class="language-javascript">// usage: node contract setMessage Inherit null #ACCOUNTINDEX# #MESSAGE#
+<pre><code class="language-javascript">
+const fs = require('fs');
+const Web3 = require('web3');
+const web3 = new Web3(new Web3.providers.HttpProvider(&quot;http://localhost:8545&quot;));
 //
-// ex: node contract setMessage Inherit null 1 &quot;WHAT'S GUCC'?&quot;
+// usage: node contract setMessage Inherit null #ACCOUNTINDEX# #MESSAGE#
+//
+// ex: node contract setMessage Inherit null 1 &quot;HELLO WORLD&quot;
 //
 module.exports = (contract,params,args)=&gt;{
+
   console.log(&quot;**== setting message to &quot;+args[6]+&quot; with account &quot;+params.accounts[args[5]])
   return contract.methods.setMessage(args[6]).send({
     from: params.accounts[args[5]],
     gas: params.gas,
     gasPrice:params.gasPrice
   })
+
 }
 
 </code></pre>
@@ -736,19 +755,7 @@ MESSAGE:WHAT'S GUCC'?
 
 <p>We&rsquo;ll need a <strong>transferOwnership.js</strong> script:</p>
 
-<pre><code class="language-javascript">// usage: node contract transferOwnership Inherit null #ACCOUNTINDEX# #ACCOUNTADDRESSOFNEWOWNER#
-//
-// ex: node contract transferOwnership Inherit null 1 0xXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
-//
-module.exports = (contract,params,args)=&gt;{
-  console.log(&quot;**== transferring ownership from &quot;+params.accounts[args[5]]+&quot; to &quot;+args[6])
-  return contract.methods.transferOwnership(args[6]).send({
-    from: params.accounts[args[5]],
-    gas: params.gas,
-    gasPrice:params.gasPrice
-  })
-}
-
+<pre><code class="language-javascript">
 </code></pre>
 
 <pre><code class="language-bash">node contract transferOwnership Inherit null 1 0x4ffd642a057ce33579a3ca638347b402b909f6d6
@@ -1204,20 +1211,20 @@ OWNER:0x4fFD642A057Ce33579a3CA638347b402B909f6D6
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="/js/clipboard.min.js?1507865126"></script>
-    <script src="/js/perfect-scrollbar.min.js?1507865126"></script>
-    <script src="/js/perfect-scrollbar.jquery.min.js?1507865126"></script>
-    <script src="/js/jquery.sticky-kit.min.js?1507865126"></script>
-    <script src="/js/featherlight.min.js?1507865126"></script>
-    <script src="/js/html5shiv-printshiv.min.js?1507865126"></script>
-    <script src="/js/highlight.pack.js?1507865126"></script>
+    <script src="/js/clipboard.min.js?1507865364"></script>
+    <script src="/js/perfect-scrollbar.min.js?1507865364"></script>
+    <script src="/js/perfect-scrollbar.jquery.min.js?1507865364"></script>
+    <script src="/js/jquery.sticky-kit.min.js?1507865364"></script>
+    <script src="/js/featherlight.min.js?1507865364"></script>
+    <script src="/js/html5shiv-printshiv.min.js?1507865364"></script>
+    <script src="/js/highlight.pack.js?1507865364"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="/js/modernizr.custom.71422.js?1507865126"></script>
-    <script src="/js/learn.js?1507865126"></script>
-    <script src="/js/hugo-learn.js?1507865126"></script>
+    <script src="/js/modernizr.custom.71422.js?1507865364"></script>
+    <script src="/js/learn.js?1507865364"></script>
+    <script src="/js/hugo-learn.js?1507865364"></script>
 
-    <link href="/mermaid/mermaid.css?1507865126" type="text/css" rel="stylesheet" />
-    <script src="/mermaid/mermaid.js?1507865126"></script>
+    <link href="/mermaid/mermaid.css?1507865364" type="text/css" rel="stylesheet" />
+    <script src="/mermaid/mermaid.js?1507865364"></script>
     <script>
         mermaid.initialize({ startOnLoad: true });
     </script>

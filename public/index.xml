@@ -65,7 +65,7 @@ The best strategy to provide upgradability to contracts is using many different,
       
       <guid>http://requestco.in/posts/governance/</guid>
       <description>Initially, contracts will be very malleable, freezable, and quickly replaced. But, as the fleet becomes more stable and more secure, a system of token stake will take power and no single account will be able to control the governance of the network.
-For instance, at first, certain parameters and even basic functionality will change rapidly. But, as stability and the community behind the network grows, a governance contract (called Auth for now) powered by a voting democracy will replace the dictatorship of a single acting despot.</description>
+A governance contract (called Auth for now) powered by a voting democracy will replace the dictatorship of a small group of developers as soon as the network is large enough to keep out the trolls.</description>
     </item>
     
     <item>
@@ -224,15 +224,6 @@ Private APIs: We are assuming, for now, that only public data is fair game.</des
     </item>
     
     <item>
-      <title>Contact</title>
-      <link>http://requestco.in/posts/contact/</link>
-      <pubDate>Thu, 21 Sep 2017 03:00:00 -0600</pubDate>
-      
-      <guid>http://requestco.in/posts/contact/</guid>
-      <description>Get in touch, please! austin@requestcoin.io</description>
-    </item>
-    
-    <item>
       <title>Similar Projects</title>
       <link>http://requestco.in/posts/similarprojects/</link>
       <pubDate>Thu, 21 Sep 2017 03:00:00 -0600</pubDate>
@@ -240,6 +231,16 @@ Private APIs: We are assuming, for now, that only public data is fair game.</des
       <guid>http://requestco.in/posts/similarprojects/</guid>
       <description>There are a handful of extremely interesting projects in this space.
 The most similar, but much more advanced is ChainLink. These guys have a tremendous amount of momentum and we wish we would have found them earlier. ChainLink is a complex system of data providers and data proxies that is tightly coupled with financial organizations and big name research organizations. RequestCoin is a very simple, raw, decentralized network of oracles.</description>
+    </item>
+    
+    <item>
+      <title>Contact</title>
+      <link>http://requestco.in/posts/contact/</link>
+      <pubDate>Thu, 21 Sep 2017 02:00:00 -0600</pubDate>
+      
+      <guid>http://requestco.in/posts/contact/</guid>
+      <description>Get in touch, please!
+austin@requestcoin.io</description>
     </item>
     
   </channel>

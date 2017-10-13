@@ -91,7 +91,7 @@ This contract is a little bigger than the last so it was a little more expensive
 
 **Adjuster** address on Ropsten:
 ```
-0x34DCF6E1fB7DC453F514a5C4760595af5e2E2Ea9
+0x959491D3327554472F48BF8F2B60394b64B27736
 ```
 Now let's write a few scripts to interact with this contract. First, we'll want **getOwner.js** to be able to see who the owner is:
 
@@ -126,8 +126,9 @@ Another script needed is **adjustTo.js**. This allows us to adjust the **Simple*
 //
 // usage: node contract adjustTo Adjuster null #CONTRACTADDRESS# #TARGET# #ACCOUNTINDEX#
 //
-// ex: node contract adjustTo Adjuster null 0xXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX 128 1
+// ex: node contract adjustTo Adjuster null 0xB216C56621Bc83EFcDd0F10d2De3049Cee97eFB4 128 1
 //
+
 module.exports = (contract,params,args)=>{
   console.log("**== adjusting Simple contract at "+args[5]+" to "+args[6]+" using account "+params.accounts[args[7]])
   return contract.methods.adjustTo(args[5],args[6]).send({

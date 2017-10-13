@@ -51,9 +51,9 @@ Eventually, the **Auth** contract will be extended to allow for more complex gov
 
 Current address:
 ```
-
+0x4C643328d5395d56004Fe91e7Af9b0dbBdFee40c
 ```
 Current ABI:
 ```
-
+[{"constant":true,"inputs":[{"name":"_address","type":"address"}],"name":"isOwner","outputs":[{"name":"","type":"bool"}],"payable":false,"type":"function"},{"constant":false,"inputs":[],"name":"withdraw","outputs":[{"name":"","type":"bool"}],"payable":false,"type":"function"},{"constant":true,"inputs":[{"name":"","type":"address"}],"name":"permission","outputs":[{"name":"","type":"uint8"}],"payable":false,"type":"function"},{"constant":true,"inputs":[{"name":"_address","type":"address"}],"name":"getPermission","outputs":[{"name":"","type":"uint8"}],"payable":false,"type":"function"},{"constant":true,"inputs":[],"name":"owner","outputs":[{"name":"","type":"address"}],"payable":false,"type":"function"},{"constant":false,"inputs":[{"name":"_address","type":"address"},{"name":"_permission","type":"uint8"}],"name":"setPermission","outputs":[{"name":"","type":"bool"}],"payable":false,"type":"function"},{"inputs":[],"payable":false,"type":"constructor"},{"anonymous":false,"inputs":[{"indexed":false,"name":"_sender","type":"address"},{"indexed":false,"name":"_address","type":"address"},{"indexed":false,"name":"_permission","type":"uint8"}],"name":"SetPermission","type":"event"}]
 ```

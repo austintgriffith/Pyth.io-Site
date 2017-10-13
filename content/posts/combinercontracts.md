@@ -89,9 +89,9 @@ contract Combiner{
 ```
 Current address:
 ```
-
+0x3158D85a4BaD21140a2C2a2DdE2f57DFBA56D0e8
 ```
 Current ABI:
 ```
-
+[{"constant":true,"inputs":[],"name":"mainAddress","outputs":[{"name":"","type":"address"}],"payable":false,"type":"function"},{"constant":true,"inputs":[],"name":"rewardCoin","outputs":[{"name":"","type":"uint256"}],"payable":false,"type":"function"},{"constant":true,"inputs":[{"name":"","type":"bytes32"},{"name":"","type":"address"}],"name":"responses","outputs":[{"name":"exists","type":"bool"},{"name":"timestamp","type":"uint32"},{"name":"duration","type":"uint32"},{"name":"status","type":"uint16"},{"name":"result","type":"string"},{"name":"next","type":"address"},{"name":"reward","type":"uint256"}],"payable":false,"type":"function"},{"constant":true,"inputs":[{"name":"","type":"bytes32"}],"name":"count","outputs":[{"name":"","type":"uint16"}],"payable":false,"type":"function"},{"constant":false,"inputs":[{"name":"source","type":"string"}],"name":"stringToBytes32","outputs":[{"name":"","type":"bytes32"}],"payable":false,"type":"function"},{"constant":false,"inputs":[{"name":"_id","type":"string"},{"name":"_timestamp","type":"uint32"},{"name":"_duration","type":"uint32"},{"name":"_status","type":"uint16"},{"name":"_result","type":"string"}],"name":"addResponse","outputs":[{"name":"","type":"bool"}],"payable":false,"type":"function"},{"constant":true,"inputs":[{"name":"","type":"bytes32"}],"name":"head","outputs":[{"name":"","type":"address"}],"payable":false,"type":"function"},{"inputs":[{"name":"_mainAddress","type":"address"}],"payable":false,"type":"constructor"},{"anonymous":false,"inputs":[{"indexed":false,"name":"_id","type":"string"},{"indexed":false,"name":"_miner","type":"address"},{"indexed":false,"name":"_timestamp","type":"uint32"},{"indexed":false,"name":"_duration","type":"uint32"},{"indexed":false,"name":"_status","type":"uint16"},{"indexed":false,"name":"_result","type":"string"},{"indexed":false,"name":"head","type":"address"},{"indexed":false,"name":"next","type":"address"},{"indexed":false,"name":"reward","type":"uint256"}],"name":"AddResponse","type":"event"}]
 ```
