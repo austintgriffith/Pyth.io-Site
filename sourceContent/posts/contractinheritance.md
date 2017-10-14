@@ -102,4 +102,4 @@ node contract getOwner Inherit
 OWNER:0x4fFD642A057Ce33579a3CA638347b402B909f6D6
 ```
 
-Nice! After writing Solidity for a while and *trying* to be super safe and working through as many possible scenarios as we can think of, it's really nice to be able to rely on a trusted third party that has already had plenty of eyes on their code. As the ecosystem grows, projects will have more and more audits and we'll be able to trust more and more libraries. However, we should also warn against too much homogenization. If we are all using the same type of contract and a bug is discovered down the road, we'll all be susceptible to attack.
+After writing Solidity for a while and *trying* to be super safe and working through as many possible scenarios as we can think of, it's really nice to be able to rely on a trusted third party that has already had plenty of eyes on their code. As the ecosystem grows, projects will have more and more audits and we'll be able to trust more and more libraries.
