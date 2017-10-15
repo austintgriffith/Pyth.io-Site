@@ -5,7 +5,7 @@ date: 2017-09-21T07:00:00-06:00
 The **Requests** contract is the main datastore for requests.
 
 ```
-  pragma solidity ^0.4.0;
+pragma solidity ^0.4.0;
 
 import "Auth.sol";
 import "Main.sol";
@@ -71,13 +71,13 @@ contract Requests {
 
 }
 
-  ```
+```
 Current address:
 ```
-  0x1339f5d3b0FAcfc9262C3454D6253dB6608567B4
+0x1339f5d3b0FAcfc9262C3454D6253dB6608567B4
 
-  ```
+```
 Current ABI:
 ```
-  [{"constant":true,"inputs":[],"name":"frozen","outputs":[{"name":"","type":"bool"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":false,"inputs":[{"name":"_id","type":"string"},{"name":"_combiner","type":"address"},{"name":"_coin","type":"uint256"},{"name":"_url","type":"string"}],"name":"addRequest","outputs":[{"name":"","type":"bool"}],"payable":false,"stateMutability":"nonpayable","type":"function"},{"constant":true,"inputs":[],"name":"mainAddress","outputs":[{"name":"","type":"address"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":true,"inputs":[{"name":"_id","type":"string"}],"name":"getRequest","outputs":[{"name":"","type":"uint256"},{"name":"","type":"string"},{"name":"","type":"address"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":true,"inputs":[{"name":"","type":"bytes32"}],"name":"requests","outputs":[{"name":"url","type":"string"},{"name":"combiner","type":"address"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":false,"inputs":[{"name":"source","type":"string"}],"name":"stringToBytes32","outputs":[{"name":"","type":"bytes32"}],"payable":false,"stateMutability":"nonpayable","type":"function"},{"constant":false,"inputs":[{"name":"_mainAddress","type":"address"}],"name":"setMainAddress","outputs":[],"payable":false,"stateMutability":"nonpayable","type":"function"},{"inputs":[{"name":"_mainAddress","type":"address"}],"payable":false,"stateMutability":"nonpayable","type":"constructor"},{"anonymous":false,"inputs":[{"indexed":false,"name":"_str","type":"string"}],"name":"ErrorString","type":"event"},{"anonymous":false,"inputs":[{"indexed":false,"name":"_sender","type":"address"},{"indexed":false,"name":"_id","type":"string"},{"indexed":false,"name":"_combiner","type":"address"},{"indexed":false,"name":"_coin","type":"uint256"},{"indexed":false,"name":"_url","type":"string"}],"name":"AddRequest","type":"event"},{"anonymous":false,"inputs":[{"indexed":false,"name":"_sender","type":"address"},{"indexed":false,"name":"_id","type":"string"},{"indexed":false,"name":"_combiner","type":"address"},{"indexed":false,"name":"_coin","type":"uint256"},{"indexed":false,"name":"_url","type":"string"}],"name":"AttemptAddRequest","type":"event"}]
-  ```
+[{"constant":true,"inputs":[],"name":"frozen","outputs":[{"name":"","type":"bool"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":false,"inputs":[{"name":"_id","type":"string"},{"name":"_combiner","type":"address"},{"name":"_coin","type":"uint256"},{"name":"_url","type":"string"}],"name":"addRequest","outputs":[{"name":"","type":"bool"}],"payable":false,"stateMutability":"nonpayable","type":"function"},{"constant":true,"inputs":[],"name":"mainAddress","outputs":[{"name":"","type":"address"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":true,"inputs":[{"name":"_id","type":"string"}],"name":"getRequest","outputs":[{"name":"","type":"uint256"},{"name":"","type":"string"},{"name":"","type":"address"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":true,"inputs":[{"name":"","type":"bytes32"}],"name":"requests","outputs":[{"name":"url","type":"string"},{"name":"combiner","type":"address"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":false,"inputs":[{"name":"source","type":"string"}],"name":"stringToBytes32","outputs":[{"name":"","type":"bytes32"}],"payable":false,"stateMutability":"nonpayable","type":"function"},{"constant":false,"inputs":[{"name":"_mainAddress","type":"address"}],"name":"setMainAddress","outputs":[],"payable":false,"stateMutability":"nonpayable","type":"function"},{"inputs":[{"name":"_mainAddress","type":"address"}],"payable":false,"stateMutability":"nonpayable","type":"constructor"},{"anonymous":false,"inputs":[{"indexed":false,"name":"_str","type":"string"}],"name":"ErrorString","type":"event"},{"anonymous":false,"inputs":[{"indexed":false,"name":"_sender","type":"address"},{"indexed":false,"name":"_id","type":"string"},{"indexed":false,"name":"_combiner","type":"address"},{"indexed":false,"name":"_coin","type":"uint256"},{"indexed":false,"name":"_url","type":"string"}],"name":"AddRequest","type":"event"},{"anonymous":false,"inputs":[{"indexed":false,"name":"_sender","type":"address"},{"indexed":false,"name":"_id","type":"string"},{"indexed":false,"name":"_combiner","type":"address"},{"indexed":false,"name":"_coin","type":"uint256"},{"indexed":false,"name":"_url","type":"string"}],"name":"AttemptAddRequest","type":"event"}]
+```

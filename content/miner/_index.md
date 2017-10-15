@@ -6,5 +6,7 @@ The miner is written in javascript and will soon be release as an open source <a
 
 Eventually, an <a href="https://electron.atom.io/" target="_blank">Electron</a> app will be deployed and users across operating systems will simply download the app and start mining requests without any development knowledge.
 
-The miner code is, so far, very rough and almost completely untested. We could caution against running it for now.
+We are also looking into distributing miners as small pieces of stand-alone hardware that can simply be plugged in to any existing network.
+
+The miner code is, so far, very rough and almost completely untested. We should caution against running it for now.
 

@@ -5,7 +5,7 @@ date: 2017-09-21T09:00:00-06:00
 The **Main** contract keeps a **contract** *(address)* for any **id** *(uint32)*. This allows for old contracts to be replaced with better versions while keeping the main contract address the same.
 
 ```
-  pragma solidity ^0.4.0;
+pragma solidity ^0.4.0;
 
 import "Auth.sol";
 
@@ -45,13 +45,13 @@ contract Main {
 
 }
 
-  ```
+```
 Current address:
 ```
-  0x564ca9B9B1B0c9397e06C2D2Aed5e82A399a41Eb
+0x564ca9B9B1B0c9397e06C2D2Aed5e82A399a41Eb
 
-  ```
+```
 Current ABI:
 ```
-  [{"constant":true,"inputs":[{"name":"","type":"uint32"}],"name":"contracts","outputs":[{"name":"","type":"address"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":false,"inputs":[{"name":"_id","type":"uint32"},{"name":"_address","type":"address"}],"name":"setContractAddress","outputs":[{"name":"","type":"bool"}],"payable":false,"stateMutability":"nonpayable","type":"function"},{"constant":true,"inputs":[{"name":"_id","type":"uint32"}],"name":"getContractAddress","outputs":[{"name":"","type":"address"}],"payable":false,"stateMutability":"view","type":"function"},{"inputs":[{"name":"_authContractAddress","type":"address"}],"payable":false,"stateMutability":"nonpayable","type":"constructor"},{"anonymous":false,"inputs":[{"indexed":false,"name":"_id","type":"uint32"},{"indexed":false,"name":"_address","type":"address"}],"name":"SetContractAddress","type":"event"}]
-  ```
+[{"constant":true,"inputs":[{"name":"","type":"uint32"}],"name":"contracts","outputs":[{"name":"","type":"address"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":false,"inputs":[{"name":"_id","type":"uint32"},{"name":"_address","type":"address"}],"name":"setContractAddress","outputs":[{"name":"","type":"bool"}],"payable":false,"stateMutability":"nonpayable","type":"function"},{"constant":true,"inputs":[{"name":"_id","type":"uint32"}],"name":"getContractAddress","outputs":[{"name":"","type":"address"}],"payable":false,"stateMutability":"view","type":"function"},{"inputs":[{"name":"_authContractAddress","type":"address"}],"payable":false,"stateMutability":"nonpayable","type":"constructor"},{"anonymous":false,"inputs":[{"indexed":false,"name":"_id","type":"uint32"},{"indexed":false,"name":"_address","type":"address"}],"name":"SetContractAddress","type":"event"}]
+```

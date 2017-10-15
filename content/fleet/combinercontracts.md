@@ -5,7 +5,7 @@ date: 2017-09-21T06:00:00-06:00
 The **Combiner** contracts are the most dynamic. In fact, they can even be written and deployed by a third party. Their job is to capture responses from miners, deliver rewards to good actors, and come to a consensus. External contracts will also then communicate with the respective combiner contracts to retrieve mined, internet data.
 
 ```
-  /*
+/*
   Basic Combiner
   This is more of an example combiner
 */
@@ -86,12 +86,12 @@ contract Combiner{
 
 }
 
-  ```
+```
 Current address:
 ```
-  0x748e669c1849DF623c5c278C15c6d901F9C1d5E0
-  ```
+0x748e669c1849DF623c5c278C15c6d901F9C1d5E0
+```
 Current ABI:
 ```
-  [{"constant":true,"inputs":[],"name":"mainAddress","outputs":[{"name":"","type":"address"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":true,"inputs":[],"name":"rewardCoin","outputs":[{"name":"","type":"uint256"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":true,"inputs":[{"name":"","type":"bytes32"},{"name":"","type":"address"}],"name":"responses","outputs":[{"name":"exists","type":"bool"},{"name":"timestamp","type":"uint32"},{"name":"duration","type":"uint32"},{"name":"status","type":"uint16"},{"name":"result","type":"string"},{"name":"next","type":"address"},{"name":"reward","type":"uint256"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":true,"inputs":[{"name":"","type":"bytes32"}],"name":"count","outputs":[{"name":"","type":"uint16"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":false,"inputs":[{"name":"source","type":"string"}],"name":"stringToBytes32","outputs":[{"name":"","type":"bytes32"}],"payable":false,"stateMutability":"nonpayable","type":"function"},{"constant":false,"inputs":[{"name":"_id","type":"string"},{"name":"_timestamp","type":"uint32"},{"name":"_duration","type":"uint32"},{"name":"_status","type":"uint16"},{"name":"_result","type":"string"}],"name":"addResponse","outputs":[{"name":"","type":"bool"}],"payable":false,"stateMutability":"nonpayable","type":"function"},{"constant":true,"inputs":[{"name":"","type":"bytes32"}],"name":"head","outputs":[{"name":"","type":"address"}],"payable":false,"stateMutability":"view","type":"function"},{"inputs":[{"name":"_mainAddress","type":"address"}],"payable":false,"stateMutability":"nonpayable","type":"constructor"},{"anonymous":false,"inputs":[{"indexed":false,"name":"_id","type":"string"},{"indexed":false,"name":"_miner","type":"address"},{"indexed":false,"name":"_timestamp","type":"uint32"},{"indexed":false,"name":"_duration","type":"uint32"},{"indexed":false,"name":"_status","type":"uint16"},{"indexed":false,"name":"_result","type":"string"},{"indexed":false,"name":"head","type":"address"},{"indexed":false,"name":"next","type":"address"},{"indexed":false,"name":"reward","type":"uint256"}],"name":"AddResponse","type":"event"}]
-  ```
+[{"constant":true,"inputs":[],"name":"mainAddress","outputs":[{"name":"","type":"address"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":true,"inputs":[],"name":"rewardCoin","outputs":[{"name":"","type":"uint256"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":true,"inputs":[{"name":"","type":"bytes32"},{"name":"","type":"address"}],"name":"responses","outputs":[{"name":"exists","type":"bool"},{"name":"timestamp","type":"uint32"},{"name":"duration","type":"uint32"},{"name":"status","type":"uint16"},{"name":"result","type":"string"},{"name":"next","type":"address"},{"name":"reward","type":"uint256"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":true,"inputs":[{"name":"","type":"bytes32"}],"name":"count","outputs":[{"name":"","type":"uint16"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":false,"inputs":[{"name":"source","type":"string"}],"name":"stringToBytes32","outputs":[{"name":"","type":"bytes32"}],"payable":false,"stateMutability":"nonpayable","type":"function"},{"constant":false,"inputs":[{"name":"_id","type":"string"},{"name":"_timestamp","type":"uint32"},{"name":"_duration","type":"uint32"},{"name":"_status","type":"uint16"},{"name":"_result","type":"string"}],"name":"addResponse","outputs":[{"name":"","type":"bool"}],"payable":false,"stateMutability":"nonpayable","type":"function"},{"constant":true,"inputs":[{"name":"","type":"bytes32"}],"name":"head","outputs":[{"name":"","type":"address"}],"payable":false,"stateMutability":"view","type":"function"},{"inputs":[{"name":"_mainAddress","type":"address"}],"payable":false,"stateMutability":"nonpayable","type":"constructor"},{"anonymous":false,"inputs":[{"indexed":false,"name":"_id","type":"string"},{"indexed":false,"name":"_miner","type":"address"},{"indexed":false,"name":"_timestamp","type":"uint32"},{"indexed":false,"name":"_duration","type":"uint32"},{"indexed":false,"name":"_status","type":"uint16"},{"indexed":false,"name":"_result","type":"string"},{"indexed":false,"name":"head","type":"address"},{"indexed":false,"name":"next","type":"address"},{"indexed":false,"name":"reward","type":"uint256"}],"name":"AddResponse","type":"event"}]
+```

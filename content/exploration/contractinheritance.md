@@ -10,7 +10,7 @@ Instead of coding up our own layer of ownership and possibly introducing insecur
 We'll create a contract called **Inherit** that will explore inheriting OpenZeppelin's <a href="https://github.com/OpenZeppelin/zeppelin-solidity/blob/master/contracts/ownership/Ownable.sol" target="_blank">Ownable</a> contract:
 
 ```
-  pragma solidity ^0.4.11;
+pragma solidity ^0.4.11;
 
 import 'zeppelin-solidity/contracts/ownership/Ownable.sol';
 
@@ -27,25 +27,25 @@ contract Inherit is Ownable {
     }
 }
 
-  ```
+```
 This light-weight contract has only one state variable, the **message** string, and it can only be set by the owner. Instead of handling the logic ourselves, we use a modifier from the OpenZeppelin's <a href="https://github.com/OpenZeppelin/zeppelin-solidity/blob/master/contracts/ownership/Ownable.sol" target="_blank">Ownable</a> contract.
 
 Also, before we can deploy, the **Inherit** contract will need to add a **dependencies.js**:
 
 ```javascript
-  const fs = require('fs');
+const fs = require('fs');
 module.exports = {
   'zeppelin-solidity/contracts/ownership/Ownable.sol': fs.readFileSync('zeppelin-solidity/contracts/ownership/Ownable.sol', 'utf8')
 }
 
-  ```
+```
 And an **arguments.js** to pass in a string to the **Inherit()** constructor.
 
 ```javascript
-  const fs = require('fs');
+const fs = require('fs');
 module.exports = ["Ethereum is totally rad!"]
 
-  ```
+```
 Now we can compile and deploy **Inherit**:
 
 ```bash
@@ -58,12 +58,12 @@ node deploy Inherit
 Contract address on Ropsten testnet:
 
 ```
-  0x518730e223b89Fd13f1FD45e0BFd61CDE5D2f771
-  ```
+0x518730e223b89Fd13f1FD45e0BFd61CDE5D2f771
+```
 We'll want a script that can tell us what the current message is on the **Inherit** contract:
 
 ```javascript
-  
+
 const fs = require('fs');
 const Web3 = require('web3');
 const web3 = new Web3(new Web3.providers.HttpProvider("http://localhost:8545"));
@@ -79,7 +79,7 @@ module.exports = (contract,params,args)=>{
   })
 }
 
-  ```
+```
 ```bash
 node contract getMessage Inherit
 
@@ -89,7 +89,7 @@ MESSAGE:Ethereum is totally rad!
 We'll also want a script that can tell us what account is the current owner:
 
 ```javascript
-  
+
 const fs = require('fs');
 const Web3 = require('web3');
 const web3 = new Web3(new Web3.providers.HttpProvider("http://localhost:8545"));
@@ -105,7 +105,7 @@ module.exports = (contract,params,args)=>{
   })
 }
 
-  ```
+```
 ```bash
 node contract getOwner Inherit
 
@@ -115,7 +115,7 @@ OWNER:0xA3EEBd575245E0bd51aa46B87b1fFc6A1689965a
 Awesome, so it looks like stuff is setup correctly, now, let's see if it functions correctly when we try a **setMessage.js** script:
 
 ```javascript
-  
+
 const fs = require('fs');
 const Web3 = require('web3');
 const web3 = new Web3(new Web3.providers.HttpProvider("http://localhost:8545"));
@@ -135,7 +135,7 @@ module.exports = (contract,params,args)=>{
 
 }
 
-  ```
+```
 ```bash
 node contract setMessage Inherit null 1 "WHAT'S GUCC'?"
 ```
@@ -167,8 +167,8 @@ Great, we seem to be secure without having to write our own ownership functional
 We'll need a **transferOwnership.js** script:
 
 ```javascript
-  
-  ```
+
+```
 ```bash
 node contract transferOwnership Inherit null 1 0x4ffd642a057ce33579a3ca638347b402b909f6d6
 ```
