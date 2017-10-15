@@ -12,4 +12,3 @@ With the correct cryptoeconomics in place, a statistically adequate supply of mi
 
 The **RequestCoin** network will provide the raw middleware between Ethereum and the greater internet by allowing contracts to signal for data which will trigger miners to retrieve the information, reach a truthful consensus, and deliver it back to the blockchain. The miners will, in turn, receive a token reward originally reserved by the requesting contract.
 
-

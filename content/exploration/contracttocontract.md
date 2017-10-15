@@ -9,7 +9,7 @@ We will also explore a few other features of smart contracts like ownership and 
 Let's analyze a second contract we'll call **Adjuster** which will interface with our **Simple** contract:
 
 ```
-pragma solidity ^0.4.11;
+  pragma solidity ^0.4.11;
 
 import "Simple.sol";
 
@@ -53,7 +53,7 @@ contract Adjuster {
     event Adjusted(address _contractAddress,uint8 _target,uint8 _amount);
 }
 
-```
+  ```
 The **Adjuster** contract has an **adjustTo()** function that will add to the **Simple** contract's **count** to adjust it to the **_target** value.
 
 There is also the concept of an **owner** address. This is set on contract deployment and when **adjustTo()** is called, we check to make sure the **msg.sender** is the **owner**.
@@ -69,12 +69,12 @@ node compile Adjuster
 We'll also need to throw in a **dependencies.js** to include **Simple.sol**:
 
 ```javascript
-const fs = require('fs');
+  const fs = require('fs');
 module.exports = {
   'Simple.sol': fs.readFileSync('Simple/Simple.sol', 'utf8')
 }
 
-```
+  ```
 We then deploy the **Adjuster** with:
 
 ```bash
@@ -91,12 +91,12 @@ This contract is a little bigger than the last so it was a little more expensive
 
 **Adjuster** address on Ropsten:
 ```
-0x34DCF6E1fB7DC453F514a5C4760595af5e2E2Ea9
-```
+  0x959491D3327554472F48BF8F2B60394b64B27736
+  ```
 Now let's write a few scripts to interact with this contract. First, we'll want **getOwner.js** to be able to see who the owner is:
 
 ```javascript
-//
+  //
 // usage: node contract getOwner Adjuster
 //
 module.exports = (contract,params,args)=>{
@@ -105,7 +105,7 @@ module.exports = (contract,params,args)=>{
   })
 }
 
-```
+  ```
 ```bash
 node contract getOwner Adjuster
 ```
@@ -123,11 +123,12 @@ Looking at our local accounts on the testnet, this is our second account, or ind
 Another script needed is **adjustTo.js**. This allows us to adjust the **Simple** contract's **count** to a specific number using only the **add()** function as long as we are the owner of the **Adjuster** contract.
 
 ```javascript
-//
+  //
 // usage: node contract adjustTo Adjuster null #CONTRACTADDRESS# #TARGET# #ACCOUNTINDEX#
 //
-// ex: node contract adjustTo Adjuster null 0xXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX 128 1
+// ex: node contract adjustTo Adjuster null 0xB216C56621Bc83EFcDd0F10d2De3049Cee97eFB4 128 1
 //
+
 module.exports = (contract,params,args)=>{
   console.log("**== adjusting Simple contract at "+args[5]+" to "+args[6]+" using account "+params.accounts[args[7]])
   return contract.methods.adjustTo(args[5],args[6]).send({
@@ -137,7 +138,7 @@ module.exports = (contract,params,args)=>{
   })
 }
 
-```
+  ```
 Let's go back to the **Simple** contract function from the previous section to get the current count:
 
 ```bash
@@ -165,7 +166,7 @@ COUNT:128
 Let's write a quick script to read events off-chain:
 
 ```javascript
-//
+  //
 // usage: node contract eventsAdjusted Adjuster
 //
 module.exports = (contract,params,args)=>{
@@ -177,7 +178,7 @@ module.exports = (contract,params,args)=>{
   })
 }
 
-```
+  ```
 If we run that now, we should see all contract interaction so far:
 
 ```bash

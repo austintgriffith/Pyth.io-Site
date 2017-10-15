@@ -28,7 +28,7 @@ personal.js
 *reports current account balances and unlocks accounts*
 
 ```javascript
-const fs = require('fs');
+  const fs = require('fs');
 const Web3 = require('web3');
 const web3 = new Web3(new Web3.providers.HttpProvider("http://localhost:8545"));
 console.log(" ### PERSONAL")
@@ -51,14 +51,14 @@ web3.eth.getAccounts().then((accounts)=>{
   }
 })
 
-```
+  ```
 
 send.js
 ------------------
 *sends ether from one account to another*
 
 ```javascript
-const fs = require('fs');
+  const fs = require('fs');
 const Web3 = require('web3');
 const web3 = new Web3(new Web3.providers.HttpProvider("http://localhost:8545"));
 console.log(" ### PERSONAL")
@@ -113,13 +113,13 @@ web3.eth.getAccounts().then((accounts)=>{
 
 })
 
-```
+  ```
 compile.js
 ------------------
 *compiles a contract*
 
 ```javascript
-const fs = require('fs');
+  const fs = require('fs');
 const solc = require('solc');
 
 let startSeconds = new Date().getTime() / 1000;
@@ -155,13 +155,13 @@ if(!input){
   console.log("Compiled!")
 }
 
-```
+  ```
 deploy.js
 ------------------
 *deploys a contract*
 
 ```javascript
-const fs = require('fs');
+  const fs = require('fs');
 const Web3 = require('web3');
 const web3 = new Web3(new Web3.providers.HttpProvider("http://localhost:8545"));
 
@@ -249,13 +249,13 @@ if(!bytecode){
   }
 }
 
-```
+  ```
 contract.js
 ------------------
 *provides other scripts with an interface to contracts through abstraction*
 
 ```javascript
-const fs = require('fs');
+  const fs = require('fs');
 const Web3 = require('web3');
 const web3 = new Web3(new Web3.providers.HttpProvider("http://localhost:8545"));
 
@@ -311,6 +311,7 @@ if(!address){
           blockNumber:blockNumber
         }
         console.log(params)
+        params.web3=web3//pass the web3 object so scripts have the utils
         let scriptPromise = scriptFunction(contract,params,process.argv)
         if(!scriptPromise || typeof scriptPromise.once != "function"){
           console.log(""+script+" (no promise)")
@@ -347,4 +348,4 @@ if(!address){
   }
 }
 
-```
+  ```

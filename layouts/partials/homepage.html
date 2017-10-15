@@ -1,9 +1,49 @@
-<div id="particles-js">
+<style>
+.backstyle:after {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; bottom: 0; right: 0;
+  display: block;
+
+  background-size: cover;
+  -webkit-filter: blur(3px);
+  -moz-filter: blur(3px);
+  -o-filter: blur(3px);
+  -ms-filter: blur(3px);
+  filter: blur(3px);
+  opacity:0.2;
+  background-image: url('images/back5.jpg');
+}
+
+
+</style>
+
+<div id="particles-js" >
     <div class="intro">
         <div class="intro-container">
             <p><img width="500" src="/images/request-coin-color.svg" alt="Request Coin"></p>
-            <h2 class="intro-heading">A Decentralized Network Of Ethereum Oracles</h2>
+            <h2 class="intro-heading">Open Source Decentralized Blockchain Oracle</h2>
             <p><a class="btn btn-outline-primary" href="/abstract/">Discover Request Coin</a></p>
         </div>
     </div>
 </div>
+
+<div id="backerbackback" class="backstyle">
+</div>
+<script type="text/javascript">
+
+var totalCount = 8;
+function ChangeIt()
+{
+
+  var num = Math.ceil( Math.random() * totalCount );
+  var setTo = 'images/back'+num+'.jpg';
+  console.log(setTo)
+  document.getElementById("backerbackback").style.backgroundImage="url("+setTo+")"
+  //document.getElementById("backerbackback").style.opcacity = "0.2"
+  //document.getElementById("backerbackback").style.webkitFilter = "blur(3px)";
+}
+setInterval(ChangeIt,2000);
+ChangeIt();
+
+</script>

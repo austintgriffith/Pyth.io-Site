@@ -8,7 +8,7 @@ Never before in history has a technology existed where anyone from anywhere can 
 Let's make our mark on the blockchain right now with a simple contract:
 
 ```
-pragma solidity ^0.4.11;
+  pragma solidity ^0.4.11;
 
 contract Simple {
 
@@ -23,7 +23,7 @@ contract Simple {
     }
 }
 
-```
+  ```
 This **Simple** contract has a count (**uint8**) that is initialized in the constructor and can be incremented from an **add()** function.
 
 We will first compile this using our **compile.js** script:
@@ -48,9 +48,9 @@ node deploy Simple
 We are deploying with an **arguments.js** file of:
 
 ```javascript
-module.exports = [253]
+  module.exports = [253]
 
-```
+  ```
 That means the integer **253** will be passed into the constructor **Simple(*_amount*)** on deployment.
 
 ```
@@ -87,14 +87,14 @@ At the current price of Ether it cost about $1.02 to release that code to the wo
 Anyone, for the rest of the existence of the Ropsten testnet, can interface with this specific instance of the contract here:
 
 ```
-0xD68eF7611913d0AfF3627a92F5e502696887D626
-```
+  0xF7232Dc3c5fe79bb335Bb68CF5eB9817360e96A8
+  ```
 (You can follow all interactions with this contract on <a href="https://ropsten.etherscan.io/address/0xd68ef7611913d0aff3627a92f5e502696887d626" target="_blank">etherscan.io</a>)
 
 Let's poke around on this contract and see what shakes loose. We'll want to craft up a few scripts so we  aren't fumbling around on the command line:
 
 ```javascript
-//
+  //
 // usage: node contract getCount Simple
 //
 module.exports = (contract,params,args)=>{
@@ -103,7 +103,7 @@ module.exports = (contract,params,args)=>{
   })
 }
 
-```
+  ```
 ```bash
 node contract getCount Simple
 ```
@@ -116,7 +116,7 @@ Neat, so our current count is **253** and that's what we deployed the contract w
 
 Let's run the **add()** function on the contract to actually change the state. Might as well create a script for this too:
 ```javascript
-//
+  //
 // usage: node contract add Simple null #AMOUNT#
 //
 // ex: node contract add Simple null 1
@@ -130,7 +130,7 @@ module.exports = (contract,params,args)=>{
   })
 }
 
-```
+  ```
 ```bash
 node contract add Simple null 1
 ```

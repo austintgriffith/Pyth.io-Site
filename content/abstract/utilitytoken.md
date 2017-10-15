@@ -29,3 +29,4 @@ contract ERC20 {
 
 On top of this tried-and-true token standard we will need a few other features. First, we will need a mechanism for users to *reserve* funds for the mining of a particular internet endpoint. Second, we will need a way for miners to *stake* some of their own token for or against the consensus. Finally, we will want to have a reserved percentage of Ether stored in the contract to provide *liquidity* to the token at some price floor.
 
+

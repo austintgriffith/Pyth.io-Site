@@ -10,3 +10,4 @@ Along with this micro-service architecture, contracts will need to have lineage.
 
 As the fleet of contacts harden and functionality solidifies, certain safety measures and kill switches will be removed. This provides more long term trust because a single account will no longer be able to dictate how others can interact with the contracts.
 
+

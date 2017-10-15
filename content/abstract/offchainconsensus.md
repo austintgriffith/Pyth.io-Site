@@ -11,3 +11,4 @@ To solve the problem of copycat miners, each miner will first post a hash of wha
 
 Eventually, [Filecoin](https://filecoin.io/) will incentivize the storage of said content in IPFS so RequstCoin will also act as a bridge between the old and new internet. For example, if an entity wished to move all of their content from the traditional internet into IPFS, they could spend RequestCoin to pay miners to download and store the content in IPFS and then spend [Filecoin](https://filecoin.io/) to keep that content hosted and replicated in a peer-to-peer fashion. *Another cool application of RequestCoin would be blockchain backed uptime reporting for traditional websites.*
 
+

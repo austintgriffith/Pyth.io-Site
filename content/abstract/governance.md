@@ -7,3 +7,4 @@ Initially, contracts will be very malleable, freezable, and quickly replaced. Bu
 
 A governance contract (called Auth for now) powered by a voting democracy will replace the dictatorship of a small group of developers as soon as the network is large enough to keep out the trolls.
 
+

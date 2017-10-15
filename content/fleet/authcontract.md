@@ -5,7 +5,7 @@ date: 2017-09-21T10:00:00-06:00
 **Auth** keeps a **permission** *(uint8)* for any **account** *(address)*. Other contracts can use this contract to determine the level of **permission** any **account** has by calling **getPermission(*address*)**. Any account with enough **permission** *(uint8)* can also call **setPermission(*address*,*permission*)**.
 
 ```
-pragma solidity ^0.4.0;
+  pragma solidity ^0.4.0;
 
 /*
 >=250 withdraw ether sent on accident to contracts
@@ -45,15 +45,15 @@ contract Auth {
 
 }
 
-```
+  ```
 Eventually, the **Auth** contract will be extended to allow for more complex governance including voting and signally for specific changes to the system.
 
 
 Current address:
 ```
-
-```
+  0xAcb7113DE131c119dDD0b78A261081616239a241
+  ```
 Current ABI:
 ```
-
-```
+  [{"constant":true,"inputs":[{"name":"_address","type":"address"}],"name":"isOwner","outputs":[{"name":"","type":"bool"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":false,"inputs":[],"name":"withdraw","outputs":[{"name":"","type":"bool"}],"payable":false,"stateMutability":"nonpayable","type":"function"},{"constant":true,"inputs":[{"name":"","type":"address"}],"name":"permission","outputs":[{"name":"","type":"uint8"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":true,"inputs":[{"name":"_address","type":"address"}],"name":"getPermission","outputs":[{"name":"","type":"uint8"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":true,"inputs":[],"name":"owner","outputs":[{"name":"","type":"address"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":false,"inputs":[{"name":"_address","type":"address"},{"name":"_permission","type":"uint8"}],"name":"setPermission","outputs":[{"name":"","type":"bool"}],"payable":false,"stateMutability":"nonpayable","type":"function"},{"inputs":[],"payable":false,"stateMutability":"nonpayable","type":"constructor"},{"anonymous":false,"inputs":[{"indexed":false,"name":"_sender","type":"address"},{"indexed":false,"name":"_address","type":"address"},{"indexed":false,"name":"_permission","type":"uint8"}],"name":"SetPermission","type":"event"}]
+  ```
