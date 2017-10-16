@@ -3,7 +3,7 @@ title: "Example"
 date: 2017-09-21T22:00:00-06:00
 ---
 
-In the not-to-distant future, farmers all around the world could pay Ether into a smart contract that would provide agricultural insurance against hail or drought. Then, throughout the year, as "request miners" detect these specific weather conditions using multiple APIs and other internet sources, the contract would deterministically pay Ether back to the farmers in need. This incredibly efficient system completely sidesteps an entire field of insurance agents and adjusters, immediately helping the farmers in need without any unnecessary overhead.  
+In the not-too-distant future, farmers all around the world could pay Ether into a smart contract that would provide agricultural insurance against hail or drought. Then, throughout the year, as "request miners" detect these specific weather conditions using multiple APIs and other internet sources, the contract would deterministically pay Ether back to the farmers in need. This incredibly efficient system completely sidesteps an entire field of insurance agents and adjusters, immediately helping the farmers in need without any unnecessary overhead.  
 
 Let's dive into an oversimplified (and insecure) example contract just to understand the mechanics of how such a system would work.
 
@@ -20,7 +20,7 @@ event AddRequest(address _sender,bytes32 _id, string _url);
 
 With the **addRequest** function we can store a request and trigger an event called **AddRequest** on the blockchain.
 
-Miners, incentivized by a reserved token, then make requests to a number of internet endpoints, collecting relevant data, and sending it back to the contract.
+Miners, incentivized by a reserved token, then make requests to a number of internet endpoints, collect relevant data, and send it back to the contract.
 ```javascript
 contract.getPastEvents('AddRequest', {
     fromBlock: params.blockNumber,
@@ -49,4 +49,4 @@ function addResponse(bytes32 _id,string _result) returns (bool){
 event AddResponse(address _sender,bytes32 _id,string _result);
 ```
 
-This simplified example is the heart of a decentralized oracle network and in the following posts, we will build a more robust system around this idea.
+This simplified example is the heart of a decentralized oracle network. We will build a more robust system around this idea in the following posts.

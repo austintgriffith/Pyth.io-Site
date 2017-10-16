@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Exploration on RequestCoin</title>
+    <link>http://requestco.in/exploration/</link>
+    <description>Recent content in Exploration on RequestCoin</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Thu, 21 Sep 2017 17:00:00 -0600</lastBuildDate>
+    
+	<atom:link href="http://requestco.in/exploration/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Provisioning</title>
+      <link>http://requestco.in/exploration/provisioning/</link>
+      <pubDate>Thu, 21 Sep 2017 17:00:00 -0600</pubDate>
+      
+      <guid>http://requestco.in/exploration/provisioning/</guid>
+      <description>Starting from a default Ubuntu AMI in AWS:
+SSH into the machine and run all the necessary updates:
+sudo apt-get update sudo apt-get dist-upgrade -y sudo apt-get upgrade -y  Install build tools:
+sudo apt-get install build-essential -y sudo apt-get install python -y  Install Node.js:
+curl -sL https://deb.nodesource.com/setup_8.x | sudo -E bash - sudo apt-get install -y nodejs  Install Geth:
+sudo apt-get install software-properties-common sudo add-apt-repository -y ppa:ethereum/ethereum sudo apt-get update sudo apt-get install ethereum -y  Fire up Geth and connect to the Ethereum test network.</description>
+    </item>
+    
+    <item>
+      <title>Ethereum Network Interaction</title>
+      <link>http://requestco.in/exploration/ethereuminteraction/</link>
+      <pubDate>Thu, 21 Sep 2017 16:00:00 -0600</pubDate>
+      
+      <guid>http://requestco.in/exploration/ethereuminteraction/</guid>
+      <description>Let&amp;rsquo;s interact with the Ethereum network.
+With Geth running and up-to-date, we can attach to it from another ssh session.
+geth attach http://:8545  Welcome to the Geth JavaScript console! instance: Geth/v1.7.1-stable-05101641/linux-amd64/go1.9 coinbase: 0x0e1e9ce68b3254461a95916c185c37dd65468ab5 at block: 1856113 (Thu, 12 Oct 2017 13:25:06 UTC) modules: eth:1.0 net:1.0 personal:1.0 rpc:1.0 web3:1.0 &amp;gt;  A fresh installation of Geth will have an empty array of accounts.
+eth.accounts  &amp;gt; eth.accounts []  Create a couple Ethereum test accounts:</description>
+    </item>
+    
+    <item>
+      <title>Crafting Scripts</title>
+      <link>http://requestco.in/exploration/craftingscripts/</link>
+      <pubDate>Thu, 21 Sep 2017 15:00:00 -0600</pubDate>
+      
+      <guid>http://requestco.in/exploration/craftingscripts/</guid>
+      <description>Instead of interacting with the network directly from the command line, we put together a handful of useful scripts to help abstract some of the functionality. There are also some prebuilt (and most likely better) packages out there like Truffle. For now, we&amp;rsquo;ll stick to our simple scripts and see how far they get us. They will also require a couple dependancies:
+npm install solc web3  Let&amp;rsquo;s set up a few global variables:</description>
+    </item>
+    
+    <item>
+      <title>Deploying A Contract</title>
+      <link>http://requestco.in/exploration/deployingacontract/</link>
+      <pubDate>Thu, 21 Sep 2017 14:00:00 -0600</pubDate>
+      
+      <guid>http://requestco.in/exploration/deployingacontract/</guid>
+      <description>Never before in history has a technology existed where anyone from anywhere can deploy code that will immediately and indefinitely run on hundreds of thousands of nodes simultaneously and deterministically. Further, thanks to cryptography and cryptoeconomics, this technology is ownerless, trustless, and incentivized to continue. Once a contract is deployed, it is effectively autonomous, eternal, and controlled only by the laws of machines.
+Let&amp;rsquo;s make our mark on the blockchain right now with a simple contract:</description>
+    </item>
+    
+    <item>
+      <title>Contract To Contract</title>
+      <link>http://requestco.in/exploration/contracttocontract/</link>
+      <pubDate>Thu, 21 Sep 2017 13:30:00 -0600</pubDate>
+      
+      <guid>http://requestco.in/exploration/contracttocontract/</guid>
+      <description>Contract to contract communication is an essential part of any fleet on the blockchain. As discussed in the contract lineage section, a complex project on Ethereum should be built using a collection of smaller &amp;ldquo;microservices&amp;rdquo; to keep complexity at bay.
+We will also explore a few other features of smart contracts like ownership and events.
+Let&amp;rsquo;s analyze a second contract we&amp;rsquo;ll call Adjuster which will interface with our Simple contract:</description>
+    </item>
+    
+    <item>
+      <title>Contract Inheritance</title>
+      <link>http://requestco.in/exploration/contractinheritance/</link>
+      <pubDate>Thu, 21 Sep 2017 13:00:00 -0600</pubDate>
+      
+      <guid>http://requestco.in/exploration/contractinheritance/</guid>
+      <description>Very intelligent people before us have found common patterns in Ethereum contracts and published standardized and hardened examples to extend. We will stand on their shoulders using contract inheritance for some parts of our fleet. Let&amp;rsquo;s dig into an example of how this works.
+Instead of coding up our own layer of ownership and possibly introducing insecurities, let&amp;rsquo;s look at inheriting OpenZeppelin&amp;rsquo;s zeppelin-solidity repo.
+We&amp;rsquo;ll create a contract called Inherit that will explore inheriting OpenZeppelin&amp;rsquo;s Ownable contract:</description>
+    </item>
+    
+    <item>
+      <title>Contract Migration</title>
+      <link>http://requestco.in/exploration/contractmigration/</link>
+      <pubDate>Thu, 21 Sep 2017 12:00:00 -0600</pubDate>
+      
+      <guid>http://requestco.in/exploration/contractmigration/</guid>
+      <description>As bugs are discovered or new functionality needs to be added to contracts, we will need a method of migrating from a predecessor to a descendant. As mentioned in the Contract Lineage section, we will try to keep contracts simple and we will create a linked-list of lineage so other contracts and scripts both on and off the blockchain can follow a chain of addresses to the latest version. For contracts with large data stores, we may need to pause the contracts and slowly migrate the data, but for this example we will just add some new functionality.</description>
+    </item>
+    
+  </channel>
+</rss>

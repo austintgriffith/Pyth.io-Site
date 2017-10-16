@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Fleet on RequestCoin</title>
+    <link>http://requestco.in/fleet/</link>
+    <description>Recent content in Fleet on RequestCoin</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Thu, 21 Sep 2017 11:00:00 -0600</lastBuildDate>
+    
+	<atom:link href="http://requestco.in/fleet/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Auth Contract</title>
+      <link>http://requestco.in/fleet/authcontract/</link>
+      <pubDate>Thu, 21 Sep 2017 10:00:00 -0600</pubDate>
+      
+      <guid>http://requestco.in/fleet/authcontract/</guid>
+      <description>Auth keeps a permission (uint8) for any account (address). Other contracts can use this contract to determine the level of permission any account has by calling getPermission(address). Any account with enough permission (uint8) can also call setPermission(address,permission).
+pragma solidity ^0.4.0; /* &amp;gt;=250 withdraw ether sent on accident to contracts &amp;gt;=240 give permissions to other addresses (Auth admin) &amp;gt;=200 setContractAddress (Main admin) &amp;gt;=32 to add a request */ contract Auth { address public owner; mapping ( address =&amp;gt; uint8 ) public permission; function Auth() { owner=msg.</description>
+    </item>
+    
+    <item>
+      <title>Main Contract</title>
+      <link>http://requestco.in/fleet/maincontract/</link>
+      <pubDate>Thu, 21 Sep 2017 09:00:00 -0600</pubDate>
+      
+      <guid>http://requestco.in/fleet/maincontract/</guid>
+      <description>The Main contract keeps a contract (address) for any id (uint32). This allows for old contracts to be replaced with better versions while keeping the main contract address the same.
+pragma solidity ^0.4.0; import &amp;quot;Auth.sol&amp;quot;; contract Main { /* 0 - Auth Contract 10 - Requests Contract 20 - Token Contract (see wireupAllContracts.js) */ mapping(uint32 =&amp;gt; address) public contracts; function Main(address _authContractAddress) { contracts[0]=_authContractAddress; } event SetContractAddress( uint32 _id, address _address ); function setContractAddress(uint32 _id,address _address) returns (bool){ SetContractAddress(_id,_address); Auth auth = Auth(contracts[0]); if( auth.</description>
+    </item>
+    
+    <item>
+      <title>Token Contract</title>
+      <link>http://requestco.in/fleet/tokencontract/</link>
+      <pubDate>Thu, 21 Sep 2017 08:00:00 -0600</pubDate>
+      
+      <guid>http://requestco.in/fleet/tokencontract/</guid>
+      <description>The Token contract is a simple extension of the StandardToken (ERC20).
+pragma solidity ^0.4.8; import &amp;quot;Auth.sol&amp;quot;; import &amp;quot;Main.sol&amp;quot;; contract Token { string public constant symbol = &amp;quot;XRC&amp;quot;; string public constant name = &amp;quot;RequestCoinTest&amp;quot;; uint8 public constant decimals = 18; uint256 _totalSupply = 1000000000000; address public owner; address public mainAddress; event Reserve(address _contract, address indexed _from, address indexed _combiner, bytes32 indexed _id, uint256 _value); event Reward(address indexed _combiner, bytes32 indexed _id, address indexed _to, uint256 _value); event Revoke(address _contract, address indexed _from, address indexed _combiner, bytes32 indexed _id, uint256 _value); event AttemptReserve(address _contract, address indexed _account, address indexed _combiner, bytes32 indexed _id,uint256 _amount); event AttemptReward(address _combiner, bytes32 indexed _id, address _miner, uint _amount); event AttemptRevoke(address _contract, address indexed _account, address indexed _combiner, bytes32 indexed _id,uint256 _amount); event FailedReserve(address _contract, address _validContract, address indexed _account, address indexed _combiner, bytes32 _id, uint256 _amount, uint256 _balance); event FailedReward(address indexed _contract, bytes32 indexed _id, address indexed _account, uint256 _amount); event FailedRevoke(address _contract, address _validContract, address indexed _account, address indexed _combiner, bytes32 _id, uint256 _amount, uint256 _balance); //reservations are tokens held by a combiner&#39;s address for a request id to eventually reward miners mapping(address =&amp;gt; mapping(bytes32 =&amp;gt; uint256)) reservations; function reserve(address _account,address _combiner,bytes32 _id,uint256 _amount) returns (bool) { AttemptReserve(msg.</description>
+    </item>
+    
+    <item>
+      <title>Requests Contract</title>
+      <link>http://requestco.in/fleet/requestscontract/</link>
+      <pubDate>Thu, 21 Sep 2017 07:00:00 -0600</pubDate>
+      
+      <guid>http://requestco.in/fleet/requestscontract/</guid>
+      <description>The Requests contract is the main datastore for requests.
+pragma solidity ^0.4.0; import &amp;quot;Auth.sol&amp;quot;; import &amp;quot;Main.sol&amp;quot;; import &amp;quot;Token.sol&amp;quot;; contract Requests { address public mainAddress; bool public frozen; function Requests(address _mainAddress) { mainAddress=_mainAddress; } function setMainAddress(address _mainAddress){ Main main = Main(mainAddress); Auth auth = Auth(main.getContractAddress(0)); if( auth.isOwner(msg.sender) ){ mainAddress=_mainAddress; } } ///// Request ---------------------------------------------- struct Request{ string url;//ex &amp;quot;http://ifconfig.co&amp;quot; address combiner;//ex 3 (this would mean contract 103) } mapping (bytes32 =&amp;gt; Request) public requests; event ErrorString(string _str); event AddRequest(address _sender,string _id,address _combiner,uint _coin, string _url); event AttemptAddRequest(address _sender,string _id,address _combiner,uint _coin, string _url); function addRequest(string _id, address _combiner, uint _coin, string _url) returns (bool){ AttemptAddRequest(msg.</description>
+    </item>
+    
+    <item>
+      <title>Combiner Contracts</title>
+      <link>http://requestco.in/fleet/combinercontracts/</link>
+      <pubDate>Thu, 21 Sep 2017 06:00:00 -0600</pubDate>
+      
+      <guid>http://requestco.in/fleet/combinercontracts/</guid>
+      <description>The Combiner contracts are the most dynamic. In fact, they can even be written and deployed by a third party. Their job is to capture responses from miners, deliver rewards to good actors, and come to a consensus. External contracts will also then communicate with the respective combiner contracts to retrieve mined, internet data.
+/* Basic Combiner This is more of an example combiner */ pragma solidity ^0.4.0; import &amp;quot;Main.sol&amp;quot;; import &amp;quot;Token.</description>
+    </item>
+    
+  </channel>
+</rss>

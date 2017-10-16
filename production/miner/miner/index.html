@@ -1,0 +1,1642 @@
+<!DOCTYPE html>
+<html lang="en" class="js csstransforms3d">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <meta name="generator" content="Hugo 0.27.1" />
+    <meta name="description" content="">
+<meta name="author" content="Austin Thomas Griffith M.S. E.E.">
+
+    <link rel="shortcut icon" href="/images/favicon.png" type="image/x-icon" />
+<link rel="icon" href="/images/favicon.png" type="image/x-icon" />
+
+    <title>Request Miner :: Decentralized Blockchain Oracle</title>
+
+    
+    <link href="/css/nucleus.css?1508165033" rel="stylesheet">
+    <link href="/css/font-awesome.min.css?1508165033" rel="stylesheet">
+    <link href="/css/hybrid.css?1508165033" rel="stylesheet">
+    <link href="/css/featherlight.min.css?1508165033" rel="stylesheet">
+    <link href="/css/perfect-scrollbar.min.css?1508165033" rel="stylesheet">
+    <link href="/css/auto-complete.css?1508165033" rel="stylesheet">
+    <link href="/css/theme.css?1508165033" rel="stylesheet">
+    <link href="/css/hugo-theme.css?1508165033" rel="stylesheet">
+    
+      <link href="/css/theme-blue.css?1508165033" rel="stylesheet">
+    
+
+    <script src="/js/jquery-2.x.min.js?1508165033"></script>
+
+    <style type="text/css">
+      :root #header + #content > #left > #rlblock_left{
+          display:none !important;
+      }
+      
+    </style>
+    
+  </head>
+
+  
+  <body class="" data-url="/miner/miner/">
+  
+
+    
+
+    <nav id="sidebar" class="">
+
+
+
+  <div id="header-wrapper">
+    <div id="header">
+      <a id="logo" href="/">
+  <img width="268" src="/images/request-coin-white.svg" alt="Request Coin">
+</a>
+
+    </div>
+    
+  </div>
+
+    <div class="highlightable">
+    <ul class="topics">
+
+        
+          
+          
+
+
+ 
+  
+    
+    <li data-nav-id="/abstract/" title="Abstract" class="dd-item
+        
+        
+        
+        ">
+      <a href="/abstract/">
+          Abstract
+          
+      </a>
+      
+      
+        <ul>
+          
+          
+          
+
+        
+          
+            
+            
+
+
+ 
+  
+    
+      <li data-nav-id="/abstract/example/" title="Example" class="dd-item ">
+        <a href="/abstract/example/">
+        Example
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
+      <li data-nav-id="/abstract/utilitytoken/" title="Utility Token" class="dd-item ">
+        <a href="/abstract/utilitytoken/">
+        Utility Token
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
+      <li data-nav-id="/abstract/offchainconsensus/" title="Off-chain Consensus" class="dd-item ">
+        <a href="/abstract/offchainconsensus/">
+        Off-chain Consensus
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
+      <li data-nav-id="/abstract/contractlineage/" title="Contract Lineage" class="dd-item ">
+        <a href="/abstract/contractlineage/">
+        Contract Lineage
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
+      <li data-nav-id="/abstract/governance/" title="Governance" class="dd-item ">
+        <a href="/abstract/governance/">
+        Governance
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+        
+        </ul>
+      
+    </li>
+  
+ 
+
+          
+          
+
+
+ 
+  
+    
+    <li data-nav-id="/exploration/" title="Exploration" class="dd-item
+        
+        
+        
+        ">
+      <a href="/exploration/">
+          Exploration
+          
+      </a>
+      
+      
+        <ul>
+          
+          
+          
+
+        
+          
+            
+            
+
+
+ 
+  
+    
+      <li data-nav-id="/exploration/provisioning/" title="Provisioning" class="dd-item ">
+        <a href="/exploration/provisioning/">
+        Provisioning
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
+      <li data-nav-id="/exploration/ethereuminteraction/" title="Ethereum Network Interaction" class="dd-item ">
+        <a href="/exploration/ethereuminteraction/">
+        Ethereum Network Interaction
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
+      <li data-nav-id="/exploration/craftingscripts/" title="Crafting Scripts" class="dd-item ">
+        <a href="/exploration/craftingscripts/">
+        Crafting Scripts
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
+      <li data-nav-id="/exploration/deployingacontract/" title="Deploying A Contract" class="dd-item ">
+        <a href="/exploration/deployingacontract/">
+        Deploying A Contract
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
+      <li data-nav-id="/exploration/contracttocontract/" title="Contract To Contract" class="dd-item ">
+        <a href="/exploration/contracttocontract/">
+        Contract To Contract
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
+      <li data-nav-id="/exploration/contractinheritance/" title="Contract Inheritance" class="dd-item ">
+        <a href="/exploration/contractinheritance/">
+        Contract Inheritance
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
+      <li data-nav-id="/exploration/contractmigration/" title="Contract Migration" class="dd-item ">
+        <a href="/exploration/contractmigration/">
+        Contract Migration
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+        
+        </ul>
+      
+    </li>
+  
+ 
+
+          
+          
+
+
+ 
+  
+    
+    <li data-nav-id="/fleet/" title="Fleet" class="dd-item
+        
+        
+        
+        ">
+      <a href="/fleet/">
+          Fleet
+          
+      </a>
+      
+      
+        <ul>
+          
+          
+          
+
+        
+          
+            
+            
+
+
+ 
+  
+    
+      <li data-nav-id="/fleet/authcontract/" title="Auth Contract" class="dd-item ">
+        <a href="/fleet/authcontract/">
+        Auth Contract
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
+      <li data-nav-id="/fleet/maincontract/" title="Main Contract" class="dd-item ">
+        <a href="/fleet/maincontract/">
+        Main Contract
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
+      <li data-nav-id="/fleet/tokencontract/" title="Token Contract" class="dd-item ">
+        <a href="/fleet/tokencontract/">
+        Token Contract
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
+      <li data-nav-id="/fleet/requestscontract/" title="Requests Contract" class="dd-item ">
+        <a href="/fleet/requestscontract/">
+        Requests Contract
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
+      <li data-nav-id="/fleet/combinercontracts/" title="Combiner Contracts" class="dd-item ">
+        <a href="/fleet/combinercontracts/">
+        Combiner Contracts
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+        
+        </ul>
+      
+    </li>
+  
+ 
+
+          
+          
+
+
+ 
+  
+    
+    <li data-nav-id="/miner/" title="Miner" class="dd-item
+        parent
+        
+        
+        ">
+      <a href="/miner/">
+          Miner
+          
+      </a>
+      
+      
+        <ul>
+          
+          
+          
+
+        
+          
+            
+            
+
+
+ 
+  
+    
+      <li data-nav-id="/miner/miner/" title="Request Miner" class="dd-item active">
+        <a href="/miner/miner/">
+        Request Miner
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+        
+        </ul>
+      
+    </li>
+  
+ 
+
+          
+          
+
+
+ 
+  
+    
+    <li data-nav-id="/further/" title="Further" class="dd-item
+        
+        
+        
+        ">
+      <a href="/further/">
+          Further
+          
+      </a>
+      
+      
+        <ul>
+          
+          
+          
+
+        
+          
+            
+            
+
+
+ 
+  
+    
+      <li data-nav-id="/further/simplification/" title="Simplification" class="dd-item ">
+        <a href="/further/simplification/">
+        Simplification
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
+      <li data-nav-id="/further/similarprojects/" title="Similar Projects" class="dd-item ">
+        <a href="/further/similarprojects/">
+        Similar Projects
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
+      <li data-nav-id="/further/resources/" title="Resources" class="dd-item ">
+        <a href="/further/resources/">
+        Resources
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+        
+        </ul>
+      
+    </li>
+  
+ 
+
+          
+          
+
+
+ 
+  
+    
+    <li data-nav-id="/contact/" title="Contact" class="dd-item
+        
+        
+        
+        ">
+      <a href="/contact/">
+          Contact
+          
+      </a>
+      
+      
+    </li>
+  
+ 
+
+          
+        
+    </ul>
+
+    
+    
+
+    
+    <section id="footer">
+      
+    </section>
+  </div>
+</nav>
+
+
+
+
+        <section id="body">
+        <div id="overlay"></div>
+        <div class="padding highlightable sticky-parent">
+              
+              <div class="sticky-spacer">
+                <div id="top-bar">
+                
+                
+                <div id="breadcrumbs" itemscope="" itemtype="http://data-vocabulary.org/Breadcrumb">
+                    <span id="sidebar-toggle-span">
+                        <a href="#" id="sidebar-toggle" data-sidebar-toggle="">
+                          <i class="fa fa-bars"></i>
+                        </a>
+                    </span>
+                  
+                  <span id="toc-menu"><i class="fa fa-list-alt"></i></span>
+                  
+                  <span class="links">
+                    
+          
+          
+            
+            
+          
+          
+            
+            
+          
+          
+            <a href='/'>RequestCoin</a> > <a href='/miner/'>Miner</a> > Request Miner
+          
+         
+          
+         
+          
+        
+                  </span>
+                </div>
+                
+                    <div class="progress">
+    <div class="wrapper">
+
+    </div>
+</div>
+
+                
+              </div>
+            </div>
+            
+
+        
+        <div id="body-inner">
+          
+            <h1>Request Miner</h1>
+          
+
+        
+
+
+<p>The <strong>Miner</strong> performs off chain requests and forms a consensus using IPFS pubsub. It requires a running version of Geth with either an IPC or RPC connection.</p>
+
+<p>Later versions will have fallback layers that will allow miners to contact RequestCoin servers instead of talking directly to the Ethereum network. This will enable different layers of connectivity and give basic miners direct access without having the blockchain downloaded locally.</p>
+
+<pre><code class="language-javascript">/*
+Miner
+*/
+const IPFS = require('ipfs')
+const ipfs = new IPFS(
+  {
+    EXPERIMENTAL:{
+      pubsub: true
+    }
+  }
+)
+let ipfsReady = false
+
+const RPC = true
+const WEBSERVER = &quot;requestco.in&quot;
+
+console.log(&quot;Starting up...&quot;)
+const fs = require('fs');
+const Web3 = require('web3');
+const net = require('net');
+const Request = require('request');
+const client = net.Socket();
+
+let web3
+let connectionString
+let mainContractAddress
+let mainContractAbi
+let mainContract
+let authContractAddress
+let authContractAbi
+let authContract
+let requestsContractAddress
+let requestsContractAbi
+let requestsContract
+let tokenContractAddress
+let tokenContractAbi
+let tokenContract
+let selectedAddress
+let permission
+let blockNumber
+
+let requestList = []
+
+let DEBUG_MINER = false
+
+let activeRequest = false
+
+setInterval(()=&gt;{
+  console.log(&quot;## &quot;)
+  if(activeRequest){
+    console.log(&quot;.&quot;)
+  }else{
+    for(let r in requestList){
+      let request = requestList[r]
+      if(DEBUG_MINER) console.log(&quot; request:&quot;,request)
+      if(typeof request.reserved == &quot;undefined&quot;){
+        console.log(&quot;# inspecting request &quot;+request._id+&quot; (&quot;+request._url+&quot;)&quot;)
+      }else if(request.reserved&gt;0){
+        console.log(&quot;# (&quot;+request.reserved+&quot;) mining url &quot;+request._url+&quot; to combiner &quot;+request._combiner)
+
+        console.log(&quot;Looking up combiner address &quot;+request._combiner+&quot;...&quot;)
+        Request('http://'+WEBSERVER+'/combinerLookup/'+request._combiner,(error, response, body)=&gt;{
+          if(error){console.log(error)}else{
+            let combinerName = body
+            console.log(&quot;combinerName for &quot;+request._combiner+&quot; is &quot;+combinerName)
+            console.log(&quot;Loading abi...&quot;)
+            Request('http://'+WEBSERVER+'/combiner/abi/'+combinerName+&quot;&quot;,(error, response, body)=&gt;{
+              if(error){console.log(error)}else{
+                let combinerAbi = body
+                try{
+
+                  console.log(&quot;Parsing abi...&quot;)
+                  let combinerAbiObject = JSON.parse(combinerAbi)
+
+                  console.log(&quot;combinerAbiObject:&quot;,combinerAbiObject)
+
+                  let combinerContract = new web3.eth.Contract(combinerAbiObject,request._combiner)
+
+
+                  if(activeRequest){
+                    console.log(&quot;.&quot;)
+                  }else{
+                    console.log(&quot; --- Making the request to &quot;+request._url)
+                    Request(request._url,(error, response, body)=&gt;{
+                      if(error){
+                        callback(&quot;Failed to mine &quot;+request._url+&quot;&quot;,body)
+                      }else{
+                        let responseBody = body
+                        console.log(&quot;RESPONSE:\n&quot;,responseBody)
+
+
+
+
+                        console.log(&quot;Ready to interact with combinerContract...&quot;)
+                        activeRequest=true
+                        web3.eth.getAccounts().then((accounts)=&gt;{
+                          combinerContract.methods.addResponse(request._id,Date.now(),0,200,responseBody).send({
+                            from: accounts[2],
+                            gasPrice: fs.readFileSync(&quot;../gasprice.int&quot;).toString().trim()*1000000000,
+                            gas: fs.readFileSync(&quot;../deploygas.int&quot;).toString().trim()
+                          }).then(function(receipt){
+                            activeRequest=false
+                            console.log(&quot;SENT:&quot;,receipt)
+                            // receipt can also be a new contract instance, when coming from a &quot;contract.deploy({...}).send()&quot;
+                          });
+                        })
+
+                      }
+                    })
+                  }
+
+                }catch(e){
+                  console.log(e)
+                }
+              }
+            })
+          }
+        })
+
+        return;
+      }else{
+        console.log(&quot;# request &quot;+request._url+&quot; is empty&quot;)
+      }
+    }
+  }
+
+},1000)
+
+
+let DEBUGREQUESTLOAD = false
+let blockNumberSearchBack=10000
+let lastBlockBackSearchIndex
+let lastBlockForwardSearchIndex
+function loadRequests(){
+  if(DEBUGREQUESTLOAD) console.log(&quot; ~~ Loading requests...&quot;)
+  if(DEBUGREQUESTLOAD) console.log(&quot; ~~ Current Block Number: &quot;,blockNumber)
+  web3.eth.getBlockNumber((err,_currentBlockNumber)=&gt;{
+    if(DEBUGREQUESTLOAD) console.log(&quot; ~~ _currentBlockNumber: &quot;+_currentBlockNumber)
+    if(_currentBlockNumber){
+      lastBlockBackSearchIndex = _currentBlockNumber-blockNumberSearchBack
+      lastBlockForwardSearchIndex = _currentBlockNumber
+      if(DEBUGREQUESTLOAD) console.log(&quot; ~~ Looking for AddRequest events from current block &quot;+_currentBlockNumber+&quot; back to block &quot;+lastBlockBackSearchIndex)
+      loadRequestsFromContract(requestsContract,lastBlockBackSearchIndex,&quot;latest&quot;)
+      if(DEBUGREQUESTLOAD) console.log(&quot; ~~ Searching up and down the chain for more requests...&quot;)
+      if(DEBUGREQUESTLOAD) console.log(&quot; ~~ lastBlockBackSearchIndex:&quot;+lastBlockBackSearchIndex)
+      if(DEBUGREQUESTLOAD) console.log(&quot; ~~ _currentBlockNumber:&quot;+_currentBlockNumber)
+      if(DEBUGREQUESTLOAD) console.log(&quot; ~~ lastBlockForwardSearchIndex:&quot;+lastBlockForwardSearchIndex)
+      setInterval(()=&gt;{
+        if(DEBUGREQUESTLOAD) console.log(&quot; ~~ --&gt;&quot;)
+        loadRequestsFromContract(requestsContract,lastBlockForwardSearchIndex-1,'latest')
+        lastBlockForwardSearchIndex=_currentBlockNumber;
+      },250)
+      searchRequestsDownBlockchain();
+    }
+  })
+}
+
+function searchRequestsDownBlockchain(){
+  if(DEBUGREQUESTLOAD) console.log(&quot; ~~ &lt;--&quot;)
+  let nextLastBlockBackSearchIndex=lastBlockBackSearchIndex-blockNumberSearchBack
+  if(nextLastBlockBackSearchIndex&lt;0) nextLastBlockBackSearchIndex=0
+  loadRequestsFromContract(requestsContract,nextLastBlockBackSearchIndex,lastBlockBackSearchIndex+1)
+  lastBlockBackSearchIndex=nextLastBlockBackSearchIndex;
+  if(lastBlockBackSearchIndex&gt;0){
+    setTimeout(searchRequestsDownBlockchain,750)
+  }else{
+    console.log(&quot; ~~ finished searching down blockchain  ~~ &quot;)
+  }
+}
+
+function loadRequestsFromContract(requestsContract,fromBlock,toBlock){
+  if(DEBUGREQUESTLOAD) console.log(&quot;Searching from &quot;+fromBlock+&quot; to &quot;+toBlock)
+  requestsContract.getPastEvents('AddRequest', {
+    fromBlock: fromBlock,
+    toBlock: toBlock
+  }, function(error, events){
+    if(DEBUGREQUESTLOAD) console.log(&quot;Found &quot;+events.length+&quot; from &quot;+fromBlock+&quot; to &quot;+toBlock+&quot; requests...&quot;);
+    for(let request in events.reverse()){
+      //if(DEBUG) console.log(events[request].returnValues)
+      if(!requestList[events[request].returnValues._id]){
+        if(DEBUGREQUESTLOAD) console.log(&quot;Adding request &quot;+events[request].returnValues._id+&quot; with combiner &quot;+events[request].returnValues._combiner)
+        requestList[events[request].returnValues._id] = events[request].returnValues
+      }
+    }
+  })
+}
+
+/*
+ipfs.on('ready', () =&gt; {
+console.log(&quot;Ready?&quot;)
+ipfs.id(function (err, identity) {
+if (err) {
+throw err
+}
+console.log(identity)
+console.log(&quot;ISON&quot;,ipfs.isOnline())
+})
+})
+*/
+
+//Start everything off by attempting to connect to eth network
+connectToEthereumNetwork()
+
+setInterval(()=&gt;{
+  if(requestList&amp;&amp;tokenContract){
+    loadReservedCoinInRequests()
+  }else{console.log(&quot;###&quot;)}
+},15000)
+
+setInterval(()=&gt;{
+  if(requestList&amp;&amp;tokenContract){
+    loadReservedCoinInRequests()
+  }else{console.log(&quot;###&quot;)}
+},15000)
+
+
+ipfs.on('ready', () =&gt; {
+  console.log(&quot;@@ IPFS READY @@&quot;)
+  ipfsReady=true
+})
+ipfs.on('error', (e) =&gt; console.log(&quot;@@@ IPFS ERROR&quot;,e))
+
+function connectToEthereumNetwork(){
+  if(RPC){
+    console.log(&quot;Using RPC...&quot;)
+    connectionString = 'http://localhost:8545'
+    web3 = new Web3(new Web3.providers.HttpProvider(connectionString));
+  }else{
+    console.log(&quot;Using IPC...&quot;)
+    connectionString = '/Users/austingriffith/Library/Ethereum/testnet/geth.ipc';
+    web3 = new Web3(new Web3.providers.IpcProvider(connectionString, client));
+  }
+  console.log(&quot;Checking for accounts on ethereum network (&quot;+connectionString+&quot;)...&quot;)
+  web3.eth.getAccounts().then((accounts)=&gt;{
+    console.log(accounts)
+
+    selectedAddress=accounts[0]
+
+    connectToMainContract()
+  })
+}
+
+function loadContractAddress(contract,callback){
+  let address
+  try{
+    console.log(&quot;Reading&quot;,contract+&quot;.address&quot;)
+    address = fs.readFileSync(contract+&quot;.address&quot;).toString().trim()
+    console.log(&quot;Reading&quot;,address+&quot;.abi&quot;)
+    let abi = JSON.parse(fs.readFileSync(address+&quot;.abi&quot;).toString())
+    console.log(contract+&quot; contract data loaded locally...&quot;)
+    callback(null,address,abi)
+  }catch(e){
+    console.log(&quot;Failed to load &quot;+contract+&quot; contract data locally, attempting to download...&quot;)
+    console.log(&quot;Connecting to &quot;+WEBSERVER+&quot;...&quot;)
+    Request('http://'+WEBSERVER+'/address/'+contract,(error, response, body)=&gt;{
+      if(error){
+        callback(&quot;Failed to load &quot;+contract+&quot; address from &quot;+WEBSERVER+&quot;!&quot;)
+      }else{
+        address = body.trim()
+        loadContractAbi(contract,address,callback)
+      }
+    })
+  }
+}
+
+function loadContractAbi(contract,address,callback){
+  let abi
+  try{
+    abi = JSON.parse(fs.readFileSync(address+&quot;.abi&quot;).toString())
+    console.log(contract+&quot; contract abi loaded locally...&quot;)
+    callback(null,address,abi)
+  }catch(e){
+    console.log(&quot;Failed to load &quot;+contract+&quot; abi locally, attempting to download...&quot;)
+    console.log(&quot;Connecting to &quot;+WEBSERVER+&quot;...&quot;)
+    Request('http://'+WEBSERVER+'/abi/'+contract,(error, response, body)=&gt;{
+      if(!error){
+        try{
+          abi = JSON.parse(body)
+          console.log(&quot;writing&quot;,contract+&quot;.address&quot;)
+          fs.writeFileSync(contract+&quot;.address&quot;,address)
+          console.log(&quot;writing&quot;,address+&quot;.abi&quot;)
+          fs.writeFileSync(address+&quot;.abi&quot;,JSON.stringify(abi))
+          callback(null,address,abi)
+        }catch(e){
+          callback(&quot;Failed to parse main ABI from &quot;+WEBSERVER+&quot;!&quot;)
+        }
+      }
+    })
+  }
+}
+
+function connectToMainContract(){
+  console.log(&quot;Connecting to main contract...&quot;)
+  loadContractAddress(&quot;Main&quot;,(err,address,abi) =&gt; {
+    if(err){
+      console.log(err)
+    }else{
+      mainContractAddress=address
+      mainContractAbi=abi
+      mainContract = new web3.eth.Contract(mainContractAbi,mainContractAddress)
+      console.log(&quot;Ready to interact with mainContract...&quot;)
+      mainContract.methods.getContractAddress(0).call().then((_authContractAddress)=&gt;{
+        console.log(&quot;Setting _authContractAddress to &quot;+_authContractAddress)
+        authContractAddress = _authContractAddress
+        mainContract.methods.getContractAddress(10).call().then((_requestsContractAddress)=&gt;{
+          console.log(&quot;Setting _requestsContractAddress to &quot;+_requestsContractAddress)
+          requestsContractAddress = _requestsContractAddress
+          mainContract.methods.getContractAddress(20).call().then((_tokenContractAddress)=&gt;{
+            console.log(&quot;Setting _tokenContractAddress to &quot;+_tokenContractAddress)
+            tokenContractAddress = _tokenContractAddress
+            connectToAuthContract()
+          })
+        })
+      })
+    }
+  })
+}
+
+
+function connectToAuthContract(){
+  console.log(&quot;Connecting to auth contract...&quot;)
+  loadContractAbi(&quot;Auth&quot;,authContractAddress,(err,address,abi) =&gt; {
+    if(err){
+      console.log(err)
+    }else{
+      authContractAbi=abi
+      authContract = new web3.eth.Contract(authContractAbi,authContractAddress)
+      console.log(&quot;Ready to interact with authContract...&quot;)
+      authContract.methods.getPermission(selectedAddress).call().then((_permission)=&gt;{
+        console.log(&quot;Permission level: &quot;+_permission)
+        permission=_permission;
+        connectToRequestsContract()
+      })
+    }
+  })
+}
+
+
+function connectToRequestsContract(){
+  console.log(&quot;Connecting to requests contract...&quot;)
+  loadContractAbi(&quot;Requests&quot;,requestsContractAddress,(err,address,abi) =&gt; {
+    if(err){
+      console.log(err)
+    }else{
+      requestsContractAbi=abi
+      requestsContract = new web3.eth.Contract(requestsContractAbi,requestsContractAddress)
+      console.log(&quot;Ready to interact with requestsContract...&quot;)
+      requestsContract.methods.mainAddress().call().then((_mainAddress)=&gt;{
+        console.log(&quot;_mainAddress: &quot;+_mainAddress)
+        connectToTokenContract()
+      })
+    }
+  })
+}
+
+
+function connectToTokenContract(){
+  console.log(&quot;Connecting to token contract...&quot;)
+  loadContractAbi(&quot;Token &quot;,tokenContractAddress,(err,address,abi) =&gt; {
+    if(err){
+      console.log(err)
+    }else{
+      tokenContractAbi=abi
+      tokenContract = new web3.eth.Contract(tokenContractAbi,tokenContractAddress)
+      console.log(&quot;Ready to interact with tokenContract...&quot;)
+      tokenContract.methods.mainAddress().call().then((_mainAddress)=&gt;{
+        console.log(&quot;_mainAddress: &quot;+_mainAddress)
+        loadRequests()
+        setTimeout(loadReservedCoinInRequests,5000)
+      })
+    }
+  })
+}
+
+
+function loadReservedCoinInRequests(){
+  let DEBUG=false
+  if(DEBUG) console.log(&quot;## REQUESTS &quot;)
+  for(let req in requestList){
+    //for each request we want to see how much coin is still reserved
+    //getReserved(address _combiner,bytes32 _id) constant returns (uint)
+    //getReservedByString(address _combiner,string _id) constant returns (uint){
+    if(typeof requestList[req].reserved == &quot;undefined&quot; || requestList[req].reserved&gt;0 ){
+      if(DEBUG) console.log(requestList[req]._id)
+      tokenContract.methods.getReservedByString(requestList[req]._combiner,requestList[req]._id).call().then((_reserved)=&gt;{
+        if(DEBUG) console.log(&quot;_reserved: &quot;+_reserved)
+        requestList[req].reserved=_reserved
+      })
+    }
+
+    if(requestList[req].reserved){
+      if(DEBUG) console.log(&quot;#  &quot;+requestList[req]._id+&quot; (&quot;+requestList[req].reserved+&quot;) &quot;+requestList[req]._url)
+    }
+  }
+}
+
+</code></pre>
+
+
+<footer class=" footline" >
+	
+</footer>
+
+
+        
+        </div>
+      </div>
+
+    <div id="navigation">
+        
+        
+
+        
+            
+            
+                
+                    
+                    
+                
+                
+
+                    
+                    
+                        
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                        
+                        
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                        
+                        
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+
+        
+
+
+        
+            <a class="nav nav-prev" href="/miner/" title="Miner"> <i class="fa fa-chevron-left"></i></a>
+        
+        
+            <a class="nav nav-next" href="/further/" title="Further" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
+        
+    </div>
+
+    </section>
+
+    <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
+      <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
+    </div>
+    <script src="/js/clipboard.min.js?1508165033"></script>
+    <script src="/js/perfect-scrollbar.min.js?1508165033"></script>
+    <script src="/js/perfect-scrollbar.jquery.min.js?1508165033"></script>
+    <script src="/js/jquery.sticky-kit.min.js?1508165033"></script>
+    <script src="/js/featherlight.min.js?1508165033"></script>
+    <script src="/js/html5shiv-printshiv.min.js?1508165033"></script>
+    <script src="/js/highlight.pack.js?1508165033"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+    <script src="/js/modernizr.custom.71422.js?1508165033"></script>
+    <script src="/js/learn.js?1508165033"></script>
+    <script src="/js/hugo-learn.js?1508165033"></script>
+
+    
+
+    <link href="/mermaid/mermaid.css?1508165033" type="text/css" rel="stylesheet" />
+    <script src="/mermaid/mermaid.js?1508165033"></script>
+    <script>
+        mermaid.initialize({ startOnLoad: true });
+    </script>
+    
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-108134601-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'UA-108134601-1');
+</script>
+
+  </body>
+</html>
+

@@ -126,7 +126,7 @@ COUNT:254
 
 According to Etherscan, to add 1 to that uint it costs about $0.17. That might seem kind of expensive, but what's actually going on there?
 
-Well, we broadcast to the network that we want to make a transaction, some lucky miner is able to find the correct nonce through brute force cpu power, mines the block containing our transaction and others, broadcasts that to the rest of the network, and then *every* miner in the world runs our transaction against their version of our contract and get the same result. We could then ask *any* of them what our **count** is and it would be the same. Even as banks, businesses, and governments rise and fall, our **count** stays exactly where it's instructed to stay. That's pretty freakin' awesome.
+Well, we broadcast to the network that we want to make a transaction, some lucky miner is able to find the correct nonce through brute force cpu power, mines the block containing our transaction and others, broadcasts that to the rest of the network, and then *every* miner in the world runs our transaction against their version of our contract and gets the same result. We could then ask *any* of them what our **count** is and it would be the same. Even as banks, businesses, and governments rise and fall, our **count** stays exactly where it's instructed to stay. That's pretty freakin' awesome.
 
 Let's play around with gas cost a little more because contract interaction cost plays a huge role in how RequestCoin will work.
 
@@ -148,11 +148,11 @@ COUNT:255
 
 View transaction on <a href="https://ropsten.etherscan.io/tx/0x2af7ef9e4c20b10e8fa0b5252bb9c2ab1df01b81058c3e99e87562bae47fa97d" target="_blank">etherscan.io</a>.
 
-Last time it took about 25 seconds to go through, but this time it took 55 seconds but the cost was $0.017 or so. This is because the miners are not only incentivized by block mining rewards but also the gas used to run the transactions. It's up to them to determine which transactions are worth mining. We can trade cost for speed depending on our needs.
+Last time it took about 25 seconds to go through. This time it took 55 seconds but the cost was $0.017 or so. This is because the miners are not only incentivized by block mining rewards but also the gas used to run the transactions. It's up to them to determine which transactions are worth mining. We can trade cost for speed depending on our needs.
 
 (*Another neat tool provided by etherscan.io is the <a href="https://ropsten.etherscan.io/vmtrace?txhash=0x2af7ef9e4c20b10e8fa0b5252bb9c2ab1df01b81058c3e99e87562bae47fa97d" target="_blank">vmtrace</a>. You can see each step of the transaction including OPCODE and cost. Check out how much SSTORE is compared to everything else.*)
 
-One last thing to touch on is security and bugs. This contract is public, anyone can run the add function and anyone can see the current count. That's fine for now, but what if there was 100 million USD at stake... yikes! This makes the job of contract developers *extremely* difficult because everything you do is at the mercy of every bad actor for the rest of time. Every contract interaction is deterministic; we *can* determine for sure what will happen given a state and an action, but just like a move in chess, predicting every single possible outcome on a chess board is also relatively difficult.
+We should touch on security and bugs. This contract is public, so anyone can run the add function and anyone can see the current count. That's fine for now, but what if there were 100 million USD at stake... yikes! This makes the job of contract developers *extremely* difficult because everything you do is at the mercy of every bad actor for the rest of time. Every contract interaction is deterministic; we *can* determine for sure what will happen given a state and an action, but just like a move in chess, predicting every single possible outcome on a chess board is also relatively difficult.
 
 So what happens if we run **add()** one more time? Assuming no one else has already hit our contract, the count will go up just like before and we should see **256** right? Let's try it:
 

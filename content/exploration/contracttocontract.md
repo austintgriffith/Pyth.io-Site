@@ -148,7 +148,7 @@ node contract getCount Simple
 COUNT:0
 ```
 
-Now let's adjust it to **128** using the **Simple** contract address using account index **1** which is the owner of the **Adjuster**:
+Now let's adjust it to **128** using the **Simple** contract's address using account index **1** which is the owner of the **Adjuster**:
 
 ```bash
 node contract adjustTo Adjuster null 0xD68eF7611913d0AfF3627a92F5e502696887D626 128 1

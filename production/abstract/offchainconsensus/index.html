@@ -1,0 +1,1248 @@
+<!DOCTYPE html>
+<html lang="en" class="js csstransforms3d">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <meta name="generator" content="Hugo 0.27.1" />
+    <meta name="description" content="">
+<meta name="author" content="Austin Thomas Griffith M.S. E.E.">
+
+    <link rel="shortcut icon" href="/images/favicon.png" type="image/x-icon" />
+<link rel="icon" href="/images/favicon.png" type="image/x-icon" />
+
+    <title>Off-chain Consensus :: Decentralized Blockchain Oracle</title>
+
+    
+    <link href="/css/nucleus.css?1508165033" rel="stylesheet">
+    <link href="/css/font-awesome.min.css?1508165033" rel="stylesheet">
+    <link href="/css/hybrid.css?1508165033" rel="stylesheet">
+    <link href="/css/featherlight.min.css?1508165033" rel="stylesheet">
+    <link href="/css/perfect-scrollbar.min.css?1508165033" rel="stylesheet">
+    <link href="/css/auto-complete.css?1508165033" rel="stylesheet">
+    <link href="/css/theme.css?1508165033" rel="stylesheet">
+    <link href="/css/hugo-theme.css?1508165033" rel="stylesheet">
+    
+      <link href="/css/theme-blue.css?1508165033" rel="stylesheet">
+    
+
+    <script src="/js/jquery-2.x.min.js?1508165033"></script>
+
+    <style type="text/css">
+      :root #header + #content > #left > #rlblock_left{
+          display:none !important;
+      }
+      
+    </style>
+    
+  </head>
+
+  
+  <body class="" data-url="/abstract/offchainconsensus/">
+  
+
+    
+
+    <nav id="sidebar" class="">
+
+
+
+  <div id="header-wrapper">
+    <div id="header">
+      <a id="logo" href="/">
+  <img width="268" src="/images/request-coin-white.svg" alt="Request Coin">
+</a>
+
+    </div>
+    
+  </div>
+
+    <div class="highlightable">
+    <ul class="topics">
+
+        
+          
+          
+
+
+ 
+  
+    
+    <li data-nav-id="/abstract/" title="Abstract" class="dd-item
+        parent
+        
+        
+        ">
+      <a href="/abstract/">
+          Abstract
+          
+      </a>
+      
+      
+        <ul>
+          
+          
+          
+
+        
+          
+            
+            
+
+
+ 
+  
+    
+      <li data-nav-id="/abstract/example/" title="Example" class="dd-item ">
+        <a href="/abstract/example/">
+        Example
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
+      <li data-nav-id="/abstract/utilitytoken/" title="Utility Token" class="dd-item ">
+        <a href="/abstract/utilitytoken/">
+        Utility Token
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
+      <li data-nav-id="/abstract/offchainconsensus/" title="Off-chain Consensus" class="dd-item active">
+        <a href="/abstract/offchainconsensus/">
+        Off-chain Consensus
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
+      <li data-nav-id="/abstract/contractlineage/" title="Contract Lineage" class="dd-item ">
+        <a href="/abstract/contractlineage/">
+        Contract Lineage
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
+      <li data-nav-id="/abstract/governance/" title="Governance" class="dd-item ">
+        <a href="/abstract/governance/">
+        Governance
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+        
+        </ul>
+      
+    </li>
+  
+ 
+
+          
+          
+
+
+ 
+  
+    
+    <li data-nav-id="/exploration/" title="Exploration" class="dd-item
+        
+        
+        
+        ">
+      <a href="/exploration/">
+          Exploration
+          
+      </a>
+      
+      
+        <ul>
+          
+          
+          
+
+        
+          
+            
+            
+
+
+ 
+  
+    
+      <li data-nav-id="/exploration/provisioning/" title="Provisioning" class="dd-item ">
+        <a href="/exploration/provisioning/">
+        Provisioning
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
+      <li data-nav-id="/exploration/ethereuminteraction/" title="Ethereum Network Interaction" class="dd-item ">
+        <a href="/exploration/ethereuminteraction/">
+        Ethereum Network Interaction
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
+      <li data-nav-id="/exploration/craftingscripts/" title="Crafting Scripts" class="dd-item ">
+        <a href="/exploration/craftingscripts/">
+        Crafting Scripts
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
+      <li data-nav-id="/exploration/deployingacontract/" title="Deploying A Contract" class="dd-item ">
+        <a href="/exploration/deployingacontract/">
+        Deploying A Contract
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
+      <li data-nav-id="/exploration/contracttocontract/" title="Contract To Contract" class="dd-item ">
+        <a href="/exploration/contracttocontract/">
+        Contract To Contract
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
+      <li data-nav-id="/exploration/contractinheritance/" title="Contract Inheritance" class="dd-item ">
+        <a href="/exploration/contractinheritance/">
+        Contract Inheritance
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
+      <li data-nav-id="/exploration/contractmigration/" title="Contract Migration" class="dd-item ">
+        <a href="/exploration/contractmigration/">
+        Contract Migration
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+        
+        </ul>
+      
+    </li>
+  
+ 
+
+          
+          
+
+
+ 
+  
+    
+    <li data-nav-id="/fleet/" title="Fleet" class="dd-item
+        
+        
+        
+        ">
+      <a href="/fleet/">
+          Fleet
+          
+      </a>
+      
+      
+        <ul>
+          
+          
+          
+
+        
+          
+            
+            
+
+
+ 
+  
+    
+      <li data-nav-id="/fleet/authcontract/" title="Auth Contract" class="dd-item ">
+        <a href="/fleet/authcontract/">
+        Auth Contract
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
+      <li data-nav-id="/fleet/maincontract/" title="Main Contract" class="dd-item ">
+        <a href="/fleet/maincontract/">
+        Main Contract
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
+      <li data-nav-id="/fleet/tokencontract/" title="Token Contract" class="dd-item ">
+        <a href="/fleet/tokencontract/">
+        Token Contract
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
+      <li data-nav-id="/fleet/requestscontract/" title="Requests Contract" class="dd-item ">
+        <a href="/fleet/requestscontract/">
+        Requests Contract
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
+      <li data-nav-id="/fleet/combinercontracts/" title="Combiner Contracts" class="dd-item ">
+        <a href="/fleet/combinercontracts/">
+        Combiner Contracts
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+        
+        </ul>
+      
+    </li>
+  
+ 
+
+          
+          
+
+
+ 
+  
+    
+    <li data-nav-id="/miner/" title="Miner" class="dd-item
+        
+        
+        
+        ">
+      <a href="/miner/">
+          Miner
+          
+      </a>
+      
+      
+        <ul>
+          
+          
+          
+
+        
+          
+            
+            
+
+
+ 
+  
+    
+      <li data-nav-id="/miner/miner/" title="Request Miner" class="dd-item ">
+        <a href="/miner/miner/">
+        Request Miner
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+        
+        </ul>
+      
+    </li>
+  
+ 
+
+          
+          
+
+
+ 
+  
+    
+    <li data-nav-id="/further/" title="Further" class="dd-item
+        
+        
+        
+        ">
+      <a href="/further/">
+          Further
+          
+      </a>
+      
+      
+        <ul>
+          
+          
+          
+
+        
+          
+            
+            
+
+
+ 
+  
+    
+      <li data-nav-id="/further/simplification/" title="Simplification" class="dd-item ">
+        <a href="/further/simplification/">
+        Simplification
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
+      <li data-nav-id="/further/similarprojects/" title="Similar Projects" class="dd-item ">
+        <a href="/further/similarprojects/">
+        Similar Projects
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
+      <li data-nav-id="/further/resources/" title="Resources" class="dd-item ">
+        <a href="/further/resources/">
+        Resources
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+        
+        </ul>
+      
+    </li>
+  
+ 
+
+          
+          
+
+
+ 
+  
+    
+    <li data-nav-id="/contact/" title="Contact" class="dd-item
+        
+        
+        
+        ">
+      <a href="/contact/">
+          Contact
+          
+      </a>
+      
+      
+    </li>
+  
+ 
+
+          
+        
+    </ul>
+
+    
+    
+
+    
+    <section id="footer">
+      
+    </section>
+  </div>
+</nav>
+
+
+
+
+        <section id="body">
+        <div id="overlay"></div>
+        <div class="padding highlightable sticky-parent">
+              
+              <div class="sticky-spacer">
+                <div id="top-bar">
+                
+                
+                <div id="breadcrumbs" itemscope="" itemtype="http://data-vocabulary.org/Breadcrumb">
+                    <span id="sidebar-toggle-span">
+                        <a href="#" id="sidebar-toggle" data-sidebar-toggle="">
+                          <i class="fa fa-bars"></i>
+                        </a>
+                    </span>
+                  
+                  <span id="toc-menu"><i class="fa fa-list-alt"></i></span>
+                  
+                  <span class="links">
+                    
+          
+          
+            
+            
+          
+          
+            
+            
+          
+          
+            <a href='/'>RequestCoin</a> > <a href='/abstract/'>Abstract</a> > Off-chain Consensus
+          
+         
+          
+         
+          
+        
+                  </span>
+                </div>
+                
+                    <div class="progress">
+    <div class="wrapper">
+
+    </div>
+</div>
+
+                
+              </div>
+            </div>
+            
+
+        
+        <div id="body-inner">
+          
+            <h1>Off-chain Consensus</h1>
+          
+
+        
+
+
+<p>A purely on-chain solution to the decentralized oracle problem faces a big hurdle due to gas prices when reaching a consensus. If every miner has to post results to the blockchain, they will spend way more gas than economically viable. Plus, other miners could simply echo what previous miners posted and earn the token reward without actually making the request. <em>It is at least worth mentioning that it would be a lot cheaper (gas) to simply trigger an on-chain event without storing anything, but an off-chain solution allows for a lot more functionality.</em></p>
+
+<p>To solve this problem we&rsquo;ll use an emerging technology called <a href="https://ipfs.io/">IPFS</a>. In particular, we will use their <a href="https://ipfs.io/blog/25-pubsub/">pubsub</a> functionality. As a new reserve of tokens is made available to miners for a request, a pubsub channel will open based on the hash of the request. Miners will signal to the channel as they work through the mining process.</p>
+
+<p>To solve the problem of copycat miners, each miner will first post a hash of what they think the content value should be. Once enough miners come to the same conclusion, this hash will be written to the blockchain and the utility token will be used as stake. Finally, after a consensus of the hash of the content is statistically reached, the content itself can be revealed, hosted in IPFS, and written to the chain. Different variations of data will be written directly to the blockchain depending on the circumstances. Some requests will store raw results on-chain, accessible to other smart contracts directly, while others may only write a hash that references content in IPFS. A third and cheapest option will be only the original signaling request written on-chain with all other consensus taking place purely off-chain.</p>
+
+<p>Eventually, <a href="https://filecoin.io/">Filecoin</a> will incentivize the storage of said content in IPFS so RequstCoin will also act as a bridge between the old and new internet. For example, if an entity wished to move all of their content from the traditional internet into IPFS, they could spend RequestCoin to pay miners to download and store the content in IPFS and then spend <a href="https://filecoin.io/">Filecoin</a> to keep that content hosted and replicated in a peer-to-peer fashion. <em>Another cool application of RequestCoin would be blockchain backed uptime reporting for traditional websites.</em></p>
+
+
+<footer class=" footline" >
+	
+</footer>
+
+
+        
+        </div>
+      </div>
+
+    <div id="navigation">
+        
+        
+
+        
+            
+            
+                
+                    
+                    
+                
+                
+
+                    
+                    
+                        
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                        
+                        
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                        
+                        
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+
+        
+
+
+        
+            <a class="nav nav-prev" href="/abstract/utilitytoken/" title="Utility Token"> <i class="fa fa-chevron-left"></i></a>
+        
+        
+            <a class="nav nav-next" href="/abstract/contractlineage/" title="Contract Lineage" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
+        
+    </div>
+
+    </section>
+
+    <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
+      <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
+    </div>
+    <script src="/js/clipboard.min.js?1508165033"></script>
+    <script src="/js/perfect-scrollbar.min.js?1508165033"></script>
+    <script src="/js/perfect-scrollbar.jquery.min.js?1508165033"></script>
+    <script src="/js/jquery.sticky-kit.min.js?1508165033"></script>
+    <script src="/js/featherlight.min.js?1508165033"></script>
+    <script src="/js/html5shiv-printshiv.min.js?1508165033"></script>
+    <script src="/js/highlight.pack.js?1508165033"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+    <script src="/js/modernizr.custom.71422.js?1508165033"></script>
+    <script src="/js/learn.js?1508165033"></script>
+    <script src="/js/hugo-learn.js?1508165033"></script>
+
+    
+
+    <link href="/mermaid/mermaid.css?1508165033" type="text/css" rel="stylesheet" />
+    <script src="/mermaid/mermaid.js?1508165033"></script>
+    <script>
+        mermaid.initialize({ startOnLoad: true });
+    </script>
+    
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-108134601-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'UA-108134601-1');
+</script>
+
+  </body>
+</html>
+

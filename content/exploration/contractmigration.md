@@ -328,7 +328,7 @@ contract Store is Ownable,Predecessor {
 }
 
 ```
-Notice this new version of **Store** keeps a **lastUpdate** **uint** that is set to the **block.number** as a miner runs an update. This contract also has to be built to be backwards compatible because the first version of **EthVsBch** needs to continue to work with the previous **Store** hardcoded in, but we only want the miner to update one contract do to gas costs and complexity. Let's compile and deploy the next version of **Store**:
+Notice this new version of **Store** keeps a **lastUpdate** **uint** that is set to the **block.number** as a miner runs an update. This contract also has to be built to be backwards compatible because the first version of **EthVsBch** needs to continue to work with the previous **Store** hardcoded in, but we only want the miner to update one contract due to gas costs and complexity. Let's compile and deploy the next version of **Store**:
 
 ```bash
 node compile Store
@@ -357,7 +357,7 @@ node contract getLastUpdate Store
 LastUpdate:0
 ```
 
-So the new contract is empty and the old contract is still chugging along fine. The transition process requires that we get some data in the new contract before setting up the lineage so external developers' contracts don't get empty data, let's mine into the new **Store**:
+So the new contract is empty and the old contract is still chugging along fine. The transition process requires that we get some data in the new contract before setting up the lineage so external developers' contracts don't get empty data. Let's mine into the new **Store**:
 
 ```bash
 node contract minePrice Store null BTC,ETH,XRP,BCH,LTC
@@ -416,7 +416,7 @@ node contract getState EthVsBch
 CURRENT WINNER: Result { '0': 'ETH', '1': '336505000000000' }
 ```
 
-It is getting the latest price from the latest **Store** even with the old **Store** *hardcoded* in, our migration is complete and the miner can continue updating only the latest **Store**.
+It is getting the latest price from the latest **Store** even with the old **Store** *hardcoded* in. Our migration is complete and the miner can continue updating only the latest **Store**.
 
 Now, let's say the developer decides to implement the block number check in their **EthVsBch** contract:
 

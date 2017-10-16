@@ -54,7 +54,7 @@ node contract getOwner Inherit
 OWNER:0xA3EEBd575245E0bd51aa46B87b1fFc6A1689965a
 ```
 
-Awesome, so it looks like stuff is setup correctly, now, let's see if it functions correctly when we try a **setMessage.js** script:
+Awesome, so it looks like stuff is setup correctly. Now, let's see if it functions correctly when we try a **setMessage.js** script:
 
 <!--RQC CODE javascript Inherit/setMessage.js --
 
@@ -70,7 +70,7 @@ node contract getMessage Inherit
 MESSAGE:WHAT'S GUCC'?
 ```
 
-Perfect, so the owner can change the message, let's make sure the other account can't change the message:
+Perfect, so the owner can change the message. Let's make sure the other account can't change the message:
 
 ```bash
 node contract setMessage Inherit null 0 "Something nefarious..."
