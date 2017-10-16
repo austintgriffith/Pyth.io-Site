@@ -225,7 +225,15 @@ if(!bytecode){
                     let etherdiff = etherbalance-endetherbalance
                     console.log("==ETHER COST: "+etherdiff+" $"+(etherdiff*ethPrice))
                     console.log("Saving contract address:",result.contractAddress)
-                    fs.writeFileSync(contractdir+"/"+contractname+".address",result.contractAddress)
+                    let addressPath = contractdir+"/"+contractname+".address"
+                    if(fs.existsSync(addressPath)){
+                      fs.writeFileSync(contractdir+"/"+contractname+".previous.address",fs.readFileSync(addressPath).toString())
+                    }
+                    let headAddressPath = contractdir+"/"+contractname+".head.address"
+                    if(!fs.existsSync(headAddressPath)){
+                      fs.writeFileSync(headAddressPath,result.contractAddress)
+                    }
+                    fs.writeFileSync(addressPath,result.contractAddress)
                     fs.writeFileSync(contractdir+"/"+contractname+".blockNumber",result.blockNumber)
 
                     let endSeconds = new Date().getTime() / 1000;
@@ -264,10 +272,19 @@ let startSeconds = new Date().getTime() / 1000;
 let script = process.argv[2]
 let contractdir = process.argv[3]
 let contractname = process.argv[4]
-if(!contractname || contractname=="null") contractname=contractdir
+if(!contractname || contractname=="null" ) contractname=contractdir
 
 console.log("Reading data...")
-let address = fs.readFileSync(contractdir+"/"+contractname+".address").toString().trim()
+let address
+let nextAddress
+if(contractname=="previous" ){
+  contractname=contractdir
+  console.log("Reading for "+contractdir+"/"+contractname+".previous.address")
+  address = fs.readFileSync(contractdir+"/"+contractname+".previous.address").toString().trim()
+  nextAddress = fs.readFileSync(contractdir+"/"+contractname+".address").toString().trim()
+}else{
+  address = fs.readFileSync(contractdir+"/"+contractname+".address").toString().trim()
+}
 let blockNumber = 0
 try{
    blockNumber = fs.readFileSync(contractdir+"/"+contractname+".blockNumber").toString().trim()
@@ -308,8 +325,14 @@ if(!address){
           gas:gas,
           gasPrice:gaspricegwei,
           accounts:accounts,
-          blockNumber:blockNumber
+          blockNumber:blockNumber,
         }
+        //check for previous address to pass along
+        let previousAddressFile = contractdir+"/"+contractname+".previous.address"
+        if(fs.existsSync(previousAddressFile)){
+          params.previousAddress = fs.readFileSync(previousAddressFile).toString()
+        }
+        if(nextAddress) params.nextAddress = nextAddress;
         console.log(params)
         params.web3=web3//pass the web3 object so scripts have the utils
         let scriptPromise = scriptFunction(contract,params,process.argv)
