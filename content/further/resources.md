@@ -13,6 +13,7 @@ date: 2017-09-21T02:30:00-06:00
 
 Reddit: [r/ethereum](https://www.reddit.com/r/ethereum) [r/ethdev](https://www.reddit.com/r/ethdev)
 
+Network stats: [ethstats.net](https://ethstats.net/)
 
 <!--
 
@@ -23,5 +24,4 @@ Reddit: [r/ethereum](https://www.reddit.com/r/ethereum) [r/ethdev](https://www.r
 [district0x](https://blog.district0x.io/)
 
 -->
-
 

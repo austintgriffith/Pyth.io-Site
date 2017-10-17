@@ -6,7 +6,7 @@ date: 2017-09-21T10:00:00-06:00
 
 <!--RQC CODE solidity Auth/Auth.sol -->
 
-Eventually, the **Auth** contract will be extended to allow for more complex governance including voting and signally for specific changes to the system.
+Eventually, the **Auth** contract will be extended to allow for more complex governance including voting and signaling for specific changes to the system.
 
 
 Current address:

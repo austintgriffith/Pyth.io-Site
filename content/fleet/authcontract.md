@@ -8,39 +8,30 @@ date: 2017-09-21T10:00:00-06:00
 pragma solidity ^0.4.0;
 
 /*
->=250 withdraw ether sent on accident to contracts
->=240 give permissions to other addresses (Auth admin)
->=200 setContractAddress (Main admin)
->=32 to add a request 
+  >= 240 give permissions to other addresses (Auth admin)
+  >= 200 setContractAddress (Main admin)
 */
 
-contract Auth {
-    address public owner;
+import 'zeppelin-solidity/contracts/ownership/Ownable.sol';
+import 'zeppelin-solidity/contracts/ownership/HasNoEther.sol';
+import 'zeppelin-solidity/contracts/ownership/HasNoTokens.sol';
+import 'zeppelin-solidity/contracts/ownership/HasNoContracts.sol';
+
+contract Auth is Ownable, HasNoEther, HasNoTokens, HasNoContracts  {
+
     mapping ( address => uint8 ) public permission;
 
     function Auth() {
-        owner=msg.sender;
         permission[owner] = 255;
     }
 
     event SetPermission( address _sender, address _address , uint8 _permission );
 
-    function setPermission( address _address , uint8 _permission) returns (bool) {
-        if( msg.sender==owner || (permission[msg.sender]>=240 && _address!=owner) ){
-            permission[_address] = _permission;
-            SetPermission(msg.sender,_address,_permission);
-            return true;
-        }else{
-            return false;
-        }
-    }
-
-    function getPermission( address _address) constant returns (uint8) {
-        return permission[_address];
-    }
-
-    function isOwner( address _address) constant returns (bool) {
-        return (owner==_address);
+    function setPermission( address _address , uint8 _permission) {
+        require( permission[msg.sender] >= 240 );
+        assert( _address != owner);
+        permission[_address] = _permission;
+        SetPermission(msg.sender,_address,_permission);
     }
 
 }
@@ -55,5 +46,5 @@ Current address:
 ```
 Current ABI:
 ```
-[{"constant":true,"inputs":[{"name":"_address","type":"address"}],"name":"isOwner","outputs":[{"name":"","type":"bool"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":false,"inputs":[],"name":"withdraw","outputs":[{"name":"","type":"bool"}],"payable":false,"stateMutability":"nonpayable","type":"function"},{"constant":true,"inputs":[{"name":"","type":"address"}],"name":"permission","outputs":[{"name":"","type":"uint8"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":true,"inputs":[{"name":"_address","type":"address"}],"name":"getPermission","outputs":[{"name":"","type":"uint8"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":true,"inputs":[],"name":"owner","outputs":[{"name":"","type":"address"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":false,"inputs":[{"name":"_address","type":"address"},{"name":"_permission","type":"uint8"}],"name":"setPermission","outputs":[{"name":"","type":"bool"}],"payable":false,"stateMutability":"nonpayable","type":"function"},{"inputs":[],"payable":false,"stateMutability":"nonpayable","type":"constructor"},{"anonymous":false,"inputs":[{"indexed":false,"name":"_sender","type":"address"},{"indexed":false,"name":"_address","type":"address"},{"indexed":false,"name":"_permission","type":"uint8"}],"name":"SetPermission","type":"event"}]
+[{"constant":true,"inputs":[{"name":"","type":"address"}],"name":"permission","outputs":[{"name":"","type":"uint8"}],"payable":false,"type":"function"},{"constant":true,"inputs":[],"name":"owner","outputs":[{"name":"","type":"address"}],"payable":false,"type":"function"},{"constant":false,"inputs":[{"name":"_address","type":"address"},{"name":"_permission","type":"uint8"}],"name":"setPermission","outputs":[],"payable":false,"type":"function"},{"constant":false,"inputs":[{"name":"newOwner","type":"address"}],"name":"transferOwnership","outputs":[],"payable":false,"type":"function"},{"inputs":[],"payable":false,"type":"constructor"},{"anonymous":false,"inputs":[{"indexed":false,"name":"_sender","type":"address"},{"indexed":false,"name":"_address","type":"address"},{"indexed":false,"name":"_permission","type":"uint8"}],"name":"SetPermission","type":"event"},{"anonymous":false,"inputs":[{"indexed":true,"name":"previousOwner","type":"address"},{"indexed":true,"name":"newOwner","type":"address"}],"name":"OwnershipTransferred","type":"event"}]
 ```

@@ -19,6 +19,8 @@ Recently, [Roman Brodetski](https://github.com/RomanBrodetski) published a good 
 
 Sadly, the [request.network](https://request.network) group decided to have a token sale and named their token the [Request Token](https://request.network/#/token-sale) which is probably too similar to RequestCoin and this project may have to go through a rebranding process. Congrats to them for raising 100,000 ether though!
 
+The [Truthcoin Whitepaper](http://www.truthcoin.info/papers/truthcoin-whitepaper.pdf) seems relevant here too. 
+
 Many smaller projects are emerging that are also helping to enrich the space. For example, [tinyoracle](https://github.com/axic/tinyoracle) is a great little example project for building a baseline oracle.
 
 All projects in this space will work to enrich the value and accuracy by providing more and more disparate sources for off-chain content. In the end, the best way to build an on-chain consensus will probably to use a combination of all networks.
