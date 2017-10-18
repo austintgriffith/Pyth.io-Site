@@ -15,6 +15,8 @@ Reddit: [r/ethereum](https://www.reddit.com/r/ethereum) [r/ethdev](https://www.r
 
 Network stats: [ethstats.net](https://ethstats.net/)
 
+List of DApps: [stateofthedapps](https://www.stateofthedapps.com/)
+
 <!--
 
 [aragon](https://aragon.one)

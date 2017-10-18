@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Contact on RequestCoin</title>
-    <link>http://requestco.in/contact/</link>
-    <description>Recent content in Contact on RequestCoin</description>
+    <title>Contact on Pyth.io</title>
+    <link>http://pyth.io/contact/</link>
+    <description>Recent content in Contact on Pyth.io</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Wed, 16 Aug 2017 19:00:00 -0600</lastBuildDate>
     
-	<atom:link href="http://requestco.in/contact/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="http://pyth.io/contact/index.xml" rel="self" type="application/rss+xml" />
     
     
   </channel>

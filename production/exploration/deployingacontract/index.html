@@ -13,19 +13,19 @@
     <title>Deploying A Contract :: Decentralized Blockchain Oracle</title>
 
     
-    <link href="/css/nucleus.css?1508165033" rel="stylesheet">
-    <link href="/css/font-awesome.min.css?1508165033" rel="stylesheet">
-    <link href="/css/hybrid.css?1508165033" rel="stylesheet">
-    <link href="/css/featherlight.min.css?1508165033" rel="stylesheet">
-    <link href="/css/perfect-scrollbar.min.css?1508165033" rel="stylesheet">
-    <link href="/css/auto-complete.css?1508165033" rel="stylesheet">
-    <link href="/css/theme.css?1508165033" rel="stylesheet">
-    <link href="/css/hugo-theme.css?1508165033" rel="stylesheet">
+    <link href="/css/nucleus.css?1508285413" rel="stylesheet">
+    <link href="/css/font-awesome.min.css?1508285413" rel="stylesheet">
+    <link href="/css/hybrid.css?1508285413" rel="stylesheet">
+    <link href="/css/featherlight.min.css?1508285413" rel="stylesheet">
+    <link href="/css/perfect-scrollbar.min.css?1508285413" rel="stylesheet">
+    <link href="/css/auto-complete.css?1508285413" rel="stylesheet">
+    <link href="/css/theme.css?1508285413" rel="stylesheet">
+    <link href="/css/hugo-theme.css?1508285413" rel="stylesheet">
     
-      <link href="/css/theme-blue.css?1508165033" rel="stylesheet">
+      <link href="/css/theme-blue.css?1508285413" rel="stylesheet">
     
 
-    <script src="/js/jquery-2.x.min.js?1508165033"></script>
+    <script src="/js/jquery-2.x.min.js?1508285413"></script>
 
     <style type="text/css">
       :root #header + #content > #left > #rlblock_left{
@@ -687,7 +687,7 @@
             
           
           
-            <a href='/'>RequestCoin</a> > <a href='/exploration/'>Exploration</a> > Deploying A Contract
+            <a href='/'>Pyth.io</a> > <a href='/exploration/'>Exploration</a> > Deploying A Contract
           
          
           
@@ -874,9 +874,9 @@ module.exports = (contract,params,args)=&gt;{
 
 <p>According to Etherscan, to add 1 to that uint it costs about $0.17. That might seem kind of expensive, but what&rsquo;s actually going on there?</p>
 
-<p>Well, we broadcast to the network that we want to make a transaction, some lucky miner is able to find the correct nonce through brute force cpu power, mines the block containing our transaction and others, broadcasts that to the rest of the network, and then <em>every</em> miner in the world runs our transaction against their version of our contract and get the same result. We could then ask <em>any</em> of them what our <strong>count</strong> is and it would be the same. Even as banks, businesses, and governments rise and fall, our <strong>count</strong> stays exactly where it&rsquo;s instructed to stay. That&rsquo;s pretty freakin&rsquo; awesome.</p>
+<p>Well, we broadcast to the network that we want to make a transaction, some lucky miner is able to find the correct nonce through brute force cpu power, mines the block containing our transaction and others, broadcasts that to the rest of the network, and then <em>every</em> miner in the world runs our transaction against their version of our contract and gets the same result. We could then ask <em>any</em> of them what our <strong>count</strong> is and it would be the same. Even as banks, businesses, and governments rise and fall, our <strong>count</strong> stays exactly where it&rsquo;s instructed to stay. That&rsquo;s pretty freakin&rsquo; awesome.</p>
 
-<p>Let&rsquo;s play around with gas cost a little more because contract interaction cost plays a huge role in how RequestCoin will work.</p>
+<p>Let&rsquo;s play around with gas cost a little more because contract interaction cost plays a huge role in how Pyth.io will work.</p>
 
 <p>Let&rsquo;s lower what we are willing to pay by <sup>1</sup>&frasl;<sub>10</sub>:</p>
 
@@ -895,11 +895,11 @@ module.exports = (contract,params,args)=&gt;{
 
 <p>View transaction on <a href="https://ropsten.etherscan.io/tx/0x2af7ef9e4c20b10e8fa0b5252bb9c2ab1df01b81058c3e99e87562bae47fa97d" target="_blank">etherscan.io</a>.</p>
 
-<p>Last time it took about 25 seconds to go through, but this time it took 55 seconds but the cost was $0.017 or so. This is because the miners are not only incentivized by block mining rewards but also the gas used to run the transactions. It&rsquo;s up to them to determine which transactions are worth mining. We can trade cost for speed depending on our needs.</p>
+<p>Last time it took about 25 seconds to go through. This time it took 55 seconds but the cost was $0.017 or so. This is because the miners are not only incentivized by block mining rewards but also the gas used to run the transactions. It&rsquo;s up to them to determine which transactions are worth mining. We can trade cost for speed depending on our needs.</p>
 
 <p>(<em>Another neat tool provided by etherscan.io is the <a href="https://ropsten.etherscan.io/vmtrace?txhash=0x2af7ef9e4c20b10e8fa0b5252bb9c2ab1df01b81058c3e99e87562bae47fa97d" target="_blank">vmtrace</a>. You can see each step of the transaction including OPCODE and cost. Check out how much SSTORE is compared to everything else.</em>)</p>
 
-<p>One last thing to touch on is security and bugs. This contract is public, anyone can run the add function and anyone can see the current count. That&rsquo;s fine for now, but what if there was 100 million USD at stake&hellip; yikes! This makes the job of contract developers <em>extremely</em> difficult because everything you do is at the mercy of every bad actor for the rest of time. Every contract interaction is deterministic; we <em>can</em> determine for sure what will happen given a state and an action, but just like a move in chess, predicting every single possible outcome on a chess board is also relatively difficult.</p>
+<p>We should touch on security and bugs. This contract is public, so anyone can run the add function and anyone can see the current count. That&rsquo;s fine for now, but what if there were 100 million USD at stake&hellip; yikes! This makes the job of contract developers <em>extremely</em> difficult because everything you do is at the mercy of every bad actor for the rest of time. Every contract interaction is deterministic; we <em>can</em> determine for sure what will happen given a state and an action, but just like a move in chess, predicting every single possible outcome on a chess board is also relatively difficult.</p>
 
 <p>So what happens if we run <strong>add()</strong> one more time? Assuming no one else has already hit our contract, the count will go up just like before and we should see <strong>256</strong> right? Let&rsquo;s try it:</p>
 
@@ -1407,22 +1407,22 @@ module.exports = (contract,params,args)=&gt;{
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="/js/clipboard.min.js?1508165033"></script>
-    <script src="/js/perfect-scrollbar.min.js?1508165033"></script>
-    <script src="/js/perfect-scrollbar.jquery.min.js?1508165033"></script>
-    <script src="/js/jquery.sticky-kit.min.js?1508165033"></script>
-    <script src="/js/featherlight.min.js?1508165033"></script>
-    <script src="/js/html5shiv-printshiv.min.js?1508165033"></script>
-    <script src="/js/highlight.pack.js?1508165033"></script>
+    <script src="/js/clipboard.min.js?1508285413"></script>
+    <script src="/js/perfect-scrollbar.min.js?1508285413"></script>
+    <script src="/js/perfect-scrollbar.jquery.min.js?1508285413"></script>
+    <script src="/js/jquery.sticky-kit.min.js?1508285413"></script>
+    <script src="/js/featherlight.min.js?1508285413"></script>
+    <script src="/js/html5shiv-printshiv.min.js?1508285413"></script>
+    <script src="/js/highlight.pack.js?1508285413"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="/js/modernizr.custom.71422.js?1508165033"></script>
-    <script src="/js/learn.js?1508165033"></script>
-    <script src="/js/hugo-learn.js?1508165033"></script>
+    <script src="/js/modernizr.custom.71422.js?1508285413"></script>
+    <script src="/js/learn.js?1508285413"></script>
+    <script src="/js/hugo-learn.js?1508285413"></script>
 
     
 
-    <link href="/mermaid/mermaid.css?1508165033" type="text/css" rel="stylesheet" />
-    <script src="/mermaid/mermaid.js?1508165033"></script>
+    <link href="/mermaid/mermaid.css?1508285413" type="text/css" rel="stylesheet" />
+    <script src="/mermaid/mermaid.js?1508285413"></script>
     <script>
         mermaid.initialize({ startOnLoad: true });
     </script>

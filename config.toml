@@ -1,6 +1,6 @@
-baseURL = "http://requestco.in"
+baseURL = "http://pyth.io"
 languageCode = "en-us"
-title = "RequestCoin"
+title = "Pyth.io"
 theme = "hugo-theme-learn"
 [params]
   subtitle = "Decentralized Blockchain Oracle"

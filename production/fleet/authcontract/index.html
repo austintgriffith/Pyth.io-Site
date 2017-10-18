@@ -13,19 +13,19 @@
     <title>Auth Contract :: Decentralized Blockchain Oracle</title>
 
     
-    <link href="/css/nucleus.css?1508165033" rel="stylesheet">
-    <link href="/css/font-awesome.min.css?1508165033" rel="stylesheet">
-    <link href="/css/hybrid.css?1508165033" rel="stylesheet">
-    <link href="/css/featherlight.min.css?1508165033" rel="stylesheet">
-    <link href="/css/perfect-scrollbar.min.css?1508165033" rel="stylesheet">
-    <link href="/css/auto-complete.css?1508165033" rel="stylesheet">
-    <link href="/css/theme.css?1508165033" rel="stylesheet">
-    <link href="/css/hugo-theme.css?1508165033" rel="stylesheet">
+    <link href="/css/nucleus.css?1508285413" rel="stylesheet">
+    <link href="/css/font-awesome.min.css?1508285413" rel="stylesheet">
+    <link href="/css/hybrid.css?1508285413" rel="stylesheet">
+    <link href="/css/featherlight.min.css?1508285413" rel="stylesheet">
+    <link href="/css/perfect-scrollbar.min.css?1508285413" rel="stylesheet">
+    <link href="/css/auto-complete.css?1508285413" rel="stylesheet">
+    <link href="/css/theme.css?1508285413" rel="stylesheet">
+    <link href="/css/hugo-theme.css?1508285413" rel="stylesheet">
     
-      <link href="/css/theme-blue.css?1508165033" rel="stylesheet">
+      <link href="/css/theme-blue.css?1508285413" rel="stylesheet">
     
 
-    <script src="/js/jquery-2.x.min.js?1508165033"></script>
+    <script src="/js/jquery-2.x.min.js?1508285413"></script>
 
     <style type="text/css">
       :root #header + #content > #left > #rlblock_left{
@@ -687,7 +687,7 @@
             
           
           
-            <a href='/'>RequestCoin</a> > <a href='/fleet/'>Fleet</a> > Auth Contract
+            <a href='/'>Pyth.io</a> > <a href='/fleet/'>Fleet</a> > Auth Contract
           
          
           
@@ -721,56 +721,41 @@
 
 <pre><code>pragma solidity ^0.4.0;
 
-/*
-&gt;=250 withdraw ether sent on accident to contracts
-&gt;=240 give permissions to other addresses (Auth admin)
-&gt;=200 setContractAddress (Main admin)
-&gt;=32 to add a request 
-*/
+import 'zeppelin-solidity/contracts/ownership/Ownable.sol';
+import 'zeppelin-solidity/contracts/ownership/HasNoEther.sol';
 
-contract Auth {
-    address public owner;
-    mapping ( address =&gt; uint8 ) public permission;
+contract Auth is Ownable, HasNoEther  {
+
+    event SetPermission( address _sender, address _address, bytes32 _permission, bool _value );
+
+    mapping ( address =&gt; mapping ( bytes32 =&gt; bool ) ) public permission;
 
     function Auth() {
-        owner=msg.sender;
-        permission[owner] = 255;
+        permission[owner]['setPermission'] = true;
+        permission[owner]['setContract'] = true; //Main.sol
     }
 
-    event SetPermission( address _sender, address _address , uint8 _permission );
-
-    function setPermission( address _address , uint8 _permission) returns (bool) {
-        if( msg.sender==owner || (permission[msg.sender]&gt;=240 &amp;&amp; _address!=owner) ){
-            permission[_address] = _permission;
-            SetPermission(msg.sender,_address,_permission);
-            return true;
-        }else{
-            return false;
-        }
-    }
-
-    function getPermission( address _address) constant returns (uint8) {
-        return permission[_address];
-    }
-
-    function isOwner( address _address) constant returns (bool) {
-        return (owner==_address);
+    function setPermission( address _address , bytes32 _permission, bool _value) {
+        require( permission[msg.sender]['setPermission'] );
+        require( _address!=owner || _permission!='setPermission');
+        permission[_address][_permission] = _value;
+        SetPermission(msg.sender,_address,_permission,_value);
     }
 
 }
 
 </code></pre>
 
-<p>Eventually, the <strong>Auth</strong> contract will be extended to allow for more complex governance including voting and signally for specific changes to the system.</p>
+<p>Eventually, the <strong>Auth</strong> contract will be extended to allow for more complex governance including voting and signaling for specific changes to the system.</p>
 
 <p>Current address:</p>
 
-<pre><code>0xAcb7113DE131c119dDD0b78A261081616239a241
+<pre><code>0x8F636787719939Da1173C821282753f587b5Ed28
 </code></pre>
 
 <p>Current ABI:</p>
 
-<pre><code>[{&quot;constant&quot;:true,&quot;inputs&quot;:[{&quot;name&quot;:&quot;_address&quot;,&quot;type&quot;:&quot;address&quot;}],&quot;name&quot;:&quot;isOwner&quot;,&quot;outputs&quot;:[{&quot;name&quot;:&quot;&quot;,&quot;type&quot;:&quot;bool&quot;}],&quot;payable&quot;:false,&quot;stateMutability&quot;:&quot;view&quot;,&quot;type&quot;:&quot;function&quot;},{&quot;constant&quot;:false,&quot;inputs&quot;:[],&quot;name&quot;:&quot;withdraw&quot;,&quot;outputs&quot;:[{&quot;name&quot;:&quot;&quot;,&quot;type&quot;:&quot;bool&quot;}],&quot;payable&quot;:false,&quot;stateMutability&quot;:&quot;nonpayable&quot;,&quot;type&quot;:&quot;function&quot;},{&quot;constant&quot;:true,&quot;inputs&quot;:[{&quot;name&quot;:&quot;&quot;,&quot;type&quot;:&quot;address&quot;}],&quot;name&quot;:&quot;permission&quot;,&quot;outputs&quot;:[{&quot;name&quot;:&quot;&quot;,&quot;type&quot;:&quot;uint8&quot;}],&quot;payable&quot;:false,&quot;stateMutability&quot;:&quot;view&quot;,&quot;type&quot;:&quot;function&quot;},{&quot;constant&quot;:true,&quot;inputs&quot;:[{&quot;name&quot;:&quot;_address&quot;,&quot;type&quot;:&quot;address&quot;}],&quot;name&quot;:&quot;getPermission&quot;,&quot;outputs&quot;:[{&quot;name&quot;:&quot;&quot;,&quot;type&quot;:&quot;uint8&quot;}],&quot;payable&quot;:false,&quot;stateMutability&quot;:&quot;view&quot;,&quot;type&quot;:&quot;function&quot;},{&quot;constant&quot;:true,&quot;inputs&quot;:[],&quot;name&quot;:&quot;owner&quot;,&quot;outputs&quot;:[{&quot;name&quot;:&quot;&quot;,&quot;type&quot;:&quot;address&quot;}],&quot;payable&quot;:false,&quot;stateMutability&quot;:&quot;view&quot;,&quot;type&quot;:&quot;function&quot;},{&quot;constant&quot;:false,&quot;inputs&quot;:[{&quot;name&quot;:&quot;_address&quot;,&quot;type&quot;:&quot;address&quot;},{&quot;name&quot;:&quot;_permission&quot;,&quot;type&quot;:&quot;uint8&quot;}],&quot;name&quot;:&quot;setPermission&quot;,&quot;outputs&quot;:[{&quot;name&quot;:&quot;&quot;,&quot;type&quot;:&quot;bool&quot;}],&quot;payable&quot;:false,&quot;stateMutability&quot;:&quot;nonpayable&quot;,&quot;type&quot;:&quot;function&quot;},{&quot;inputs&quot;:[],&quot;payable&quot;:false,&quot;stateMutability&quot;:&quot;nonpayable&quot;,&quot;type&quot;:&quot;constructor&quot;},{&quot;anonymous&quot;:false,&quot;inputs&quot;:[{&quot;indexed&quot;:false,&quot;name&quot;:&quot;_sender&quot;,&quot;type&quot;:&quot;address&quot;},{&quot;indexed&quot;:false,&quot;name&quot;:&quot;_address&quot;,&quot;type&quot;:&quot;address&quot;},{&quot;indexed&quot;:false,&quot;name&quot;:&quot;_permission&quot;,&quot;type&quot;:&quot;uint8&quot;}],&quot;name&quot;:&quot;SetPermission&quot;,&quot;type&quot;:&quot;event&quot;}]
+<pre><code>[{&quot;constant&quot;:true,&quot;inputs&quot;:[{&quot;name&quot;:&quot;&quot;,&quot;type&quot;:&quot;address&quot;},{&quot;name&quot;:&quot;&quot;,&quot;type&quot;:&quot;bytes32&quot;}],&quot;name&quot;:&quot;permission&quot;,&quot;outputs&quot;:[{&quot;name&quot;:&quot;&quot;,&quot;type&quot;:&quot;bool&quot;}],&quot;payable&quot;:false,&quot;type&quot;:&quot;function&quot;},{&quot;constant&quot;:false,&quot;inputs&quot;:[{&quot;name&quot;:&quot;_address&quot;,&quot;type&quot;:&quot;address&quot;},{&quot;name&quot;:&quot;_permission&quot;,&quot;type&quot;:&quot;bytes32&quot;},{&quot;name&quot;:&quot;_value&quot;,&quot;type&quot;:&quot;bool&quot;}],&quot;name&quot;:&quot;setPermission&quot;,&quot;outputs&quot;:[],&quot;payable&quot;:false,&quot;type&quot;:&quot;function&quot;},{&quot;constant&quot;:true,&quot;inputs&quot;:[],&quot;name&quot;:&quot;owner&quot;,&quot;outputs&quot;:[{&quot;name&quot;:&quot;&quot;,&quot;type&quot;:&quot;address&quot;}],&quot;payable&quot;:false,&quot;type&quot;:&quot;function&quot;},{&quot;constant&quot;:false,&quot;inputs&quot;:[],&quot;name&quot;:&quot;reclaimEther&quot;,&quot;outputs&quot;:[],&quot;payable&quot;:false,&quot;type&quot;:&quot;function&quot;},{&quot;constant&quot;:false,&quot;inputs&quot;:[{&quot;name&quot;:&quot;newOwner&quot;,&quot;type&quot;:&quot;address&quot;}],&quot;name&quot;:&quot;transferOwnership&quot;,&quot;outputs&quot;:[],&quot;payable&quot;:false,&quot;type&quot;:&quot;function&quot;},{&quot;inputs&quot;:[],&quot;payable&quot;:false,&quot;type&quot;:&quot;constructor&quot;},{&quot;payable&quot;:false,&quot;type&quot;:&quot;fallback&quot;},{&quot;anonymous&quot;:false,&quot;inputs&quot;:[{&quot;indexed&quot;:false,&quot;name&quot;:&quot;_sender&quot;,&quot;type&quot;:&quot;address&quot;},{&quot;indexed&quot;:false,&quot;name&quot;:&quot;_address&quot;,&quot;type&quot;:&quot;address&quot;},{&quot;indexed&quot;:false,&quot;name&quot;:&quot;_permission&quot;,&quot;type&quot;:&quot;bytes32&quot;},{&quot;indexed&quot;:false,&quot;name&quot;:&quot;_value&quot;,&quot;type&quot;:&quot;bool&quot;}],&quot;name&quot;:&quot;SetPermission&quot;,&quot;type&quot;:&quot;event&quot;},{&quot;anonymous&quot;:false,&quot;inputs&quot;:[{&quot;indexed&quot;:true,&quot;name&quot;:&quot;previousOwner&quot;,&quot;type&quot;:&quot;address&quot;},{&quot;indexed&quot;:true,&quot;name&quot;:&quot;newOwner&quot;,&quot;type&quot;:&quot;address&quot;}],&quot;name&quot;:&quot;OwnershipTransferred&quot;,&quot;type&quot;:&quot;event&quot;}]
 </code></pre>
 
 
@@ -1262,22 +1247,22 @@ contract Auth {
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="/js/clipboard.min.js?1508165033"></script>
-    <script src="/js/perfect-scrollbar.min.js?1508165033"></script>
-    <script src="/js/perfect-scrollbar.jquery.min.js?1508165033"></script>
-    <script src="/js/jquery.sticky-kit.min.js?1508165033"></script>
-    <script src="/js/featherlight.min.js?1508165033"></script>
-    <script src="/js/html5shiv-printshiv.min.js?1508165033"></script>
-    <script src="/js/highlight.pack.js?1508165033"></script>
+    <script src="/js/clipboard.min.js?1508285413"></script>
+    <script src="/js/perfect-scrollbar.min.js?1508285413"></script>
+    <script src="/js/perfect-scrollbar.jquery.min.js?1508285413"></script>
+    <script src="/js/jquery.sticky-kit.min.js?1508285413"></script>
+    <script src="/js/featherlight.min.js?1508285413"></script>
+    <script src="/js/html5shiv-printshiv.min.js?1508285413"></script>
+    <script src="/js/highlight.pack.js?1508285413"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="/js/modernizr.custom.71422.js?1508165033"></script>
-    <script src="/js/learn.js?1508165033"></script>
-    <script src="/js/hugo-learn.js?1508165033"></script>
+    <script src="/js/modernizr.custom.71422.js?1508285413"></script>
+    <script src="/js/learn.js?1508285413"></script>
+    <script src="/js/hugo-learn.js?1508285413"></script>
 
     
 
-    <link href="/mermaid/mermaid.css?1508165033" type="text/css" rel="stylesheet" />
-    <script src="/mermaid/mermaid.js?1508165033"></script>
+    <link href="/mermaid/mermaid.css?1508285413" type="text/css" rel="stylesheet" />
+    <script src="/mermaid/mermaid.js?1508285413"></script>
     <script>
         mermaid.initialize({ startOnLoad: true });
     </script>

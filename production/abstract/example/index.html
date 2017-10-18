@@ -13,19 +13,19 @@
     <title>Example :: Decentralized Blockchain Oracle</title>
 
     
-    <link href="/css/nucleus.css?1508165033" rel="stylesheet">
-    <link href="/css/font-awesome.min.css?1508165033" rel="stylesheet">
-    <link href="/css/hybrid.css?1508165033" rel="stylesheet">
-    <link href="/css/featherlight.min.css?1508165033" rel="stylesheet">
-    <link href="/css/perfect-scrollbar.min.css?1508165033" rel="stylesheet">
-    <link href="/css/auto-complete.css?1508165033" rel="stylesheet">
-    <link href="/css/theme.css?1508165033" rel="stylesheet">
-    <link href="/css/hugo-theme.css?1508165033" rel="stylesheet">
+    <link href="/css/nucleus.css?1508285413" rel="stylesheet">
+    <link href="/css/font-awesome.min.css?1508285413" rel="stylesheet">
+    <link href="/css/hybrid.css?1508285413" rel="stylesheet">
+    <link href="/css/featherlight.min.css?1508285413" rel="stylesheet">
+    <link href="/css/perfect-scrollbar.min.css?1508285413" rel="stylesheet">
+    <link href="/css/auto-complete.css?1508285413" rel="stylesheet">
+    <link href="/css/theme.css?1508285413" rel="stylesheet">
+    <link href="/css/hugo-theme.css?1508285413" rel="stylesheet">
     
-      <link href="/css/theme-blue.css?1508165033" rel="stylesheet">
+      <link href="/css/theme-blue.css?1508285413" rel="stylesheet">
     
 
-    <script src="/js/jquery-2.x.min.js?1508165033"></script>
+    <script src="/js/jquery-2.x.min.js?1508285413"></script>
 
     <style type="text/css">
       :root #header + #content > #left > #rlblock_left{
@@ -687,7 +687,7 @@
             
           
           
-            <a href='/'>RequestCoin</a> > <a href='/abstract/'>Abstract</a> > Example
+            <a href='/'>Pyth.io</a> > <a href='/abstract/'>Abstract</a> > Example
           
          
           
@@ -717,7 +717,7 @@
         
 
 
-<p>In the not-to-distant future, farmers all around the world could pay Ether into a smart contract that would provide agricultural insurance against hail or drought. Then, throughout the year, as &ldquo;request miners&rdquo; detect these specific weather conditions using multiple APIs and other internet sources, the contract would deterministically pay Ether back to the farmers in need. This incredibly efficient system completely sidesteps an entire field of insurance agents and adjusters, immediately helping the farmers in need without any unnecessary overhead.</p>
+<p>In the not-too-distant future, farmers all around the world could pay Ether into a smart contract that would provide agricultural insurance against hail or drought. Then, throughout the year, as &ldquo;request miners&rdquo; detect these specific weather conditions using multiple APIs and other internet sources, the contract would deterministically pay Ether back to the farmers in need. This incredibly efficient system completely sidesteps an entire field of insurance agents and adjusters, immediately helping the farmers in need without any unnecessary overhead.</p>
 
 <p>Let&rsquo;s dive into an oversimplified (and insecure) example contract just to understand the mechanics of how such a system would work.</p>
 
@@ -734,7 +734,7 @@ event AddRequest(address _sender,bytes32 _id, string _url);
 
 <p>With the <strong>addRequest</strong> function we can store a request and trigger an event called <strong>AddRequest</strong> on the blockchain.</p>
 
-<p>Miners, incentivized by a reserved token, then make requests to a number of internet endpoints, collecting relevant data, and sending it back to the contract.</p>
+<p>Miners, incentivized by a reserved token, then make requests to a number of internet endpoints, collect relevant data, and send it back to the contract.</p>
 
 <pre><code class="language-javascript">contract.getPastEvents('AddRequest', {
     fromBlock: params.blockNumber,
@@ -763,7 +763,7 @@ function addResponse(bytes32 _id,string _result) returns (bool){
 event AddResponse(address _sender,bytes32 _id,string _result);
 </code></pre>
 
-<p>This simplified example is the heart of a decentralized oracle network and in the following posts, we will build a more robust system around this idea.</p>
+<p>This simplified example is the heart of a decentralized oracle network. We will build a more robust system around this idea in the following posts.</p>
 
 
 <footer class=" footline" >
@@ -1251,22 +1251,22 @@ event AddResponse(address _sender,bytes32 _id,string _result);
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="/js/clipboard.min.js?1508165033"></script>
-    <script src="/js/perfect-scrollbar.min.js?1508165033"></script>
-    <script src="/js/perfect-scrollbar.jquery.min.js?1508165033"></script>
-    <script src="/js/jquery.sticky-kit.min.js?1508165033"></script>
-    <script src="/js/featherlight.min.js?1508165033"></script>
-    <script src="/js/html5shiv-printshiv.min.js?1508165033"></script>
-    <script src="/js/highlight.pack.js?1508165033"></script>
+    <script src="/js/clipboard.min.js?1508285413"></script>
+    <script src="/js/perfect-scrollbar.min.js?1508285413"></script>
+    <script src="/js/perfect-scrollbar.jquery.min.js?1508285413"></script>
+    <script src="/js/jquery.sticky-kit.min.js?1508285413"></script>
+    <script src="/js/featherlight.min.js?1508285413"></script>
+    <script src="/js/html5shiv-printshiv.min.js?1508285413"></script>
+    <script src="/js/highlight.pack.js?1508285413"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="/js/modernizr.custom.71422.js?1508165033"></script>
-    <script src="/js/learn.js?1508165033"></script>
-    <script src="/js/hugo-learn.js?1508165033"></script>
+    <script src="/js/modernizr.custom.71422.js?1508285413"></script>
+    <script src="/js/learn.js?1508285413"></script>
+    <script src="/js/hugo-learn.js?1508285413"></script>
 
     
 
-    <link href="/mermaid/mermaid.css?1508165033" type="text/css" rel="stylesheet" />
-    <script src="/mermaid/mermaid.js?1508165033"></script>
+    <link href="/mermaid/mermaid.css?1508285413" type="text/css" rel="stylesheet" />
+    <script src="/mermaid/mermaid.js?1508285413"></script>
     <script>
         mermaid.initialize({ startOnLoad: true });
     </script>

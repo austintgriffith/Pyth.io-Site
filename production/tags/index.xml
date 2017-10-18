@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Tags on RequestCoin</title>
-    <link>http://requestco.in/tags/</link>
-    <description>Recent content in Tags on RequestCoin</description>
+    <title>Tags on Pyth.io</title>
+    <link>http://pyth.io/tags/</link>
+    <description>Recent content in Tags on Pyth.io</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     
-	<atom:link href="http://requestco.in/tags/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="http://pyth.io/tags/index.xml" rel="self" type="application/rss+xml" />
     
     
   </channel>

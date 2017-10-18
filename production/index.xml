@@ -1,69 +1,69 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>RequestCoin</title>
-    <link>http://requestco.in/</link>
-    <description>Recent content on RequestCoin</description>
+    <title>Pyth.io</title>
+    <link>http://pyth.io/</link>
+    <description>Recent content on Pyth.io</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Thu, 21 Sep 2017 16:50:01 -0600</lastBuildDate>
     
-	<atom:link href="http://requestco.in/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="http://pyth.io/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Example</title>
-      <link>http://requestco.in/abstract/example/</link>
+      <link>http://pyth.io/abstract/example/</link>
       <pubDate>Thu, 21 Sep 2017 22:00:00 -0600</pubDate>
       
-      <guid>http://requestco.in/abstract/example/</guid>
-      <description>In the not-to-distant future, farmers all around the world could pay Ether into a smart contract that would provide agricultural insurance against hail or drought. Then, throughout the year, as &amp;ldquo;request miners&amp;rdquo; detect these specific weather conditions using multiple APIs and other internet sources, the contract would deterministically pay Ether back to the farmers in need. This incredibly efficient system completely sidesteps an entire field of insurance agents and adjusters, immediately helping the farmers in need without any unnecessary overhead.</description>
+      <guid>http://pyth.io/abstract/example/</guid>
+      <description>In the not-too-distant future, farmers all around the world could pay Ether into a smart contract that would provide agricultural insurance against hail or drought. Then, throughout the year, as &amp;ldquo;request miners&amp;rdquo; detect these specific weather conditions using multiple APIs and other internet sources, the contract would deterministically pay Ether back to the farmers in need. This incredibly efficient system completely sidesteps an entire field of insurance agents and adjusters, immediately helping the farmers in need without any unnecessary overhead.</description>
     </item>
     
     <item>
       <title>Utility Token</title>
-      <link>http://requestco.in/abstract/utilitytoken/</link>
+      <link>http://pyth.io/abstract/utilitytoken/</link>
       <pubDate>Thu, 21 Sep 2017 21:00:00 -0600</pubDate>
       
-      <guid>http://requestco.in/abstract/utilitytoken/</guid>
+      <guid>http://pyth.io/abstract/utilitytoken/</guid>
       <description>The first thing to address in building a decentralized oracle network is the cryptoeconomics of incentivizing miners. To do this we will create a utility token that can be used to purchase the efforts of request miners. Any given channel of data will need a consensus and to drive that consensus, an amount of token will be put up for grabs. As miners reach a consensus on the blockchain they will be rewarded with the token.</description>
     </item>
     
     <item>
       <title>Off-chain Consensus</title>
-      <link>http://requestco.in/abstract/offchainconsensus/</link>
+      <link>http://pyth.io/abstract/offchainconsensus/</link>
       <pubDate>Thu, 21 Sep 2017 20:00:00 -0600</pubDate>
       
-      <guid>http://requestco.in/abstract/offchainconsensus/</guid>
+      <guid>http://pyth.io/abstract/offchainconsensus/</guid>
       <description>A purely on-chain solution to the decentralized oracle problem faces a big hurdle due to gas prices when reaching a consensus. If every miner has to post results to the blockchain, they will spend way more gas than economically viable. Plus, other miners could simply echo what previous miners posted and earn the token reward without actually making the request. It is at least worth mentioning that it would be a lot cheaper (gas) to simply trigger an on-chain event without storing anything, but an off-chain solution allows for a lot more functionality.</description>
     </item>
     
     <item>
       <title>Contract Lineage</title>
-      <link>http://requestco.in/abstract/contractlineage/</link>
+      <link>http://pyth.io/abstract/contractlineage/</link>
       <pubDate>Thu, 21 Sep 2017 19:00:00 -0600</pubDate>
       
-      <guid>http://requestco.in/abstract/contractlineage/</guid>
+      <guid>http://pyth.io/abstract/contractlineage/</guid>
       <description>Writing and deploying a contract on the Ethereum blockchain is relatively easy, but writing and deploying a safe and secure fleet of contracts is extremely difficult. Inevitably, code will need to be upgraded as vulnerabilities are exposed and new functionality is needed.
 The best strategy to provide upgradability to contracts is using many different, interconnected contracts that each have a simple job within a larger system. For example, one contract will be used to store requests and another will manipulate them.</description>
     </item>
     
     <item>
       <title>Governance</title>
-      <link>http://requestco.in/abstract/governance/</link>
+      <link>http://pyth.io/abstract/governance/</link>
       <pubDate>Thu, 21 Sep 2017 18:00:00 -0600</pubDate>
       
-      <guid>http://requestco.in/abstract/governance/</guid>
+      <guid>http://pyth.io/abstract/governance/</guid>
       <description>Initially, contracts will be very malleable, freezable, and quickly replaced. But, as the fleet becomes more stable and more secure, a system of token stake will take power and no single account will be able to control the governance of the network.
 A governance contract (called Auth for now) powered by a voting democracy will replace the dictatorship of a small group of developers as soon as the network is large enough to keep out the trolls.</description>
     </item>
     
     <item>
       <title>Provisioning</title>
-      <link>http://requestco.in/exploration/provisioning/</link>
+      <link>http://pyth.io/exploration/provisioning/</link>
       <pubDate>Thu, 21 Sep 2017 17:00:00 -0600</pubDate>
       
-      <guid>http://requestco.in/exploration/provisioning/</guid>
+      <guid>http://pyth.io/exploration/provisioning/</guid>
       <description>Starting from a default Ubuntu AMI in AWS:
 SSH into the machine and run all the necessary updates:
 sudo apt-get update sudo apt-get dist-upgrade -y sudo apt-get upgrade -y  Install build tools:
@@ -74,10 +74,10 @@ sudo apt-get install software-properties-common sudo add-apt-repository -y ppa:e
     
     <item>
       <title>Ethereum Network Interaction</title>
-      <link>http://requestco.in/exploration/ethereuminteraction/</link>
+      <link>http://pyth.io/exploration/ethereuminteraction/</link>
       <pubDate>Thu, 21 Sep 2017 16:00:00 -0600</pubDate>
       
-      <guid>http://requestco.in/exploration/ethereuminteraction/</guid>
+      <guid>http://pyth.io/exploration/ethereuminteraction/</guid>
       <description>Let&amp;rsquo;s interact with the Ethereum network.
 With Geth running and up-to-date, we can attach to it from another ssh session.
 geth attach http://:8545  Welcome to the Geth JavaScript console! instance: Geth/v1.7.1-stable-05101641/linux-amd64/go1.9 coinbase: 0x0e1e9ce68b3254461a95916c185c37dd65468ab5 at block: 1856113 (Thu, 12 Oct 2017 13:25:06 UTC) modules: eth:1.0 net:1.0 personal:1.0 rpc:1.0 web3:1.0 &amp;gt;  A fresh installation of Geth will have an empty array of accounts.
@@ -86,30 +86,30 @@ eth.accounts  &amp;gt; eth.accounts []  Create a couple Ethereum test accounts:<
     
     <item>
       <title>Crafting Scripts</title>
-      <link>http://requestco.in/exploration/craftingscripts/</link>
+      <link>http://pyth.io/exploration/craftingscripts/</link>
       <pubDate>Thu, 21 Sep 2017 15:00:00 -0600</pubDate>
       
-      <guid>http://requestco.in/exploration/craftingscripts/</guid>
+      <guid>http://pyth.io/exploration/craftingscripts/</guid>
       <description>Instead of interacting with the network directly from the command line, we put together a handful of useful scripts to help abstract some of the functionality. There are also some prebuilt (and most likely better) packages out there like Truffle. For now, we&amp;rsquo;ll stick to our simple scripts and see how far they get us. They will also require a couple dependancies:
 npm install solc web3  Let&amp;rsquo;s set up a few global variables:</description>
     </item>
     
     <item>
       <title>Deploying A Contract</title>
-      <link>http://requestco.in/exploration/deployingacontract/</link>
+      <link>http://pyth.io/exploration/deployingacontract/</link>
       <pubDate>Thu, 21 Sep 2017 14:00:00 -0600</pubDate>
       
-      <guid>http://requestco.in/exploration/deployingacontract/</guid>
+      <guid>http://pyth.io/exploration/deployingacontract/</guid>
       <description>Never before in history has a technology existed where anyone from anywhere can deploy code that will immediately and indefinitely run on hundreds of thousands of nodes simultaneously and deterministically. Further, thanks to cryptography and cryptoeconomics, this technology is ownerless, trustless, and incentivized to continue. Once a contract is deployed, it is effectively autonomous, eternal, and controlled only by the laws of machines.
 Let&amp;rsquo;s make our mark on the blockchain right now with a simple contract:</description>
     </item>
     
     <item>
       <title>Contract To Contract</title>
-      <link>http://requestco.in/exploration/contracttocontract/</link>
+      <link>http://pyth.io/exploration/contracttocontract/</link>
       <pubDate>Thu, 21 Sep 2017 13:30:00 -0600</pubDate>
       
-      <guid>http://requestco.in/exploration/contracttocontract/</guid>
+      <guid>http://pyth.io/exploration/contracttocontract/</guid>
       <description>Contract to contract communication is an essential part of any fleet on the blockchain. As discussed in the contract lineage section, a complex project on Ethereum should be built using a collection of smaller &amp;ldquo;microservices&amp;rdquo; to keep complexity at bay.
 We will also explore a few other features of smart contracts like ownership and events.
 Let&amp;rsquo;s analyze a second contract we&amp;rsquo;ll call Adjuster which will interface with our Simple contract:</description>
@@ -117,10 +117,10 @@ Let&amp;rsquo;s analyze a second contract we&amp;rsquo;ll call Adjuster which wi
     
     <item>
       <title>Contract Inheritance</title>
-      <link>http://requestco.in/exploration/contractinheritance/</link>
+      <link>http://pyth.io/exploration/contractinheritance/</link>
       <pubDate>Thu, 21 Sep 2017 13:00:00 -0600</pubDate>
       
-      <guid>http://requestco.in/exploration/contractinheritance/</guid>
+      <guid>http://pyth.io/exploration/contractinheritance/</guid>
       <description>Very intelligent people before us have found common patterns in Ethereum contracts and published standardized and hardened examples to extend. We will stand on their shoulders using contract inheritance for some parts of our fleet. Let&amp;rsquo;s dig into an example of how this works.
 Instead of coding up our own layer of ownership and possibly introducing insecurities, let&amp;rsquo;s look at inheriting OpenZeppelin&amp;rsquo;s zeppelin-solidity repo.
 We&amp;rsquo;ll create a contract called Inherit that will explore inheriting OpenZeppelin&amp;rsquo;s Ownable contract:</description>
@@ -128,107 +128,109 @@ We&amp;rsquo;ll create a contract called Inherit that will explore inheriting Op
     
     <item>
       <title>Contract Migration</title>
-      <link>http://requestco.in/exploration/contractmigration/</link>
+      <link>http://pyth.io/exploration/contractmigration/</link>
       <pubDate>Thu, 21 Sep 2017 12:00:00 -0600</pubDate>
       
-      <guid>http://requestco.in/exploration/contractmigration/</guid>
+      <guid>http://pyth.io/exploration/contractmigration/</guid>
       <description>As bugs are discovered or new functionality needs to be added to contracts, we will need a method of migrating from a predecessor to a descendant. As mentioned in the Contract Lineage section, we will try to keep contracts simple and we will create a linked-list of lineage so other contracts and scripts both on and off the blockchain can follow a chain of addresses to the latest version. For contracts with large data stores, we may need to pause the contracts and slowly migrate the data, but for this example we will just add some new functionality.</description>
     </item>
     
     <item>
       <title>Auth Contract</title>
-      <link>http://requestco.in/fleet/authcontract/</link>
+      <link>http://pyth.io/fleet/authcontract/</link>
       <pubDate>Thu, 21 Sep 2017 10:00:00 -0600</pubDate>
       
-      <guid>http://requestco.in/fleet/authcontract/</guid>
+      <guid>http://pyth.io/fleet/authcontract/</guid>
       <description>Auth keeps a permission (uint8) for any account (address). Other contracts can use this contract to determine the level of permission any account has by calling getPermission(address). Any account with enough permission (uint8) can also call setPermission(address,permission).
-pragma solidity ^0.4.0; /* &amp;gt;=250 withdraw ether sent on accident to contracts &amp;gt;=240 give permissions to other addresses (Auth admin) &amp;gt;=200 setContractAddress (Main admin) &amp;gt;=32 to add a request */ contract Auth { address public owner; mapping ( address =&amp;gt; uint8 ) public permission; function Auth() { owner=msg.</description>
+pragma solidity ^0.4.0; import &#39;zeppelin-solidity/contracts/ownership/Ownable.sol&#39;; import &#39;zeppelin-solidity/contracts/ownership/HasNoEther.sol&#39;; contract Auth is Ownable, HasNoEther { event SetPermission( address _sender, address _address, bytes32 _permission, bool _value ); mapping ( address =&amp;gt; mapping ( bytes32 =&amp;gt; bool ) ) public permission; function Auth() { permission[owner][&#39;setPermission&#39;] = true; permission[owner][&#39;setContract&#39;] = true; //Main.</description>
     </item>
     
     <item>
       <title>Main Contract</title>
-      <link>http://requestco.in/fleet/maincontract/</link>
+      <link>http://pyth.io/fleet/maincontract/</link>
       <pubDate>Thu, 21 Sep 2017 09:00:00 -0600</pubDate>
       
-      <guid>http://requestco.in/fleet/maincontract/</guid>
+      <guid>http://pyth.io/fleet/maincontract/</guid>
       <description>The Main contract keeps a contract (address) for any id (uint32). This allows for old contracts to be replaced with better versions while keeping the main contract address the same.
-pragma solidity ^0.4.0; import &amp;quot;Auth.sol&amp;quot;; contract Main { /* 0 - Auth Contract 10 - Requests Contract 20 - Token Contract (see wireupAllContracts.js) */ mapping(uint32 =&amp;gt; address) public contracts; function Main(address _authContractAddress) { contracts[0]=_authContractAddress; } event SetContractAddress( uint32 _id, address _address ); function setContractAddress(uint32 _id,address _address) returns (bool){ SetContractAddress(_id,_address); Auth auth = Auth(contracts[0]); if( auth.</description>
+pragma solidity ^0.4.0; import &#39;zeppelin-solidity/contracts/ownership/Ownable.sol&#39;; import &#39;zeppelin-solidity/contracts/ownership/HasNoEther.sol&#39;; import &#39;Predecessor.sol&#39;; contract Auth { mapping ( address =&amp;gt; mapping ( bytes32 =&amp;gt; bool ) ) public permission; } contract Main is Ownable, HasNoEther, Predecessor { event SetContract(bytes32 _name,address _address); mapping(bytes32 =&amp;gt; address) contracts; function Main(address _authContract) { contracts[&#39;Auth&#39;]=_authContract; } function setContract(bytes32 _name,address _address){ Auth authContract = Auth(contracts[&#39;Auth&#39;]); require( authContract.</description>
     </item>
     
     <item>
       <title>Token Contract</title>
-      <link>http://requestco.in/fleet/tokencontract/</link>
+      <link>http://pyth.io/fleet/tokencontract/</link>
       <pubDate>Thu, 21 Sep 2017 08:00:00 -0600</pubDate>
       
-      <guid>http://requestco.in/fleet/tokencontract/</guid>
+      <guid>http://pyth.io/fleet/tokencontract/</guid>
       <description>The Token contract is a simple extension of the StandardToken (ERC20).
 pragma solidity ^0.4.8; import &amp;quot;Auth.sol&amp;quot;; import &amp;quot;Main.sol&amp;quot;; contract Token { string public constant symbol = &amp;quot;XRC&amp;quot;; string public constant name = &amp;quot;RequestCoinTest&amp;quot;; uint8 public constant decimals = 18; uint256 _totalSupply = 1000000000000; address public owner; address public mainAddress; event Reserve(address _contract, address indexed _from, address indexed _combiner, bytes32 indexed _id, uint256 _value); event Reward(address indexed _combiner, bytes32 indexed _id, address indexed _to, uint256 _value); event Revoke(address _contract, address indexed _from, address indexed _combiner, bytes32 indexed _id, uint256 _value); event AttemptReserve(address _contract, address indexed _account, address indexed _combiner, bytes32 indexed _id,uint256 _amount); event AttemptReward(address _combiner, bytes32 indexed _id, address _miner, uint _amount); event AttemptRevoke(address _contract, address indexed _account, address indexed _combiner, bytes32 indexed _id,uint256 _amount); event FailedReserve(address _contract, address _validContract, address indexed _account, address indexed _combiner, bytes32 _id, uint256 _amount, uint256 _balance); event FailedReward(address indexed _contract, bytes32 indexed _id, address indexed _account, uint256 _amount); event FailedRevoke(address _contract, address _validContract, address indexed _account, address indexed _combiner, bytes32 _id, uint256 _amount, uint256 _balance); //reservations are tokens held by a combiner&#39;s address for a request id to eventually reward miners mapping(address =&amp;gt; mapping(bytes32 =&amp;gt; uint256)) reservations; function reserve(address _account,address _combiner,bytes32 _id,uint256 _amount) returns (bool) { AttemptReserve(msg.</description>
     </item>
     
     <item>
       <title>Requests Contract</title>
-      <link>http://requestco.in/fleet/requestscontract/</link>
+      <link>http://pyth.io/fleet/requestscontract/</link>
       <pubDate>Thu, 21 Sep 2017 07:00:00 -0600</pubDate>
       
-      <guid>http://requestco.in/fleet/requestscontract/</guid>
+      <guid>http://pyth.io/fleet/requestscontract/</guid>
       <description>The Requests contract is the main datastore for requests.
 pragma solidity ^0.4.0; import &amp;quot;Auth.sol&amp;quot;; import &amp;quot;Main.sol&amp;quot;; import &amp;quot;Token.sol&amp;quot;; contract Requests { address public mainAddress; bool public frozen; function Requests(address _mainAddress) { mainAddress=_mainAddress; } function setMainAddress(address _mainAddress){ Main main = Main(mainAddress); Auth auth = Auth(main.getContractAddress(0)); if( auth.isOwner(msg.sender) ){ mainAddress=_mainAddress; } } ///// Request ---------------------------------------------- struct Request{ string url;//ex &amp;quot;http://ifconfig.co&amp;quot; address combiner;//ex 3 (this would mean contract 103) } mapping (bytes32 =&amp;gt; Request) public requests; event ErrorString(string _str); event AddRequest(address _sender,string _id,address _combiner,uint _coin, string _url); event AttemptAddRequest(address _sender,string _id,address _combiner,uint _coin, string _url); function addRequest(string _id, address _combiner, uint _coin, string _url) returns (bool){ AttemptAddRequest(msg.</description>
     </item>
     
     <item>
       <title>Combiner Contracts</title>
-      <link>http://requestco.in/fleet/combinercontracts/</link>
+      <link>http://pyth.io/fleet/combinercontracts/</link>
       <pubDate>Thu, 21 Sep 2017 06:00:00 -0600</pubDate>
       
-      <guid>http://requestco.in/fleet/combinercontracts/</guid>
+      <guid>http://pyth.io/fleet/combinercontracts/</guid>
       <description>The Combiner contracts are the most dynamic. In fact, they can even be written and deployed by a third party. Their job is to capture responses from miners, deliver rewards to good actors, and come to a consensus. External contracts will also then communicate with the respective combiner contracts to retrieve mined, internet data.
 /* Basic Combiner This is more of an example combiner */ pragma solidity ^0.4.0; import &amp;quot;Main.sol&amp;quot;; import &amp;quot;Token.</description>
     </item>
     
     <item>
       <title>Request Miner</title>
-      <link>http://requestco.in/miner/miner/</link>
+      <link>http://pyth.io/miner/miner/</link>
       <pubDate>Thu, 21 Sep 2017 05:00:00 -0600</pubDate>
       
-      <guid>http://requestco.in/miner/miner/</guid>
+      <guid>http://pyth.io/miner/miner/</guid>
       <description>The Miner performs off chain requests and forms a consensus using IPFS pubsub. It requires a running version of Geth with either an IPC or RPC connection.
-Later versions will have fallback layers that will allow miners to contact RequestCoin servers instead of talking directly to the Ethereum network. This will enable different layers of connectivity and give basic miners direct access without having the blockchain downloaded locally.
+Later versions will have fallback layers that will allow miners to contact Pyth.io servers instead of talking directly to the Ethereum network. This will enable different layers of connectivity and give basic miners direct access without having the blockchain downloaded locally.
 /* Miner */ const IPFS = require(&#39;ipfs&#39;) const ipfs = new IPFS( { EXPERIMENTAL:{ pubsub: true } } ) let ipfsReady = false const RPC = true const WEBSERVER = &amp;quot;requestco.</description>
     </item>
     
     <item>
       <title>Simplification</title>
-      <link>http://requestco.in/further/simplification/</link>
+      <link>http://pyth.io/further/simplification/</link>
       <pubDate>Thu, 21 Sep 2017 04:00:00 -0600</pubDate>
       
-      <guid>http://requestco.in/further/simplification/</guid>
+      <guid>http://pyth.io/further/simplification/</guid>
       <description>It&amp;rsquo;s good to talk about what we are not trying to accomplish yet.
-Privacy: We are not looking at privacy in any way, for now. Everything within the realm of RequestCoin is 100% public. If you spend the token to get the current price of corn on the blockchain, that transaction along with the actual price of corn is available on the blockchain for everyone.
+Privacy: We are not looking at privacy in any way, for now. Everything within the realm of Pyth.io is 100% public. If you spend the token to get the current price of corn on the blockchain, that transaction along with the actual price of corn is available on the blockchain for everyone.
 Private APIs: We are assuming that only public data is fair game.</description>
     </item>
     
     <item>
       <title>Similar Projects</title>
-      <link>http://requestco.in/further/similarprojects/</link>
+      <link>http://pyth.io/further/similarprojects/</link>
       <pubDate>Thu, 21 Sep 2017 03:00:00 -0600</pubDate>
       
-      <guid>http://requestco.in/further/similarprojects/</guid>
+      <guid>http://pyth.io/further/similarprojects/</guid>
       <description>There are a handful of extremely interesting projects in this space.
 Vitalik Buterin himself wrote about a decentralized oracle all the way back in 2014 he called schellingcoin.
-The most similar, but much more advanced is ChainLink. These guys have a tremendous amount of momentum. ChainLink is a complex system of data providers and data proxies that is tightly coupled with financial organizations and big name research organizations. RequestCoin is a very simple, raw, decentralized network of oracles.</description>
+The most similar, but much more advanced is ChainLink. These guys have a tremendous amount of momentum. ChainLink is a complex system of data providers and data proxies that is tightly coupled with financial organizations and big name research organizations. Pyth.io is a very simple, raw, decentralized network of oracles.</description>
     </item>
     
     <item>
       <title>Resources</title>
-      <link>http://requestco.in/further/resources/</link>
+      <link>http://pyth.io/further/resources/</link>
       <pubDate>Thu, 21 Sep 2017 02:30:00 -0600</pubDate>
       
-      <guid>http://requestco.in/further/resources/</guid>
+      <guid>http://pyth.io/further/resources/</guid>
       <description>Solidity Docs should probably be your first stop when learning smart contracts.
 Consensys has a bunch of resources on their website and github including their Smart Contract Best Practices.
 OpenZeppelin has a github that is full of hardened and tested contracts.
 Decypher Media is an awesome feed of videos put together by Jordan Leigh
-Reddit: r/ethereum r/ethdev</description>
+Reddit: r/ethereum r/ethdev
+Network stats: ethstats.net
+List of DApps: stateofthedapps</description>
     </item>
     
   </channel>

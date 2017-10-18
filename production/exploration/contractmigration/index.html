@@ -13,19 +13,19 @@
     <title>Contract Migration :: Decentralized Blockchain Oracle</title>
 
     
-    <link href="/css/nucleus.css?1508165033" rel="stylesheet">
-    <link href="/css/font-awesome.min.css?1508165033" rel="stylesheet">
-    <link href="/css/hybrid.css?1508165033" rel="stylesheet">
-    <link href="/css/featherlight.min.css?1508165033" rel="stylesheet">
-    <link href="/css/perfect-scrollbar.min.css?1508165033" rel="stylesheet">
-    <link href="/css/auto-complete.css?1508165033" rel="stylesheet">
-    <link href="/css/theme.css?1508165033" rel="stylesheet">
-    <link href="/css/hugo-theme.css?1508165033" rel="stylesheet">
+    <link href="/css/nucleus.css?1508285413" rel="stylesheet">
+    <link href="/css/font-awesome.min.css?1508285413" rel="stylesheet">
+    <link href="/css/hybrid.css?1508285413" rel="stylesheet">
+    <link href="/css/featherlight.min.css?1508285413" rel="stylesheet">
+    <link href="/css/perfect-scrollbar.min.css?1508285413" rel="stylesheet">
+    <link href="/css/auto-complete.css?1508285413" rel="stylesheet">
+    <link href="/css/theme.css?1508285413" rel="stylesheet">
+    <link href="/css/hugo-theme.css?1508285413" rel="stylesheet">
     
-      <link href="/css/theme-blue.css?1508165033" rel="stylesheet">
+      <link href="/css/theme-blue.css?1508285413" rel="stylesheet">
     
 
-    <script src="/js/jquery-2.x.min.js?1508165033"></script>
+    <script src="/js/jquery-2.x.min.js?1508285413"></script>
 
     <style type="text/css">
       :root #header + #content > #left > #rlblock_left{
@@ -687,7 +687,7 @@
             
           
           
-            <a href='/'>RequestCoin</a> > <a href='/exploration/'>Exploration</a> > Contract Migration
+            <a href='/'>Pyth.io</a> > <a href='/exploration/'>Exploration</a> > Contract Migration
           
          
           
@@ -1028,7 +1028,7 @@ contract Store is Ownable,Predecessor {
 
 </code></pre>
 
-<p>Notice this new version of <strong>Store</strong> keeps a <strong>lastUpdate</strong> <strong>uint</strong> that is set to the <strong>block.number</strong> as a miner runs an update. This contract also has to be built to be backwards compatible because the first version of <strong>EthVsBch</strong> needs to continue to work with the previous <strong>Store</strong> hardcoded in, but we only want the miner to update one contract do to gas costs and complexity. Let&rsquo;s compile and deploy the next version of <strong>Store</strong>:</p>
+<p>Notice this new version of <strong>Store</strong> keeps a <strong>lastUpdate</strong> <strong>uint</strong> that is set to the <strong>block.number</strong> as a miner runs an update. This contract also has to be built to be backwards compatible because the first version of <strong>EthVsBch</strong> needs to continue to work with the previous <strong>Store</strong> hardcoded in, but we only want the miner to update one contract due to gas costs and complexity. Let&rsquo;s compile and deploy the next version of <strong>Store</strong>:</p>
 
 <pre><code class="language-bash">node compile Store
 node deploy Store
@@ -1054,7 +1054,7 @@ node contract getLastUpdate Store
 LastUpdate:0
 </code></pre>
 
-<p>So the new contract is empty and the old contract is still chugging along fine. The transition process requires that we get some data in the new contract before setting up the lineage so external developers&rsquo; contracts don&rsquo;t get empty data, let&rsquo;s mine into the new <strong>Store</strong>:</p>
+<p>So the new contract is empty and the old contract is still chugging along fine. The transition process requires that we get some data in the new contract before setting up the lineage so external developers&rsquo; contracts don&rsquo;t get empty data. Let&rsquo;s mine into the new <strong>Store</strong>:</p>
 
 <pre><code class="language-bash">node contract minePrice Store null BTC,ETH,XRP,BCH,LTC
 
@@ -1107,7 +1107,7 @@ DESCENDANT:0xD0557B2c5A11F8B5F2635Bfa57dEb8dCF6021475
 CURRENT WINNER: Result { '0': 'ETH', '1': '336505000000000' }
 </code></pre>
 
-<p>It is getting the latest price from the latest <strong>Store</strong> even with the old <strong>Store</strong> <em>hardcoded</em> in, our migration is complete and the miner can continue updating only the latest <strong>Store</strong>.</p>
+<p>It is getting the latest price from the latest <strong>Store</strong> even with the old <strong>Store</strong> <em>hardcoded</em> in. Our migration is complete and the miner can continue updating only the latest <strong>Store</strong>.</p>
 
 <p>Now, let&rsquo;s say the developer decides to implement the block number check in their <strong>EthVsBch</strong> contract:</p>
 
@@ -1697,22 +1697,22 @@ CURRENT WINNER: Result { '0': 'ETH', '1': '338896000000000' }
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="/js/clipboard.min.js?1508165033"></script>
-    <script src="/js/perfect-scrollbar.min.js?1508165033"></script>
-    <script src="/js/perfect-scrollbar.jquery.min.js?1508165033"></script>
-    <script src="/js/jquery.sticky-kit.min.js?1508165033"></script>
-    <script src="/js/featherlight.min.js?1508165033"></script>
-    <script src="/js/html5shiv-printshiv.min.js?1508165033"></script>
-    <script src="/js/highlight.pack.js?1508165033"></script>
+    <script src="/js/clipboard.min.js?1508285413"></script>
+    <script src="/js/perfect-scrollbar.min.js?1508285413"></script>
+    <script src="/js/perfect-scrollbar.jquery.min.js?1508285413"></script>
+    <script src="/js/jquery.sticky-kit.min.js?1508285413"></script>
+    <script src="/js/featherlight.min.js?1508285413"></script>
+    <script src="/js/html5shiv-printshiv.min.js?1508285413"></script>
+    <script src="/js/highlight.pack.js?1508285413"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="/js/modernizr.custom.71422.js?1508165033"></script>
-    <script src="/js/learn.js?1508165033"></script>
-    <script src="/js/hugo-learn.js?1508165033"></script>
+    <script src="/js/modernizr.custom.71422.js?1508285413"></script>
+    <script src="/js/learn.js?1508285413"></script>
+    <script src="/js/hugo-learn.js?1508285413"></script>
 
     
 
-    <link href="/mermaid/mermaid.css?1508165033" type="text/css" rel="stylesheet" />
-    <script src="/mermaid/mermaid.js?1508165033"></script>
+    <link href="/mermaid/mermaid.css?1508285413" type="text/css" rel="stylesheet" />
+    <script src="/mermaid/mermaid.js?1508285413"></script>
     <script>
         mermaid.initialize({ startOnLoad: true });
     </script>

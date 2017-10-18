@@ -7,40 +7,35 @@ The **Main** contract keeps a **contract** *(address)* for any **id** *(uint32)*
 ```
 pragma solidity ^0.4.0;
 
-import "Auth.sol";
+import 'zeppelin-solidity/contracts/ownership/Ownable.sol';
+import 'zeppelin-solidity/contracts/ownership/HasNoEther.sol';
+import 'Predecessor.sol';
 
-contract Main {
+contract Auth { mapping ( address => mapping ( bytes32 => bool ) ) public permission; }
 
-    /*
-    0 - Auth Contract
-    10 - Requests Contract
-    20 - Token Contract
-    (see wireupAllContracts.js)
-    */
+contract Main is Ownable, HasNoEther, Predecessor {
 
-    mapping(uint32 => address) public contracts;
+    event SetContract(bytes32 _name,address _address);
 
-    function Main(address _authContractAddress) {
-      contracts[0]=_authContractAddress;
+    mapping(bytes32 => address) contracts;
+
+    function Main(address _authContract) {
+      contracts['Auth']=_authContract;
     }
 
-    event SetContractAddress(
-            uint32 _id,
-            address _address
-    );
+    function setContract(bytes32 _name,address _address){
+      Auth authContract = Auth(contracts['Auth']);
+      require( authContract.permission(msg.sender,'setContract') );
+      contracts[_name]=_address;
+      SetContract(_name,_address);
+    }
 
-    function setContractAddress(uint32 _id,address _address) returns (bool){
-      SetContractAddress(_id,_address);
-      Auth auth = Auth(contracts[0]);
-      if( auth.getPermission(msg.sender) >= 200 ){
-          contracts[_id]=_address;
-          return true;
+    function getContract(bytes32 _name) constant returns (address) {
+      if(descendant!=address(0)) {
+        return Main(descendant).getContract(_name);
+      }else{
+        return contracts[_name];
       }
-      revert();
-    }
-
-    function getContractAddress(uint32 _id) constant returns (address){
-        return contracts[_id];
     }
 
 }
@@ -48,10 +43,9 @@ contract Main {
 ```
 Current address:
 ```
-0x564ca9B9B1B0c9397e06C2D2Aed5e82A399a41Eb
-
+0xB54A4f23204C46D6e5AB374588ef015C2D78C2Db
 ```
 Current ABI:
 ```
-[{"constant":true,"inputs":[{"name":"","type":"uint32"}],"name":"contracts","outputs":[{"name":"","type":"address"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":false,"inputs":[{"name":"_id","type":"uint32"},{"name":"_address","type":"address"}],"name":"setContractAddress","outputs":[{"name":"","type":"bool"}],"payable":false,"stateMutability":"nonpayable","type":"function"},{"constant":true,"inputs":[{"name":"_id","type":"uint32"}],"name":"getContractAddress","outputs":[{"name":"","type":"address"}],"payable":false,"stateMutability":"view","type":"function"},{"inputs":[{"name":"_authContractAddress","type":"address"}],"payable":false,"stateMutability":"nonpayable","type":"constructor"},{"anonymous":false,"inputs":[{"indexed":false,"name":"_id","type":"uint32"},{"indexed":false,"name":"_address","type":"address"}],"name":"SetContractAddress","type":"event"}]
+[{"constant":false,"inputs":[{"name":"_name","type":"bytes32"},{"name":"_address","type":"address"}],"name":"setContract","outputs":[],"payable":false,"type":"function"},{"constant":true,"inputs":[],"name":"owner","outputs":[{"name":"","type":"address"}],"payable":false,"type":"function"},{"constant":false,"inputs":[],"name":"reclaimEther","outputs":[],"payable":false,"type":"function"},{"constant":false,"inputs":[{"name":"_descendant","type":"address"}],"name":"setDescendant","outputs":[],"payable":false,"type":"function"},{"constant":true,"inputs":[],"name":"descendant","outputs":[{"name":"","type":"address"}],"payable":false,"type":"function"},{"constant":true,"inputs":[{"name":"_name","type":"bytes32"}],"name":"getContract","outputs":[{"name":"","type":"address"}],"payable":false,"type":"function"},{"constant":false,"inputs":[{"name":"newOwner","type":"address"}],"name":"transferOwnership","outputs":[],"payable":false,"type":"function"},{"inputs":[{"name":"_authContract","type":"address"}],"payable":false,"type":"constructor"},{"payable":false,"type":"fallback"},{"anonymous":false,"inputs":[{"indexed":false,"name":"_name","type":"bytes32"},{"indexed":false,"name":"_address","type":"address"}],"name":"SetContract","type":"event"},{"anonymous":false,"inputs":[{"indexed":true,"name":"previousOwner","type":"address"},{"indexed":true,"name":"newOwner","type":"address"}],"name":"OwnershipTransferred","type":"event"}]
 ```

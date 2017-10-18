@@ -13,19 +13,19 @@
     <title>Main Contract :: Decentralized Blockchain Oracle</title>
 
     
-    <link href="/css/nucleus.css?1508165033" rel="stylesheet">
-    <link href="/css/font-awesome.min.css?1508165033" rel="stylesheet">
-    <link href="/css/hybrid.css?1508165033" rel="stylesheet">
-    <link href="/css/featherlight.min.css?1508165033" rel="stylesheet">
-    <link href="/css/perfect-scrollbar.min.css?1508165033" rel="stylesheet">
-    <link href="/css/auto-complete.css?1508165033" rel="stylesheet">
-    <link href="/css/theme.css?1508165033" rel="stylesheet">
-    <link href="/css/hugo-theme.css?1508165033" rel="stylesheet">
+    <link href="/css/nucleus.css?1508285413" rel="stylesheet">
+    <link href="/css/font-awesome.min.css?1508285413" rel="stylesheet">
+    <link href="/css/hybrid.css?1508285413" rel="stylesheet">
+    <link href="/css/featherlight.min.css?1508285413" rel="stylesheet">
+    <link href="/css/perfect-scrollbar.min.css?1508285413" rel="stylesheet">
+    <link href="/css/auto-complete.css?1508285413" rel="stylesheet">
+    <link href="/css/theme.css?1508285413" rel="stylesheet">
+    <link href="/css/hugo-theme.css?1508285413" rel="stylesheet">
     
-      <link href="/css/theme-blue.css?1508165033" rel="stylesheet">
+      <link href="/css/theme-blue.css?1508285413" rel="stylesheet">
     
 
-    <script src="/js/jquery-2.x.min.js?1508165033"></script>
+    <script src="/js/jquery-2.x.min.js?1508285413"></script>
 
     <style type="text/css">
       :root #header + #content > #left > #rlblock_left{
@@ -687,7 +687,7 @@
             
           
           
-            <a href='/'>RequestCoin</a> > <a href='/fleet/'>Fleet</a> > Main Contract
+            <a href='/'>Pyth.io</a> > <a href='/fleet/'>Fleet</a> > Main Contract
           
          
           
@@ -721,40 +721,35 @@
 
 <pre><code>pragma solidity ^0.4.0;
 
-import &quot;Auth.sol&quot;;
+import 'zeppelin-solidity/contracts/ownership/Ownable.sol';
+import 'zeppelin-solidity/contracts/ownership/HasNoEther.sol';
+import 'Predecessor.sol';
 
-contract Main {
+contract Auth { mapping ( address =&gt; mapping ( bytes32 =&gt; bool ) ) public permission; }
 
-    /*
-    0 - Auth Contract
-    10 - Requests Contract
-    20 - Token Contract
-    (see wireupAllContracts.js)
-    */
+contract Main is Ownable, HasNoEther, Predecessor {
 
-    mapping(uint32 =&gt; address) public contracts;
+    event SetContract(bytes32 _name,address _address);
 
-    function Main(address _authContractAddress) {
-      contracts[0]=_authContractAddress;
+    mapping(bytes32 =&gt; address) contracts;
+
+    function Main(address _authContract) {
+      contracts['Auth']=_authContract;
     }
 
-    event SetContractAddress(
-            uint32 _id,
-            address _address
-    );
+    function setContract(bytes32 _name,address _address){
+      Auth authContract = Auth(contracts['Auth']);
+      require( authContract.permission(msg.sender,'setContract') );
+      contracts[_name]=_address;
+      SetContract(_name,_address);
+    }
 
-    function setContractAddress(uint32 _id,address _address) returns (bool){
-      SetContractAddress(_id,_address);
-      Auth auth = Auth(contracts[0]);
-      if( auth.getPermission(msg.sender) &gt;= 200 ){
-          contracts[_id]=_address;
-          return true;
+    function getContract(bytes32 _name) constant returns (address) {
+      if(descendant!=address(0)) {
+        return Main(descendant).getContract(_name);
+      }else{
+        return contracts[_name];
       }
-      revert();
-    }
-
-    function getContractAddress(uint32 _id) constant returns (address){
-        return contracts[_id];
     }
 
 }
@@ -763,13 +758,12 @@ contract Main {
 
 <p>Current address:</p>
 
-<pre><code>0x564ca9B9B1B0c9397e06C2D2Aed5e82A399a41Eb
-
+<pre><code>0xB54A4f23204C46D6e5AB374588ef015C2D78C2Db
 </code></pre>
 
 <p>Current ABI:</p>
 
-<pre><code>[{&quot;constant&quot;:true,&quot;inputs&quot;:[{&quot;name&quot;:&quot;&quot;,&quot;type&quot;:&quot;uint32&quot;}],&quot;name&quot;:&quot;contracts&quot;,&quot;outputs&quot;:[{&quot;name&quot;:&quot;&quot;,&quot;type&quot;:&quot;address&quot;}],&quot;payable&quot;:false,&quot;stateMutability&quot;:&quot;view&quot;,&quot;type&quot;:&quot;function&quot;},{&quot;constant&quot;:false,&quot;inputs&quot;:[{&quot;name&quot;:&quot;_id&quot;,&quot;type&quot;:&quot;uint32&quot;},{&quot;name&quot;:&quot;_address&quot;,&quot;type&quot;:&quot;address&quot;}],&quot;name&quot;:&quot;setContractAddress&quot;,&quot;outputs&quot;:[{&quot;name&quot;:&quot;&quot;,&quot;type&quot;:&quot;bool&quot;}],&quot;payable&quot;:false,&quot;stateMutability&quot;:&quot;nonpayable&quot;,&quot;type&quot;:&quot;function&quot;},{&quot;constant&quot;:true,&quot;inputs&quot;:[{&quot;name&quot;:&quot;_id&quot;,&quot;type&quot;:&quot;uint32&quot;}],&quot;name&quot;:&quot;getContractAddress&quot;,&quot;outputs&quot;:[{&quot;name&quot;:&quot;&quot;,&quot;type&quot;:&quot;address&quot;}],&quot;payable&quot;:false,&quot;stateMutability&quot;:&quot;view&quot;,&quot;type&quot;:&quot;function&quot;},{&quot;inputs&quot;:[{&quot;name&quot;:&quot;_authContractAddress&quot;,&quot;type&quot;:&quot;address&quot;}],&quot;payable&quot;:false,&quot;stateMutability&quot;:&quot;nonpayable&quot;,&quot;type&quot;:&quot;constructor&quot;},{&quot;anonymous&quot;:false,&quot;inputs&quot;:[{&quot;indexed&quot;:false,&quot;name&quot;:&quot;_id&quot;,&quot;type&quot;:&quot;uint32&quot;},{&quot;indexed&quot;:false,&quot;name&quot;:&quot;_address&quot;,&quot;type&quot;:&quot;address&quot;}],&quot;name&quot;:&quot;SetContractAddress&quot;,&quot;type&quot;:&quot;event&quot;}]
+<pre><code>[{&quot;constant&quot;:false,&quot;inputs&quot;:[{&quot;name&quot;:&quot;_name&quot;,&quot;type&quot;:&quot;bytes32&quot;},{&quot;name&quot;:&quot;_address&quot;,&quot;type&quot;:&quot;address&quot;}],&quot;name&quot;:&quot;setContract&quot;,&quot;outputs&quot;:[],&quot;payable&quot;:false,&quot;type&quot;:&quot;function&quot;},{&quot;constant&quot;:true,&quot;inputs&quot;:[],&quot;name&quot;:&quot;owner&quot;,&quot;outputs&quot;:[{&quot;name&quot;:&quot;&quot;,&quot;type&quot;:&quot;address&quot;}],&quot;payable&quot;:false,&quot;type&quot;:&quot;function&quot;},{&quot;constant&quot;:false,&quot;inputs&quot;:[],&quot;name&quot;:&quot;reclaimEther&quot;,&quot;outputs&quot;:[],&quot;payable&quot;:false,&quot;type&quot;:&quot;function&quot;},{&quot;constant&quot;:false,&quot;inputs&quot;:[{&quot;name&quot;:&quot;_descendant&quot;,&quot;type&quot;:&quot;address&quot;}],&quot;name&quot;:&quot;setDescendant&quot;,&quot;outputs&quot;:[],&quot;payable&quot;:false,&quot;type&quot;:&quot;function&quot;},{&quot;constant&quot;:true,&quot;inputs&quot;:[],&quot;name&quot;:&quot;descendant&quot;,&quot;outputs&quot;:[{&quot;name&quot;:&quot;&quot;,&quot;type&quot;:&quot;address&quot;}],&quot;payable&quot;:false,&quot;type&quot;:&quot;function&quot;},{&quot;constant&quot;:true,&quot;inputs&quot;:[{&quot;name&quot;:&quot;_name&quot;,&quot;type&quot;:&quot;bytes32&quot;}],&quot;name&quot;:&quot;getContract&quot;,&quot;outputs&quot;:[{&quot;name&quot;:&quot;&quot;,&quot;type&quot;:&quot;address&quot;}],&quot;payable&quot;:false,&quot;type&quot;:&quot;function&quot;},{&quot;constant&quot;:false,&quot;inputs&quot;:[{&quot;name&quot;:&quot;newOwner&quot;,&quot;type&quot;:&quot;address&quot;}],&quot;name&quot;:&quot;transferOwnership&quot;,&quot;outputs&quot;:[],&quot;payable&quot;:false,&quot;type&quot;:&quot;function&quot;},{&quot;inputs&quot;:[{&quot;name&quot;:&quot;_authContract&quot;,&quot;type&quot;:&quot;address&quot;}],&quot;payable&quot;:false,&quot;type&quot;:&quot;constructor&quot;},{&quot;payable&quot;:false,&quot;type&quot;:&quot;fallback&quot;},{&quot;anonymous&quot;:false,&quot;inputs&quot;:[{&quot;indexed&quot;:false,&quot;name&quot;:&quot;_name&quot;,&quot;type&quot;:&quot;bytes32&quot;},{&quot;indexed&quot;:false,&quot;name&quot;:&quot;_address&quot;,&quot;type&quot;:&quot;address&quot;}],&quot;name&quot;:&quot;SetContract&quot;,&quot;type&quot;:&quot;event&quot;},{&quot;anonymous&quot;:false,&quot;inputs&quot;:[{&quot;indexed&quot;:true,&quot;name&quot;:&quot;previousOwner&quot;,&quot;type&quot;:&quot;address&quot;},{&quot;indexed&quot;:true,&quot;name&quot;:&quot;newOwner&quot;,&quot;type&quot;:&quot;address&quot;}],&quot;name&quot;:&quot;OwnershipTransferred&quot;,&quot;type&quot;:&quot;event&quot;}]
 </code></pre>
 
 
@@ -1264,22 +1258,22 @@ contract Main {
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="/js/clipboard.min.js?1508165033"></script>
-    <script src="/js/perfect-scrollbar.min.js?1508165033"></script>
-    <script src="/js/perfect-scrollbar.jquery.min.js?1508165033"></script>
-    <script src="/js/jquery.sticky-kit.min.js?1508165033"></script>
-    <script src="/js/featherlight.min.js?1508165033"></script>
-    <script src="/js/html5shiv-printshiv.min.js?1508165033"></script>
-    <script src="/js/highlight.pack.js?1508165033"></script>
+    <script src="/js/clipboard.min.js?1508285413"></script>
+    <script src="/js/perfect-scrollbar.min.js?1508285413"></script>
+    <script src="/js/perfect-scrollbar.jquery.min.js?1508285413"></script>
+    <script src="/js/jquery.sticky-kit.min.js?1508285413"></script>
+    <script src="/js/featherlight.min.js?1508285413"></script>
+    <script src="/js/html5shiv-printshiv.min.js?1508285413"></script>
+    <script src="/js/highlight.pack.js?1508285413"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="/js/modernizr.custom.71422.js?1508165033"></script>
-    <script src="/js/learn.js?1508165033"></script>
-    <script src="/js/hugo-learn.js?1508165033"></script>
+    <script src="/js/modernizr.custom.71422.js?1508285413"></script>
+    <script src="/js/learn.js?1508285413"></script>
+    <script src="/js/hugo-learn.js?1508285413"></script>
 
     
 
-    <link href="/mermaid/mermaid.css?1508165033" type="text/css" rel="stylesheet" />
-    <script src="/mermaid/mermaid.js?1508165033"></script>
+    <link href="/mermaid/mermaid.css?1508285413" type="text/css" rel="stylesheet" />
+    <script src="/mermaid/mermaid.js?1508285413"></script>
     <script>
         mermaid.initialize({ startOnLoad: true });
     </script>

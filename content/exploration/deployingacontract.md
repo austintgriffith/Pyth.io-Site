@@ -169,7 +169,7 @@ According to Etherscan, to add 1 to that uint it costs about $0.17. That might s
 
 Well, we broadcast to the network that we want to make a transaction, some lucky miner is able to find the correct nonce through brute force cpu power, mines the block containing our transaction and others, broadcasts that to the rest of the network, and then *every* miner in the world runs our transaction against their version of our contract and gets the same result. We could then ask *any* of them what our **count** is and it would be the same. Even as banks, businesses, and governments rise and fall, our **count** stays exactly where it's instructed to stay. That's pretty freakin' awesome.
 
-Let's play around with gas cost a little more because contract interaction cost plays a huge role in how RequestCoin will work.
+Let's play around with gas cost a little more because contract interaction cost plays a huge role in how Pyth.io will work.
 
 Let's lower what we are willing to pay by 1/10:
 

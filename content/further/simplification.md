@@ -5,7 +5,7 @@ date: 2017-09-21T04:00:00-06:00
 
 It's good to talk about what we are **not** trying to accomplish *yet*.
 
-**Privacy:** We are *not* looking at privacy in any way, for now. Everything within the realm of **RequestCoin** is 100% public. If you spend the token to get the current price of corn on the blockchain, that transaction along with the actual price of corn is available on the blockchain for everyone.
+**Privacy:** We are *not* looking at privacy in any way, for now. Everything within the realm of **Pyth.io** is 100% public. If you spend the token to get the current price of corn on the blockchain, that transaction along with the actual price of corn is available on the blockchain for everyone.
 
 **Private APIs:** We are assuming that only public data is fair game. We will not assume that any given node has access to any API that isn't publicly available. This will drastically limit content we can get into the blockchain but for now, simplicity is the key.
 
@@ -15,7 +15,7 @@ It's good to talk about what we are **not** trying to accomplish *yet*.
 
 ![austin.griffith](http://s3.amazonaws.com/rqcassets/austin.griffith.png)
 
-Please [contact me](/contact) me about anything; let's get a dialog about RequestCoin started!
+Please [contact me](/contact) me about anything; let's get a dialog about Pyth.io started!
 
 **ICO:** Let's wait until *we* get some traction and our working product is solid. In the long run it's probably not ever going to be something we try.
 
