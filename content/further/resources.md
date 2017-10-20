@@ -11,11 +11,17 @@ date: 2017-09-21T02:30:00-06:00
 
 [Decypher Media](https://www.youtube.com/channel/UC8CB0ZkvogP7tnCTDR-zV7g/videos) is an awesome feed of videos put together by [Jordan Leigh](https://twitter.com/alwaysbcoding)
 
+[Epicenter](https://www.youtube.com/channel/UCh-0T48JrvvmKDX41aWB_Vg) is "a show about the technologies, projects and startups driving the cryptocurrency revolution"
+
 Reddit: [r/ethereum](https://www.reddit.com/r/ethereum) [r/ethdev](https://www.reddit.com/r/ethdev)
 
 Network stats: [ethstats.net](https://ethstats.net/)
 
 List of DApps: [stateofthedapps](https://www.stateofthedapps.com/)
+
+A good [list of dapp resources](https://github.com/yippee-ki-yay/eth-dev-reading-list)
+
+A newcomer to the scene is [delphi](https://delphi.markets/whitepaper.pdf)
 
 <!--
 

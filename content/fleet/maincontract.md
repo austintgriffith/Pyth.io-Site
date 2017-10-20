@@ -5,17 +5,17 @@ date: 2017-09-21T09:00:00-06:00
 The **Main** contract keeps a **contract** *(address)* for any **id** *(uint32)*. This allows for old contracts to be replaced with better versions while keeping the main contract address the same.
 
 ```
-pragma solidity ^0.4.0;
+pragma solidity ^0.4.11;
 
-import 'zeppelin-solidity/contracts/ownership/Ownable.sol';
 import 'zeppelin-solidity/contracts/ownership/HasNoEther.sol';
+import 'zeppelin-solidity/contracts/ownership/Contactable.sol';
 import 'Predecessor.sol';
 
 contract Auth { mapping ( address => mapping ( bytes32 => bool ) ) public permission; }
 
-contract Main is Ownable, HasNoEther, Predecessor {
+contract Main is HasNoEther, Contactable, Predecessor {
 
-    event SetContract(bytes32 _name,address _address);
+    event SetContract(bytes32 _name,address _address,address _whoDid);
 
     mapping(bytes32 => address) contracts;
 
@@ -23,14 +23,15 @@ contract Main is Ownable, HasNoEther, Predecessor {
       contracts['Auth']=_authContract;
     }
 
-    function setContract(bytes32 _name,address _address){
+    function setContract(bytes32 _name,address _address) public returns (bool) {
       Auth authContract = Auth(contracts['Auth']);
       require( authContract.permission(msg.sender,'setContract') );
       contracts[_name]=_address;
-      SetContract(_name,_address);
+      SetContract(_name,_address,msg.sender);
+      return true;
     }
 
-    function getContract(bytes32 _name) constant returns (address) {
+    function getContract(bytes32 _name) public constant returns (address) {
       if(descendant!=address(0)) {
         return Main(descendant).getContract(_name);
       }else{
@@ -43,9 +44,9 @@ contract Main is Ownable, HasNoEther, Predecessor {
 ```
 Current address:
 ```
-0xB54A4f23204C46D6e5AB374588ef015C2D78C2Db
+0x83a9257838DCc64dD2d34506a5a18fa183D903F9
 ```
 Current ABI:
 ```
-[{"constant":false,"inputs":[{"name":"_name","type":"bytes32"},{"name":"_address","type":"address"}],"name":"setContract","outputs":[],"payable":false,"type":"function"},{"constant":true,"inputs":[],"name":"owner","outputs":[{"name":"","type":"address"}],"payable":false,"type":"function"},{"constant":false,"inputs":[],"name":"reclaimEther","outputs":[],"payable":false,"type":"function"},{"constant":false,"inputs":[{"name":"_descendant","type":"address"}],"name":"setDescendant","outputs":[],"payable":false,"type":"function"},{"constant":true,"inputs":[],"name":"descendant","outputs":[{"name":"","type":"address"}],"payable":false,"type":"function"},{"constant":true,"inputs":[{"name":"_name","type":"bytes32"}],"name":"getContract","outputs":[{"name":"","type":"address"}],"payable":false,"type":"function"},{"constant":false,"inputs":[{"name":"newOwner","type":"address"}],"name":"transferOwnership","outputs":[],"payable":false,"type":"function"},{"inputs":[{"name":"_authContract","type":"address"}],"payable":false,"type":"constructor"},{"payable":false,"type":"fallback"},{"anonymous":false,"inputs":[{"indexed":false,"name":"_name","type":"bytes32"},{"indexed":false,"name":"_address","type":"address"}],"name":"SetContract","type":"event"},{"anonymous":false,"inputs":[{"indexed":true,"name":"previousOwner","type":"address"},{"indexed":true,"name":"newOwner","type":"address"}],"name":"OwnershipTransferred","type":"event"}]
+[{"constant":true,"inputs":[],"name":"contactInformation","outputs":[{"name":"","type":"string"}],"payable":false,"type":"function"},{"constant":false,"inputs":[{"name":"_name","type":"bytes32"},{"name":"_address","type":"address"}],"name":"setContract","outputs":[{"name":"","type":"bool"}],"payable":false,"type":"function"},{"constant":true,"inputs":[],"name":"owner","outputs":[{"name":"","type":"address"}],"payable":false,"type":"function"},{"constant":false,"inputs":[],"name":"reclaimEther","outputs":[],"payable":false,"type":"function"},{"constant":false,"inputs":[{"name":"info","type":"string"}],"name":"setContactInformation","outputs":[],"payable":false,"type":"function"},{"constant":false,"inputs":[{"name":"_descendant","type":"address"}],"name":"setDescendant","outputs":[],"payable":false,"type":"function"},{"constant":true,"inputs":[],"name":"descendant","outputs":[{"name":"","type":"address"}],"payable":false,"type":"function"},{"constant":true,"inputs":[{"name":"_name","type":"bytes32"}],"name":"getContract","outputs":[{"name":"","type":"address"}],"payable":false,"type":"function"},{"constant":false,"inputs":[{"name":"newOwner","type":"address"}],"name":"transferOwnership","outputs":[],"payable":false,"type":"function"},{"inputs":[{"name":"_authContract","type":"address"}],"payable":false,"type":"constructor"},{"payable":false,"type":"fallback"},{"anonymous":false,"inputs":[{"indexed":false,"name":"_name","type":"bytes32"},{"indexed":false,"name":"_address","type":"address"},{"indexed":false,"name":"_whoDid","type":"address"}],"name":"SetContract","type":"event"},{"anonymous":false,"inputs":[{"indexed":true,"name":"previousOwner","type":"address"},{"indexed":true,"name":"newOwner","type":"address"}],"name":"OwnershipTransferred","type":"event"}]
 ```

@@ -15,4 +15,4 @@ It's good to talk about what we are **not** trying to accomplish *yet*.
 
 ![austin.griffith](http://s3.amazonaws.com/rqcassets/austin.griffith.png)
 
-Please [contact me](/contact) me about anything; let's get a dialog about Pyth.io started!
+Please [contact me](/contact) about anything; let's get a dialog about Pyth.io started!
