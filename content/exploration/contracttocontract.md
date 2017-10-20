@@ -91,7 +91,7 @@ This contract is a little bigger than the last so it was a little more expensive
 
 **Adjuster** address on Ropsten:
 ```
-0x959491D3327554472F48BF8F2B60394b64B27736
+
 ```
 Now let's write a few scripts to interact with this contract. First, we'll want **getOwner.js** to be able to see who the owner is:
 

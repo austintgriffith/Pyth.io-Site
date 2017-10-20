@@ -17,5 +17,3 @@ It's good to talk about what we are **not** trying to accomplish *yet*.
 
 Please [contact me](/contact) me about anything; let's get a dialog about Pyth.io started!
 
-**ICO:** Let's wait until *we* get some traction and our working product is solid. In the long run it's probably not ever going to be something we try.
-

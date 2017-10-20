@@ -58,7 +58,7 @@ node deploy Inherit
 Contract address on Ropsten testnet:
 
 ```
-0x518730e223b89Fd13f1FD45e0BFd61CDE5D2f771
+
 ```
 We'll want a script that can tell us what the current message is on the **Inherit** contract:
 
