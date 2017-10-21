@@ -87,7 +87,7 @@ At the current price of Ether it cost about $1.02 to release that code to the wo
 Anyone, for the rest of the existence of the Ropsten testnet, can interface with this specific instance of the contract here:
 
 ```
-0xF7232Dc3c5fe79bb335Bb68CF5eB9817360e96A8
+
 ```
 (You can follow all interactions with this contract on <a href="https://ropsten.etherscan.io/address/0xd68ef7611913d0aff3627a92f5e502696887d626" target="_blank">etherscan.io</a>)
 
