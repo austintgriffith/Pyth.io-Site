@@ -12,7 +12,7 @@ import 'zeppelin-solidity/contracts/ownership/HasNoEther.sol';
 
 contract Auth is Ownable, HasNoEther  {
 
-    event SetPermission( address _sender, address _address, bytes32 _permission, bool _value );
+    event SetPermission( address sender, address account, bytes32 permission, bool value );
 
     mapping ( address => mapping ( bytes32 => bool ) ) public permission;
 
@@ -20,14 +20,14 @@ contract Auth is Ownable, HasNoEther  {
         permission[owner]['setPermission'] = true;
         permission[owner]['setContract'] = true; //Main.sol
         permission[owner]['setMainAddress'] = true; //Token.sol and Requests.sol
-        permission[owner]['addRequest'] = true; //Requests.sol
+        //permission[owner]['addRequest'] = true; //Requests.sol
     }
 
-    function setPermission( address _address , bytes32 _permission, bool _value) public returns (bool) {
+    function setPermission( address _account , bytes32 _permission, bool _value) public returns (bool) {
         require( permission[msg.sender]['setPermission'] );
-        require( _address!=owner || _permission!='setPermission');
-        permission[_address][_permission] = _value;
-        SetPermission(msg.sender,_address,_permission,_value);
+        require( _account!=owner || _permission!='setPermission');//don't take setPermission away from owner
+        permission[_account][_permission] = _value;
+        SetPermission(msg.sender,_account,_permission,_value);
         return true;
     }
 
@@ -39,9 +39,9 @@ Eventually, the **Auth** contract will be extended to allow for more complex gov
 
 Current address:
 ```
-
+0xab60731156989731FD46295a5756C89d4CF7c9F4
 ```
 Current ABI:
 ```
-
+[{"constant":true,"inputs":[{"name":"","type":"address"},{"name":"","type":"bytes32"}],"name":"permission","outputs":[{"name":"","type":"bool"}],"payable":false,"type":"function"},{"constant":false,"inputs":[{"name":"_account","type":"address"},{"name":"_permission","type":"bytes32"},{"name":"_value","type":"bool"}],"name":"setPermission","outputs":[{"name":"","type":"bool"}],"payable":false,"type":"function"},{"constant":true,"inputs":[],"name":"owner","outputs":[{"name":"","type":"address"}],"payable":false,"type":"function"},{"constant":false,"inputs":[],"name":"reclaimEther","outputs":[],"payable":false,"type":"function"},{"constant":false,"inputs":[{"name":"newOwner","type":"address"}],"name":"transferOwnership","outputs":[],"payable":false,"type":"function"},{"inputs":[],"payable":false,"type":"constructor"},{"payable":false,"type":"fallback"},{"anonymous":false,"inputs":[{"indexed":false,"name":"sender","type":"address"},{"indexed":false,"name":"account","type":"address"},{"indexed":false,"name":"permission","type":"bytes32"},{"indexed":false,"name":"value","type":"bool"}],"name":"SetPermission","type":"event"},{"anonymous":false,"inputs":[{"indexed":true,"name":"previousOwner","type":"address"},{"indexed":true,"name":"newOwner","type":"address"}],"name":"OwnershipTransferred","type":"event"}]
 ```

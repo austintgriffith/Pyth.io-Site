@@ -21,7 +21,7 @@ const ipfs = new IPFS(
 let ipfsReady = false
 
 const RPC = true
-const WEBSERVER = "requestco.in"
+const WEBSERVER = "localhost"
 
 console.log("Starting up...")
 const fs = require('fs');
@@ -50,7 +50,7 @@ let blockNumber
 
 let requestList = []
 
-let DEBUG_MINER = false
+let DEBUG_MINER = true
 
 let activeRequest = false
 
@@ -68,6 +68,7 @@ setInterval(()=>{
         console.log("# ("+request.reserved+") mining url "+request._url+" to combiner "+request._combiner)
 
         console.log("Looking up combiner address "+request._combiner+"...")
+        /*
         Request('http://'+WEBSERVER+'/combinerLookup/'+request._combiner,(error, response, body)=>{
           if(error){console.log(error)}else{
             let combinerName = body
@@ -125,7 +126,7 @@ setInterval(()=>{
             })
           }
         })
-
+        */
         return;
       }else{
         console.log("# request "+request._url+" is empty")
@@ -136,7 +137,7 @@ setInterval(()=>{
 },1000)
 
 
-let DEBUGREQUESTLOAD = false
+let DEBUGREQUESTLOAD = true
 let blockNumberSearchBack=10000
 let lastBlockBackSearchIndex
 let lastBlockForwardSearchIndex
@@ -308,16 +309,16 @@ function connectToMainContract(){
       mainContractAbi=abi
       mainContract = new web3.eth.Contract(mainContractAbi,mainContractAddress)
       console.log("Ready to interact with mainContract...")
-      mainContract.methods.getContractAddress(0).call().then((_authContractAddress)=>{
+      mainContract.methods.getContract(web3.utils.fromAscii('Auth')).call().then((_authContractAddress)=>{
         console.log("Setting _authContractAddress to "+_authContractAddress)
         authContractAddress = _authContractAddress
-        mainContract.methods.getContractAddress(10).call().then((_requestsContractAddress)=>{
+        mainContract.methods.getContract(web3.utils.fromAscii('Requests')).call().then((_requestsContractAddress)=>{
           console.log("Setting _requestsContractAddress to "+_requestsContractAddress)
           requestsContractAddress = _requestsContractAddress
-          mainContract.methods.getContractAddress(20).call().then((_tokenContractAddress)=>{
+          mainContract.methods.getContract(web3.utils.fromAscii('Token')).call().then((_tokenContractAddress)=>{
             console.log("Setting _tokenContractAddress to "+_tokenContractAddress)
             tokenContractAddress = _tokenContractAddress
-            connectToAuthContract()
+            //connectToAuthContract()
           })
         })
       })
