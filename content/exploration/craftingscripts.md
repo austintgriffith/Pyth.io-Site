@@ -125,7 +125,7 @@ let startSeconds = new Date().getTime() / 1000;
 let contractdir = process.argv[2]
 let contractname = process.argv[3]
 if(!contractname) contractname=contractdir
-console.log("Compiling "+contractdir+"/"+contractname+".sol ...")
+console.log("Compiling "+contractdir+"/"+contractname+".sol ["+solc.version()+"]...")
 const input = fs.readFileSync(contractdir+"/"+contractname+'.sol');
 if(!input){
   console.log("Couldn't load "+contractdir+"/"+contractname+".sol")
@@ -147,7 +147,7 @@ if(!input){
   fs.writeFile(contractdir+"/"+contractname+".bytecode",bytecode)
   fs.writeFile(contractdir+"/"+contractname+".abi",abi)
   console.log("Compiled!")
-  
+
 
 }
 
@@ -182,7 +182,8 @@ if(!bytecode){
     let ethPrice = parseInt(fs.readFileSync("ethprice.int").toString().trim())
     web3.eth.getAccounts().then((accounts)=>{
       web3.eth.getBalance(accounts[ACCOUNT_INDEX]).then((balance)=>{
-      //  web3.eth.personal.unlockAccount(accounts[1]).then((a,b,c)=>{
+        web3.eth.personal.unlockAccount(accounts[1]).then((a,b,c)=>{
+          console.log(a,b,c)
           let etherbalance = web3.utils.fromWei(balance,"ether");
           console.log(etherbalance+" $"+(etherbalance*ethPrice))
 
@@ -247,7 +248,7 @@ if(!bytecode){
               })
             },1000)
           })
-      //  })
+        })
       })
     })
   }
@@ -302,67 +303,71 @@ if(!address){
     console.log("Loading accounts...")
     web3.eth.getAccounts().then((accounts)=>{
 
-      console.log("Run script ",script," on ",contractname)
-      let contract = new web3.eth.Contract(abi,address)
+      web3.eth.personal.unlockAccount(accounts[1]).then((a,b,c)=>{
+        console.log(a,b,c);
 
-      console.log("paying a max of "+gas+" gas @ the price of "+gasPrice+" gwei ("+gaspricegwei+")")
-      let scriptFunction
-      try{
-        let path = "./"+contractdir+"/"+script+".js"
-        console.log("LOADING:",path)
-        if(fs.existsSync(path)){
-          console.log("looking for script at ",path)
-          scriptFunction=require(path)
-        }
-      }catch(e){console.log(e)}
-      if(scriptFunction){
-        console.log("Loaded "+script+", running...")
-        let params = {
-          gas:gas,
-          gasPrice:gaspricegwei,
-          accounts:accounts,
-          blockNumber:blockNumber,
-        }
-        //check for previous address to pass along
-        let previousAddressFile = contractdir+"/"+contractname+".previous.address"
-        if(fs.existsSync(previousAddressFile)){
-          params.previousAddress = fs.readFileSync(previousAddressFile).toString()
-        }
-        if(nextAddress) params.nextAddress = nextAddress;
-        console.log(params)
-        params.web3=web3//pass the web3 object so scripts have the utils
-        let scriptPromise = scriptFunction(contract,params,process.argv)
-        if(!scriptPromise || typeof scriptPromise.once != "function"){
-          console.log(""+script+" (no promise)")
-        }
-        else{
-          let result = scriptPromise.once('transactionHash', function(transactionHash){
-            console.log("transactionHash",transactionHash)
-            setInterval(()=>{
-              web3.eth.getTransactionReceipt(transactionHash,(error,result)=>{
-                console.log(error,result)
-                if(result){
-                  console.log(result.blockNumber,result.gasUsed)
-                }
-                if(result && result.blockNumber && result.gasUsed){
-                  console.log("Success",result)
-                  let etherdiff = result.gasUsed/100000000000000000
-                  console.log("==ETHER COST: "+etherdiff+" $"+(etherdiff*ethPrice))
-                  let endSeconds = new Date().getTime() / 1000;
-                  let duration = Math.floor((endSeconds-startSeconds))
-                  console.log("time: ",duration)
-                  fs.appendFileSync("./contract.log",contractdir+"/"+contractname+" "+script+" "+result.contractAddress+" "+duration+" "+etherdiff+" $"+(etherdiff*ethPrice)+" "+gaspricegwei+"\n")
-                  process.exit(0);
-                }
-              })
-            },5000)
+        console.log("Run script ",script," on ",contractname)
+        let contract = new web3.eth.Contract(abi,address)
 
-          })
-        }
+        console.log("paying a max of "+gas+" gas @ the price of "+gasPrice+" gwei ("+gaspricegwei+")")
+        let scriptFunction
+        try{
+          let path = "./"+contractdir+"/"+script+".js"
+          console.log("LOADING:",path)
+          if(fs.existsSync(path)){
+            console.log("looking for script at ",path)
+            scriptFunction=require(path)
+          }
+        }catch(e){console.log(e)}
+        if(scriptFunction){
+          console.log("Loaded "+script+", running...")
+          let params = {
+            gas:gas,
+            gasPrice:gaspricegwei,
+            accounts:accounts,
+            blockNumber:blockNumber,
+          }
+          //check for previous address to pass along
+          let previousAddressFile = contractdir+"/"+contractname+".previous.address"
+          if(fs.existsSync(previousAddressFile)){
+            params.previousAddress = fs.readFileSync(previousAddressFile).toString()
+          }
+          if(nextAddress) params.nextAddress = nextAddress;
+          console.log(params)
+          params.web3=web3//pass the web3 object so scripts have the utils
+          let scriptPromise = scriptFunction(contract,params,process.argv)
+          if(!scriptPromise || typeof scriptPromise.once != "function"){
+            console.log(""+script+" (no promise)")
+          }
+          else{
+            let result = scriptPromise.once('transactionHash', function(transactionHash){
+              console.log("transactionHash",transactionHash)
+              setInterval(()=>{
+                web3.eth.getTransactionReceipt(transactionHash,(error,result)=>{
+                  console.log(error,result)
+                  if(result){
+                    console.log(result.blockNumber,result.gasUsed)
+                  }
+                  if(result && result.blockNumber && result.gasUsed){
+                    console.log("Success",result)
+                    let etherdiff = result.gasUsed/100000000000000000
+                    console.log("==ETHER COST: "+etherdiff+" $"+(etherdiff*ethPrice))
+                    let endSeconds = new Date().getTime() / 1000;
+                    let duration = Math.floor((endSeconds-startSeconds))
+                    console.log("time: ",duration)
+                    fs.appendFileSync("./contract.log",contractdir+"/"+contractname+" "+script+" "+result.contractAddress+" "+duration+" "+etherdiff+" $"+(etherdiff*ethPrice)+" "+gaspricegwei+"\n")
+                    process.exit(0);
+                  }
+                })
+              },5000)
 
-      }else{
-        console.log("UNABLE TO LOAD SCRIPT "+script+" for "+contractname)
-      }
+            })
+          }
+
+        }else{
+          console.log("UNABLE TO LOAD SCRIPT "+script+" for "+contractname)
+        }
+      })
     })
   }
 }

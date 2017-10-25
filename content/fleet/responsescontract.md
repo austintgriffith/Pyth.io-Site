@@ -51,7 +51,7 @@ contract Responses is HasNoEther, Addressed {
 ```
 Current address:
 ```
-0xA0A61D360ed8692681EbfA164C09421c58328D9c
+0xD9759BA52861Db79F23da224f19Ea9768BeF0818
 ```
 Current ABI:
 ```

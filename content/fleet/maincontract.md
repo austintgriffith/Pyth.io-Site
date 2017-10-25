@@ -44,7 +44,7 @@ contract Main is HasNoEther, Contactable, Predecessor {
 ```
 Current address:
 ```
-0x94e4A04D84f4Fe702E0875D12eA4cceD792c72Af
+0x1B201D8BEDb795d5638bCC25365CA65A7e43D69E
 ```
 Current ABI:
 ```
