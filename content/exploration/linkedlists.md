@@ -117,7 +117,7 @@ node contract setTotal LinkedList
 
 (Transaction on <a href="https://ropsten.etherscan.io/tx/0xb09dcff01d528aa00dd1cee5703dee4fc8ee6383afc310cedd279f13614dc9c0" target="_blank">etherscan.io</a>)
 
-To run through the list and keep track of a total and eventually write that total to state, it cost **0.001034044** ether.
+To run through the list, keep track of a total, and eventually write that total to state, it cost **0.001034044** ether.
 
 (See all 349 operations on <a href="https://ropsten.etherscan.io/vmtrace?txhash=0xb09dcff01d528aa00dd1cee5703dee4fc8ee6383afc310cedd279f13614dc9c0" target="_blank">etherscan.io</a>)
 
