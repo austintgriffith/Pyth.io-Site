@@ -1,4 +1,4 @@
-baseURL = "http://pyth.io"
+baseURL = "https://pyth.io"
 languageCode = "en-us"
 title = "Pyth.io"
 theme = "hugo-theme-learn"

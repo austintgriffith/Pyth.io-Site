@@ -13,6 +13,7 @@ var params = {
   s3Params: {
     Bucket: "pyth.io",
     Prefix: "",
+    ACL: "public-read"
     // other options supported by putObject, except Body and ContentLength.
     // See: http://docs.aws.amazon.com/AWSJavaScriptSDK/latest/AWS/S3.html#putObject-property
   },
