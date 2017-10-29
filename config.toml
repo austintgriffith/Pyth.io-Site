@@ -1,9 +1,9 @@
-baseURL = "https://pyth.io"
+baseURL = "https://concurrence.io"
 languageCode = "en-us"
-title = "Pyth.io"
+title = "Concurrence"
 theme = "hugo-theme-learn"
 [params]
-  subtitle = "Decentralized Blockchain Oracle"
+  subtitle = "Decentralized Oracle Platform"
   author = "Austin Thomas Griffith M.S. E.E."
   themeVariant = "blue"
   disableSearch = true

@@ -13,7 +13,7 @@ $DEBUG = false;
 $contentFolder = "content";
 $sourceFolder = "sourceContent";
 
-$sections = ["abstract","exploration","fleet","miner","further","contact"];
+$sections = ["abstract","exploration","fleet","concurrence","further","contact"];
 
 foreach($sections as $section){
   echo "\n ))) Section: $section\n";

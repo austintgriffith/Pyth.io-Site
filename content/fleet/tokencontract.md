@@ -2,23 +2,17 @@
 title: "Token Contract"
 date: 2017-09-21T08:00:00-06:00
 ---
-The **Token** contract is a simple extension of the StandardToken (ERC20).
+The **Concurrence** **Token** **(CCCE)** is an extension of a <a href="https://github.com/OpenZeppelin/zeppelin-solidity/blob/master/contracts/token/StandardToken.sol" target="_blank">StandardToken (ERC20)</a> with a few additions. First, a developer can **reserve()** tokens behind a **request** *(bytes32)* to incentivize miners. Second, a miner can **stake()** tokens on a **response** *(bytes32)* to a given **request** *(bytes32)*. Finally, a **combiner** contract can then **reward()**, **release()**, or **punish()** miners based on the final consensus.
+
+<img src="/images/token.svg" width="100%"/>
 
 ```
 pragma solidity ^0.4.11;
 
-import 'zeppelin-solidity/contracts/ownership/Ownable.sol';
-import 'zeppelin-solidity/contracts/ownership/HasNoEther.sol';
-import 'zeppelin-solidity/contracts/ownership/Contactable.sol';
-import 'zeppelin-solidity/contracts/token/StandardToken.sol';
-import 'Addressed.sol';
-
-contract Requests {function getCombiner(bytes32 _id) public constant returns (address) {}}
-
 contract Token is StandardToken, Ownable, HasNoEther, Contactable, Addressed {
 
-  string public constant name = "Pyth.io";
-  string public constant symbol = "PTH";
+  string public constant name = "Concurrence";
+  string public constant symbol = "CCCE";
   uint8 public constant decimals = 9;
   uint256 public constant INITIAL_SUPPLY = 10**18;
 
@@ -91,25 +85,20 @@ contract Token is StandardToken, Ownable, HasNoEther, Contactable, Addressed {
     return true;
   }
 
-  /*
-  it seems like unstake is a bad idea, someone could pull out if the current
-  count was looking like it  wouldn't be in their favor.. pull out for now
-
-  function unstake(bytes32 _response, uint256 _value) public returns (bool) {
-    require(_value <= staked[msg.sender][_response]);
-    staked[msg.sender][_response] = staked[msg.sender][_response].sub(_value);
-    balances[msg.sender] = balances[msg.sender].add(_value);
-    Unstake(msg.sender,_response,_value,staked[msg.sender][_response]);
-    return true;
-  }
-  */
-
 }
+
+contract Requests {function getCombiner(bytes32 _id) public constant returns (address) {}}
+
+import 'zeppelin-solidity/contracts/ownership/Ownable.sol';
+import 'zeppelin-solidity/contracts/ownership/HasNoEther.sol';
+import 'zeppelin-solidity/contracts/ownership/Contactable.sol';
+import 'zeppelin-solidity/contracts/token/StandardToken.sol';
+import 'Addressed.sol';
 
 ```
 Current address:
 ```
-0x5fa5dd9FEc0f70d6c64c5044984b7D7f48f39f82
+0xDc40CFE4c59bEA40485b49f824f7f9e4F64d877E
 ```
 Current ABI:
 ```

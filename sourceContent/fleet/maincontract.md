@@ -2,7 +2,9 @@
 title: "Main Contract"
 date: 2017-09-21T09:00:00-06:00
 ---
-The **Main** contract keeps a **contract** *(address)* for any **id** *(uint32)*. This allows for old contracts to be replaced with better versions while keeping the main contract address the same.
+**Main** keeps a **contract** *(address)* for any **name** *(bytes32)*. This allows for old contracts to be replaced with better versions while keeping the main contract address the same. **Main** also implements the **Predecessor** concept where a **descendant** is set when a new version of **Main** is deployed. Then, if a developer contract attempts to interface with an old version of the **Main** contract, the current **descendant** **Main** receives requests by proxy.  
+
+<img src="/images/main.svg" width="100%"/>
 
 <!--RQC CODE solidity Main/Main.sol -->
 

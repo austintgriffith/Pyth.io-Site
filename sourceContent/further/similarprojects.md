@@ -7,9 +7,9 @@ There are a handful of extremely interesting projects in this space.
 
 [Vitalik Buterin](https://blog.ethereum.org/author/vitalik-buterin/) himself wrote about a decentralized oracle all the way back in 2014 he called [schellingcoin](https://blog.ethereum.org/2014/03/28/schellingcoin-a-minimal-trust-universal-data-feed/).
 
-The most similar, but much more advanced is [ChainLink](https://link.smartcontract.com/). These guys have a tremendous amount of momentum. [ChainLink](https://link.smartcontract.com/) is a complex system of data providers and data proxies that is tightly coupled with financial organizations and big name research organizations. **Pyth.io** is a very simple, raw, decentralized network of oracles.
+The most similar, but much more advanced is [ChainLink](https://link.smartcontract.com/). These guys have a tremendous amount of momentum. [ChainLink](https://link.smartcontract.com/) is a complex system of data providers and data proxies that is tightly coupled with financial organizations and big name research organizations. We are very excited to see their work go live.
 
-There are also a bunch of good projects working in the prediction market space. This is similar to decentralized oracles because they require a network of clients to verify events. Most notably, [Augur](https://augur.net/) and [Gnosis](https://gnosis.pm/), have built and launched their networks already.
+There are also a bunch of good projects working in the prediction market space. This is similar to decentralized oracles because they require a network of clients to verify events. Most notably, [Augur](https://augur.net/) and [Gnosis](https://gnosis.pm/).
 
 [Oraclize](http://www.oraclize.it/) is probably the most well known oracle service. There's a good chance they will look to move to a decentralized model soon. [Here](https://ethereumdev.io/getting-data-internet-oraclize/) is a nice little example of how to use [Oraclize](http://www.oraclize.it/) to fetch the price of Ethereum.
 
@@ -25,6 +25,6 @@ The [Truthcoin Whitepaper](http://www.truthcoin.info/papers/truthcoin-whitepaper
 
 Many smaller projects are emerging that are also helping to enrich the space. For example, [tinyoracle](https://github.com/axic/tinyoracle) is a great little example project for building a baseline oracle.
 
-All projects in this space will work to enrich the value and accuracy by providing more and more disparate sources for off-chain content. In the end, the best way to build an on-chain consensus will probably to use a combination of all networks.
+All projects in this space will work to enrich the value and accuracy by providing more and more disparate sources for off-chain content. In the end, the best way to build an on-chain consensus will be to use a combination of all networks.
 
-Are we missing something here? Email: austin@pyth.io
+Are we missing something here? [contact us](/contact)

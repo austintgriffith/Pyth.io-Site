@@ -2,15 +2,15 @@
 title: "Utility Token"
 date: 2017-09-21T21:00:00-06:00
 ---
-The first thing to address in building a decentralized oracle network is the cryptoeconomics of incentivizing miners. To do this we will create a utility token that can be used to purchase the efforts of request miners. Any given channel of data will need a consensus and to drive that consensus, an amount of token will be put up for grabs. As miners reach a consensus on the blockchain they will be rewarded with the token.
+The first thing to address in building a decentralized oracle network is the cryptoeconomics of incentivizing miners. To do this we will create a utility token that can be used to purchase the efforts of miners. Any given channel of data will need a consensus and to drive that consensus, an amount of token will be put up as **stake**. As miners reach a consensus on the blockchain they will be rewarded with the token. Developers can, in turn, spend the token to get off-chain data available to power their smart contract logic.
 
-Thankfully, many brilliant minds have come together to build a safe and standardized token for Ethereum. One such token is the  [HumanStandardToken](https://github.com/ConsenSys/Tokens/blob/master/contracts/HumanStandardToken.sol), and this could be extended for the use as a **Pyth.io**.
+Thankfully, many brilliant minds have come together to build a safe and standardized token for Ethereum. One such token is the  [StandardToken](https://github.com/OpenZeppelin/zeppelin-solidity/blob/master/contracts/token/StandardToken.sol), and this will be extended for the use as the **Concurrence** token (**CCCE**).
 
 ```
-string public constant symbol = "PTH";
-string public constant name = "Pyth.io";
-uint8 public constant decimals = 18;
-uint256 _totalSupply = 1000000000;
+string public constant name = "Concurrence";
+string public constant symbol = "CCCE";
+uint8 public constant decimals = 9;
+uint256 public constant INITIAL_SUPPLY = 10**18;
 ```
 
 ```
@@ -27,5 +27,5 @@ contract ERC20 {
 }
 ```
 
-On top of this tried-and-true token standard we will need a few other features. First, we will need a mechanism for users to *reserve* funds for the mining of a particular internet endpoint. Second, we will need a way for miners to *stake* some of their own token for or against the consensus. Finally, we will want to have a reserved percentage of Ether stored in the contract to provide *liquidity* to the token at some price floor.
+On top of this tried-and-true token standard we will need a few other features. First, we will need a mechanism for developers to *reserve* funds for the mining of a particular resource. Second, we will need a way for miners to *stake* some of their own token against the consensus. Later, we will want to have a reserved percentage of Ether stored in a contract to provide *liquidity* to the token at some price floor.
 

@@ -2,13 +2,13 @@
 title: "Responses Contract"
 date: 2017-09-21T06:55:00-06:00
 ---
-The **Responses** contract is the main datastore for responses.
+The **Responses** contract is the main datastore for **responses** *(bytes32)*. As miners perform their duties, they call **addResponse()** to deliver their results to the fleet. This list of **responses** *(bytes32)* is tracked in a linked list that allows the **combiner** contracts to quickly traverse through results. Notice that whatever work the miner does off-chain, it must result in a single *bytes32* response on-chain. 
+
+<img src="/images/responses.svg" width="100%"/>
+
 
 ```
 pragma solidity ^0.4.11;
-
-import 'zeppelin-solidity/contracts/ownership/HasNoEther.sol';
-import 'Addressed.sol';
 
 contract Responses is HasNoEther, Addressed {
 
@@ -48,10 +48,13 @@ contract Responses is HasNoEther, Addressed {
 
 }
 
+import 'zeppelin-solidity/contracts/ownership/HasNoEther.sol';
+import 'Addressed.sol';
+
 ```
 Current address:
 ```
-0xD9759BA52861Db79F23da224f19Ea9768BeF0818
+0x090ff7727fF34957440b3C2bFA7133B26132f18A
 ```
 Current ABI:
 ```

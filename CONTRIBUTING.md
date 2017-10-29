@@ -1,6 +1,4 @@
-Contributing to Pyth.io-Site
+Contributing to concurrent.io-site
 =======
 
-Shooting from the hip for now, hit me up with a pull request.
-
-austin@pyth.io
+austin@concurrent.io

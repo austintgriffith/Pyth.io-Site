@@ -1,9 +1,10 @@
-# Pyth.io
+# Concurrence.io
 
-This repo contains the static site content of [Pyth.io](http://pyth.io).
+This repo contains the collection of scripts and smart contracts that power [Concurrence](http://concurrence.io).
 
-[Pyth.io](http://pyth.io) is an exploration into building a decentralized blockchain oracle.
+[Concurrence](http://concurrence.io) is a decentralized oracle platform.
 
+Other related repositories are the javascript interface [Concurrence.js](https://github.com/austintgriffith/concurrence.js) and the static website [Concurrence.io-Site](https://github.com/austintgriffith/concurrence.io-site).
 
 ## License
-Code released under the [MIT License](https://github.com/austintgriffith/Pyth.io-Site/blob/master/LICENSE).
+Code released under the [MIT License](https://github.com/austintgriffith/concurrence.io/blob/master/LICENSE).
