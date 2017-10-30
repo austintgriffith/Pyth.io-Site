@@ -54,7 +54,7 @@ import 'Addressed.sol';
 ```
 Current address:
 ```
-0x2D7fa165b361659CcAc04a87279AEbED0dD557Bb
+0xe21F61B733F8d78457FE0b245decD6136c369dAD
 ```
 Current ABI:
 ```

@@ -51,8 +51,6 @@ We will also extend a new contract called **Predecessor** that enables the owner
 ```
 pragma solidity ^0.4.11;
 
-import 'zeppelin-solidity/contracts/ownership/Ownable.sol';
-
 contract Predecessor is Ownable{
     function Predecessor() {}
     address public descendant;
@@ -60,6 +58,8 @@ contract Predecessor is Ownable{
       descendant=_descendant;
     }
 }
+
+import 'zeppelin-solidity/contracts/ownership/Ownable.sol';
 
 ```
 Notice that the **price** mapping in **Store** is not public like previous contracts and we have a **getPrice()** function instead. This allows us a little more control when data is requested. Instead of just delivering the price immediately, we can look to see if a **descendant** is set and forward the **getPrice()** along.
