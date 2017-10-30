@@ -13,7 +13,7 @@ contract Auth is Ownable, HasNoEther  {
 
     event SetPermission( address sender, address account, bytes32 permission, bool value );
 
-    mapping ( address => mapping ( bytes32 => bool ) ) permission;
+    mapping ( address => mapping ( bytes32 => bool ) ) private permission;
 
     function Auth() {
         permission[owner]['setPermission'] = true;
@@ -44,7 +44,7 @@ Eventually, the **Auth** contract will be extended to allow for more complex gov
 
 Current address:
 ```
-0x5BA30B423Ba47860C93a361b80FC02813383cAcc
+0x2C122F1AFfef594E2e4A31a62Dd74ecE30e25C7e
 ```
 Current ABI:
 ```

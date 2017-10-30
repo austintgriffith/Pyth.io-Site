@@ -2,7 +2,7 @@
 title: "Main Contract"
 date: 2017-09-21T09:00:00-06:00
 ---
-**Main** keeps a **contract** *(address)* for any **name** *(bytes32)*. This allows for old contracts to be replaced with better versions while keeping the main contract address the same. **Main** also implements the **Predecessor** concept where a **descendant** is set when a new version of **Main** is deployed. Then, if a developer contract attempts to interface with an old version of the **Main** contract, the current **descendant** **Main** receives requests by proxy.  
+**Main** keeps a **contract** *(address)* for any **name** *(bytes32)* and is deployed with the **Auth** *(address)* initialized. This allows for old contracts to be replaced with better versions while keeping the main contract address the same. **Main** also implements the **Predecessor** concept where a **descendant** is set when a new version of **Main** is deployed. Then, if a developer contract attempts to interface with an old version of the **Main** contract, the current **descendant** **Main** receives requests by proxy.  
 
 <img src="/images/main.svg" width="100%"/>
 
@@ -21,7 +21,7 @@ contract Main is HasNoEther, Contactable, Predecessor {
 
     function setContract(bytes32 _name,address _contract) public returns (bool) {
       Auth authContract = Auth(contracts['Auth']);
-      require( authContract.permission(msg.sender,'setContract') );
+      require( authContract.getPermission(msg.sender,'setContract') );
       contracts[_name]=_contract;
       SetContract(_name,_contract,msg.sender);
       return true;
@@ -37,7 +37,7 @@ contract Main is HasNoEther, Contactable, Predecessor {
 
 }
 
-contract Auth { mapping ( address => mapping ( bytes32 => bool ) ) public permission; }
+contract Auth { function getPermission( address _account , bytes32 _permission) constant public returns (bool) { } }
 
 import 'zeppelin-solidity/contracts/ownership/HasNoEther.sol';
 import 'zeppelin-solidity/contracts/ownership/Contactable.sol';
@@ -46,7 +46,7 @@ import 'Predecessor.sol';
 ```
 Current address:
 ```
-0x18c3B3C111e0cD59F20fa322954Fc95Cb4Db3dBd
+0x82E618f04A55f7852b68868e05098F0C79399780
 ```
 Current ABI:
 ```

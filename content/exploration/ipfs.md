@@ -1,7 +1,6 @@
 ---
 title: "IPFS"
 date: 2017-09-21T10:00:00-06:00
-draft: true
 ---
 When building a fully decentralized system, a peer-to-peer network is essential. No centralized server (or even just distributed network) can be relied upon to power smart contracts. To move files from one node to another, we will use **<a href="https://ipfs.io" target="_blank">IPFS</a>**. The javascript implementation and documentation is located <a href="https://github.com/ipfs/js-ipfs" target="_blank">here</a>.
 

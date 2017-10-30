@@ -3,10 +3,6 @@ title: "Example"
 date: 2017-09-21T22:00:00-06:00
 ---
 
-The **Concurrence** network will provide the raw middleware between Ethereum and the greater internet by allowing contracts to signal for data which will trigger miners to retrieve the information, reach a truthful consensus, and deliver it back to the blockchain.
-
--------------------------------------------------------
-
 In the not-too-distant future, farmers all around the world could pay ether into a smart contract that would provide agricultural insurance against hail or drought. Then, throughout the year, as miners detect these specific weather conditions using multiple APIs and other internet sources, the contract would deterministically pay ether back to the farmers in need. This incredibly efficient system completely sidesteps an entire field of lawyers, insurance agents, and adjusters, immediately helping the farmers in need without any unnecessary overhead.
 
 <i>This concept was introduced in the <a href="https://github.com/ethereum/wiki/wiki/White-Paper" target="_blank">Ethereum white paper</a>, but unfortunately is not possible in Ethereum yet.

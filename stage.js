@@ -11,7 +11,7 @@ var params = {
   localDir: "public",
 
   s3Params: {
-    Bucket: "concurrence.io",
+    Bucket: "stage.concurrence.io",
     Prefix: "",
     ACL: "public-read"
     // other options supported by putObject, except Body and ContentLength.
