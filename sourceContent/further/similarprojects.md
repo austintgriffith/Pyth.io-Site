@@ -9,6 +9,8 @@ There are a handful of extremely interesting projects in this space.
 
 The most similar, but much more advanced is [ChainLink](https://link.smartcontract.com/). These guys have a tremendous amount of momentum. [ChainLink](https://link.smartcontract.com/) is a complex system of data providers and data proxies that is tightly coupled with financial organizations and big name research organizations. We are very excited to see their work go live.
 
+[Delphi](https://delphi.systems/) is probably the most similar to **Concurrence** in terms of long term goals and product. *We even named our oracle Pyth.io for a while before we saw [their publications](https://keepingstock.net/a-glimpse-of-pythia-731df5fc7972)*. We both hope to build a generalized system for getting decentralized oracle data into the Ethereum blockchain. Everything we do is open source, hopefully our projects will work to enrich each other.
+
 There are also a bunch of good projects working in the prediction market space. This is similar to decentralized oracles because they require a network of clients to verify events. Most notably, [Augur](https://augur.net/) and [Gnosis](https://gnosis.pm/).
 
 [Oraclize](http://www.oraclize.it/) is probably the most well known oracle service. There's a good chance they will look to move to a decentralized model soon. [Here](https://ethereumdev.io/getting-data-internet-oraclize/) is a nice little example of how to use [Oraclize](http://www.oraclize.it/) to fetch the price of Ethereum.

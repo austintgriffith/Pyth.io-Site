@@ -46,7 +46,7 @@ import 'Predecessor.sol';
 ```
 Current address:
 ```
-0x3d55741acEbD1B38D867fDd79Ee2B9c484A54E84
+0x81Ef870B0c152Bca05d5f6927fae82EB20fBf269
 ```
 Current ABI:
 ```

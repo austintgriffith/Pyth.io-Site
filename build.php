@@ -76,7 +76,7 @@ foreach($sections as $section){
               if($codeType=="solidity") $codeType="";
               $outputContent.=
 "```".$codeType."
-".file_get_contents("../".$parts[3])."
+".str_replace("require(\"../concurrence.js\")","require(\"concurrence\")",file_get_contents("../".$parts[3]))."
 ```";
             }else if($parts[1]=="ADDRESS"||$parts[1]=="ABI"){
               $outputContent.=
