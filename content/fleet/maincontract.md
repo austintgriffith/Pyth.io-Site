@@ -4,7 +4,7 @@ date: 2017-09-21T09:00:00-06:00
 ---
 **Main** keeps a **contract** *(address)* for any **name** *(bytes32)* and is deployed with the **Auth** *(address)* initialized. This allows for old contracts to be replaced with better versions while keeping the main contract address the same. **Main** also implements the **Predecessor** concept where a **descendant** is set when a new version of **Main** is deployed. Then, if a developer contract attempts to interface with an old version of the **Main** contract, the current **descendant** **Main** receives requests by proxy.  
 
-<img src="/images/main.svg" width="100%"/>
+<img src="/images/main.png" width="100%"/>
 
 ```
 pragma solidity ^0.4.11;
@@ -46,7 +46,7 @@ import 'Predecessor.sol';
 ```
 Current address:
 ```
-0x81Ef870B0c152Bca05d5f6927fae82EB20fBf269
+0x09822f0Ea3B5E1D3a1BC3E9e0dbCCff12Bd8cBa4
 ```
 Current ABI:
 ```

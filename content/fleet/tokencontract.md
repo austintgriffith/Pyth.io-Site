@@ -4,7 +4,7 @@ date: 2017-09-21T08:00:00-06:00
 ---
 The **Concurrence** **Token** **(CCCE)** is an extension of a <a href="https://github.com/OpenZeppelin/zeppelin-solidity/blob/master/contracts/token/StandardToken.sol" target="_blank">StandardToken (ERC20)</a> with a few additions. First, a developer can **reserve()** tokens behind a **request** *(bytes32)* to incentivize miners. Second, a miner can **stake()** tokens on a **response** *(bytes32)* to a given **request** *(bytes32)*. Finally, a **combiner** contract can then **reward()**, **release()**, or **punish()** miners based on the final consensus.
 
-<img src="/images/token.svg" width="100%"/>
+<img src="/images/token.png" width="100%"/>
 
 ```
 pragma solidity ^0.4.11;
@@ -54,6 +54,11 @@ contract Token is StandardToken, Ownable, HasNoEther, Contactable, Addressed {
   mapping (address => mapping (bytes32 => mapping (bytes32 => uint256))) public staked;
 
   function stake(bytes32 _request,bytes32 _response, uint256 _value) public returns (bool) {
+
+    //TODO for now set it up so only the response sender can stake token behind it
+    // this is because if another account stakes on a response they wont ever
+    // get their token back
+
     require(_value <= balances[msg.sender]);
     balances[msg.sender] = balances[msg.sender].sub(_value);
     staked[msg.sender][_request][_response] = staked[msg.sender][_request][_response].add(_value);
@@ -98,7 +103,7 @@ import 'Addressed.sol';
 ```
 Current address:
 ```
-0x3FDd98Fa9A78b7Df2d26E4605dBCD81849852529
+0x3C9842cd5531Df307Bb42218C3288daB8B78928b
 ```
 Current ABI:
 ```

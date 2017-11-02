@@ -4,7 +4,7 @@ date: 2017-09-21T06:00:00-06:00
 ---
 The **Combiner** contracts are the most dynamic and heady of the fleet. Their job is to traverse **responses** *(bytes32)* from miners and come to a **concurrence** *(bytes32)*. This *agreed upon consensus* is then used to **reward()** and **punish()** miners and is delivered to a developer's final **callback** *(address)* contract.
 
-<img src="/images/combiners.svg" width="100%"/>
+<img src="/images/combiners.png" width="100%"/>
 
 
 ```
@@ -29,6 +29,7 @@ contract Combiner is Ownable, Addressed{
   // ------------------------ concurrence ---------------------------------- //
   mapping (bytes32 => bytes32 ) public concurrence; //agreed upon consensus
   mapping (bytes32 => uint256 ) public weight; //amount staked on concurrence
+  mapping (bytes32 => uint256 ) public timestamp; //amount staked on concurrence
   // ------------------------ ----------- ---------------------------------- //
 
   //req id            //result    //amount of token
@@ -75,8 +76,8 @@ contract Combiner is Ownable, Addressed{
       if( current[_request]==0 ){
         rewardCombinerMiner(_request);
 
-        //TRIGGER THE CALLBACK HERE
-        // IT SHOULD SEND THE requestId, bestResponse to the callback contract at function "concurrence"
+        // TODO TRIGGER THE CALLBACK HERE
+        // IT SHOULD SEND THE requestId, concurrence, weight, timestamp  to the callback contract at function "concurrence"
 
         mode[_request] = Mode.CALLBACK;
       }
@@ -84,6 +85,18 @@ contract Combiner is Ownable, Addressed{
     if(mode[_request] == Mode.CALLBACK && msg.gas>90000){
       callback(_request);
       mode[_request] = Mode.DONE;
+    }
+    if(mode[_request] == Mode.DONE){
+
+      // TODO RESET THE RESPONSES HERE TOO
+      // YOU NEED TO GO SET THE HEAD FOR THIS REQUEST ID TO 0x0
+      //correctMiners[_request] = 0;
+      //reward[_request] = 0;
+      //current[_request] = address(0);
+      //mode[_request] = Mode.INIT;
+
+      //instead let's just revert for now
+      revert();
     }
     DebugPointer(current[_request]);
     return mode[_request];
@@ -100,7 +113,7 @@ contract Combiner is Ownable, Addressed{
     address requestCombiner = requestsContract.getCombiner(_request);
     if(requestCombiner==address(0)) return false;
     if(requestCombiner!=address(this)) return false;
-    //check for tokens next
+    if(tokenContract.reserved(_request)<=0) return false;
     return true;
   }
 
@@ -151,6 +164,7 @@ contract Combiner is Ownable, Addressed{
       miners[_request][result]++;
       //keep track of running best and how much is staked to it
       if(staked[_request][result]>weight[_request]){
+        timestamp[_request] = block.timestamp;
         weight[_request] = staked[_request][result];
         concurrence[_request] = result;
         correctMiners[_request] = miners[_request][result];
@@ -260,7 +274,8 @@ contract Combiner is Ownable, Addressed{
     reward[_request] = tokenContract.reserved(_request)/rewardableMiners;
     if(reward[_request]<1) reward[_request]=1;
 
-    //reset the pointer back to the head so we can iterate through again
+    //reset the pointer back to the head so we can iterate through again if we have some later mode
+    //what will most likely happen is we move to the RESET mode and this is set back to address(0)
     current[_request] = responsesContract.heads(_request);
   }
 
@@ -291,9 +306,9 @@ import 'Addressed.sol';
 ```
 Current address:
 ```
-0x10c5eE2F7A67faFBb5dDd36aaf3D8bdd93591097
+0x2076a810d597e6462A93c77b930c585303B8d332
 ```
 Current ABI:
 ```
-[{"constant":true,"inputs":[],"name":"mainAddress","outputs":[{"name":"","type":"address"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":true,"inputs":[{"name":"","type":"bytes32"}],"name":"current","outputs":[{"name":"","type":"bytes32"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":true,"inputs":[{"name":"","type":"bytes32"},{"name":"","type":"bytes32"}],"name":"staked","outputs":[{"name":"","type":"uint256"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":true,"inputs":[{"name":"","type":"bytes32"}],"name":"reward","outputs":[{"name":"","type":"uint256"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":true,"inputs":[],"name":"owner","outputs":[{"name":"","type":"address"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":true,"inputs":[{"name":"","type":"bytes32"}],"name":"mode","outputs":[{"name":"","type":"uint8"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":false,"inputs":[{"name":"_request","type":"bytes32"}],"name":"combine","outputs":[{"name":"","type":"uint8"}],"payable":false,"stateMutability":"nonpayable","type":"function"},{"constant":true,"inputs":[{"name":"","type":"bytes32"},{"name":"","type":"bytes32"}],"name":"miners","outputs":[{"name":"","type":"uint32"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":true,"inputs":[{"name":"_request","type":"bytes32"}],"name":"open","outputs":[{"name":"","type":"bool"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":false,"inputs":[{"name":"_mainAddress","type":"address"}],"name":"setMainAddress","outputs":[],"payable":false,"stateMutability":"nonpayable","type":"function"},{"constant":true,"inputs":[{"name":"","type":"bytes32"}],"name":"concurrence","outputs":[{"name":"","type":"bytes32"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":true,"inputs":[{"name":"","type":"bytes32"}],"name":"weight","outputs":[{"name":"","type":"uint256"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":false,"inputs":[{"name":"newOwner","type":"address"}],"name":"transferOwnership","outputs":[],"payable":false,"stateMutability":"nonpayable","type":"function"},{"constant":true,"inputs":[{"name":"","type":"bytes32"}],"name":"correctMiners","outputs":[{"name":"","type":"uint32"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":true,"inputs":[{"name":"_request","type":"bytes32"}],"name":"ready","outputs":[{"name":"","type":"bool"}],"payable":false,"stateMutability":"view","type":"function"},{"inputs":[{"name":"_mainAddress","type":"address"}],"payable":false,"stateMutability":"nonpayable","type":"constructor"},{"anonymous":false,"inputs":[{"indexed":false,"name":"debug","type":"string"}],"name":"Debug","type":"event"},{"anonymous":false,"inputs":[{"indexed":false,"name":"gas","type":"uint256"}],"name":"DebugGas","type":"event"},{"anonymous":false,"inputs":[{"indexed":false,"name":"_pointer","type":"bytes32"}],"name":"DebugPointer","type":"event"},{"anonymous":false,"inputs":[{"indexed":true,"name":"previousOwner","type":"address"},{"indexed":true,"name":"newOwner","type":"address"}],"name":"OwnershipTransferred","type":"event"}]
+[{"constant":true,"inputs":[],"name":"mainAddress","outputs":[{"name":"","type":"address"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":true,"inputs":[{"name":"","type":"bytes32"}],"name":"timestamp","outputs":[{"name":"","type":"uint256"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":true,"inputs":[{"name":"","type":"bytes32"}],"name":"current","outputs":[{"name":"","type":"bytes32"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":true,"inputs":[{"name":"","type":"bytes32"},{"name":"","type":"bytes32"}],"name":"staked","outputs":[{"name":"","type":"uint256"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":true,"inputs":[{"name":"","type":"bytes32"}],"name":"reward","outputs":[{"name":"","type":"uint256"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":true,"inputs":[],"name":"owner","outputs":[{"name":"","type":"address"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":true,"inputs":[{"name":"","type":"bytes32"}],"name":"mode","outputs":[{"name":"","type":"uint8"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":false,"inputs":[{"name":"_request","type":"bytes32"}],"name":"combine","outputs":[{"name":"","type":"uint8"}],"payable":false,"stateMutability":"nonpayable","type":"function"},{"constant":true,"inputs":[{"name":"","type":"bytes32"},{"name":"","type":"bytes32"}],"name":"miners","outputs":[{"name":"","type":"uint32"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":true,"inputs":[{"name":"_request","type":"bytes32"}],"name":"open","outputs":[{"name":"","type":"bool"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":false,"inputs":[{"name":"_mainAddress","type":"address"}],"name":"setMainAddress","outputs":[],"payable":false,"stateMutability":"nonpayable","type":"function"},{"constant":true,"inputs":[{"name":"","type":"bytes32"}],"name":"concurrence","outputs":[{"name":"","type":"bytes32"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":true,"inputs":[{"name":"","type":"bytes32"}],"name":"weight","outputs":[{"name":"","type":"uint256"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":false,"inputs":[{"name":"newOwner","type":"address"}],"name":"transferOwnership","outputs":[],"payable":false,"stateMutability":"nonpayable","type":"function"},{"constant":true,"inputs":[{"name":"","type":"bytes32"}],"name":"correctMiners","outputs":[{"name":"","type":"uint32"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":true,"inputs":[{"name":"_request","type":"bytes32"}],"name":"ready","outputs":[{"name":"","type":"bool"}],"payable":false,"stateMutability":"view","type":"function"},{"inputs":[{"name":"_mainAddress","type":"address"}],"payable":false,"stateMutability":"nonpayable","type":"constructor"},{"anonymous":false,"inputs":[{"indexed":false,"name":"debug","type":"string"}],"name":"Debug","type":"event"},{"anonymous":false,"inputs":[{"indexed":false,"name":"gas","type":"uint256"}],"name":"DebugGas","type":"event"},{"anonymous":false,"inputs":[{"indexed":false,"name":"_pointer","type":"bytes32"}],"name":"DebugPointer","type":"event"},{"anonymous":false,"inputs":[{"indexed":true,"name":"previousOwner","type":"address"},{"indexed":true,"name":"newOwner","type":"address"}],"name":"OwnershipTransferred","type":"event"}]
 ```

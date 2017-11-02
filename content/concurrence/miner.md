@@ -7,6 +7,14 @@ The **Miner** performs off chain requests and forms a consensus using IPFS pubsu
 Later versions will have fallback layers that will allow miners to contact **Concurrence** servers instead of talking directly to the Ethereum and IPFS networks. This will enable different layers of connectivity and give basic miners direct access without having the blockchain downloaded locally.  
 
 ```javascript
+/*
+
+  Concurrence.js is the off-chain library developers can use to interface with the on-chain Concurrence fleet
+
+  https://concurrence.io
+  austin@concurrence.io
+
+*/
 
 const fs = require('fs')
 const Web3 = require('web3')
@@ -267,14 +275,19 @@ concurrence.getCombinerMode = (requestid,address)=>{
   return concurrence.combinerContracts[address].methods.mode(requestid).call()
 }
 
-concurrence.getCombinerBestResult = (requestid,address)=>{
+concurrence.getCombinerConcurrence = (requestid,address)=>{
   if(!concurrence.combinerContracts[address]) loadCombiner(address)
-  return concurrence.combinerContracts[address].methods.bestResult(requestid).call()
+  return concurrence.combinerContracts[address].methods.concurrence(requestid).call()
 }
 
-concurrence.getCombinerMostStaked = (requestid,address)=>{
+concurrence.getCombinerWeight = (requestid,address)=>{
   if(!concurrence.combinerContracts[address]) loadCombiner(address)
-  return concurrence.combinerContracts[address].methods.mostStaked(requestid).call()
+  return concurrence.combinerContracts[address].methods.weight(requestid).call()
+}
+
+concurrence.getCombinerTimestamp = (requestid,address)=>{
+  if(!concurrence.combinerContracts[address]) loadCombiner(address)
+  return concurrence.combinerContracts[address].methods.timestamp(requestid).call()
 }
 
 concurrence.isCombinerOpen = (requestid,address) => {
@@ -355,6 +368,13 @@ function loadCombiner(address){
 
 }
 
+/// --- EXTRAS ------------------------------------------------------------------------
+
+concurrence.listDebug = (debugArray) =>{
+  for(let a in debugArray){
+    console.log(debugArray[a].returnValues)
+  }
+}
 
 /// --- HELPERS ------------------------------------------------------------------------
 

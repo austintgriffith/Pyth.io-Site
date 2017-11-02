@@ -4,7 +4,7 @@ date: 2017-09-21T07:00:00-06:00
 ---
 The **Requests** contract is the main datastore for requests that signal miners. Developers and external contracts call the **addRequest()** function and then **reserve()** tokens behind that request to incentivize miners. The **request** *(string)* can be anything and it's up to the miners to perform different tasks based on the **protocol** *(bytes32)*. **Responses** are then aggregated in the **combiner** *(address)* contract and delivered to the **callback** *(address)* contract.
 
-<img src="/images/requests.svg" width="100%"/>
+<img src="/images/requests.png" width="100%"/>
 
 ```
 pragma solidity ^0.4.11;
@@ -19,7 +19,7 @@ contract Requests is HasNoEther, Addressed {
 
   struct Request{
     address combiner; //what combiner to use
-    string request;   //the actual request, could be json object
+    string request;   //the actual request, could be json object ----- in the future we may only store a hash of this on-chain
     bytes32 protocol; //the type of request can be anything, up to miners to understand
     address callback; //developer contract to __callback to when result is found
     bool active;      //bool used as meta data
@@ -73,7 +73,7 @@ import 'Addressed.sol';
 ```
 Current address:
 ```
-0x91282345d457C6874D27492D69E7BB7f7fAcbdBc
+0xDc78c4bD005Cc6f1401a6D18772ed6FC9C6bb031
 ```
 Current ABI:
 ```

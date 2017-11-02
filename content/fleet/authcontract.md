@@ -4,7 +4,7 @@ date: 2017-09-21T10:00:00-06:00
 ---
 **Auth** keeps a **permission** *(bytes32)* for any **account** *(address)*. Other contracts can use this contract to determine the level of **permission** any **account** has by calling **getPermission()**. Any account with *"setContract"* **permission** *(bytes32)* can also call **setPermission()**.
 
-<img src="/images/auth.svg" width="100%"/>
+<img src="/images/auth.png" width="100%"/>
 
 ```
 pragma solidity ^0.4.11;
@@ -44,7 +44,7 @@ Eventually, the **Auth** contract will be extended to allow for more complex gov
 
 Current address:
 ```
-0xe5fdDA6D693b443D01D5D240DDBBBA48a80F073d
+0x0aDa4569a75821E147bb13F09C265918AAcb5EDc
 ```
 Current ABI:
 ```

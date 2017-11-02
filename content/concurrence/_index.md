@@ -29,6 +29,13 @@ Let's have miners come to a **concurrence** on the current timestamp in UTC. As 
 First, we must register this new request using **addRequest.js**:
 
 ```Javascript
+/*
+  Add a request to signal miners
+
+  usage:
+  node addRequest
+*/
+
 const fs = require("fs")
 
 let request = { url: "http://relay.concurrence.io/time" }
@@ -38,7 +45,7 @@ let callback = fs.readFileSync("../../Callback/Callback.address").toString().tri
 
 let concurrence = require("concurrence")
 concurrence.init({},(err)=>{
-  concurrence.selectAccount(1)
+  concurrence.selectAccount(2)
   concurrence.addRequest(combiner,request,protocol,callback).then((addResult)=>{
     console.log("TX:"+addResult.transactionHash)
     console.log(addResult.events.AddRequest.returnValues)
@@ -66,6 +73,16 @@ The request is now entered onto the blockchain as: **0x92b52bf7d21dce26c67cfab72
 Requests without any tokens reserved won't be mined. In order to incentivize miners, we will need to reserve some tokens for this with request using **reserveTokens.js**
 
 ```Javascript
+/*
+  Reserve tokens behind a request to incentivize miners
+
+  usage:
+  nnode reserveTokens ##REQUESTID## ##AMOUNT##
+
+  example:
+  node reserveTokens 0x0b54d5da066a0c753ddd0510d445e131cb21f9373f4c3609100419ae4d95908d 100
+*/
+
 const fs = require("fs")
 
 if(!process.argv[2]){
@@ -82,7 +99,7 @@ let tokens = process.argv[3];
 
 let concurrence = require("concurrence")
 concurrence.init({},(err)=>{
-  concurrence.selectAccount(1)
+  concurrence.selectAccount(2)
   concurrence.reserve(requestId,tokens).then((reserveResult)=>{
     console.log(reserveResult)
   })
@@ -101,6 +118,13 @@ node reserveTokens.js 0x92b52bf7d21dce26c67cfab721d385028dd4f97edf9bf56a13181fbc
 An event is triggered every time a new request is added so miners can list requests with **listRequests.js**
 
 ```Javascript
+/*
+  List all the requests by events triggered
+
+  usage:
+  node listRequests
+*/
+
 let concurrence = require("concurrence")
 concurrence.init({},(err)=>{
   concurrence.listRequests().then((requests)=>{
@@ -130,6 +154,15 @@ node listRequests.js
 Once they have request ids, they can start checking to see if any have tokens reserved with **getReserved.js**:
 
 ```Javascript
+/*
+  Get a request's details
+
+  usage:
+  node getReserved ##REQUESTID##
+
+  example:
+  node getReserved 0x147b833db65b9d9a4321ba3fa0f476265ebb178531de166477822204268f6d88
+*/
 
 if(!process.argv[2]){
   console.log("Please provide a request id.")
@@ -145,3 +178,9 @@ concurrence.init({},(err)=>{
 });
 
 ```
+```bash
+node getReserved.js 0x92b52bf7d21dce26c67cfab721d385028dd4f97edf9bf56a13181fbc2abfce82
+
+Request 0x92b52bf7d21dce26c67cfab721d385028dd4f97edf9bf56a13181fbc2abfce82 has 1000 CCCE reserved
+```
+
