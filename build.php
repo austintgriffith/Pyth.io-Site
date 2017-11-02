@@ -71,7 +71,21 @@ foreach($sections as $section){
         foreach($lines as $line){
           if(strpos($line,"<!--RQC")!==FALSE){
             $parts = explode(" ",$line);
-            if($parts[1]=="CODE"){
+            if($parts[1]=="CODESNIP"){
+              $codeType = $parts[2];
+              if($codeType=="solidity") $codeType="";
+              $content = file_get_contents("../".$parts[3]);
+              $startWith = "concurrence.init({},(err)=>{";
+              $startLoc = strpos($content, $startWith) + strlen($startWith);
+              $content = substr($content, $startLoc);
+              $endLoc = strrpos($content,"});");
+              $content = substr($content, 0,$endLoc);
+              $outputContent.=
+"```".$codeType."
+//snippet from ${parts[3]}
+".$content."
+```";
+            }else if($parts[1]=="CODE"){
               $codeType = $parts[2];
               if($codeType=="solidity") $codeType="";
               $outputContent.=

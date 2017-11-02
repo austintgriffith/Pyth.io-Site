@@ -44,9 +44,9 @@ Eventually, the **Auth** contract will be extended to allow for more complex gov
 
 Current address:
 ```
-
+0x89eD8027914dd80d3B5F85a5a6D17F3a0fb300f7
 ```
 Current ABI:
 ```
-
+[{"constant":false,"inputs":[{"name":"_account","type":"address"},{"name":"_permission","type":"bytes32"},{"name":"_value","type":"bool"}],"name":"setPermission","outputs":[{"name":"","type":"bool"}],"payable":false,"stateMutability":"nonpayable","type":"function"},{"constant":true,"inputs":[],"name":"owner","outputs":[{"name":"","type":"address"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":false,"inputs":[],"name":"reclaimEther","outputs":[],"payable":false,"stateMutability":"nonpayable","type":"function"},{"constant":false,"inputs":[{"name":"newOwner","type":"address"}],"name":"transferOwnership","outputs":[],"payable":false,"stateMutability":"nonpayable","type":"function"},{"constant":true,"inputs":[{"name":"_account","type":"address"},{"name":"_permission","type":"bytes32"}],"name":"getPermission","outputs":[{"name":"","type":"bool"}],"payable":false,"stateMutability":"view","type":"function"},{"inputs":[],"payable":false,"stateMutability":"nonpayable","type":"constructor"},{"payable":false,"stateMutability":"nonpayable","type":"fallback"},{"anonymous":false,"inputs":[{"indexed":false,"name":"sender","type":"address"},{"indexed":false,"name":"account","type":"address"},{"indexed":false,"name":"permission","type":"bytes32"},{"indexed":false,"name":"value","type":"bool"}],"name":"SetPermission","type":"event"},{"anonymous":false,"inputs":[{"indexed":true,"name":"previousOwner","type":"address"},{"indexed":true,"name":"newOwner","type":"address"}],"name":"OwnershipTransferred","type":"event"}]
 ```

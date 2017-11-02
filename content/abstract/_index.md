@@ -10,7 +10,11 @@ An oracle provides that link by making off-chain interactions and delivering res
 
 With the correct cryptoeconomics at play, a statistically adequate supply of miners will, in combination with the staking of a token, reach a consensus off-chain. Then, efficiently inscribe the data onto the blockchain, available publicly for developers to drive their smart contract logic.
 
-**This is not a new idea.** Vitalik even posted about <a target='_blank' href='https://blog.ethereum.org/2014/03/28/schellingcoin-a-minimal-trust-universal-data-feed/'>SchellingCoin</a> back in 2014. What makes **Concurrence** different from other projects in this space is *raw simplicity*, *complete transparency*, and *full decentralization*.
+**This is not a new idea.** Vitalik even posted about <a target='_blank' href='https://blog.ethereum.org/2014/03/28/schellingcoin-a-minimal-trust-universal-data-feed/'>SchellingCoin</a> back in 2014.
+
+What makes **Concurrence** different from other projects in this space is *raw simplicity*, *complete transparency*, and *full decentralization*.
+
+**Concurrence** is a simple fleet of smart contracts that holds *generic* requests from developers and draws a consensus from simple answers received from a swarm of miners. The complexity is only in how the miners decided to handle requests and that code will evolve off-chain.
 
 **Concurrence needs a community.** We need developers to wire their Dapps into our testnet fleet, a swarm of miners running our code to make requests, and eyes on our code/contracts before the ecosystem is stable enough for real use.
 
