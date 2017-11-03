@@ -3,11 +3,11 @@ title: "Fleet"
 date: 2017-09-21T11:00:00-06:00
 ---
 
-The **Concurrence** fleet is currently operating in the Ropsten testnet.
+The **Concurrence** fleet is currently operating in the Ropsten testnet. Smart contract developers reserve **(CCCE)** token for a generic **request**. Miners are signaled by the **request** events to execute off-chain code and generate a **response** on which they stake **(CCCE)** token. Those **responses** are aggregated in **combiners** to draw a deterministic consensus on-chain, reward good actors, and deliver the **concurrence** to developer contracts.
 
-<img style="width:100%" src="/images/contracts.png" />
+------------------------------------------------
 
-**Concurrence** **(CCCE)** token is reserved behind a generic **request**. Miners are signaled by the **request** to execute off-chain code and interactions which generate a **response** that they stake token against. Those **responses** are aggregated in **combiner** contracts to draw a deterministic consensus on-chain, reward miners, and trigger developer contracts with the **result**.
+<img style="width:100%" src="/images/contractflow.png" />
 
 ------------------------------------------------
 
