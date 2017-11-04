@@ -44,7 +44,7 @@ Eventually, the **Auth** contract will be extended to allow for more complex gov
 
 Current address:
 ```
-0xAE76783b2Dd698A2D6480967961b82e59B338847
+0x89eD8027914dd80d3B5F85a5a6D17F3a0fb300f7
 ```
 Current ABI:
 ```
