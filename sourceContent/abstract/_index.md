@@ -14,7 +14,7 @@ With the correct cryptoeconomics at play, a statistically adequate supply of min
 
 What makes **Concurrence** different from other projects in this space is *raw simplicity*, *complete transparency*, and *full decentralization*.
 
-**Concurrence** is a simple fleet of smart contracts that holds *generic* requests from developers and draws a consensus from simple answers received from a swarm of miners. The complexity is only in how the miners decided to handle requests and that code will evolve off-chain.
+**Concurrence is a smart contract fleet that broadcasts *generic* requests from developers and draws a consensus from simple answers received from a decentralized swarm of miners. The complexity is deferred to the miners and how they decided to handle requests. This off-chain miner code will evolve quickly while the on-chain contracts harden.**
 
 **Concurrence needs a community.** We need developers to wire their Dapps into our testnet fleet, a swarm of miners running our code to make requests, and eyes on our code/contracts before the ecosystem is stable enough for real use.
 

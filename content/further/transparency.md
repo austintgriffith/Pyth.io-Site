@@ -7,5 +7,9 @@ date: 2017-09-21T03:59:00-06:00
 
 ![austin.griffith](http://s3.amazonaws.com/rqcassets/austin.griffith.png)
 
+One day soon, I hope to edit this page and start talking about a growing developer base instead of just me. If you have any input or interest in growing decentralized oracles, [contact me](/contact)!
+
+-----------------------------------------------------------
+
 Please [contact me](/contact) about anything; let's get a dialog about **Concurrence** started!
 
