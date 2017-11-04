@@ -2,55 +2,23 @@
 title: "Crafting Scripts"
 date: 2017-09-21T15:00:00-06:00
 ---
-Instead of interacting with the network directly from the command line, we put together a handful of useful scripts to help abstract some of the functionality. There are also some prebuilt (and most likely better) packages out there like <a href="http://truffleframework.com/" target="_blank">Truffle</a>. For now, we'll stick to our simple scripts and see how far they get us. They will also require a couple dependancies:
+Instead of interacting with the network directly from the command line, we put together a handful of useful scripts to help abstract some of the functionality. There are also some prebuilt packages out there like <a href="http://truffleframework.com/" target="_blank">Truffle</a> and <a href="https://openzeppelin.org/" target="_blank">OpenZeppelin</a>.
+
+---------------------------------------------------
+
+
+First, let's get our environment prepared:
 
 ```bash
 npm install solc web3
 ```
 
-Let's set up a few global variables:
+Let's initialize a few global variables:
 ```bash
 echo "20" > gasprice.int
 echo "300" > ethprice.int
 echo "2000000" > deploygas.int
 echo "200000" > xfergas.int
-```
-<!--
-lib.js
-------------------
-*brings in global variables and prepares helper functions and dependancies*
--->
-
-
-
-personal.js
-------------------
-*reports current account balances and unlocks accounts*
-
-```javascript
-const fs = require('fs');
-const Web3 = require('web3');
-const web3 = new Web3(new Web3.providers.HttpProvider("http://localhost:8545"));
-console.log(" ### PERSONAL")
-let count = 1
-if(process.argv[2]) count = process.argv[2]
-
-
-web3.eth.getAccounts().then((accounts)=>{
-  for(let i=0;i<count;i++){
-    web3.eth.getBalance(accounts[i]).then((balance)=>{
-      console.log(" ######### "+i+" # "+accounts[i]+" "+balance)
-      try{
-        web3.eth.personal.unlockAccount(accounts[i]).then((a,b,c)=>{
-          console.log("unlocked "+i+": "+a)
-
-        })
-      }catch(e){console.log(e)}
-
-    })
-  }
-})
-
 ```
 
 send.js
@@ -61,34 +29,22 @@ send.js
 const fs = require('fs');
 const Web3 = require('web3');
 const web3 = new Web3(new Web3.providers.HttpProvider("http://localhost:8545"));
-console.log(" ### PERSONAL")
+console.log(" ### SEND")
+
 let count = 1
 if(process.argv[2]) count = process.argv[2]
-
 let to = 2
 let from = 1
 let amount = 0.1
+if(process.argv[2]){amount=process.argv[2]}
+if(process.argv[3]){from=process.argv[3]}
+if(process.argv[4]){to=process.argv[4]}
 
-//EXAMPLE USAGE: node send #AMOUNT# #FROM(index in accounts)# #TO(index in accounts)#
-
-if(process.argv[2]){
-  amount=process.argv[2]
-}
-if(process.argv[3]){
-  from=process.argv[3]
-}
-if(process.argv[4]){
-  to=process.argv[4]
-}
-
-//eth.sendTransaction({from:eth.accounts[0], to:eth.accounts[1], value: web3.toWei(0.1, "ether"),gas: 90000, gasPrice:2000000000})
 let gasPrice = fs.readFileSync("gasprice.int").toString().trim()
 let gas = fs.readFileSync("xfergas.int").toString().trim()
 let gaspricegwei = web3.utils.toWei(gasPrice,'gwei')
-console.log("SENDING ")
 
 web3.eth.getAccounts().then((accounts)=>{
-
   let params = {
     from: accounts[from],
     to: accounts[to],
@@ -110,7 +66,6 @@ web3.eth.getAccounts().then((accounts)=>{
       })
     },10000)
   })
-
 })
 
 ```
@@ -121,6 +76,8 @@ compile.js
 ```javascript
 const fs = require('fs');
 const solc = require('solc');
+console.log(" ### COMPILE")
+
 let startSeconds = new Date().getTime() / 1000;
 let contractdir = process.argv[2]
 let contractname = process.argv[3]
@@ -147,8 +104,6 @@ if(!input){
   fs.writeFile(contractdir+"/"+contractname+".bytecode",bytecode)
   fs.writeFile(contractdir+"/"+contractname+".abi",abi)
   console.log("Compiled!")
-
-
 }
 
 ```
@@ -160,16 +115,13 @@ deploy.js
 const fs = require('fs');
 const Web3 = require('web3');
 const web3 = new Web3(new Web3.providers.HttpProvider("http://localhost:8545"));
+console.log(" ### DEPLOY")
 
 var ACCOUNT_INDEX = 1
-
 var startSeconds = new Date().getTime() / 1000;
-
 var contractdir = process.argv[2]
 var contractname = process.argv[3]
 if(!contractname) contractname=contractdir
-
-console.log("Reading data...")
 var bytecode = fs.readFileSync(contractdir+"/"+contractname+".bytecode").toString()
 var abi = false
 if(!bytecode){
@@ -197,7 +149,6 @@ if(!bytecode){
 function deployContract(accounts,balance){
   let etherbalance = web3.utils.fromWei(balance,"ether");
   console.log(etherbalance+" $"+(etherbalance*ethPrice))
-
   console.log("\nLoaded account "+accounts[ACCOUNT_INDEX])
   console.log("Deploying...",bytecode,abi)
   let contract = new web3.eth.Contract(abi)
@@ -227,7 +178,6 @@ function deployContract(accounts,balance){
       web3.eth.getTransactionReceipt(transactionHash,(error,result)=>{
         if(result && result.contractAddress && result.cumulativeGasUsed){
           console.log("Success",result)
-
           web3.eth.getBalance(accounts[ACCOUNT_INDEX]).then((balance)=>{
             let endetherbalance = web3.utils.fromWei(balance,"ether");
             let etherdiff = etherbalance-endetherbalance
@@ -247,12 +197,9 @@ function deployContract(accounts,balance){
             let endSeconds = new Date().getTime() / 1000;
             let duration = Math.floor((endSeconds-startSeconds))
             console.log("deploy time: ",duration)
-
             fs.appendFileSync("./deploy.log",contractdir+"/"+contractname+" "+result.contractAddress+" "+duration+" "+etherdiff+" $"+(etherdiff*ethPrice)+" "+gaspricegwei+"\n")
-
             process.exit(0);
           })
-
         }else{
           process.stdout.write(".")
         }
@@ -270,15 +217,14 @@ contract.js
 const fs = require('fs');
 const Web3 = require('web3');
 const web3 = new Web3(new Web3.providers.HttpProvider("http://localhost:8545"));
+console.log(" ### CONTRACT")
+
 var ACCOUNT_INDEX = 1
 var startSeconds = new Date().getTime() / 1000;
-
 var script = process.argv[2]
 var contractdir = process.argv[3]
 var contractname = process.argv[4]
 if(!contractname || contractname=="null" ) contractname=contractdir
-
-console.log("Reading data...")
 var address
 var nextAddress
 if(contractname=="previous" ){
@@ -293,7 +239,6 @@ var blockNumber = 0
 try{
    blockNumber = fs.readFileSync(contractdir+"/"+contractname+".blockNumber").toString().trim()
 }catch(e){console.log(e)}
-
 var abi = false
 if(!address){
   console.log("Couldn't load "+contractdir+"/"+contractname+".address")
@@ -306,7 +251,6 @@ if(!address){
     var gasPrice = fs.readFileSync("gasprice.int").toString().trim()
     var gas = fs.readFileSync("deploygas.int").toString().trim()
     var gaspricegwei = gasPrice*1000000000
-
     console.log("Loading accounts...")
     web3.eth.getAccounts().then((accounts)=>{
       web3.eth.getBalance(accounts[ACCOUNT_INDEX]).then((balance)=>{
@@ -377,14 +321,37 @@ function interactWithContract(accounts,balance){
               }
             })
           },5000)
-
         })
       }
-
     }else{
       console.log("UNABLE TO LOAD SCRIPT "+script+" for "+contractname)
     }
-
 }
+
+```
+personal.js
+------------------
+*reports current account balances and unlocks accounts*
+
+```javascript
+const fs = require('fs');
+const Web3 = require('web3');
+const web3 = new Web3(new Web3.providers.HttpProvider("http://localhost:8545"));
+console.log(" ### PERSONAL")
+
+let count = 1
+if(process.argv[2]) count = process.argv[2]
+web3.eth.getAccounts().then((accounts)=>{
+  for(let i=0;i<count;i++){
+    web3.eth.getBalance(accounts[i]).then((balance)=>{
+      console.log(" ######### "+i+" # "+accounts[i]+" "+balance)
+      try{
+        web3.eth.personal.unlockAccount(accounts[i]).then((a,b,c)=>{
+          console.log("unlocked "+i+": "+a)
+        })
+      }catch(e){console.log(e)}
+    })
+  }
+})
 
 ```

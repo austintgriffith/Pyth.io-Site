@@ -2,7 +2,7 @@
 title: "Callback Contract"
 date: 2017-09-21T05:00:00-06:00
 ---
-The **Callback** contract is simply a placeholder for examples. Normally, when a consensus has been reached, a call to the developer's contract is made with the final **concurrence**. But, for demonstration purposes, we'll feed results to this contract for safe keeping.
+The **Callback** contract is simply a placeholder for examples. Normally, when a consensus has been reached, a call to the developer's contract is made with the final **concurrence**. But, for demonstration purposes, we will sometimes feed results to this contract for safe keeping.
 
 ```
 pragma solidity ^0.4.11;
@@ -32,11 +32,11 @@ contract Requests {
 import 'Addressed.sol';
 
 ```
-Current address:
+Current address ( http://relay.concurrence.io/address/Callback ):
 ```
-0xF3fab042a242Ca223B890a5584BaBbD4193a2595
+0x63d8A6855C8dB6990e9950534B4cb1d900FaE778
 ```
-Current ABI:
+Current ABI ( http://relay.concurrence.io/abi/Callback ):
 ```
 [{"constant":true,"inputs":[],"name":"mainAddress","outputs":[{"name":"","type":"address"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":true,"inputs":[{"name":"","type":"bytes32"}],"name":"results","outputs":[{"name":"","type":"bytes32"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":false,"inputs":[{"name":"requestId","type":"bytes32"},{"name":"result","type":"bytes32"}],"name":"concurrence","outputs":[],"payable":false,"stateMutability":"nonpayable","type":"function"},{"constant":false,"inputs":[{"name":"_mainAddress","type":"address"}],"name":"setMainAddress","outputs":[],"payable":false,"stateMutability":"nonpayable","type":"function"},{"inputs":[{"name":"_mainAddress","type":"address"}],"payable":false,"stateMutability":"nonpayable","type":"constructor"}]
 ```

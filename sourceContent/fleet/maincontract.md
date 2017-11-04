@@ -8,8 +8,8 @@ date: 2017-09-21T09:00:00-06:00
 
 <!--RQC CODE solidity Main/Main.sol -->
 
-Current address:
+Current address ( http://relay.concurrence.io/address/Main ):
 <!--RQC ADDRESS Main/Main.address -->
 
-Current ABI:
+Current ABI ( http://relay.concurrence.io/abi/Main ):
 <!--RQC ABI Main/Main.abi -->

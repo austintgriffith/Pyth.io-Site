@@ -2,7 +2,11 @@
 title: "Utility Token"
 date: 2017-09-21T21:00:00-06:00
 ---
-The first thing to address in building a decentralized oracle network is the cryptoeconomics of incentivizing miners. To do this we will create a utility token that can be used to purchase the efforts of miners. Any given channel of data will need a consensus and to drive that consensus, an amount of token will be put up as **stake**. As miners reach a consensus on the blockchain they will be rewarded with the token. Developers can, in turn, spend the token to get off-chain data available to power their smart contract logic.
+The first thing to address in building a decentralized oracle network is the cryptoeconomics of incentivizing miners.
+
+Developers will **reserve** token along with any generic request. Miners will drive a consensus by **staking** token with the off-chain data they collected. **Concurrence** is drawn based on defined combiner algorithms and miners are rewarded or punished based on the consensus. Developers contracts then receive this **concurrence** on-chain to power their smart contract logic.
+
+--------------------------------------------------------------------
 
 Thankfully, many brilliant minds have come together to build a safe and standardized token for Ethereum. One such token is the  [StandardToken](https://github.com/OpenZeppelin/zeppelin-solidity/blob/master/contracts/token/StandardToken.sol), and this will be extended for the use as the **Concurrence** token (**CCCE**).
 
@@ -27,4 +31,4 @@ contract ERC20 {
 }
 ```
 
-On top of this tried-and-true token standard we will need a few other features. First, we will need a mechanism for developers to *reserve* funds for the mining of a particular resource. Second, we will need a way for miners to *stake* some of their own token against the consensus. Later, we will want to have a reserved percentage of Ether stored in a contract to provide *liquidity* to the token at some price floor.
+On top of this tried-and-true token standard we will need a few other features. First, we will need a mechanism for developers to *reserve* funds for the mining of a particular resource. Second, we will need a way for miners to *stake* some of their own token against the consensus. Later, we will want to have a reserved percentage of Ether stored in a contract to provide *liquidity* to the token.

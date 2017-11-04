@@ -42,11 +42,11 @@ import 'zeppelin-solidity/contracts/ownership/HasNoEther.sol';
 ```
 Eventually, the **Auth** contract will be extended to allow for more complex governance including voting and signaling for specific changes to the system. Governance changes could go through the system as a normal **request** but with a custom **protocol** *(bytes32)* with the purpose of allowing miners to vote and stake token on changes.
 
-Current address:
+Current address ( http://relay.concurrence.io/address/Auth ):
 ```
-0xAE76783b2Dd698A2D6480967961b82e59B338847
+0x08f11540560e3b6977289a65d729D89F21e0fAc0
 ```
-Current ABI:
+Current ABI ( http://relay.concurrence.io/abi/Auth ):
 ```
 [{"constant":false,"inputs":[{"name":"_account","type":"address"},{"name":"_permission","type":"bytes32"},{"name":"_value","type":"bool"}],"name":"setPermission","outputs":[{"name":"","type":"bool"}],"payable":false,"stateMutability":"nonpayable","type":"function"},{"constant":true,"inputs":[],"name":"owner","outputs":[{"name":"","type":"address"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":false,"inputs":[],"name":"reclaimEther","outputs":[],"payable":false,"stateMutability":"nonpayable","type":"function"},{"constant":false,"inputs":[{"name":"newOwner","type":"address"}],"name":"transferOwnership","outputs":[],"payable":false,"stateMutability":"nonpayable","type":"function"},{"constant":true,"inputs":[{"name":"_account","type":"address"},{"name":"_permission","type":"bytes32"}],"name":"getPermission","outputs":[{"name":"","type":"bool"}],"payable":false,"stateMutability":"view","type":"function"},{"inputs":[],"payable":false,"stateMutability":"nonpayable","type":"constructor"},{"payable":false,"stateMutability":"nonpayable","type":"fallback"},{"anonymous":false,"inputs":[{"indexed":false,"name":"sender","type":"address"},{"indexed":false,"name":"account","type":"address"},{"indexed":false,"name":"permission","type":"bytes32"},{"indexed":false,"name":"value","type":"bool"}],"name":"SetPermission","type":"event"},{"anonymous":false,"inputs":[{"indexed":true,"name":"previousOwner","type":"address"},{"indexed":true,"name":"newOwner","type":"address"}],"name":"OwnershipTransferred","type":"event"}]
 ```

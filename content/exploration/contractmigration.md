@@ -3,21 +3,18 @@ title: "Contract Migration"
 date: 2017-09-21T12:00:00-06:00
 ---
 
-As bugs are discovered or new functionality needs to be added to contracts, we will need a method of migrating from a predecessor to a descendant. As mentioned in the [Contract Lineage](/abstract/contractlineage) section, we will try to keep contracts simple and we will create a linked-list of lineage so other contracts and scripts both on and off the blockchain can follow a chain of addresses to the latest version. For contracts with large data stores, we may need to pause the contracts and slowly migrate the data, but for this example we will just add some new functionality.
+As bugs are discovered or new functionality is needed, we will want a method of migrating from a predecessor to a descendant. As mentioned in the [Contract Lineage](/abstract/contractlineage) section, we will try to keep contracts simple and we will create a linked-list of lineage so other contracts and scripts both on and off the blockchain can follow a trail of addresses to the latest version.
 
-Let's start with a new contract called **Store** that will hold current prices of the top cryptocurrencies (This will also help demonstrate some aspects of an oracle). This contract will use the **mapping** datatype to store a **bytes32** => **uint** relation called **price**:
+Let's start with a new contract called **Store** that will hold current prices of the top cryptocurrencies (this will also help demonstrate some aspects of an oracle). This contract will use the *mapping* data type to store a *bytes32* => *uint* relationship called **price**:
 
 ```
 pragma solidity ^0.4.11;
 
-import 'zeppelin-solidity/contracts/ownership/Ownable.sol';
-import "Predecessor.sol";
-
-contract Store is Ownable,Predecessor {
+contract Store is Ownable, Predecessor {
 
     //string to hold source url of price information for reference
     string public source;
-    
+
     //prices mapped by SYMBOL => price in USD
     mapping (bytes32 => uint) price;
 
@@ -33,7 +30,7 @@ contract Store is Ownable,Predecessor {
     }
 
     //anyone can get any price by symbol
-    function getPrice(bytes32 _symbol) constant returns (uint) { /*whenNotMigrating*/
+    function getPrice(bytes32 _symbol) constant returns (uint) {
       //if there is a descendant, pass the call on
       if(descendant!=address(0)) {
         return Store(descendant).getPrice(_symbol);
@@ -42,8 +39,11 @@ contract Store is Ownable,Predecessor {
     }
 }
 
+import 'zeppelin-solidity/contracts/ownership/Ownable.sol';
+import "Predecessor.sol";
+
 ```
-Only the owner of the contract will be able to run a miner that will call the **setPrice()** function to update the **price** mapping.
+Only the owner of the contract will be able to run a miner that will call the **setPrice()** function to update the **price** *mapping*.
 Then, other contracts on the the blockchain can call **getPrice()** to retrieve the price of a certain currency. We'll use the internet endpoint https://api.coinmarketcap.com/v1/ticker/ to retrieve data. This url will be passed to the **Store** constructor to signal to miners where to get their data.
 
 We will also extend a new contract called **Predecessor** that enables the owner to define a chain of **descendant** addresses:
@@ -206,9 +206,6 @@ pragma solidity ^0.4.11;
 A simple 'request oracle client' that needs to know the price of Eth and Bch
 */
 
-//simple Store interface with just the function we need
-contract Store{function getPrice(bytes32 _symbol) constant returns (uint) {}}
-
 contract EthVsBch {
 
     //string to hold source address of oracle
@@ -232,6 +229,9 @@ contract EthVsBch {
       }
     }
 }
+
+//simple Store interface with just the function we need
+contract Store{function getPrice(bytes32 _symbol) constant returns (uint) {}}
 
 ```
 Let's compile and deploy **EthVsBch** with the **Store** address *hardcoded* in **arguments.js**:
@@ -286,15 +286,12 @@ CURRENT WINNER: Result { '0': 'ETH', '1': '336907000000000' }
 (previously '336711000000000')
 ```
 
-Great, so as our miner continues to supply the **Store** contract with data, other contracts on the blockchain can source that data to make decisions. But, how would a contract know if the data in **Store** has grown stale? What if, down the road, we got requests from developers to add in a **uint** that would tell them how old the prices were? Let's do that now:
+Great, so as our miner continues to supply the **Store** contract with data, other contracts on the blockchain can source that data to make decisions. But, how would a contract know if the data in **Store** has grown stale? What if, down the road, we get requests from developers to add in a **uint** that will tell them how old the prices are? Let's do that now:
 
 ```
 pragma solidity ^0.4.11;
 
-import 'zeppelin-solidity/contracts/ownership/Ownable.sol';
-import "Predecessor.sol";
-
-contract Store is Ownable,Predecessor {
+contract Store is Ownable, Predecessor {
 
     //string to hold source url of price information for reference
     string public source;
@@ -327,8 +324,11 @@ contract Store is Ownable,Predecessor {
     uint public lastUpdate;
 }
 
+import 'zeppelin-solidity/contracts/ownership/Ownable.sol';
+import "Predecessor.sol";
+
 ```
-Notice this new version of **Store** keeps a **lastUpdate** **uint** that is set to the **block.number** as a miner runs an update. This contract also has to be built to be backwards compatible because the first version of **EthVsBch** needs to continue to work with the previous **Store** hardcoded in, but we only want the miner to update one contract due to gas costs and complexity. Let's compile and deploy the next version of **Store**:
+Notice this new version of **Store** keeps a **lastUpdate** **uint** that is set to the **block.number** as a miner runs an update. This contract also has to be built to be backwards compatible because the first version of **EthVsBch** needs to continue to work with the previous **Store** *address* hardcoded in, but we only want the miner to update one contract (single source of truth) due to gas costs and complexity. Let's compile and deploy the next version of **Store**:
 
 ```bash
 node compile Store
@@ -416,7 +416,7 @@ node contract getState EthVsBch
 CURRENT WINNER: Result { '0': 'ETH', '1': '336505000000000' }
 ```
 
-It is getting the latest price from the latest **Store** even with the old **Store** *hardcoded* in. Our migration is complete and the miner can continue updating only the latest **Store**.
+It is getting the latest price from the latest **Store** even with the old **Store** *address* hardcoded in. Our migration is complete and the miner can continue updating only the latest **Store**.
 
 Now, let's say the developer decides to implement the block number check in their **EthVsBch** contract:
 
@@ -426,12 +426,6 @@ pragma solidity ^0.4.11;
 /*
 A simple 'request oracle client' that needs to know the price of Eth and Bch
 */
-
-//simple Store interface with just the function we need
-contract Store{
-  function getPrice(bytes32 _symbol) constant returns (uint) {}
-  uint public lastUpdate;//--new public uint
-}
 
 contract EthVsBch {
 
@@ -443,7 +437,7 @@ contract EthVsBch {
     }
 
     //anyone can get any price by symbol
-    function whoIsWinning() constant returns (string,uint) { /*whenNotMigrating*/
+    function whoIsWinning() constant returns (string,uint) {
       Store store = Store(source);
 
       //--- new piece that checks if the data is old
@@ -464,10 +458,16 @@ contract EthVsBch {
     }
 }
 
+//simple Store interface with just the function we need
+contract Store{
+  function getPrice(bytes32 _symbol) constant returns (uint) {}
+  uint public lastUpdate;//--new public uint
+}
+
 ```
 Notice the developer is checking to see if the price information is 10 blocks stale and returning an error if so.
 
-Let's compile and deploy this to test it out. Again, the developer will *hardcode* (bruh, isn't there a better way?) the new **Store** address:
+Let's compile and deploy this to test it out. Again, the developer will *hardcode* (bruh, isn't there a better way?) the new **Store** *address*:
 
 ```javascript
 module.exports = ["0xD0557B2c5A11F8B5F2635Bfa57dEb8dCF6021475"]

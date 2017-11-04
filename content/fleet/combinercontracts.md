@@ -6,6 +6,13 @@ The **Combiner** contracts are the most dynamic and heady of the fleet. Their jo
 
 <img src="/images/combiners.png" width="100%"/>
 
+------------------------------------------------------
+
+### Basic Combiner
+
+The basic combiner waits until at least 1 **(CCCE)** is reserved behind a **request** and then it is *open* to **responses**. There is no limit to **responses** and a **concurrence** can be formed after a single result.
+
+This combiner is for demonstration purposes only and shouldn't be used in production because a single miner can create the **concurrence**. 
 
 ```
 pragma solidity ^0.4.11;
@@ -96,7 +103,7 @@ contract Combiner is Ownable, Addressed{
       //mode[_request] = Mode.INIT;
 
       //instead let's just revert for now
-      revert();
+      //revert();
     }
     DebugPointer(current[_request]);
     return mode[_request];
@@ -163,7 +170,8 @@ contract Combiner is Ownable, Addressed{
       staked[_request][result] += tokenContract.staked(miner,_request,current[_request]);
       miners[_request][result]++;
       //keep track of running best and how much is staked to it
-      if(staked[_request][result]>weight[_request]){
+      // use >= here to make it 'first come first serve'
+      if(staked[_request][result] >= weight[_request]){
         timestamp[_request] = block.timestamp;
         weight[_request] = staked[_request][result];
         concurrence[_request] = result;
@@ -304,11 +312,13 @@ import 'zeppelin-solidity/contracts/ownership/Ownable.sol';
 import 'Addressed.sol';
 
 ```
-Current address:
+**Basic** Current address ( http://relay.concurrence.io/combiner/address/basic ):
 ```
-0xA95069b1D8e057fc7A1D3cae3d02AeB15d3Ac057
+0xe7A2E25E295dD8Bb96D683aE580Fd307C63D4f15
 ```
-Current ABI:
+**Basic** Current ABI ( http://relay.concurrence.io/combiner/abi/basic ):
 ```
 [{"constant":true,"inputs":[],"name":"mainAddress","outputs":[{"name":"","type":"address"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":true,"inputs":[{"name":"","type":"bytes32"}],"name":"timestamp","outputs":[{"name":"","type":"uint256"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":true,"inputs":[{"name":"","type":"bytes32"}],"name":"current","outputs":[{"name":"","type":"bytes32"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":true,"inputs":[{"name":"","type":"bytes32"},{"name":"","type":"bytes32"}],"name":"staked","outputs":[{"name":"","type":"uint256"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":true,"inputs":[{"name":"","type":"bytes32"}],"name":"reward","outputs":[{"name":"","type":"uint256"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":true,"inputs":[],"name":"owner","outputs":[{"name":"","type":"address"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":true,"inputs":[{"name":"","type":"bytes32"}],"name":"mode","outputs":[{"name":"","type":"uint8"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":false,"inputs":[{"name":"_request","type":"bytes32"}],"name":"combine","outputs":[{"name":"","type":"uint8"}],"payable":false,"stateMutability":"nonpayable","type":"function"},{"constant":true,"inputs":[{"name":"","type":"bytes32"},{"name":"","type":"bytes32"}],"name":"miners","outputs":[{"name":"","type":"uint32"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":true,"inputs":[{"name":"_request","type":"bytes32"}],"name":"open","outputs":[{"name":"","type":"bool"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":false,"inputs":[{"name":"_mainAddress","type":"address"}],"name":"setMainAddress","outputs":[],"payable":false,"stateMutability":"nonpayable","type":"function"},{"constant":true,"inputs":[{"name":"","type":"bytes32"}],"name":"concurrence","outputs":[{"name":"","type":"bytes32"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":true,"inputs":[{"name":"","type":"bytes32"}],"name":"weight","outputs":[{"name":"","type":"uint256"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":false,"inputs":[{"name":"newOwner","type":"address"}],"name":"transferOwnership","outputs":[],"payable":false,"stateMutability":"nonpayable","type":"function"},{"constant":true,"inputs":[{"name":"","type":"bytes32"}],"name":"correctMiners","outputs":[{"name":"","type":"uint32"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":true,"inputs":[{"name":"_request","type":"bytes32"}],"name":"ready","outputs":[{"name":"","type":"bool"}],"payable":false,"stateMutability":"view","type":"function"},{"inputs":[{"name":"_mainAddress","type":"address"}],"payable":false,"stateMutability":"nonpayable","type":"constructor"},{"anonymous":false,"inputs":[{"indexed":false,"name":"debug","type":"string"}],"name":"Debug","type":"event"},{"anonymous":false,"inputs":[{"indexed":false,"name":"gas","type":"uint256"}],"name":"DebugGas","type":"event"},{"anonymous":false,"inputs":[{"indexed":false,"name":"_pointer","type":"bytes32"}],"name":"DebugPointer","type":"event"},{"anonymous":false,"inputs":[{"indexed":true,"name":"previousOwner","type":"address"},{"indexed":true,"name":"newOwner","type":"address"}],"name":"OwnershipTransferred","type":"event"}]
 ```
+------------------------------------------------------
+

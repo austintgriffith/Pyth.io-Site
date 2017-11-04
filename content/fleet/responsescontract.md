@@ -2,7 +2,7 @@
 title: "Responses Contract"
 date: 2017-09-21T06:55:00-06:00
 ---
-The **Responses** contract is the main datastore for **responses** *(bytes32)*. As miners perform their duties, they call **addResponse()** to deliver their results to the fleet. This list of **responses** *(bytes32)* is tracked in a linked list that allows the **combiner** contracts to quickly traverse through results. Notice that whatever work the miner does off-chain, it must result in a single *bytes32* response on-chain.
+The **Responses** contract is the datastore for **responses** *(bytes32)*. As miners perform their duties, they call **addResponse()** to deliver their results to the fleet. This list of **responses** *(bytes32)* is tracked in a [linked list](/exploration/linkedlists/) that allows the **combiner** contracts to quickly traverse through results. Notice that whatever complex work the miner does off-chain, it must result in a single *bytes32* response on-chain.
 
 <img src="/images/responses.png" width="100%"/>
 
@@ -60,11 +60,11 @@ import 'zeppelin-solidity/contracts/ownership/HasNoEther.sol';
 import 'Addressed.sol';
 
 ```
-Current address:
+Current address ( http://relay.concurrence.io/address/Responses ):
 ```
-0x6FA8E34901D8Fc5746512c4bf7c891DFa46646D7
+0x2aF30d7F27AA639008Abb0A2bcC29Aa916f7d959
 ```
-Current ABI:
+Current ABI ( http://relay.concurrence.io/abi/Responses ):
 ```
 [{"constant":true,"inputs":[],"name":"count","outputs":[{"name":"","type":"uint256"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":true,"inputs":[],"name":"mainAddress","outputs":[{"name":"","type":"address"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":true,"inputs":[{"name":"","type":"bytes32"}],"name":"heads","outputs":[{"name":"","type":"bytes32"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":true,"inputs":[{"name":"id","type":"bytes32"}],"name":"getResponse","outputs":[{"name":"","type":"address"},{"name":"","type":"bytes32"},{"name":"","type":"bytes32"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":true,"inputs":[{"name":"","type":"bytes32"}],"name":"responses","outputs":[{"name":"miner","type":"address"},{"name":"response","type":"bytes32"},{"name":"next","type":"bytes32"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":true,"inputs":[],"name":"owner","outputs":[{"name":"","type":"address"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":false,"inputs":[],"name":"reclaimEther","outputs":[],"payable":false,"stateMutability":"nonpayable","type":"function"},{"constant":false,"inputs":[{"name":"_request","type":"bytes32"},{"name":"_response","type":"bytes32"}],"name":"addResponse","outputs":[{"name":"","type":"bool"}],"payable":false,"stateMutability":"nonpayable","type":"function"},{"constant":false,"inputs":[{"name":"_mainAddress","type":"address"}],"name":"setMainAddress","outputs":[],"payable":false,"stateMutability":"nonpayable","type":"function"},{"constant":false,"inputs":[{"name":"id","type":"bytes32"}],"name":"reset","outputs":[{"name":"","type":"bool"}],"payable":false,"stateMutability":"nonpayable","type":"function"},{"constant":false,"inputs":[{"name":"newOwner","type":"address"}],"name":"transferOwnership","outputs":[],"payable":false,"stateMutability":"nonpayable","type":"function"},{"inputs":[{"name":"_mainAddress","type":"address"}],"payable":false,"stateMutability":"nonpayable","type":"constructor"},{"payable":false,"stateMutability":"nonpayable","type":"fallback"},{"anonymous":false,"inputs":[{"indexed":true,"name":"sender","type":"address"},{"indexed":true,"name":"request","type":"bytes32"},{"indexed":true,"name":"id","type":"bytes32"},{"indexed":false,"name":"response","type":"bytes32"},{"indexed":false,"name":"count","type":"uint256"}],"name":"AddResponse","type":"event"},{"anonymous":false,"inputs":[{"indexed":true,"name":"previousOwner","type":"address"},{"indexed":true,"name":"newOwner","type":"address"}],"name":"OwnershipTransferred","type":"event"}]
 ```

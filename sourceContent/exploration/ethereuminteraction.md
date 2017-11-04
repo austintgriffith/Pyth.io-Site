@@ -2,8 +2,6 @@
 title: "Ethereum Network Interaction"
 date: 2017-09-21T16:00:00-06:00
 ---
-Let's interact with the Ethereum network.
-
 With Geth running and up-to-date, we can attach to it from another ssh session.
 
 ```bash

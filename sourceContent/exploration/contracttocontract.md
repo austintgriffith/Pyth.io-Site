@@ -2,7 +2,7 @@
 title: "Contract To Contract"
 date: 2017-09-21T13:30:00-06:00
 ---
-Contract to contract communication is an essential part of any fleet on the blockchain. As discussed in the <a href="/posts/contractlineage/" target="_blank">contract lineage section</a>, a complex project on Ethereum should be built using a collection of smaller "microservices" to keep complexity at bay.
+Contract to contract communication is an essential part of any fleet on the blockchain. As discussed in the <a href="/posts/contractlineage/" target="_blank">contract lineage section</a>, a complex project on Ethereum should be built using a collection of smaller microservices to keep complexity at bay.
 
 We will also explore a few other features of smart contracts like ownership and events.
 
@@ -41,9 +41,11 @@ This contract is a little bigger than the last so it was a little more expensive
 ```
 
 **Adjuster** address on Ropsten:
-<!--RQC ADDRESS Adjuster/Adjuster.address -->
+```
+0x34dcf6e1fb7dc453f514a5c4760595af5e2e2ea9
+```
 
-Now let's write a few scripts to interact with this contract. First, we'll want **getOwner.js** to be able to see who the owner is:
+Now let's write a few scripts to interact with this contract. First, we'll want a script called **getOwner.js** to be able to see who the owner is:
 
 <!--RQC CODE javascript Adjuster/getOwner.js -->
 
@@ -98,13 +100,7 @@ If we run that now, we should see all contract interaction so far:
 ```bash
 {
   address: '0x34DCF6E1fB7DC453F514a5C4760595af5e2E2Ea9',
-  blockNumber: 1859137,
   transactionHash: '0xcdc8bb4b1fe7267bf4ded620c7501befb749301b7c42a4b1cb3cb5738dad4c13',
-  transactionIndex: 2,
-  blockHash: '0x17731802ebdb3e5c5866f9a6d7c8e35580e43e8f95ef61081c47c2f394f05c8a',
-  logIndex: 1,
-  removed: false,
-  id: 'log_2a548db0',
   returnValues:
    Result {
      '0': '0xD68eF7611913d0AfF3627a92F5e502696887D626',
@@ -114,11 +110,7 @@ If we run that now, we should see all contract interaction so far:
      _target: '128',
      _amount: '128' },
   event: 'Adjusted',
-  signature: '0xafa2c40f4442ec5731ad257412e46d0e88b0d8f8398f575db15a4c9192d19e29',
-  raw:
-   { data: '0x000000000000000000000000d68ef7611913d0aff3627a92f5e502696887d62600000000000000000000000000000000000000000000000000000000000000800000000000000000000000000000000000000000000000000000000000000080',
-     topics: [Array]
-   }
+  signature: '0xafa2c40f4442ec5731ad257412e46d0e88b0d8f8398f575db15a4c9192d19e29'
 }
 ```
 
@@ -126,7 +118,7 @@ We can see that if the original count was **0** and the **_target** is **128** t
 
 It's always good to test every condition exhaustively and try to hit your contract with anything and everything, because a good hacker will do the same. Obviously, security doesn't really matter with this contract because the **Simple** contract is already completely open for manipulation, but it helps illustrate simple methods of testing. For production level contracts, along with open sourcing and extensive audits, we will need to have a full suite of tests.
 
-For now, let's just make sure it overflows correctly when we **add()** past 255 and we can't run the **adjustTo()** function using a different account.
+For now, let's just make sure it overflows correctly when we **add()** past 255.
 
 ```bash
 node contract adjustTo Adjuster null 0xD68eF7611913d0AfF3627a92F5e502696887D626 16 1
@@ -138,7 +130,7 @@ node contract adjustTo Adjuster null 0xD68eF7611913d0AfF3627a92F5e502696887D626 
 COUNT:16
 ```
 
-This time we'll use account index **0** instead of **1** to simulate a foreign account trying to run the **adjustTo()** function:
+Let's also make sure we can't run the **adjustTo()** function using a non-owner account. We'll use account index **0** instead of **1** to simulate a foreign account trying to run the **adjustTo()** function:
 
 ```bash
 node contract adjustTo Adjuster null 0xD68eF7611913d0AfF3627a92F5e502696887D626 32 0
@@ -152,3 +144,5 @@ COUNT:16
 ```
 
 One last thing to mention about contract to contract communication is that when one contract accesses a function of another contract, the **msg.sender** on the accessed contract is that of the accessing contract, not the account triggering the interaction. This means we can code in security where only a particular contract can have permission to run certain functions on another contract. This will be important later.
+
+*Note: Along those same lines, <a href="https://github.com/ethereum/EIPs/blob/master/EIPS/eip-7.md" target="_blank">DELEGATECALL</a> is an opcode that "propagates the sender and value from the parent scope to the child scope".*

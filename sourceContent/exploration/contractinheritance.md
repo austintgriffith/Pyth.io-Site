@@ -5,13 +5,13 @@ date: 2017-09-21T13:00:00-06:00
 
 Very intelligent people before us have found common patterns in Ethereum contracts and published standardized and hardened examples to extend. We will stand on their shoulders using contract inheritance for some parts of our fleet. Let's dig into an example of how this works.  
 
-Instead of coding up our own layer of ownership and possibly introducing insecurities, let's look at inheriting <a href="https://github.com/OpenZeppelin/zeppelin-solidity" target="_blank">OpenZeppelin's zeppelin-solidity repo</a>.
+Instead of coding up our own layer of ownership and possibly introducing insecurities, let's look at inheriting from <a href="https://github.com/OpenZeppelin/zeppelin-solidity" target="_blank">OpenZeppelin's zeppelin-solidity repo</a>.
 
 We'll create a contract called **Inherit** that will explore inheriting OpenZeppelin's <a href="https://github.com/OpenZeppelin/zeppelin-solidity/blob/master/contracts/ownership/Ownable.sol" target="_blank">Ownable</a> contract:
 
 <!--RQC CODE solidity Inherit/Inherit.sol -->
 
-This light-weight contract has only one state variable, the **message** string, and it can only be set by the owner. Instead of handling the logic ourselves, we use a modifier from the OpenZeppelin's <a href="https://github.com/OpenZeppelin/zeppelin-solidity/blob/master/contracts/ownership/Ownable.sol" target="_blank">Ownable</a> contract.
+This light-weight contract has only one state variable, the **message** string, and it can only be set by the owner. Instead of handling the logic ourselves, we use a modifier from the <a href="https://github.com/OpenZeppelin/zeppelin-solidity/blob/master/contracts/ownership/Ownable.sol" target="_blank">Ownable</a> contract.
 
 Also, before we can deploy, the **Inherit** contract will need to add a **dependencies.js**:
 
@@ -32,7 +32,9 @@ node deploy Inherit
 
 Contract address on Ropsten testnet:
 
-<!--RQC ADDRESS Inherit/Inherit.address -->
+```
+0xd5fa4a24897db806d4879fd72c1637af5c83af65
+```
 
 We'll want a script that can tell us what the current message is on the **Inherit** contract:
 
@@ -84,7 +86,7 @@ node contract getMessage Inherit
 MESSAGE:WHAT'S GUCC'?
 ```
 
-Great, we seem to be secure without having to write our own ownership functionality. One last test of inhertance would be to see if the **transferOwnership()** function built into the <a href="https://github.com/OpenZeppelin/zeppelin-solidity/blob/master/contracts/ownership/Ownable.sol" target="_blank">Ownable</a> contract will just work for our contract.
+Great, we seem to be secure without having to write and audit our own ownership functionality. One last test of inhertance would be to see if the **transferOwnership()** function built into the <a href="https://github.com/OpenZeppelin/zeppelin-solidity/blob/master/contracts/ownership/Ownable.sol" target="_blank">Ownable</a> contract will just work for our contract.
 
 We'll need a **transferOwnership.js** script:
 

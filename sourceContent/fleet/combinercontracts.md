@@ -6,11 +6,20 @@ The **Combiner** contracts are the most dynamic and heady of the fleet. Their jo
 
 <img src="/images/combiners.png" width="100%"/>
 
+------------------------------------------------------
+
+### Basic Combiner
+
+The basic combiner waits until at least 1 **(CCCE)** is reserved behind a **request** and then it is *open* to **responses**. There is no limit to **responses** and a **concurrence** can be formed after a single result.
+
+This combiner is for demonstration purposes only and shouldn't be used in production because a single miner can create the **concurrence**. 
 
 <!--RQC CODE solidity Combiner/basic/Combiner.sol -->
 
-Current address:
+**Basic** Current address ( http://relay.concurrence.io/combiner/address/basic ):
 <!--RQC ADDRESS Combiner/basic/Combiner.address -->
 
-Current ABI:
+**Basic** Current ABI ( http://relay.concurrence.io/combiner/abi/basic ):
 <!--RQC ABI Combiner/basic/Combiner.abi -->
+
+------------------------------------------------------

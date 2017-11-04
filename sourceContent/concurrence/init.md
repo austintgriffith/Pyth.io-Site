@@ -3,7 +3,7 @@ title: "Introduction"
 date: 2017-09-21T05:00:00-06:00
 ---
 
-In the following documents, we will explore building out an end-to-end example of **Concurrence**. Using only our <a href="https://www.npmjs.com/package/concurrence" target="_blank">Javascript NPM package</a> we will add a request to the testnet fleet asking miners to come to a consensus on the current **Concurrence** contact email. We will reserve some **CCCE** token behind our request to incentivize miners. We will then mine the request with a couple different accounts. Finally, we'll trigger the **combiner** to draw a consensus, reward miners, and callback.
+In the following documents, we will explore building out an end-to-end example of **Concurrence**. Using only our <a href="https://www.npmjs.com/package/concurrence" target="_blank">Javascript NPM package</a> we will add a request to the testnet fleet asking miners to come to a consensus on an internet endpoint. We will reserve some **CCCE** token behind our request to incentivize miners. We will then mine the request with a couple different accounts. Finally, we'll trigger the **combiner** to draw a consensus, reward miners, and callback.
 
 Let's run a few commands on the **Concurrence** Javascript package to test that everything is working correctly. First, let's get the version and the main contract address with:
 

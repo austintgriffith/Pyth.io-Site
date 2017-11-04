@@ -3,7 +3,7 @@ title: "Deploying A Contract"
 date: 2017-09-21T14:00:00-06:00
 ---
 
-Never before in history has a technology existed where anyone from anywhere can deploy code that will immediately and indefinitely run on hundreds of thousands of nodes simultaneously and deterministically. Further, thanks to cryptography and cryptoeconomics, this technology is ownerless, trustless, and incentivized to continue. Once a contract is deployed, it is effectively autonomous, eternal, and controlled only by the laws of machines.
+Never before in history has a technology existed where anyone from anywhere can publicly deploy code that will immediately and indefinitely run on tens of thousands of nodes simultaneously and deterministically. Further, thanks to cryptography and cryptoeconomics, this technology is ownerless, trustless, and incentivized to continue. Once a contract is deployed, it is effectively autonomous, eternal, and controlled only by the laws of machines.
 
 Let's make our mark on the blockchain right now with a simple contract:
 
@@ -24,7 +24,7 @@ contract Simple {
 }
 
 ```
-This **Simple** contract has a count (**uint8**) that is initialized in the constructor and can be incremented from an **add()** function.
+This **Simple** contract has a **count** (*uint8*) that is initialized in the constructor and can be incremented from an **add()** function.
 
 We will first compile this using our **compile.js** script:
 
@@ -87,8 +87,9 @@ At the current price of Ether it cost about $1.02 to release that code to the wo
 Anyone, for the rest of the existence of the Ropsten testnet, can interface with this specific instance of the contract here:
 
 ```
-
+0xd68ef7611913d0aff3627a92f5e502696887d626
 ```
+
 (You can follow all interactions with this contract on <a href="https://ropsten.etherscan.io/address/0xd68ef7611913d0aff3627a92f5e502696887d626" target="_blank">etherscan.io</a>)
 
 Let's poke around on this contract and see what shakes loose. We'll want to craft up a few scripts so we  aren't fumbling around on the command line:
@@ -112,9 +113,11 @@ node contract getCount Simple
 COUNT:253
 ```
 Neat, so our current count is **253** and that's what we deployed the contract with.
-*Note: this was a read-only action, we didn't change the state of the contract so it's free for anyone to do as long as they are connected to the Ethereum blockchain.*
 
-Let's run the **add()** function on the contract to actually change the state. Might as well create a script for this too:
+This was a read-only action, we didn't change the state of the contract so reading the **count** is free for anyone to do as long as they are connected to the Ethereum blockchain.
+
+Let's run the **add()** function on the contract to actually change the state.
+
 ```javascript
 //
 // usage: node contract add Simple null #AMOUNT#
@@ -167,7 +170,7 @@ COUNT:254
 
 According to Etherscan, to add 1 to that uint it costs about $0.17. That might seem kind of expensive, but what's actually going on there?
 
-Well, we broadcast to the network that we want to make a transaction, some lucky miner is able to find the correct nonce through brute force cpu power, mines the block containing our transaction and others, broadcasts that to the rest of the network, and then *every* miner in the world runs our transaction against their version of our contract and gets the same result. We could then ask *any* of them what our **count** is and it would be the same. Even as banks, businesses, and governments rise and fall, our **count** stays exactly where it's instructed to stay. That's pretty freakin' awesome.
+Well, we broadcast to the network that we want to make a transaction, some lucky miner is able to find the correct nonce through brute force cpu power, mines the block containing our transaction and others, broadcasts that to the rest of the network, and then *every* miner in the world runs our transaction against their version of our contract and gets the same result. We could then ask *any* of them what our **count** is and it would be the same. Even as banks, businesses, and governments rise and fall, our **count** stays exactly where it's instructed to stay. That is pretty freakin' awesome.
 
 Let's play around with gas cost a little more because contract interaction cost plays a huge role in how **Concurrence** will work.
 
@@ -193,7 +196,9 @@ Last time it took about 25 seconds to go through. This time it took 55 seconds b
 
 (*Another neat tool provided by etherscan.io is the <a href="https://ropsten.etherscan.io/vmtrace?txhash=0x2af7ef9e4c20b10e8fa0b5252bb9c2ab1df01b81058c3e99e87562bae47fa97d" target="_blank">vmtrace</a>. You can see each step of the transaction including OPCODE and cost. Check out how much SSTORE is compared to everything else.*)
 
-We should touch on security and bugs. This contract is public, so anyone can run the add function and anyone can see the current count. That's fine for now, but what if there were 100 million USD at stake... yikes! This makes the job of contract developers *extremely* difficult because everything you do is at the mercy of every bad actor for the rest of time. Every contract interaction is deterministic; we *can* determine for sure what will happen given a state and an action, but just like a move in chess, predicting every single possible outcome on a chess board is also relatively difficult.
+---------------------------------------------------------------
+
+We should also touch on security and bugs. This contract is public, so anyone can run the add function and anyone can see the current count. That's fine for now, but what if there were 100 million USD at stake... yikes! This makes the job of contract developers *extremely* difficult because everything you do is at the mercy of every bad actor for the rest of time. Every contract interaction is deterministic; we *can* determine for sure what will happen given a state and an action, but just like a move in chess, predicting every single possible outcome on a chess board is also relatively difficult.
 
 So what happens if we run **add()** one more time? Assuming no one else has already hit our contract, the count will go up just like before and we should see **256** right? Let's try it:
 

@@ -61,7 +61,7 @@ Finally, a **Combiner** iterates through the **responses** and finds a consensus
 (miner,result,next) = responsesContract.getResponse(_request);
 staked[_request][result] += tokenContract.staked(miner,_request,_request);
 
-if( staked[_request][result] > weight[_request] ){
+if( staked[_request][result] >= weight[_request] ){
   weight[_request] = staked[_request][result];
   concurrence[_request] = result;
   correctMiners[_request] = miners[_request][result];
