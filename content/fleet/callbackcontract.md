@@ -34,7 +34,7 @@ import 'Addressed.sol';
 ```
 Current address ( http://relay.concurrence.io/address/Callback ):
 ```
-0x63d8A6855C8dB6990e9950534B4cb1d900FaE778
+0x0BAC8F1cF847F54bf8398e533Aa647a83869d14A
 ```
 Current ABI ( http://relay.concurrence.io/abi/Callback ):
 ```

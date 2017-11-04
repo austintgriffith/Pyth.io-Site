@@ -62,7 +62,7 @@ import 'Addressed.sol';
 ```
 Current address ( http://relay.concurrence.io/address/Responses ):
 ```
-0x2aF30d7F27AA639008Abb0A2bcC29Aa916f7d959
+0x405c02482113a1f4fAE43A1FC3A35598e7F6208a
 ```
 Current ABI ( http://relay.concurrence.io/abi/Responses ):
 ```

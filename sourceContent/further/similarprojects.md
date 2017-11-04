@@ -5,9 +5,7 @@ date: 2017-09-21T03:00:00-06:00
 
 There are a handful of extremely interesting projects in this space.
 
-[Vitalik Buterin](https://blog.ethereum.org/author/vitalik-buterin/) himself wrote about a decentralized oracle all the way back in 2014 he called [schellingcoin](https://blog.ethereum.org/2014/03/28/schellingcoin-a-minimal-trust-universal-data-feed/).
-
-Similar, but much more advanced, is [ChainLink](https://link.smartcontract.com/). These guys have a tremendous amount of momentum. [ChainLink](https://link.smartcontract.com/) is a complex system of data providers and data proxies that is tightly coupled with financial organizations and big name research organizations. We are very excited to see their work go live because <a href="https://twitter.com/SergeyNazarov">Sergey Nazarov</a> is really swinging for the fences.
+Number one on the list is [ChainLink](https://link.smartcontract.com/). These guys have a tremendous amount of momentum. [ChainLink](https://link.smartcontract.com/) is a complex system of data providers and data proxies that is tightly coupled with financial organizations and big name research organizations. We are very excited to see their work go live because <a href="https://twitter.com/SergeyNazarov">Sergey Nazarov</a> is really swinging for the fences.
 
 Another awesome oracle project that has been around for a while that might be getting on the [decentralized bandwagon](https://medium.com/@edmundedgar/snopes-meets-mechanical-turk-announcing-reality-check-a-crowd-sourced-smart-contract-oracle-551d03468177) is [RealityKeys](https://www.realitykeys.com/). Every good project needs a champion to drive it and <a href="https://twitter.com/edmundedgar">Edmund Edgar</a> is doing a great job with this one.
 

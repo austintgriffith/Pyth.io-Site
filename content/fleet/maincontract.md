@@ -46,7 +46,7 @@ import 'Predecessor.sol';
 ```
 Current address ( http://relay.concurrence.io/address/Main ):
 ```
-0x20CA17609d99CD5D1556E170bd636C73f21945A1
+0xfb15A576DB9D2D5cb3e7F7a3513FFb633B321E63
 ```
 Current ABI ( http://relay.concurrence.io/abi/Main ):
 ```

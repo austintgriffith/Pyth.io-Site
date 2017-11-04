@@ -9,7 +9,7 @@ An oracle provides that link by making off-chain interactions and delivering res
 
 A decentralized, trustless network of incentivized oracles is needed to empower the next generation of smart contracts.
 
-**Concurrence is a smart contract fleet that accepts generic requests from developers, emits signaling events to a decentralized swarm of miners, collects simple responses, and delivers a currency-backed consensus.**
+**Concurrence is a smart contract fleet that accepts generic requests from developers, emits signaling events to a decentralized swarm of miners, collects simple responses, and delivers a currency-backed consensus on-chain.**
 
 With the correct cryptoeconomics at play, a statistically adequate supply of miners will, in combination with the staking of a token, reach a consensus off-chain. Then, efficiently inscribe the data onto the blockchain, publicly available for developers to drive their smart contract logic.
 
