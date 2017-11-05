@@ -2,6 +2,9 @@
 title: "Contract To Contract"
 date: 2017-09-21T13:30:00-06:00
 ---
+
+<img src="/images/contracttocontract.png" />
+
 Contract to contract communication is an essential part of any fleet on the blockchain. As discussed in the <a href="/posts/contractlineage/" target="_blank">contract lineage section</a>, a complex project on Ethereum should be built using a collection of smaller microservices to keep complexity at bay.
 
 We will also explore a few other features of smart contracts like ownership and events.

@@ -5,13 +5,15 @@ date: 2017-09-21T14:00:00-06:00
 
 Never before in history has a technology existed where anyone from anywhere can publicly deploy code that will immediately and indefinitely run on tens of thousands of nodes simultaneously and deterministically. Further, thanks to cryptography and cryptoeconomics, this technology is ownerless, trustless, and incentivized to continue. Once a contract is deployed, it is effectively autonomous, eternal, and controlled only by the laws of machines.
 
+<img src="/images/deployingacontract.png" />
+
 Let's make our mark on the blockchain right now with a simple contract:
 
 <!--RQC CODE solidity Simple/Simple.sol -->
 
 This **Simple** contract has a **count** (*uint8*) that is initialized in the constructor and can be incremented from an **add()** function.
 
-We will first compile this using our **compile.js** script:
+We will first compile this using our [**compile.js**](/exploration/craftingscripts/) script:
 
 ```bash
 node compile Simple
