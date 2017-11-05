@@ -66,11 +66,19 @@
 
     {{if .IsHome}}
     <script src="{{"js/particles.min.js" | relURL}}{{ if not .Site.Params.disableAssetsBusting }}?{{ now.Unix }}{{ end }}"></script>
+    <script src="{{"js/scrollreveal.min.js" | relURL}}{{ if not .Site.Params.disableAssetsBusting }}?{{ now.Unix }}{{ end }}"></script>
+
     <script>
+
         particlesJS.load('particles-js', 'js/particles.json', function() {
           console.log('callback - particles.js config loaded');
         });
+
+        window.sr = ScrollReveal();
+        sr.reveal('.foo');
+
     </script>
+
     {{end}}
 
     <link href="{{"mermaid/mermaid.css" | relURL}}{{ if not .Site.Params.disableAssetsBusting }}?{{ now.Unix }}{{ end }}" type="text/css" rel="stylesheet" />

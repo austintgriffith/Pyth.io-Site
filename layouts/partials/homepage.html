@@ -1,18 +1,16 @@
 <style>
-.backstyle:after {
-  content: '';
-  position: absolute;
-  top: 0; left: 0; bottom: 0; right: 0;
-  display: block;
-
-  background-size: cover;
-  -webkit-filter: blur(3px);
-  -moz-filter: blur(3px);
-  -o-filter: blur(3px);
-  -ms-filter: blur(3px);
-  filter: blur(3px);
-  opacity:0.2;
-  background-image: url('images/back5.jpg');
+.backstyle {
+    position: absolute;
+    top: 0; left: 0; bottom: 0; right: 0;
+    display: block;
+    background-size: cover;
+    -webkit-filter: blur(3px);
+    -moz-filter: blur(3px);
+    -o-filter: blur(3px);
+    -ms-filter: blur(3px);
+    filter: blur(3px);
+    opacity:0.2;
+    background-image: url('images/back5.jpg');
 }
 
 
@@ -26,34 +24,40 @@
             <p style="margin-top:50px"><a class="btn btn-outline-primary" href="/abstract/">Learn More</a></p>
         </div>
     </div>
+    <div id="backerbackback" class="backstyle"></div>
 </div>
 
-<div id="backerbackback" class="backstyle">
-</div>
+<section class="section-padding">
+
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-6">
+                <div class="foo">
+                    <img src="/images/tokencode.jpg" alt="">
+                </div>
+            </div>
+            <div class="col-lg-6">
+                <h2>Concurrence</h2>
+                <p></p>
+            </div>
+        </div>
+    </div>
+
+</section>
+
 <script type="text/javascript">
 
-var totalCount = 8;
-function ChangeIt()
-{
+    var totalCount = 8;
+    function ChangeIt()
+    {
+      var num = Math.ceil( Math.random() * totalCount );
+      var setTo = 'images/back'+num+'.jpg';
+      console.log(setTo)
+      document.getElementById("backerbackback").style.backgroundImage="url("+setTo+")"
+      //document.getElementById("backerbackback").style.opcacity = "0.2"
+      //document.getElementById("backerbackback").style.webkitFilter = "blur(3px)";
+    }
+    // setInterval(ChangeIt,2000);
+    // ChangeIt();
 
-  var num = Math.ceil( Math.random() * totalCount );
-  var setTo = 'images/back'+num+'.jpg';
-  console.log(setTo)
-  document.getElementById("backerbackback").style.backgroundImage="url("+setTo+")"
-  //document.getElementById("backerbackback").style.opcacity = "0.2"
-  //document.getElementById("backerbackback").style.webkitFilter = "blur(3px)";
-}
-setInterval(ChangeIt,2000);
-ChangeIt();
-
-</script>
-
-<!-- Global site tag (gtag.js) - Google Analytics -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=UA-109025552-1"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'UA-109025552-1');
 </script>
