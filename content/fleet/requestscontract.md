@@ -1,5 +1,5 @@
 ---
-title: "Requests Contract"
+title: "Requests"
 date: 2017-09-21T07:00:00-06:00
 ---
 The **Requests** contract is the datastore for requests that signal miners. Developers and external contracts call the **addRequest()** function and then **reserve()** tokens behind that request to incentivize miners. The **request** *(string)* can be anything and it's up to the miners to perform different tasks based on the **protocol** *(bytes32)*. **Responses** are then aggregated in the **combiner** *(address)* contract and delivered to the **callback** *(address)* contract.
@@ -71,7 +71,7 @@ import 'Addressed.sol';
 ```
 Current address ( http://relay.concurrence.io/address/Requests ):
 ```
-0x72209C8207B627eCaCeC1f1AD6bD4b5cE912b828
+0xf4361802D857cd067C3C491e59e790046EaC5552
 ```
 Current ABI ( http://relay.concurrence.io/abi/Requests ):
 ```

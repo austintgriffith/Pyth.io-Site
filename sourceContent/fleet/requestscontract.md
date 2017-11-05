@@ -1,5 +1,5 @@
 ---
-title: "Requests Contract"
+title: "Requests"
 date: 2017-09-21T07:00:00-06:00
 ---
 The **Requests** contract is the datastore for requests that signal miners. Developers and external contracts call the **addRequest()** function and then **reserve()** tokens behind that request to incentivize miners. The **request** *(string)* can be anything and it's up to the miners to perform different tasks based on the **protocol** *(bytes32)*. **Responses** are then aggregated in the **combiner** *(address)* contract and delivered to the **callback** *(address)* contract.

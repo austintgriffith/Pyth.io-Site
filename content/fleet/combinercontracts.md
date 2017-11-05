@@ -1,5 +1,5 @@
 ---
-title: "Combiner Contracts"
+title: "Combiner"
 date: 2017-09-21T06:00:00-06:00
 ---
 The **Combiner** contracts are the most dynamic and heady of the fleet. Their job is to traverse **responses** *(bytes32)* from miners and come to a **concurrence** *(bytes32)*. This *agreed upon consensus* is then used to **reward()** and **punish()** miners and is delivered to a developer's final **callback** *(address)* contract.
@@ -12,7 +12,7 @@ The **Combiner** contracts are the most dynamic and heady of the fleet. Their jo
 
 The basic combiner waits until at least 1 **(CCCE)** is reserved behind a **request** and then it is *open* to **responses**. There is no limit to **responses** and a **concurrence** can be formed after a single result.
 
-This combiner is for demonstration purposes only and shouldn't be used in production because a single miner can create the **concurrence**. 
+This combiner is for demonstration purposes only and shouldn't be used in production because a single miner can create the **concurrence**.
 
 ```
 pragma solidity ^0.4.11;
@@ -264,27 +264,12 @@ contract Combiner is Ownable, Addressed{
   }
 
   function callback(bytes32 _request) internal {
-    Main mainContract = Main(mainAddress);
-    Token tokenContract = Token(mainContract.getContract('Token'));
-    Responses responsesContract = Responses(mainContract.getContract('Responses'));
 
-    //determine the reward split
-    uint32 rewardableMiners = correctMiners[_request];
+    //TODO
+    //
+    //  this should deliver the concurrence to the callback contract
+    //
 
-    //add a little on the top to incentivize miners to run the combine loop
-    //this causes a little to be left over and the last miner to run combine
-    //  will be rewarded with the same bounty of the actual request/consensus
-    rewardableMiners++;
-
-    //set the reward by splitting up the reserved token by how many miners
-    //responded to the request... a little game theory will apply here,
-    //if a request is too heavily mined it's not worth much
-    reward[_request] = tokenContract.reserved(_request)/rewardableMiners;
-    if(reward[_request]<1) reward[_request]=1;
-
-    //reset the pointer back to the head so we can iterate through again if we have some later mode
-    //what will most likely happen is we move to the RESET mode and this is set back to address(0)
-    current[_request] = responsesContract.heads(_request);
   }
 
 }
@@ -314,7 +299,7 @@ import 'Addressed.sol';
 ```
 **Basic** Current address ( http://relay.concurrence.io/combiner/address/basic ):
 ```
-0xe7A2E25E295dD8Bb96D683aE580Fd307C63D4f15
+0x22530bf5e978bb88Bd36b914C19dE655605Bc1B8
 ```
 **Basic** Current ABI ( http://relay.concurrence.io/combiner/abi/basic ):
 ```

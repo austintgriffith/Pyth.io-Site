@@ -1,5 +1,5 @@
 ---
-title: "Auth Contract"
+title: "Auth"
 date: 2017-09-21T10:00:00-06:00
 ---
 **Auth** keeps a **permission** *(bytes32)* for any **account** *(address)*. Other contracts can use this contract to determine the level of **permission** any **account** has by calling **getPermission()**. Any account with *"setContract"* **permission** *(bytes32)* can also call **setPermission()**.
@@ -44,7 +44,7 @@ Eventually, the **Auth** contract will be extended to allow for more complex gov
 
 Current address ( http://relay.concurrence.io/address/Auth ):
 ```
-0x08f11540560e3b6977289a65d729D89F21e0fAc0
+0x89eD8027914dd80d3B5F85a5a6D17F3a0fb300f7
 ```
 Current ABI ( http://relay.concurrence.io/abi/Auth ):
 ```

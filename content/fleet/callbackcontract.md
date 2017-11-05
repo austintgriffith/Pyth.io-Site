@@ -1,5 +1,5 @@
 ---
-title: "Callback Contract"
+title: "Callback"
 date: 2017-09-21T05:00:00-06:00
 ---
 The **Callback** contract is simply a placeholder for examples. Normally, when a consensus has been reached, a call to the developer's contract is made with the final **concurrence**. But, for demonstration purposes, we will sometimes feed results to this contract for safe keeping.
@@ -34,7 +34,7 @@ import 'Addressed.sol';
 ```
 Current address ( http://relay.concurrence.io/address/Callback ):
 ```
-0x63d8A6855C8dB6990e9950534B4cb1d900FaE778
+0x0BAC8F1cF847F54bf8398e533Aa647a83869d14A
 ```
 Current ABI ( http://relay.concurrence.io/abi/Callback ):
 ```

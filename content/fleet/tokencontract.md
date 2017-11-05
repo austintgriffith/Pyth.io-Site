@@ -1,5 +1,5 @@
 ---
-title: "Token Contract"
+title: "Token"
 date: 2017-09-21T08:00:00-06:00
 ---
 The **Concurrence** token **(CCCE)** is an extension of the <a href="https://github.com/OpenZeppelin/zeppelin-solidity/blob/master/contracts/token/StandardToken.sol" target="_blank">StandardToken (ERC20)</a> with a few additions. First, a developer can **reserve()** tokens behind a **request** *(bytes32)* to incentivize miners. Second, a miner can **stake()** tokens on a **response** *(bytes32)* to a given **request** *(bytes32)*. Finally, a **combiner** contract can then **reward()**, **release()**, or **punish()** miners based on the final consensus.
@@ -103,7 +103,7 @@ import 'Addressed.sol';
 ```
 Current address ( http://relay.concurrence.io/address/Token ):
 ```
-0x6F6999c823E7A8ba749be6e9DaF9872C88224dA3
+0x66e922aB8C0167046f03E5B2B0304a06B8A29E6B
 ```
 Current ABI ( http://relay.concurrence.io/abi/Token ):
 ```
