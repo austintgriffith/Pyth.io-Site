@@ -103,7 +103,7 @@ import 'Addressed.sol';
 ```
 Current address ( http://relay.concurrence.io/address/Token ):
 ```
-0x66e922aB8C0167046f03E5B2B0304a06B8A29E6B
+0x6F6999c823E7A8ba749be6e9DaF9872C88224dA3
 ```
 Current ABI ( http://relay.concurrence.io/abi/Token ):
 ```
