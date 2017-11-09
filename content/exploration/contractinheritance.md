@@ -3,6 +3,8 @@ title: "Contract Inheritance"
 date: 2017-09-21T13:00:00-06:00
 ---
 
+<img src="/images/inherit.png" />
+
 Very intelligent people before us have found common patterns in Ethereum contracts and published standardized and hardened examples to extend. We will stand on their shoulders using contract inheritance for some parts of our fleet. Let's dig into an example of how this works.  
 
 Instead of coding up our own layer of ownership and possibly introducing insecurities, let's look at inheriting from <a href="https://github.com/OpenZeppelin/zeppelin-solidity" target="_blank">OpenZeppelin's zeppelin-solidity repo</a>.

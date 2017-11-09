@@ -7,7 +7,7 @@ There are a handful of extremely interesting projects in this space.
 
 Number one on the list is [ChainLink](https://link.smartcontract.com/). These guys have a tremendous amount of momentum. [ChainLink](https://link.smartcontract.com/) is a complex system of data providers and data proxies that is tightly coupled with financial organizations and big name research organizations. We are very excited to see their work go live because <a href="https://twitter.com/SergeyNazarov">Sergey Nazarov</a> is really swinging for the fences.
 
-Another awesome oracle project that has been around for a while that might be getting on the [decentralized bandwagon](https://medium.com/@edmundedgar/snopes-meets-mechanical-turk-announcing-reality-check-a-crowd-sourced-smart-contract-oracle-551d03468177) is [RealityKeys](https://www.realitykeys.com/). Every good project needs a champion to drive it and <a href="https://twitter.com/edmundedgar">Edmund Edgar</a> is doing a great job with this one.
+Another awesome oracle project that has been around for a while that might be getting on the [decentralized bandwagon](https://medium.com/@edmundedgar/snopes-meets-mechanical-turk-announcing-reality-check-a-crowd-sourced-smart-contract-oracle-551d03468177) is [RealityKeys](https://www.realitykeys.com/). Every good project needs a champion to drive it and <a href="https://twitter.com/edmundedgar">Edmund Edgar</a> is doing a great job with this one. Hit them up in their [gitter channel](https://gitter.im/realitykeys/realitycheck).
 
 [Delphi](https://delphi.systems/) is also similar to **Concurrence** in terms of long term goals. *We even named our oracle Pyth.io for a while before we saw [their publications](https://keepingstock.net/a-glimpse-of-pythia-731df5fc7972)*. We both hope to build a generalized system for getting decentralized oracle data into the Ethereum blockchain. Everything we do is open source, hopefully our projects will work to enrich each other.
 
@@ -26,6 +26,8 @@ Kendrick Tan did a nice writeup on building [Oracles in Ethereum](https://kndrck
 The [Truthcoin Whitepaper](http://www.truthcoin.info/papers/truthcoin-whitepaper.pdf) is another old writeup that laid the ground work for decentralized oracles.
 
 [Zap.store](https://zap.store/) looks like another project in this space?
+
+[blockoneiq](https://blockoneiq.thomsonreuters.com/) provides some off-chain data to the blockchain.
 
 Many smaller projects are emerging that are also helping to enrich the space. For example, [tinyoracle](https://github.com/axic/tinyoracle) is a great little example project for building a baseline oracle.
 
