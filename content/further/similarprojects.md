@@ -1,5 +1,5 @@
 ---
-title: "Similar Projects"
+title: "Other Oracles"
 date: 2017-09-21T03:00:00-06:00
 ---
 
@@ -16,6 +16,10 @@ Another awesome oracle project that has been around for a while that might be ge
 There are also a bunch of good projects working in the prediction market space. This is similar to decentralized oracles because they require a network of clients to verify events. Most notably, [Augur](https://augur.net/) and [Gnosis](https://gnosis.pm/).
 
 Recently, [Roman Brodetski](https://github.com/RomanBrodetski) published a good [article](https://medium.com/@roman.brodetski/introducing-oracul-decentralized-oracle-data-feed-solution-for-ethereum-5cab1ca8bb64) about decentralized oracles.
+
+The [FundRequest](https://fundrequest.io/) team built out and wrote about <a href="https://blog.fundrequest.io/introducing-azrael-the-missing-link-between-blockchain-and-backend-4ea7df4ab9de">their own oracle system here</a>. They hinted at making the system more generic and decentralized which is exactly the goal **Concurrence**.   
+
+Kendrick Tan did a nice writeup on building [Oracles in Ethereum](https://kndrck.co/posts/ethereum_oracles_a_simple_guide/).
 
 [Here](https://medium.com/@mustwin/building-an-oracle-for-an-ethereum-contract-6096d3e39551) is a good article about different iterations of building an oracle.
 
