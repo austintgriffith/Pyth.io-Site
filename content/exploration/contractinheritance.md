@@ -146,7 +146,7 @@ node contract getMessage Inherit
 MESSAGE:WHAT'S GUCC'?
 ```
 
-Great, we seem to be secure without having to write and audit our own ownership functionality. One last test of inhertance would be to see if the **transferOwnership()** function built into the <a href="https://github.com/OpenZeppelin/zeppelin-solidity/blob/master/contracts/ownership/Ownable.sol" target="_blank">Ownable</a> contract will just work for our contract.
+Great, we seem to be secure without having to write and audit our own ownership functionality. One last test of inheritance would be to see if the **transferOwnership()** function built into the <a href="https://github.com/OpenZeppelin/zeppelin-solidity/blob/master/contracts/ownership/Ownable.sol" target="_blank">Ownable</a> contract will just work for our contract.
 
 We'll need a **transferOwnership.js** script:
 
