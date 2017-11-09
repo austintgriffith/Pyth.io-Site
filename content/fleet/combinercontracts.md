@@ -314,7 +314,7 @@ import 'Addressed.sol';
 ```
 **Basic** Current address ( http://relay.concurrence.io/combiner/address/basic ):
 ```
-0xe7A2E25E295dD8Bb96D683aE580Fd307C63D4f15
+0x0979b2B773d01562510d83983592c157B979E979
 ```
 **Basic** Current ABI ( http://relay.concurrence.io/combiner/abi/basic ):
 ```

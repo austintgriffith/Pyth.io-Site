@@ -44,7 +44,7 @@ Eventually, the **Auth** contract will be extended to allow for more complex gov
 
 Current address ( http://relay.concurrence.io/address/Auth ):
 ```
-0x08f11540560e3b6977289a65d729D89F21e0fAc0
+0x58893A436f2EA152257519008a7e15D037Cb827A
 ```
 Current ABI ( http://relay.concurrence.io/abi/Auth ):
 ```
