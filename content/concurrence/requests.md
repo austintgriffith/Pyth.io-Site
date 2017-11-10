@@ -56,7 +56,7 @@ We can also run a getRequest just to see that everything is on-chain correctly:
 
   concurrence.getRequest(requestId).then((request)=>{
     console.log(request)
-    console.log("PROTOCOL: "+concurrence.web3.utils.toAscii(request[2]))
+    console.log("PROTOCOL: "+concurrence.web3.utils.toAscii(request[1]))
   })
 
 ```
