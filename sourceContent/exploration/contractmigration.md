@@ -3,6 +3,8 @@ title: "Contract Migration"
 date: 2017-09-21T12:00:00-06:00
 ---
 
+<img src="/images/contractmigration.png" />
+
 As bugs are discovered or new functionality is needed, we will want a method of migrating from a predecessor to a descendant. As mentioned in the [Contract Lineage](/abstract/contractlineage) section, we will try to keep contracts simple and we will create a linked-list of lineage so other contracts and scripts both on and off the blockchain can follow a trail of addresses to the latest version.
 
 Let's start with a new contract called **Store** that will hold current prices of the top cryptocurrencies (this will also help demonstrate some aspects of an oracle). This contract will use the *mapping* data type to store a *bytes32* => *uint* relationship called **price**:
