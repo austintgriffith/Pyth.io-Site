@@ -5,7 +5,9 @@ date: 2017-09-21T11:00:00-06:00
 
 We need an efficient structure to store a large number of entries that we can quickly traverse. The **mapping** data type in solidity is wonderful for storing information, but very hard to look through if you don't already know the index of each item.
 
-That's where a linked list comes in handy because you store an index to the next piece of data in the current piece of data like a chain. When we think back to our computer science classes, we know that to make *writes* our most efficient operation, we want to add items to the front of the list by keeping track of a **head** index. When we want to add a new element we put the existing **head** index in as the new element's **next** index and then set the **head** to the new element. This operation costs the same computational amount for a list of any size. When we want to look through the data, we start at the **head** index and follow the trail of **next** indexes.
+<img src="/images/linkedlist.png" />
+
+With a linked list you store an index to the **next** piece of data in the **current** piece of data like a chain. When we think back to our computer science classes, we know that to make *writes* our most efficient operation, we want to add items to the front of the list by keeping track of a **head** index. When we want to add a new element we put the existing **head** index in as the new element's **next** index and then set the **head** to the new element. This operation costs the same computational amount for a list of any size. When we want to look through the data, we start at the **head** index and follow the trail of **next** indexes.
 
 ------------------------------------------------
 
@@ -139,7 +141,10 @@ In USD, assuming ETH is about $300, paying 22 gwei in gas, it's about **$0.09** 
 
 --------------------------------------------------------------------------------------
 
+<img src="/images/linkedlistteller.png" />
+
 Keeping *separation of concerns* in mind, let's create a second contract that will interact with the **LinkedList** contract instead of writing the functionality directly into the **LinkedList** contract. This contract will be called the **Teller** and will count the votes once a **quorum** is reached.
+
 
 ```
 pragma solidity ^0.4.11;
