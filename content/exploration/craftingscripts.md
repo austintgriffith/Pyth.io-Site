@@ -6,6 +6,10 @@ Instead of interacting with the network directly from the command line, we put t
 
 ---------------------------------------------------
 
+These scripts and examples are <a href="https://github.com/austintgriffith/concurrence.io" target="_blank">open source and available on github</a> under the MIT license.
+
+---------------------------------------------------
+
 
 First, let's get our environment prepared:
 

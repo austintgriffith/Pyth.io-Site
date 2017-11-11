@@ -7,7 +7,7 @@ We need an efficient structure to store a large number of entries that we can qu
 
 <img src="/images/linkedlist.png" />
 
-With a linked list you store an index to the **next** piece of data in the **current** piece of data like a chain. When we think back to our computer science classes, we know that to make *writes* our most efficient operation, we want to add items to the front of the list by keeping track of a **head** index. When we want to add a new element we put the existing **head** index in as the new element's **next** index and then set the **head** to the new element. This operation costs the same computational amount for a list of any size. When we want to look through the data, we start at the **head** index and follow the trail of **next** indexes.
+With a linked list you store an index to the **next** piece of data in the **current** piece of data like a chain. To make *writes* our most efficient operation, we want to add items to the front of the list by keeping track of a **head** index. When we want to add a new element we put the existing **head** index in as the new element's **next** index and then set the **head** to the new element. This operation costs the same computational amount for a list of any size. When we want to look through the data, we start at the **head** index and follow the trail of **next** indexes.
 
 ------------------------------------------------
 

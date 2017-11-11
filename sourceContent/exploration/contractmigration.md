@@ -5,7 +5,7 @@ date: 2017-09-21T12:00:00-06:00
 
 <img src="/images/contractmigration.png" />
 
-As bugs are discovered or new functionality is needed, we will want a method of migrating from a predecessor to a descendant. As mentioned in the [Contract Lineage](/abstract/contractlineage) section, we will try to keep contracts simple and we will create a linked-list of lineage so other contracts and scripts both on and off the blockchain can follow a trail of addresses to the latest version.
+As bugs are discovered or new functionality is needed, we will want a method of migrating from a predecessor to a descendant. As mentioned in the [Contract Lineage](/abstract/contractlineage) section, we will try to keep contracts simple and we will create a linked list of lineage so other contracts and scripts both on and off the blockchain can follow a trail of addresses to the latest version.
 
 Let's start with a new contract called **Store** that will hold current prices of the top cryptocurrencies (this will also help demonstrate some aspects of an oracle). This contract will use the *mapping* data type to store a *bytes32* => *uint* relationship called **price**:
 
@@ -178,7 +178,7 @@ Great, so as our miner continues to supply the **Store** contract with data, oth
 
 <!--RQC CODE solidity Store/StoreV2.sol -->
 
-Notice this new version of **Store** keeps a **lastUpdate** **uint** that is set to the **block.number** as a miner runs an update. This contract also has to be built to be backwards compatible because the first version of **EthVsBch** needs to continue to work with the previous **Store** *address* hardcoded in, but we only want the miner to update one contract (single source of truth) due to gas costs and complexity. Let's compile and deploy the next version of **Store**:
+Notice this new version of **Store** keeps a **lastUpdate** *uint* that is set to the **block.number** as a miner runs an update. This contract also has to be built to be backwards compatible because the first version of **EthVsBch** needs to continue to work with the previous **Store** *address* hardcoded in, but we only want the miner to update one contract (single source of truth) due to gas costs and complexity. Let's compile and deploy the next version of **Store**:
 
 ```bash
 node compile Store
