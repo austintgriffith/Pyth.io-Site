@@ -12,60 +12,187 @@
     opacity:0.2;
     background-image: url('images/back5.jpg');
 }
+.shrink {
+  zoom: 0.3;
+  height:100%;
+}
 
-
+.customTitle {
+  opacity:0.07;
+  font-size:6em;
+  position:fixed;
+  right:10px;
+  top:60%;
+  text-shadow: -1px -1px 1px #000;
+}
 </style>
 
-<div id="particles-js">
-    <div class="intro">
-        <div class="intro-container">
-            <p><img style="width:500px" src="/images/concurrenceMain.png" alt="Concurrence"></p>
-            <div style="color:#DDDDDD;font-weight:bolder;letter-spacing:-0.3;font-size:16px">Decentralized Oracle Exploration</div>
+<div style="width:100%;height:100%;background-color:#666666" >
+  <div class="intro" >
+      <div class="intro-container">
+          <p><img style="width:500px" src="/images/concurrenceMain.png" alt="Concurrence"></p>
+          <div style="color:#DDDDDD;font-weight:bolder;letter-spacing:-0.3;font-size:16px">Decentralized Oracle Network</div>
+          <!--
             <p style="margin-top:50px"><a class="btn btn-outline-primary" href="/abstract/">Learn More</a></p>
-        </div>
-    </div>
-    <div id="backerbackback" class="backstyle"></div>
+          -->
+      </div>
+  </div>
+  <div class="shrink">
+  <div id="particles-js">
+
+  </div>
+  </div>
+  <div id="backerbackback" class="backstyle"></div>
+
 </div>
 
-<section class="section-padding">
 
+
+<section class="section-padding">
+    <div class="container-fluid">
+      <div class="row">
+          <div class="col-lg-4">
+            <div class="reveal-downfast">
+                <img src="/images/genericmessedup.png" alt="">
+            </div>
+          </div>
+          <div class="col-lg-8">
+            <div class="reveal-downfast" style="padding:3%">
+                Decentralized application developers quickly realize that a complex and meaningful smart contract will often need data from off-chain resources.
+                No centralized oracle provides a trustless solution. Data must be gathered by a decentralized network of miners incentivized with a utility token.
+                All responses must be aggregated on-chain using a deterministic algorithm.
+                <BR/><BR/><BR/><B>Concurrence will enable the next generation of smart contracts.</B>
+
+            </div>
+
+    </div>
+</section>
+
+<div style="position:absolute;z-index:10;margin-bottom:-4px;bottom:0;width:100%;height:200px;background-image: url('/images/fadein.png');background-repeat: repeat-x;">
+</div>
+
+<section class="section-padding bg-grey">
     <div class="container-fluid">
         <div class="row">
-            <div class="col-lg-6">
-                <div class="reveal-left-first">
-                    <img src="/images/main.svg" alt="">
-                </div>
+            <div class="col-lg-4">
+              <div class="reveal-left">
+                  <img src="/images/part1_devaddsrequest.png" alt="">
+              </div>
             </div>
-            <div class="col-lg-6">
-                <div class="reveal-right-second">
-                    <h2 class="title-home">Concurrence</h2>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque hendrerit tortor sapien, ac suscipit nulla porttitor in. Aliquam convallis orci at commodo rutrum.</p>
+            <div class="col-lg-8">
+                <div class="reveal-right">
+                    <h2 class="customTitle">Developers</h2>
+                    <p>
+                      This developer's contract needs to perform logical operations based on the amount of rainfall on a corn field in Colorado, she will craft a request to the <B>Concurrence</B> fleet and reserve <B>(CCCE)</B> token behind that request.
+                    </p>
                 </div>
             </div>
         </div>
     </div>
+</section>
 
+<section class="section-padding">
+  <div class="container-fluid">
+      <div class="row">
+          <div class="col-lg-4">
+              <div class="reveal-down">
+                  <img src="/images/part2_requests.png" alt="">
+              </div>
+          </div>
+          <div class="col-lg-8">
+              <div class="reveal-right">
+                  <h2 class="customTitle">Requests</h2>
+                  <p>
+                    Developer requests are stored in the <B>Requests</B> contract and off-chain events are triggered each time <B>(CCCE)</B> token is reserved.
+                  </p>
+              </div>
+          </div>
+      </div>
+  </div>
+</section>
+
+
+<section class="section-padding bg-grey">
+  <div class="container-fluid">
+      <div class="row">
+          <div class="col-lg-4">
+              <div class="reveal-down">
+                  <img src="/images/part3_miners.png" alt="">
+              </div>
+          </div>
+          <div class="col-lg-8">
+              <div class="reveal-right">
+                  <h2 class="customTitle">Miners</h2>
+                  <p>
+                    Incentivized by the reserved token, miners perform the needed off-chain procedures. A miner is any generic node that can take action and return results to the blockchain. A miner's <B>response</B> is only as powerful as the <B>(CCCE)</B> token staked in its favor.
+                  </p>
+              </div>
+          </div>
+      </div>
+  </div>
+</section>
+
+
+<section class="section-padding">
+  <div class="container-fluid">
+      <div class="row">
+          <div class="col-lg-4">
+              <div class="reveal-down">
+                  <img src="/images/part4_responses.png" alt="">
+              </div>
+          </div>
+          <div class="col-lg-8">
+              <div class="reveal-right">
+                  <h2 class="customTitle">Responses</h2>
+                  <p>
+                    As the 32 byte responses flow in from the mining pool, they are stored as a linked list in the <B>Responses</B> contract.
+                  </p>
+              </div>
+          </div>
+      </div>
+  </div>
 </section>
 
 <section class="section-padding bg-grey">
-
-    <div class="container-fluid">
-        <div class="row">
-            <div class="col-lg-6">
-                <div class="reveal-left-second">
-                    <h2 class="title-home">Token</h2>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque hendrerit tortor sapien, ac suscipit nulla porttitor in. Aliquam convallis orci at commodo rutrum.</p>
-                </div>
-            </div>
-            <div class="col-lg-6">
-                <div class="reveal-right-first">
-                    <img src="/images/token.svg" alt="">
-                </div>
-            </div>
-        </div>
-    </div>
-
+  <div class="container-fluid">
+      <div class="row">
+          <div class="col-lg-4">
+              <div class="reveal-down">
+                  <img src="/images/part5_combiner.png" alt="">
+              </div>
+          </div>
+          <div class="col-lg-8">
+              <div class="reveal-right">
+                  <h2 class="customTitle">Combiner</h2>
+                  <p>
+                    When enough <B>Responses</B> meet the requirements of the <B>Request</B>, a <B>Combiner</B> will aggregate all the results and use a specific algorithm to come to a <B>Concurrence</B>. Miners are rewarded or punished based on what results they staked token in favor of.
+                  </p>
+              </div>
+          </div>
+      </div>
+  </div>
 </section>
+
+<section class="section-padding">
+  <div class="container-fluid">
+      <div class="row">
+          <div class="col-lg-4">
+              <div class="reveal-down">
+                  <img src="/images/part6_concurrence.png" alt="">
+              </div>
+          </div>
+          <div class="col-lg-8">
+              <div class="reveal-right">
+                  <h2 class="customTitle">Concurrence</h2>
+                  <p>
+                    The agreed upon, currency backed consensus, or <B>Concurrence</B>, is delivered to developer contract or other on-chain assets.
+                  </p>
+              </div>
+          </div>
+      </div>
+  </div>
+</section>
+
 
 <script type="text/javascript">
 

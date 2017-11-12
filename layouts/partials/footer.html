@@ -75,26 +75,31 @@
         });
 
         window.sr = ScrollReveal({
-            scale: 1,
-            easing: 'ease-in-out',
-            duration: 300,
-            distance: '50px'
+            scale: 0.8,
+            easing: 'ease-out',
+            duration: 500,
+            distance: '200px',
+            reset: true,
+            viewFactor: 0.25,
         });
-        sr.reveal('.reveal-left-first', {
+        sr.reveal('.reveal-left', {
             origin: 'left',
-            delay: 500
+            delay: 150
         });
-        sr.reveal('.reveal-right-second', {
+        sr.reveal('.reveal-down', {
+            origin: 'top',
+            delay: 200
+        });
+        sr.reveal('.reveal-right', {
             origin: 'right',
-            delay: 700
+            delay: 200
         });
-        sr.reveal('.reveal-left-second', {
-            origin: 'left',
-            delay: 700
-        });
-        sr.reveal('.reveal-right-first', {
-            origin: 'right',
-            delay: 500
+        sr.reveal('.reveal-downfast', {
+            origin: 'top',
+            delay: 100,
+            duration: 100,
+            scale: 0.95,
+            distance: '20px',
         });
 
     </script>
