@@ -1232,6 +1232,10 @@ canvas {
     margin-top: 0;
 }
 
+.overflow-hidden {
+    overflow: hidden;
+}
+
 /* Grid */
 .container {
   width: 100%;
