@@ -5,6 +5,8 @@ date: 2017-09-21T03:00:00-06:00
 
 A collection of **responses** is needed to draw a consensus for any **request**. No single, centralized, source is safe enough to power smart contract logic. When a **request** goes out to the **Concurrence** network, different miners will create a list of different responses on-chain.
 
+<img  src="/images/responsesheader.png" >
+
 Let's assume we are a miner and we'll use account index 2:
 
 ```bash

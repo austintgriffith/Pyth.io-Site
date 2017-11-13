@@ -2,6 +2,9 @@
 title: "Utility Token"
 date: 2017-09-21T21:00:00-06:00
 ---
+
+<img src="/images/tokenheader.png" />
+
 The first thing to address in building a decentralized oracle network is the cryptoeconomics of incentivizing miners.
 
 Developers will **reserve** token along with any generic request. Miners will drive a consensus by **staking** token with the off-chain data they collected. **Concurrence** is drawn based on defined combiner algorithms and miners are rewarded or punished based on the consensus. Developers contracts then receive this **concurrence** on-chain to power their smart contract logic.

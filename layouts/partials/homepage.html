@@ -1,59 +1,260 @@
 <style>
-.backstyle:after {
-  content: '';
-  position: absolute;
-  top: 0; left: 0; bottom: 0; right: 0;
-  display: block;
+  .backstyle {
+      position: absolute;
+      top: 0; left: 0; bottom: 0; right: 0;
+      display: block;
+      background-size: cover;
+      -webkit-filter: blur(3px);
+      -moz-filter: blur(3px);
+      -o-filter: blur(3px);
+      -ms-filter: blur(3px);
+      filter: blur(3px);
+      opacity:0.2;
+      background-image: url('images/back5.jpg');
+  }
+  .shrink {
+    zoom: 0.3;
+    height:100%;
+  }
 
-  background-size: cover;
-  -webkit-filter: blur(3px);
-  -moz-filter: blur(3px);
-  -o-filter: blur(3px);
-  -ms-filter: blur(3px);
-  filter: blur(3px);
-  opacity:0.2;
-  background-image: url('images/back5.jpg');
-}
-
-
+  .customTitle {
+    opacity:0.09;
+    font-size:3em;
+    position:fixed;
+    right:10px;
+    top:80%;
+    text-shadow: -1px -1px 1px #000;
+  }
 </style>
 
-<div id="particles-js">
-    <div class="intro">
-        <div class="intro-container">
-            <p><img style="width:500px" src="/images/concurrenceMain.png" alt="Concurrence"></p>
-            <div style="color:#DDDDDD;font-weight:bolder;letter-spacing:-0.3;font-size:16px">Decentralized Oracle Exploration</div>
-            <p style="margin-top:50px"><a class="btn btn-outline-primary" href="/abstract/">Learn More</a></p>
+<div style="width:100%;height:100%;background-color:#666666" >
+  <div class="intro" >
+      <div class="intro-container">
+        <a href="/abstract" >
+          <p><img style="width:500px" src="/images/concurrenceMain.png" alt="Concurrence"></p>
+          <div style="color:#DDDDDD;font-weight:bolder;letter-spacing:-0.3;font-size:16px">Decentralized Oracle Network</div>
+          <p style="margin-top:50px"><a class="btn btn-outline-primary" href="/abstract/">Abstract</a></p>
+        </a>
+      </div>
+  </div>
+  <div class="shrink">
+  <div id="particles-js">
+  </div>
+  </div>
+  <div id="backerbackback" class="backstyle"></div>
+</div>
+
+
+
+<section class="section-padding">
+    <div class="container-fluid">
+      <div class="row">
+          <div class="col-lg-4">
+            <div class="reveal-downfast">
+                <img src="/images/genericmessedup.png" alt="">
+            </div>
+          </div>
+          <div class="col-lg-8">
+            <div class="reveal-downfast" style="padding:3%">
+                DApp developers quickly realize that a complex and meaningful smart contract often needs data from off-chain resources.
+                No centralized oracle can provide a secure and trustless solution.
+                Data must be gathered from multiple sources by a decentralized network of miners incentivized with a utility token.
+                All responses must be aggregated on-chain using a deterministic algorithm.
+                <BR/><BR/><BR/><B>A decentralized Ethereum oracle will enable the next generation of smart contracts.</B>
+
+            </div>
+
+    </div>
+</section>
+
+<div style="position:absolute;z-index:10;margin-bottom:-4px;bottom:0;width:100%;height:200px;background-image: url('/images/fadein.png');background-repeat: repeat-x;">
+</div>
+
+<section class="section-padding bg-grey">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-lg-4">
+              <div class="reveal-left">
+                  <img src="/images/part1_devaddsrequest.png" alt="">
+              </div>
+            </div>
+            <div class="col-lg-8 overflow-hidden">
+                <div class="reveal-right">
+                    <h2 class="customTitle">Developers</h2>
+                    <p>
+                      This developer's contract needs to perform logical operations based on the amount of rainfall on a corn field in Colorado. First, she will craft a request to the <B>Concurrence</B> fleet and reserve <B>(CCCE)</B> token behind that request.
+                    </p>
+                </div>
+            </div>
         </div>
     </div>
-</div>
+</section>
 
-<div id="backerbackback" class="backstyle">
-</div>
+<section class="section-padding">
+  <div class="container-fluid">
+      <div class="row">
+          <div class="col-lg-4">
+              <div class="reveal-down">
+                  <img src="/images/part2_requests.png" alt="">
+              </div>
+          </div>
+          <div class="col-lg-8 overflow-hidden">
+              <div class="reveal-right">
+                  <h2 class="customTitle">Requests</h2>
+                  <p>
+                    Developer requests are stored in the <B>Requests</B> contract and off-chain events are triggered each time <B>(CCCE)</B> token is reserved.
+                  </p>
+              </div>
+          </div>
+      </div>
+  </div>
+</section>
+
+
+<section class="section-padding bg-grey">
+  <div class="container-fluid">
+      <div class="row">
+          <div class="col-lg-4">
+              <div class="reveal-down">
+                  <img src="/images/part3_miners.png" alt="">
+              </div>
+          </div>
+          <div class="col-lg-8 overflow-hidden">
+              <div class="reveal-right">
+                  <h2 class="customTitle">Miners</h2>
+                  <p>
+                    Incentivized by the reserved token, miners perform the needed off-chain procedures. A miner is any generic node that can take action and return results to the blockchain. A miner's <B>response</B> is only as powerful as the <B>(CCCE)</B> token staked in its favor.
+                  </p>
+              </div>
+          </div>
+      </div>
+  </div>
+</section>
+
+
+<section class="section-padding">
+  <div class="container-fluid">
+      <div class="row">
+          <div class="col-lg-4">
+              <div class="reveal-down">
+                  <img src="/images/part4_responses.png" alt="">
+              </div>
+          </div>
+          <div class="col-lg-8 overflow-hidden">
+              <div class="reveal-right">
+                  <h2 class="customTitle">Responses</h2>
+                  <p>
+                    As the 32 byte responses flow in from the mining pool, they are stored as a linked list in the <B>Responses</B> contract.
+                  </p>
+              </div>
+          </div>
+      </div>
+  </div>
+</section>
+
+<section class="section-padding bg-grey">
+  <div class="container-fluid">
+      <div class="row">
+          <div class="col-lg-4">
+              <div class="reveal-down">
+                  <img src="/images/part5_combiner.png" alt="">
+              </div>
+          </div>
+          <div class="col-lg-8 overflow-hidden">
+              <div class="reveal-right">
+                  <h2 class="customTitle">Combiner</h2>
+                  <p>
+                    When enough <B>Responses</B> meet the requirements of the <B>Request</B>, a <B>Combiner</B> will aggregate all the results and use a specific algorithm to come to a <B>Concurrence</B>. Miners are rewarded or punished based on what results they staked token in favor of.
+                  </p>
+              </div>
+          </div>
+      </div>
+  </div>
+</section>
+
+<section class="section-padding">
+  <div class="container-fluid">
+      <div class="row">
+          <div class="col-lg-4">
+              <div class="reveal-down">
+                  <img src="/images/part6_concurrence.png" alt="">
+              </div>
+          </div>
+          <div class="col-lg-8 overflow-hidden">
+              <div class="reveal-right">
+                  <h2 class="customTitle">Concurrence</h2>
+                  <p>
+                    The agreed upon, currency backed consensus, or <B>Concurrence</B>, is delivered to the developer contract or other on-chain assets.
+                  </p>
+              </div>
+          </div>
+      </div>
+  </div>
+</section>
+
+<section class="section-padding" style="background-color:#333333">
+  <div class="container-fluid">
+      <div class="row">
+          <!--
+          <div class="col-lg-3">
+              <div class="reveal-down" style="color:#FFFFFF;text-align:center">
+
+                  <img style="width:200px"  src="/images/abstractbutton.png" alt="">
+                  <p style="margin-top:50px"><a class="btn btn-outline-primary" href="/abstract">Abstract</a></p>
+
+              </div>
+          </div>
+        -->
+          <div class="col-lg-3">
+            <div class="reveal-down" style="color:#FFFFFF;text-align:center">
+
+                <img style="width:200px" src="/images/fleetbutton.png" alt="">
+                <p style="margin-top:50px"><a class="btn btn-outline-primary" href="/fleet">Fleet</a></p>
+
+            </div>
+          </div>
+          <div class="col-lg-3">
+              <div class="reveal-down" style="color:#FFFFFF;text-align:center">
+
+                  <img style="width:200px"  src="/images/minersbutton.png" alt="">
+                  <p style="margin-top:50px"><a class="btn btn-outline-primary" href="/concurrence">Mining</a></p>
+
+              </div>
+          </div>
+          <div class="col-lg-3">
+              <div class="reveal-down" style="color:#FFFFFF;text-align:center">
+
+                  <img style="width:200px"  src="/images/explorationbutton.png" alt="">
+                  <p style="margin-top:50px"><a class="btn btn-outline-primary" href="/exploration">Exploration</a></p>
+
+              </div>
+          </div>
+          <div class="col-lg-3">
+              <div class="reveal-down" style="color:#FFFFFF;text-align:center">
+
+                  <img style="width:200px"  src="/images/contactbutton.png" alt="">
+                  <p style="margin-top:50px"><a class="btn btn-outline-primary" href="/contact">Contact</a></p>
+
+              </div>
+          </div>
+      </div>
+  </div>
+</section>
+
+
 <script type="text/javascript">
-
-var totalCount = 8;
-function ChangeIt()
-{
-
-  var num = Math.ceil( Math.random() * totalCount );
-  var setTo = 'images/back'+num+'.jpg';
-  console.log(setTo)
-  document.getElementById("backerbackback").style.backgroundImage="url("+setTo+")"
-  //document.getElementById("backerbackback").style.opcacity = "0.2"
-  //document.getElementById("backerbackback").style.webkitFilter = "blur(3px)";
-}
-setInterval(ChangeIt,2000);
-ChangeIt();
-
-</script>
-
-<!-- Global site tag (gtag.js) - Google Analytics -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=UA-109025552-1"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'UA-109025552-1');
+/*
+    var totalCount = 8;
+    function ChangeIt()
+    {
+      var num = Math.ceil( Math.random() * totalCount );
+      var setTo = 'images/back'+num+'.jpg';
+      console.log(setTo)
+      document.getElementById("backerbackback").style.backgroundImage="url("+setTo+")"
+      //document.getElementById("backerbackback").style.opcacity = "0.2"
+      //document.getElementById("backerbackback").style.webkitFilter = "blur(3px)";
+    }
+    // setInterval(ChangeIt,2000);
+    // ChangeIt();
+*?
 </script>

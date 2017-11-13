@@ -1,7 +1,7 @@
 {
   "particles": {
     "number": {
-      "value":65,
+      "value":10,
       "density": {
         "enable": true,
         "value_area": 800
@@ -47,7 +47,7 @@
     },
     "line_linked": {
       "enable": true,
-      "distance": 180,
+      "distance": 460,
       "color": "#F2F8F0",
       "opacity": 0.25,
       "width": 1

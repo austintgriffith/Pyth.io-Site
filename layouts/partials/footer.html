@@ -66,11 +66,44 @@
 
     {{if .IsHome}}
     <script src="{{"js/particles.min.js" | relURL}}{{ if not .Site.Params.disableAssetsBusting }}?{{ now.Unix }}{{ end }}"></script>
+    <script src="{{"js/scrollreveal.min.js" | relURL}}{{ if not .Site.Params.disableAssetsBusting }}?{{ now.Unix }}{{ end }}"></script>
+
     <script>
-        particlesJS.load('particles-js', 'js/particles.json', function() {
-          console.log('callback - particles.js config loaded');
+
+        // particlesJS.load('particles-js', 'js/particles.json', function() {
+        //   console.log('callback - particles.js config loaded');
+        // });
+
+        window.sr = ScrollReveal({
+            scale: 0.8,
+            easing: 'ease-out',
+            duration: 500,
+            distance: '200px',
+            reset: true,
+            viewFactor: 0.25,
         });
+        sr.reveal('.reveal-left', {
+            origin: 'left',
+            delay: 150
+        });
+        sr.reveal('.reveal-down', {
+            origin: 'top',
+            delay: 200
+        });
+        sr.reveal('.reveal-right', {
+            origin: 'right',
+            delay: 200
+        });
+        sr.reveal('.reveal-downfast', {
+            origin: 'top',
+            delay: 100,
+            duration: 100,
+            scale: 0.95,
+            distance: '20px',
+        });
+
     </script>
+
     {{end}}
 
     <link href="{{"mermaid/mermaid.css" | relURL}}{{ if not .Site.Params.disableAssetsBusting }}?{{ now.Unix }}{{ end }}" type="text/css" rel="stylesheet" />

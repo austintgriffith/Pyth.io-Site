@@ -2,6 +2,9 @@
 title: "Concurrence.js"
 date: 2017-09-02T17:00:00-06:00
 ---
+
+<img style="width:100%" src="/images/concurrencejs.png" />
+
 **Concurrence.js** is an open source Javascript library used to interact with the fleet of **Concurrence** smart contracts. For now, **Concurrence.js** requires that you already have <a href="https://github.com/ethereum/go-ethereum/wiki/geth" target="_blank">Geth</a> configured and running at a specific IPC or RPC location (http://localhost:8545 is the default). For more information on getting attached to <a href="https://github.com/ethereum/go-ethereum/wiki/geth" target="_blank">Geth</a>, read through the [provisioning](http://localhost:1313/exploration/provisioning/) section.
 
 -------------------------------------------------------
