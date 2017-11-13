@@ -3,7 +3,11 @@ title: "Requests"
 date: 2017-09-21T04:00:00-06:00
 ---
 
+
+
 **Concurrence** starts with a developer requesting certain information be mined into the blockchain. The **Concurrence** fleet is meant to be very generic so *any* request can go out with *any* protocol and miners can choose to fulfill the requests or not. For instance, you could make up a protocol called **sportsScores** and your request could be for a certain game or week. Conversely, you could come up with a protocol called **plainEnglish** and your request could be a question like, "Will it rain in Nebraska today". The power of this system is simplicity on the blockchain and complexity in the miners.
+
+<img  src="/images/requestsheader.png" >
 
 Adding a request to the blockchain is as easy as:
 

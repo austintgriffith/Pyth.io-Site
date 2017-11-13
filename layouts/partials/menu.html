@@ -2,8 +2,8 @@
 
 {{ $currentNode := . }}
 {{ $showvisitedlinks := .Site.Params.showVisitedLinks }}
-  <div id="header-wrapper">
-    <div id="header">
+  <div id="header-wrapper"  style="background-color:#222222;padding-left:30px">
+    <div id="header" style="max-width:160px;opacity:0.5;">
       {{ partial "logo.html" . }}
     </div>
     {{if not .Site.Params.disableSearch}}
