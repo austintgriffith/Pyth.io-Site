@@ -5,6 +5,8 @@ date: 2017-09-21T02:00:00-06:00
 
 After a bunch of responses come in, the chosen **combiner** will work through the results and find a consensus. In the <a href="https://github.com/austintgriffith/concurrence.io/blob/master/Combiner/basic/Combiner.sol" target="_blank">basic combiner</a> the consensus is reached by adding up all the different staked amounts of tokens for each answer and finding the result with the highest value. Miners are also incentivized to run the **combine()** function to completion with a small fraction of the reserved tokens. *Note: the basic combiner shouldn't be used in production because a single miner can control the consensus.*
 
+<img src="/images/combinebanner.png" />
+
 First, let's poke the combiner contract just to see the current status:
 
 ```bash
@@ -101,7 +103,7 @@ Balance: 900 CCCE
 ```
 Account index 0, representing the developer, has 900 **(CCCE)** because they spent 100 **(CCCE)** to incentivize the miners.
 
-That 100 **(CCCE)** is then rewarded to the miner with the correct **response** (index 2) and the miner that ran the final **combine()** (index 4). Each miner, including the one that runs the **combine()**, receives and equal cut of the reward. 
+That 100 **(CCCE)** is then rewarded to the miner with the correct **response** (index 2) and the miner that ran the final **combine()** (index 4). Each miner, including the one that runs the **combine()**, receives and equal cut of the reward.
 
 ```bash
 > node getBalance 2
