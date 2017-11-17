@@ -10,7 +10,7 @@ date: 2017-09-21T23:00:00-06:00
 <img style="width:100%" src="/images/abstract.png">
 
 
-Blockchain technologies, smart contracts in particular, are incredibly powerful and are poised to disrupt many aspects of finance, business, and law. However, due to the deterministic and decentralized nature of smart contracts, they are unable to communicate directly with valuable data sources off-chain.
+Blockchain technologies, smart contracts in particular, are incredibly powerful and are about to disrupt many aspects of finance, business, and law. However, due to the deterministic and decentralized nature of smart contracts, they are unable to communicate directly with valuable data sources off-chain.
 
 An oracle provides that link by making off-chain interactions and delivering results on-chain. Unfortunately, only centralized oracles exist today and contracts are forced to rely on a single point of failure which could be attacked, manipulated, or corrupted.
 
